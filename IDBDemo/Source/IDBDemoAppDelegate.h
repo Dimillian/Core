@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDL_uikitappdelegate.h"
 
-@interface IDBDemoAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface IDBDemoAppDelegate : SDLUIKitDelegate
 
 @end

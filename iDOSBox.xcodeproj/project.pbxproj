@@ -1701,8 +1701,7 @@
 		CE2CA1C51787A14D001F6D5F = {
 			isa = PBXGroup;
 			children = (
-				36EBC97C1A3D55FD5FB91D83 /* DOSBox */,
-				36EBC9CAE2C62927AB45181F /* SDL */,
+				CEF6D5821791EAEC006134CF /* Source */,
 				CE2CA1D01787A14D001F6D5F /* Frameworks */,
 				CE2CA1CF1787A14D001F6D5F /* Products */,
 			);
@@ -1754,6 +1753,15 @@
 				CE762829179116E000C36A62 /* SDL_syscdrom.c */,
 			);
 			name = dummy;
+			sourceTree = "<group>";
+		};
+		CEF6D5821791EAEC006134CF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				36EBC97C1A3D55FD5FB91D83 /* DOSBox */,
+				36EBC9CAE2C62927AB45181F /* SDL */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2125,7 +2133,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				HEADER_SEARCH_PATHS = SDL/include;
+				HEADER_SEARCH_PATHS = Source/SDL/include;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
@@ -2155,7 +2163,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				HEADER_SEARCH_PATHS = SDL/include;
+				HEADER_SEARCH_PATHS = Source/SDL/include;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
