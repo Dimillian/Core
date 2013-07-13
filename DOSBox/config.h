@@ -16,7 +16,10 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef IOS
+/* dosbox for iOS */
+#define IDOSBOX
+
+#ifdef IDOSBOX
 #include <TargetConditionals.h>
 #endif
 
@@ -27,7 +30,7 @@
 #undef BSD
 
 /* Determines if the compilers supports always_inline attribute. */
-#undef C_ATTRIBUTE_ALWAYS_INLINE
+#define C_ATTRIBUTE_ALWAYS_INLINE 1
 
 /* Determines if the compilers supports fastcall attribute. */
 #undef C_ATTRIBUTE_FASTCALL
@@ -47,23 +50,23 @@
 
 /* Define to 1 to use recompiling cpu core. Can not be used together with the
    dynamic-x86 core */
-#undef C_DYNREC
+#define C_DYNREC 1
 
 /* Define to 1 to enable floating point emulation */
-#undef C_FPU
+#define C_FPU 1
 
 /* Define to 1 to use a x86 assembly fpu core */
 #undef C_FPU_X86
 
 /* Determines if the compilers supports attributes for structures. */
-#undef C_HAS_ATTRIBUTE
+#define C_HAS_ATTRIBUTE 1
 
 /* Determines if the compilers supports __builtin_expect for branch
    prediction. */
-#undef C_HAS_BUILTIN_EXPECT
+#define C_HAS_BUILTIN_EXPECT 1
 
 /* Define to 1 if you have the mprotect function */
-#undef C_HAVE_MPROTECT
+#define C_HAVE_MPROTECT 1
 
 /* Define to 1 to enable heavy debugging, also have to enable C_DEBUG */
 #undef C_HEAVY_DEBUG
@@ -81,16 +84,20 @@
 #undef C_SDL_SOUND
 
 /* Define to 1 if you have setpriority support */
-#undef C_SET_PRIORITY
+#define C_SET_PRIORITY 1
 
 /* Define to 1 to enable screenshots, requires libpng */
 #undef C_SSHOT
 
 /* The type of cpu this target has */
-#undef C_TARGETCPU
+#if TARGET_IPHONE_SIMULATOR
+#define C_TARGETCPU X86
+#else
+#define C_TARGETCPU ARMV4LE
+#endif
 
 /* Define to 1 to use a unaligned memory access */
-#undef C_UNALIGNED_MEMORY
+#define C_UNALIGNED_MEMORY 1
 
 /* define to 1 if you have XKBlib.h and X11 lib */
 #undef C_X11_XKB
@@ -114,13 +121,13 @@
 #undef HAVE_DDRAW_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#undef HAVE_INTTYPES_H
+#define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `asound' library (-lasound). */
 #undef HAVE_LIBASOUND
 
 /* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
+#define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the <netinet/in.h> header file. */
 #undef HAVE_NETINET_IN_H
@@ -132,25 +139,25 @@
 #undef HAVE_STDINT_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
+#define HAVE_STDLIB_H 1
 
 /* Define to 1 if you have the <strings.h> header file. */
-#undef HAVE_STRINGS_H
+#define HAVE_STRINGS_H 1
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
+#define HAVE_STRING_H 1
 
 /* Define to 1 if you have the <sys/socket.h> header file. */
-#undef HAVE_SYS_SOCKET_H
+#define HAVE_SYS_SOCKET_H 1
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#define HAVE_SYS_STAT_H 1
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
+#define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#define HAVE_UNISTD_H 1
 
 /* Compiling on GNU/Linux */
 #undef LINUX

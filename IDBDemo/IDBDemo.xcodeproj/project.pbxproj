@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54C1791E823006134CF /* UIKit.framework */; };
+		CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54E1791E823006134CF /* Foundation.framework */; };
+		CEF6D5511791E823006134CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
+		CEF6D5571791E823006134CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5551791E823006134CF /* InfoPlist.strings */; };
+		CEF6D5591791E823006134CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D5581791E823006134CF /* main.m */; };
+		CEF6D55D1791E823006134CF /* IDBDemoAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */; };
+		CEF6D55F1791E823006134CF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D55E1791E823006134CF /* Default.png */; };
+		CEF6D5611791E823006134CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5601791E823006134CF /* Default@2x.png */; };
+		CEF6D5631791E823006134CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5621791E823006134CF /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEF6D5711791E98E006134CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE2CA1CE1787A14D001F6D5F;
+			remoteInfo = DOSBox;
+		};
+		CEF6D5731791E98E006134CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEE95BF7178A1E0F001BD8FD;
+			remoteInfo = SDL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEF6D5491791E823006134CF /* IDBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF6D54C1791E823006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEF6D54E1791E823006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEF6D5501791E823006134CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEF6D5541791E823006134CF /* IDBDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IDBDemo-Info.plist"; sourceTree = "<group>"; };
+		CEF6D5561791E823006134CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEF6D5581791E823006134CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEF6D55A1791E823006134CF /* IDBDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDBDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CEF6D55B1791E823006134CF /* IDBDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDemoAppDelegate.h; sourceTree = "<group>"; };
+		CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IDBDemoAppDelegate.mm; sourceTree = "<group>"; };
+		CEF6D55E1791E823006134CF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CEF6D5601791E823006134CF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CEF6D5621791E823006134CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iDOSBox.xcodeproj; path = ../iDOSBox.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEF6D5461791E823006134CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */,
+				CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */,
+				CEF6D5511791E823006134CF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEF6D5401791E823006134CF = {
+			isa = PBXGroup;
+			children = (
+				CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */,
+				CEF6D56A1791E83A006134CF /* Resources */,
+				CEF6D5691791E836006134CF /* Source */,
+				CEF6D54B1791E823006134CF /* Frameworks */,
+				CEF6D54A1791E823006134CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEF6D54A1791E823006134CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D5491791E823006134CF /* IDBDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEF6D54B1791E823006134CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D54C1791E823006134CF /* UIKit.framework */,
+				CEF6D54E1791E823006134CF /* Foundation.framework */,
+				CEF6D5501791E823006134CF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEF6D5691791E836006134CF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D55B1791E823006134CF /* IDBDemoAppDelegate.h */,
+				CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */,
+				CEF6D5581791E823006134CF /* main.m */,
+				CEF6D55A1791E823006134CF /* IDBDemo-Prefix.pch */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CEF6D56A1791E83A006134CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D5541791E823006134CF /* IDBDemo-Info.plist */,
+				CEF6D55E1791E823006134CF /* Default.png */,
+				CEF6D5601791E823006134CF /* Default@2x.png */,
+				CEF6D5621791E823006134CF /* Default-568h@2x.png */,
+				CEF6D56B1791E840006134CF /* en.lproj */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CEF6D56B1791E840006134CF /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D5551791E823006134CF /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		CEF6D56D1791E98E006134CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6D5721791E98E006134CF /* libDOSBox.a */,
+				CEF6D5741791E98E006134CF /* libSDL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEF6D5481791E823006134CF /* IDBDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "IDBDemo" */;
+			buildPhases = (
+				CEF6D5451791E823006134CF /* Sources */,
+				CEF6D5461791E823006134CF /* Frameworks */,
+				CEF6D5471791E823006134CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IDBDemo;
+			productName = IDBDemo;
+			productReference = CEF6D5491791E823006134CF /* IDBDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEF6D5411791E823006134CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = user;
+			};
+			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "IDBDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEF6D5401791E823006134CF;
+			productRefGroup = CEF6D54A1791E823006134CF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CEF6D56D1791E98E006134CF /* Products */;
+					ProjectRef = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CEF6D5481791E823006134CF /* IDBDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CEF6D5721791E98E006134CF /* libDOSBox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDOSBox.a;
+			remoteRef = CEF6D5711791E98E006134CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEF6D5741791E98E006134CF /* libSDL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL.a;
+			remoteRef = CEF6D5731791E98E006134CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEF6D5471791E823006134CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF6D5571791E823006134CF /* InfoPlist.strings in Resources */,
+				CEF6D55F1791E823006134CF /* Default.png in Resources */,
+				CEF6D5611791E823006134CF /* Default@2x.png in Resources */,
+				CEF6D5631791E823006134CF /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEF6D5451791E823006134CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF6D5591791E823006134CF /* main.m in Sources */,
+				CEF6D55D1791E823006134CF /* IDBDemoAppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEF6D5551791E823006134CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF6D5561791E823006134CF /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEF6D5641791E823006134CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEF6D5651791E823006134CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEF6D5671791E823006134CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDBDemo/IDBDemo-Prefix.pch";
+				INFOPLIST_FILE = "IDBDemo/IDBDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEF6D5681791E823006134CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDBDemo/IDBDemo-Prefix.pch";
+				INFOPLIST_FILE = "IDBDemo/IDBDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEF6D5441791E823006134CF /* Build configuration list for PBXProject "IDBDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF6D5641791E823006134CF /* Debug */,
+				CEF6D5651791E823006134CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "IDBDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF6D5671791E823006134CF /* Debug */,
+				CEF6D5681791E823006134CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEF6D5411791E823006134CF /* Project object */;
+}

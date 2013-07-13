@@ -2245,8 +2245,8 @@ static void InitializeJoysticks(void) {
 
 static void CreateBindGroups(void) {
 	bindgroups.clear();
-#ifdef IOS
-    new CKeyBindGroup(512);
+#ifdef IDOSBOX
+    new CKeyBindGroup(SDL_NUM_SCANCODES);
 #else
 	new CKeyBindGroup(SDLK_LAST);
 #endif

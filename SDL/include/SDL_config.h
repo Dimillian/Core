@@ -23,6 +23,9 @@
 #ifndef _SDL_config_h
 #define _SDL_config_h
 
+/* dosbox for iOS */
+#define IDOSBOX
+
 #include "SDL_platform.h"
 
 /**

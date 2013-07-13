@@ -35,8 +35,8 @@ extern int SDL_main(int argc, char *argv[]);
 static int forward_argc;
 static char **forward_argv;
 
-/* ignore for custom app delegate */
-#ifndef IOS
+/* ignore because app delegate should be subclassed */
+#ifndef IDOSBOX
 int main(int argc, char **argv) {
 
 	int i;
