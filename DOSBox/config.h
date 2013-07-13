@@ -1,6 +1,3 @@
-/* config.h.in.  Generated from configure.ac by autoheader.  */
-
-
 /*
  *  Copyright (C) 2002-2013  The DOSBox Team
  *
