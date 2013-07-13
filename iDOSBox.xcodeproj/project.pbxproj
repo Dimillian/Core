@@ -838,7 +838,6 @@
 		36EBCFF6B23068F0A3ACE735 /* cdrom_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_image.cpp; sourceTree = "<group>"; };
 		36EBCFFC5BA7E5A698EEE9F5 /* nullmodem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nullmodem.h; sourceTree = "<group>"; };
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE2CA1D11787A14D001F6D5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE7627371790EC2800C36A62 /* SDL_revision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_revision.h; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		CE7627DF1790F60000C36A62 /* cdrom.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
@@ -1739,7 +1738,6 @@
 		CE2CA1D01787A14D001F6D5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE2CA1D11787A14D001F6D5F /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
