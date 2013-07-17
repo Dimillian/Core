@@ -35,8 +35,9 @@
 +(SDLUIKitDelegate *)sharedAppDelegate;
 
 #ifdef IDOSBOX
-@property (readwrite, assign) SDL_uikitnavigationcontroller *navigationController;
-@property (readwrite, assign) SDL_uikitviewcontroller *viewController;
+@property (readwrite, unsafe_unretained) SDL_uikitopenglview *view;
+@property (readwrite, retain) SDL_uikitnavigationcontroller *navigationController;
+@property (readwrite, retain) SDL_uikitviewcontroller *viewController;
 #endif
 
 @end

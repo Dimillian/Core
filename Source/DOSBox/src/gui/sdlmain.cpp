@@ -1302,9 +1302,13 @@ static void GUI_StartUp(Section * sec) {
 //#endif
 			}
 		}
-
-		bool exit_splash = false;
-
+        
+#ifdef IDOSBOX
+		bool exit_splash = true;
+#else
+        bool exit_splash = false;
+#endif
+        
 		static Bitu max_splash_loop = 600;
 		static Bitu splash_fade = 100;
 		static bool use_fadeout = true;

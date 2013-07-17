@@ -139,6 +139,7 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
     SDL_uikitnavigationcontroller *navigationController = [[SDL_uikitnavigationcontroller alloc] initWithRootViewController:viewController];
     [uiwindow setRootViewController:navigationController];
     
+    [SDLUIKitDelegate sharedAppDelegate].view = view;
     [SDLUIKitDelegate sharedAppDelegate].viewController = viewController;
     [SDLUIKitDelegate sharedAppDelegate].navigationController = navigationController;
     

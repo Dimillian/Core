@@ -19,6 +19,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNavigationBarHidden:YES];
+    
+    BOOL hideStatusBar = UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad;
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:hideStatusBar];
 }
 
 @end
