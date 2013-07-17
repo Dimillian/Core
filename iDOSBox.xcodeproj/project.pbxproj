@@ -295,6 +295,8 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
+		CEDB82471795018900972087 /* SDL_uikitviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */; };
+		CEDB825517964B7C00972087 /* SDL_uikitnavigationcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -846,6 +848,10 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
+		CEDB82451795018900972087 /* SDL_uikitviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitviewcontroller.h; sourceTree = "<group>"; };
+		CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitviewcontroller.m; sourceTree = "<group>"; };
+		CEDB825317964B7600972087 /* SDL_uikitnavigationcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitnavigationcontroller.h; sourceTree = "<group>"; };
+		CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitnavigationcontroller.m; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1531,8 +1537,12 @@
 				36EBCA6CCE4281CABDC1110B /* SDL_uikitopengles.m */,
 				36EBC133A02D3C3001898D26 /* SDL_uikitopenglview.h */,
 				36EBC6A3905FD239533E3D97 /* SDL_uikitopenglview.m */,
+				CEDB82451795018900972087 /* SDL_uikitviewcontroller.h */,
+				CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */,
 				36EBCCB24964B4C2BA202C00 /* SDL_uikitappdelegate.h */,
 				36EBCE2D3BC849DD7A5CCF84 /* SDL_uikitappdelegate.m */,
+				CEDB825317964B7600972087 /* SDL_uikitnavigationcontroller.h */,
+				CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */,
 			);
 			path = uikit;
 			sourceTree = "<group>";
@@ -2050,6 +2060,8 @@
 				CE7627291790E9E100C36A62 /* SDL_assert.c in Sources */,
 				CE76272A1790E9E100C36A62 /* SDL_compat.c in Sources */,
 				CE76272B1790E9E100C36A62 /* SDL.c in Sources */,
+				CEDB82471795018900972087 /* SDL_uikitviewcontroller.m in Sources */,
+				CEDB825517964B7C00972087 /* SDL_uikitnavigationcontroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

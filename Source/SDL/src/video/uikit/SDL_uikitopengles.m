@@ -29,6 +29,12 @@
 #include "SDL_loadso.h"
 #include <dlfcn.h>
 
+#ifdef IDOSBOX
+#import "QuartzCore/CALayer.h"
+#import "SDL_uikitviewcontroller.h"
+#import "SDL_uikitnavigationcontroller.h"
+#endif
+
 static int UIKit_GL_Initialize(_THIS);
 
 void *
@@ -105,19 +111,43 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
-    view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
+#ifdef IDOSBOX
+    view = [[SDL_uikitopenglview alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
 									retainBacking: _this->gl_config.retained_backing \
 									rBits: _this->gl_config.red_size \
 									gBits: _this->gl_config.green_size \
 									bBits: _this->gl_config.blue_size \
 									aBits: _this->gl_config.alpha_size \
 									depthBits: _this->gl_config.depth_size];
+#else
+    view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
+                                        retainBacking: _this->gl_config.retained_backing \
+                                                rBits: _this->gl_config.red_size \
+                                                gBits: _this->gl_config.green_size \
+                                                bBits: _this->gl_config.blue_size \
+                                                aBits: _this->gl_config.alpha_size \
+                                            depthBits: _this->gl_config.depth_size];
+#endif
 	
 	data->view = view;
-	
+    
+#ifdef IDOSBOX
+    view.contentMode = UIViewContentModeScaleAspectFit;
+    [[view layer] setMagnificationFilter:kCAFilterNearest];
+    
+    SDL_uikitviewcontroller *viewController = [[SDL_uikitviewcontroller alloc] initWithSDLView:view];
+    SDL_uikitnavigationcontroller *navigationController = [[SDL_uikitnavigationcontroller alloc] initWithRootViewController:viewController];
+    [uiwindow setRootViewController:navigationController];
+    
+    [SDLUIKitDelegate sharedAppDelegate].viewController = viewController;
+    [SDLUIKitDelegate sharedAppDelegate].navigationController = navigationController;
+    
+    [viewController release];
+    [navigationController release];
+#else
 	/* add the view to our window */
-	[uiwindow addSubview: view ];
-	
+    [uiwindow addSubview: view ];
+#endif
 	/* Don't worry, the window retained the view */
 	[view release];
 	

@@ -58,8 +58,10 @@ static int SetupWindowData(_THIS, SDL_Window *window, UIWindow *uiwindow, SDL_bo
     {
         window->x = 0;
         window->y = 0;
+#ifndef IDOSBOX
         window->w = (int)uiwindow.frame.size.width;
         window->h = (int)uiwindow.frame.size.height;
+#endif
     }
     
     window->driverdata = data;
@@ -69,7 +71,8 @@ static int SetupWindowData(_THIS, SDL_Window *window, UIWindow *uiwindow, SDL_bo
     window->flags |= SDL_WINDOW_FULLSCREEN;        /* window is always fullscreen */
     window->flags |= SDL_WINDOW_SHOWN;            /* only one window on iPod touch, always shown */
     window->flags |= SDL_WINDOW_INPUT_FOCUS;    /* always has input focus */    
-
+    
+#ifndef IDOSBOX
     // SDL_WINDOW_BORDERLESS controls whether status bar is hidden.
     // This is only set if the window is on the main screen. Other screens
     //  just force the window to have the borderless flag.
@@ -80,6 +83,7 @@ static int SetupWindowData(_THIS, SDL_Window *window, UIWindow *uiwindow, SDL_bo
             [UIApplication sharedApplication].statusBarHidden = NO;
         }
     }
+#endif
     
     return 0;
     
