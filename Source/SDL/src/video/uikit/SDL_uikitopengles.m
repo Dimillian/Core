@@ -30,9 +30,11 @@
 #include <dlfcn.h>
 
 #ifdef IDOSBOX
+#import "IDBAppDelegate.h"
+#import "IDBView.h"
+#import "IDBViewController.h"
+#import "IDBNavigationController.h"
 #import "QuartzCore/CALayer.h"
-#import "SDL_uikitviewcontroller.h"
-#import "SDL_uikitnavigationcontroller.h"
 #endif
 
 static int UIKit_GL_Initialize(_THIS);
@@ -105,14 +107,18 @@ void UIKit_GL_SwapWindow(_THIS, SDL_Window * window)
 
 SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 {
+#ifdef IDOSBOX
+    IDBView *view;
+#else
 	SDL_uikitopenglview *view;
+#endif
 	SDL_WindowData *data = (SDL_WindowData *) window->driverdata;
     UIScreen *uiscreen = (UIScreen *) window->display->driverdata;
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = [[SDL_uikitopenglview alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
+    view = [[IDBView alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
 									retainBacking: _this->gl_config.retained_backing \
 									rBits: _this->gl_config.red_size \
 									gBits: _this->gl_config.green_size \
@@ -135,13 +141,13 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
     view.contentMode = UIViewContentModeScaleAspectFit;
     [[view layer] setMagnificationFilter:kCAFilterNearest];
     
-    SDL_uikitviewcontroller *viewController = [[SDL_uikitviewcontroller alloc] initWithSDLView:view];
-    SDL_uikitnavigationcontroller *navigationController = [[SDL_uikitnavigationcontroller alloc] initWithRootViewController:viewController];
+    IDBViewController *viewController = [[IDBViewController alloc] initWithIDBView:view];
+    IDBNavigationController *navigationController = [[IDBNavigationController alloc] initWithRootViewController:viewController];
     [uiwindow setRootViewController:navigationController];
     
-    [SDLUIKitDelegate sharedAppDelegate].view = view;
-    [SDLUIKitDelegate sharedAppDelegate].viewController = viewController;
-    [SDLUIKitDelegate sharedAppDelegate].navigationController = navigationController;
+    [IDBAppDelegate sharedAppDelegate].view = view;
+    [IDBAppDelegate sharedAppDelegate].viewController = viewController;
+    [IDBAppDelegate sharedAppDelegate].navigationController = navigationController;
     
     [viewController release];
     [navigationController release];

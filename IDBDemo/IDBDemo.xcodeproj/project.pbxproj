@@ -24,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CEDB827A179678D800972087 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEDB825D179674BF00972087;
+			remoteInfo = iDOSBox;
+		};
 		CEF6D5711791E98E006134CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
@@ -145,6 +152,7 @@
 		CEF6D56D1791E98E006134CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				CEDB827B179678D800972087 /* libiDOSBox.a */,
 				CEF6D5721791E98E006134CF /* libDOSBox.a */,
 				CEF6D5741791E98E006134CF /* libSDL.a */,
 			);
@@ -204,6 +212,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		CEDB827B179678D800972087 /* libiDOSBox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libiDOSBox.a;
+			remoteRef = CEDB827A179678D800972087 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		CEF6D5721791E98E006134CF /* libDOSBox.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -324,7 +339,7 @@
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "../Source/SDL/** ../Source/DOSBox/include";
+				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -336,7 +351,7 @@
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "../Source/SDL/** ../Source/DOSBox/include";
+				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

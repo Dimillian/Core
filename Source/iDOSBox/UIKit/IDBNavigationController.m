@@ -1,16 +1,18 @@
 //
-//  SDL_uikitnavigationcontroller.m
+//  IDBNavigationController.m
 //  iDOSBox
 //
-//  Created by user on 7/16/13.
+//  Created by user on 7/17/13.
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "SDL_uikitnavigationcontroller.h"
+#import "IDBNavigationController.h"
 
-#ifdef IDOSBOX
+@interface IDBNavigationController ()
 
-@implementation SDL_uikitnavigationcontroller
+@end
+
+@implementation IDBNavigationController
 
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
@@ -26,5 +28,3 @@
 }
 
 @end
-
-#endif

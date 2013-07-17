@@ -295,19 +295,16 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
-		CEDB82471795018900972087 /* SDL_uikitviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */; };
-		CEDB825517964B7C00972087 /* SDL_uikitnavigationcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */; };
+		CEDB826B1796754200972087 /* IDBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826A1796754200972087 /* IDBAppDelegate.m */; };
+		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
+		CEDB8271179675C600972087 /* IDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB8270179675C600972087 /* IDBViewController.m */; };
+		CEDB82741796766F00972087 /* IDBView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB82731796766F00972087 /* IDBView.m */; };
+		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
+		CEDB828717967B4400972087 /* IDBLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828217967AEF00972087 /* IDBLinkedList.m */; };
+		CEDB828817967B4400972087 /* IDBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828417967AEF00972087 /* IDBQueue.m */; };
+		CEDB828917967B4400972087 /* IDBStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828617967AEF00972087 /* IDBStack.m */; };
+		CEDB828E17967DC400972087 /* IDBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828C17967DB600972087 /* IDBConstants.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CEF64AA7178E724F0061ACAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE2CA1C61787A14D001F6D5F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CEE95BF6178A1E0F001BD8FD;
-			remoteInfo = SDL;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CE4121AB1788A61F0020BC48 /* CopyFiles */ = {
@@ -353,6 +350,15 @@
 				CE7627DC1790F3AB00C36A62 /* ipxserver.h in CopyFiles */,
 				CE7627DD1790F3AB00C36A62 /* dos_system.h in CopyFiles */,
 				CE7627DE1790F3AB00C36A62 /* serialport.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEDB825B179674BF00972087 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,10 +854,24 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
-		CEDB82451795018900972087 /* SDL_uikitviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitviewcontroller.h; sourceTree = "<group>"; };
-		CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitviewcontroller.m; sourceTree = "<group>"; };
-		CEDB825317964B7600972087 /* SDL_uikitnavigationcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitnavigationcontroller.h; sourceTree = "<group>"; };
-		CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitnavigationcontroller.m; sourceTree = "<group>"; };
+		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDB82691796754200972087 /* IDBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBAppDelegate.h; sourceTree = "<group>"; };
+		CEDB826A1796754200972087 /* IDBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBAppDelegate.m; sourceTree = "<group>"; };
+		CEDB826C179675A600972087 /* IDBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBNavigationController.h; sourceTree = "<group>"; };
+		CEDB826D179675A600972087 /* IDBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBNavigationController.m; sourceTree = "<group>"; };
+		CEDB826F179675C600972087 /* IDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBViewController.h; sourceTree = "<group>"; };
+		CEDB8270179675C600972087 /* IDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBViewController.m; sourceTree = "<group>"; };
+		CEDB82721796766E00972087 /* IDBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBView.h; sourceTree = "<group>"; };
+		CEDB82731796766F00972087 /* IDBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBView.m; sourceTree = "<group>"; };
+		CEDB828117967AEF00972087 /* IDBLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBLinkedList.h; sourceTree = "<group>"; };
+		CEDB828217967AEF00972087 /* IDBLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBLinkedList.m; sourceTree = "<group>"; };
+		CEDB828317967AEF00972087 /* IDBQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBQueue.h; sourceTree = "<group>"; };
+		CEDB828417967AEF00972087 /* IDBQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBQueue.m; sourceTree = "<group>"; };
+		CEDB828517967AEF00972087 /* IDBStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBStack.h; sourceTree = "<group>"; };
+		CEDB828617967AEF00972087 /* IDBStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBStack.m; sourceTree = "<group>"; };
+		CEDB828B17967DB600972087 /* IDBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBConstants.h; sourceTree = "<group>"; };
+		CEDB828C17967DB600972087 /* IDBConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBConstants.m; sourceTree = "<group>"; };
+		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDebug.h; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -869,10 +889,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEDB825A179674BF00972087 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEE95BF4178A1E0F001BD8FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1537,12 +1565,8 @@
 				36EBCA6CCE4281CABDC1110B /* SDL_uikitopengles.m */,
 				36EBC133A02D3C3001898D26 /* SDL_uikitopenglview.h */,
 				36EBC6A3905FD239533E3D97 /* SDL_uikitopenglview.m */,
-				CEDB82451795018900972087 /* SDL_uikitviewcontroller.h */,
-				CEDB82461795018900972087 /* SDL_uikitviewcontroller.m */,
 				36EBCCB24964B4C2BA202C00 /* SDL_uikitappdelegate.h */,
 				36EBCE2D3BC849DD7A5CCF84 /* SDL_uikitappdelegate.m */,
-				CEDB825317964B7600972087 /* SDL_uikitnavigationcontroller.h */,
-				CEDB825417964B7900972087 /* SDL_uikitnavigationcontroller.m */,
 			);
 			path = uikit;
 			sourceTree = "<group>";
@@ -1722,6 +1746,7 @@
 			children = (
 				CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */,
 				CEE95BF7178A1E0F001BD8FD /* libSDL.a */,
+				CEDB825D179674BF00972087 /* libiDOSBox.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1765,9 +1790,60 @@
 			name = dummy;
 			sourceTree = "<group>";
 		};
+		CEDB825F179674BF00972087 /* iDOSBox */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iDOSBox;
+			sourceTree = "<group>";
+		};
+		CEDB827F17967ABD00972087 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CEDB82691796754200972087 /* IDBAppDelegate.h */,
+				CEDB826A1796754200972087 /* IDBAppDelegate.m */,
+				CEDB826C179675A600972087 /* IDBNavigationController.h */,
+				CEDB826D179675A600972087 /* IDBNavigationController.m */,
+				CEDB826F179675C600972087 /* IDBViewController.h */,
+				CEDB8270179675C600972087 /* IDBViewController.m */,
+				CEDB82721796766E00972087 /* IDBView.h */,
+				CEDB82731796766F00972087 /* IDBView.m */,
+			);
+			name = UIKit;
+			path = iDOSBox/UIKit;
+			sourceTree = "<group>";
+		};
+		CEDB828017967AD800972087 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				CEDB828117967AEF00972087 /* IDBLinkedList.h */,
+				CEDB828217967AEF00972087 /* IDBLinkedList.m */,
+				CEDB828317967AEF00972087 /* IDBQueue.h */,
+				CEDB828417967AEF00972087 /* IDBQueue.m */,
+				CEDB828517967AEF00972087 /* IDBStack.h */,
+				CEDB828617967AEF00972087 /* IDBStack.m */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		CEDB828A17967D7D00972087 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CEDB828B17967DB600972087 /* IDBConstants.h */,
+				CEDB828C17967DB600972087 /* IDBConstants.m */,
+				CEDB828D17967DB600972087 /* IDBDebug.h */,
+				CEDB828017967AD800972087 /* DataStructures */,
+			);
+			name = Common;
+			path = iDOSBox/Common;
+			sourceTree = "<group>";
+		};
 		CEF6D5821791EAEC006134CF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEDB828A17967D7D00972087 /* Common */,
+				CEDB827F17967ABD00972087 /* UIKit */,
+				CEDB825F179674BF00972087 /* iDOSBox */,
 				36EBC97C1A3D55FD5FB91D83 /* DOSBox */,
 				36EBC9CAE2C62927AB45181F /* SDL */,
 			);
@@ -1788,11 +1864,27 @@
 			buildRules = (
 			);
 			dependencies = (
-				CEF64AA8178E724F0061ACAA /* PBXTargetDependency */,
 			);
 			name = DOSBox;
 			productName = iDOSBox;
 			productReference = CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CEDB825C179674BF00972087 /* iDOSBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */;
+			buildPhases = (
+				CEDB8259179674BF00972087 /* Sources */,
+				CEDB825A179674BF00972087 /* Frameworks */,
+				CEDB825B179674BF00972087 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iDOSBox;
+			productName = iDOSBox;
+			productReference = CEDB825D179674BF00972087 /* libiDOSBox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CEE95BF6178A1E0F001BD8FD /* SDL */ = {
@@ -1833,6 +1925,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				CEDB825C179674BF00972087 /* iDOSBox */,
 				CE2CA1CD1787A14D001F6D5F /* DOSBox */,
 				CEE95BF6178A1E0F001BD8FD /* SDL */,
 			);
@@ -1965,6 +2058,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEDB8259179674BF00972087 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDB828E17967DC400972087 /* IDBConstants.m in Sources */,
+				CEDB828717967B4400972087 /* IDBLinkedList.m in Sources */,
+				CEDB828817967B4400972087 /* IDBQueue.m in Sources */,
+				CEDB828917967B4400972087 /* IDBStack.m in Sources */,
+				CEDB826B1796754200972087 /* IDBAppDelegate.m in Sources */,
+				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
+				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
+				CEDB82741796766F00972087 /* IDBView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEE95BF3178A1E0F001BD8FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2060,20 +2168,10 @@
 				CE7627291790E9E100C36A62 /* SDL_assert.c in Sources */,
 				CE76272A1790E9E100C36A62 /* SDL_compat.c in Sources */,
 				CE76272B1790E9E100C36A62 /* SDL.c in Sources */,
-				CEDB82471795018900972087 /* SDL_uikitviewcontroller.m in Sources */,
-				CEDB825517964B7C00972087 /* SDL_uikitnavigationcontroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CEF64AA8178E724F0061ACAA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CEE95BF6178A1E0F001BD8FD /* SDL */;
-			targetProxy = CEF64AA7178E724F0061ACAA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CE2CA1DA1787A14D001F6D5F /* Debug */ = {
@@ -2185,6 +2283,38 @@
 			};
 			name = Release;
 		};
+		CEDB8267179674BF00972087 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/iDOSBox.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = Source/SDL/include;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CEDB8268179674BF00972087 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/iDOSBox.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = Source/SDL/include;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CEE95C01178A1E0F001BD8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2196,6 +2326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = "Source/iDOSBox/**";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2215,6 +2346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = "Source/iDOSBox/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2242,6 +2374,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDB8267179674BF00972087 /* Debug */,
+				CEDB8268179674BF00972087 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		CEE95C00178A1E0F001BD8FD /* Build configuration list for PBXNativeTarget "SDL" */ = {
 			isa = XCConfigurationList;
