@@ -21,7 +21,6 @@
 */
 
 #import <UIKit/UIKit.h>
-#import "SDL_uikitopenglview.h"
 
 /* *INDENT-OFF* */
 @interface SDLUIKitDelegate:NSObject<UIApplicationDelegate> {

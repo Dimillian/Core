@@ -34,7 +34,6 @@
 #import "IDBView.h"
 #import "IDBViewController.h"
 #import "IDBNavigationController.h"
-#import "QuartzCore/CALayer.h"
 #endif
 
 static int UIKit_GL_Initialize(_THIS);
@@ -138,9 +137,6 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	data->view = view;
     
 #ifdef IDOSBOX
-    view.contentMode = UIViewContentModeScaleAspectFit;
-    [[view layer] setMagnificationFilter:kCAFilterNearest];
-    
     IDBViewController *viewController = [[IDBViewController alloc] initWithIDBView:view];
     IDBNavigationController *navigationController = [[IDBNavigationController alloc] initWithRootViewController:viewController];
     [uiwindow setRootViewController:navigationController];

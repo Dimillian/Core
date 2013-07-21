@@ -91,7 +91,6 @@ int main(int argc, char **argv) {
 			
 	/* Set working directory to resource path */
 	[[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
-	
 	[self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
 }
 

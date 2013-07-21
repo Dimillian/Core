@@ -11,7 +11,7 @@
 @implementation IDBAppDelegate
 
 +(IDBAppDelegate *)sharedAppDelegate {
-	return [super sharedAppDelegate];
+	return (IDBAppDelegate *)[super sharedAppDelegate];
 }
 
 @end

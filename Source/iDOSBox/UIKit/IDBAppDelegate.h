@@ -14,9 +14,9 @@
 
 @interface IDBAppDelegate : SDLUIKitDelegate
 
-@property (strong, readwrite) IDBView *view;
-@property (strong, readwrite) IDBViewController *viewController;
-@property (strong, readwrite) IDBNavigationController *navigationController;
+@property (readwrite, nonatomic) IDBView *view;
+@property (readwrite, nonatomic) IDBViewController *viewController;
+@property (readwrite, nonatomic) IDBNavigationController *navigationController;
 
 +(IDBAppDelegate *)sharedAppDelegate;
 

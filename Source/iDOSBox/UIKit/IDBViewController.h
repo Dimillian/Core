@@ -12,6 +12,9 @@
 
 @interface IDBViewController : UIViewController
 
+@property (readonly, nonatomic) UIScrollView *scrollView;
+@property (readonly, nonatomic) IDBView *idbView;
+
 - (id)initWithIDBView:(IDBView *)idbView;
 
 @end

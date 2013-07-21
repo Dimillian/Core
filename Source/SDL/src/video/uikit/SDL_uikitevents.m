@@ -50,6 +50,14 @@ UIKit_PumpEvents(_THIS)
 		do {
 			result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, TRUE);
 		} while(result == kCFRunLoopRunHandledSource);
+        
+#ifdef IDOSBOX
+        /* enable scrolling for UIScrollView */
+        do {
+            result = CFRunLoopRunInMode((CFStringRef)UITrackingRunLoopMode, 0, TRUE);
+        } while(result == kCFRunLoopRunHandledSource);
+#endif
+        
 	}
 
 }
