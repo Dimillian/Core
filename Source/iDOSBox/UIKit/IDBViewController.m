@@ -7,20 +7,21 @@
 //
 
 #import "IDBViewController.h"
-#import "SDL_uikitopenglview.h"
+#import "IDBScrollView.h"
+#import "SDL_uikitview.h"
 #import "QuartzCore/CALayer.h"
 
 @interface IDBViewController ()
 
 @property (readwrite, nonatomic) BOOL isKeyboardVisible;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
-@property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
+@property (readwrite, nonatomic) SDL_uikitview *sdlView;
 
 @end
 
 @implementation IDBViewController
 
-- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
+- (id)initWithSDLView:(SDL_uikitview *)sdlView {
     if (self = [super init]) {
         _sdlView = sdlView;
         _isKeyboardVisible = NO;
@@ -30,36 +31,27 @@
 
 - (void)loadView {
     // don't call super because view is created programatically
+    
     // setup SDL view
     self.sdlView.layer.magnificationFilter = kCAFilterNearest;
-    //self.sdlView.contentMode = UIViewContentModeScaleAspectFit;
-    //self.sdlView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
     [self.sdlView addGestureRecognizer:singleTapRecognizer];
     
     // setup view
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
     
     // setup scroll view
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.delegate = self;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.scrollView.backgroundColor = [UIColor grayColor];
+    self.scrollView.backgroundColor = [UIColor blackColor];
     self.scrollView.autoresizesSubviews = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = YES;
-    //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.scrollView addSubview:self.sdlView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
     [self.view addSubview:self.scrollView];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -74,9 +66,35 @@
         self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.height, self.view.bounds.size.height / aspectRatio);
     }
     
+    // center the image as it becomes smaller than the size of the screen
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect frameToCenter = self.sdlView.frame;
+    
+    // center horizontally
+    if (frameToCenter.size.width < boundsSize.width)
+        frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
+    else
+        frameToCenter.origin.x = 0;
+    
+    // center vertically
+    if (frameToCenter.size.height < boundsSize.height)
+        frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
+    else
+        frameToCenter.origin.y = 0;
+    
+    self.sdlView.frame = frameToCenter;
+    
     self.scrollView.contentSize = self.sdlView.bounds.size;
+
 }
- 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -100,17 +118,20 @@
             self.isKeyboardVisible = YES;
             
             [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationBeginsFromCurrentState:YES];
             [UIView setAnimationDuration:animationDuration];
             [UIView setAnimationCurve:animationCurve];
             
-            UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
-            self.scrollView.contentInset = contentInsets;
-            self.scrollView.scrollIndicatorInsets = contentInsets;
+            //UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+            //self.scrollView.contentInset = contentInsets;
+            //self.scrollView.scrollIndicatorInsets = contentInsets;
+            
+            self.scrollView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height - adjustedKeyboardFrame.size.height);
             
             [UIView commitAnimations];
             
-            CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
-            [self.scrollView setContentOffset:contentOffset animated:YES];
+            //CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
+            //[self.scrollView setContentOffset:contentOffset animated:YES];
 
         }
     } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
@@ -120,10 +141,12 @@
             self.isKeyboardVisible = NO;
             
             [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationBeginsFromCurrentState:YES];
             [UIView setAnimationDuration:animationDuration];
             [UIView setAnimationCurve:animationCurve];
             
-            self.scrollView.contentInset = UIEdgeInsetsZero;
+            self.scrollView.frame = self.view.bounds;
+            //self.scrollView.contentInset = UIEdgeInsetsZero;
             
             [UIView commitAnimations];
         }

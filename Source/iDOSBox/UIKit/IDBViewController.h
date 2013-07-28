@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class SDL_uikitopenglview;
+@class SDL_uikitview;
 
 @interface IDBViewController : UIViewController <UIScrollViewDelegate>
 
-@property (readonly, nonatomic) UIScrollView *scrollView;
-@property (readonly, nonatomic) SDL_uikitopenglview *sdlView;
-
-- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView;
+- (id)initWithSDLView:(SDL_uikitview *)sdlView;
 
 @end
