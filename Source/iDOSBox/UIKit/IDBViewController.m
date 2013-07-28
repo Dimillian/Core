@@ -66,6 +66,7 @@
         self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.height, self.view.bounds.size.height / aspectRatio);
     }
     
+    /*
     // center the image as it becomes smaller than the size of the screen
     CGSize boundsSize = self.scrollView.bounds.size;
     CGRect frameToCenter = self.sdlView.frame;
@@ -83,6 +84,7 @@
         frameToCenter.origin.y = 0;
     
     self.sdlView.frame = frameToCenter;
+    */
     
     self.scrollView.contentSize = self.sdlView.bounds.size;
 
@@ -122,11 +124,11 @@
             [UIView setAnimationDuration:animationDuration];
             [UIView setAnimationCurve:animationCurve];
             
-            //UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
-            //self.scrollView.contentInset = contentInsets;
-            //self.scrollView.scrollIndicatorInsets = contentInsets;
+            UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+            self.scrollView.contentInset = contentInsets;
+            self.scrollView.scrollIndicatorInsets = contentInsets;
             
-            self.scrollView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height - adjustedKeyboardFrame.size.height);
+            //self.scrollView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height - adjustedKeyboardFrame.size.height);
             
             [UIView commitAnimations];
             
@@ -145,8 +147,8 @@
             [UIView setAnimationDuration:animationDuration];
             [UIView setAnimationCurve:animationCurve];
             
-            self.scrollView.frame = self.view.bounds;
-            //self.scrollView.contentInset = UIEdgeInsetsZero;
+            //self.scrollView.frame = self.view.bounds;
+            self.scrollView.contentInset = UIEdgeInsetsZero;
             
             [UIView commitAnimations];
         }

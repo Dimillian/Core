@@ -25,8 +25,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNavigationBarHidden:YES];
-        
-    [[UIApplication sharedApplication] setStatusBarHidden:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone];
+    
+    // enable status bar only on iPad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    } else {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    }
 }
 
 @end
