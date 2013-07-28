@@ -15,16 +15,18 @@
 @implementation IDBNavigationController
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscape;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    } else {
+        return UIInterfaceOrientationMaskLandscape;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNavigationBarHidden:YES];
-    
-    BOOL hideStatusBar = UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad;
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:hideStatusBar];
+        
+    [[UIApplication sharedApplication] setStatusBarHidden:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone];
 }
 
 @end

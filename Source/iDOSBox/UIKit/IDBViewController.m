@@ -7,120 +7,137 @@
 //
 
 #import "IDBViewController.h"
-#import "IDBView.h"
+#import "SDL_uikitopenglview.h"
 #import "QuartzCore/CALayer.h"
 
 @interface IDBViewController ()
 
-@property (readwrite, nonatomic) CGRect applicationFrame;
 @property (readwrite, nonatomic) BOOL isKeyboardVisible;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
-@property (readwrite, nonatomic) IDBView *idbView;
+@property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 
 @end
 
 @implementation IDBViewController
 
-- (id)initWithIDBView:(IDBView *)idbView {
+- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
     if (self = [super init]) {
-        _idbView = idbView;
-        self.applicationFrame = [UIScreen mainScreen].applicationFrame;
+        _sdlView = sdlView;
         _isKeyboardVisible = NO;
     }
     return self;
 }
 
 - (void)loadView {
-    /* don't call super because view is created programatically */
-    
-    //self.idbView.frame = self.applicationFrame;
-    //self.idbView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    //self.idbView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.applicationFrame];
-    self.scrollView.clipsToBounds = YES;
-    self.scrollView.backgroundColor = [UIColor grayColor];
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = YES;
-    self.idbView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.scrollView.contentSize = self.idbView.bounds.size; //CGSizeMake(self.applicationFrame.size.height, self.applicationFrame.size.width);
-    
-    self.view = self.scrollView;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    [self.scrollView addSubview:self.idbView];
-    
-    [self.idbView.layer setMagnificationFilter:kCAFilterNearest];
+    // don't call super because view is created programatically
+    // setup SDL view
+    self.sdlView.layer.magnificationFilter = kCAFilterNearest;
+    //self.sdlView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.sdlView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
-    [self.idbView addGestureRecognizer:singleTapRecognizer];
-}
-
-/*
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    self.scrollView.frame = CGRectMake(0, 0, 100, 100);
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        self.scrollView.contentSize = CGSizeMake(self.applicationFrame.size.height, self.applicationFrame.size.width);
-    } else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
-        
-    }
-    return;
-}
- */
-
-- (void)keyboardWillShow:(NSNotification *)aNotification {
-    CGRect keyboardBounds;
-    NSValue *beginValue = [aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
-    [beginValue getValue:&keyboardBounds];
+    [self.sdlView addGestureRecognizer:singleTapRecognizer];
     
-    if (!self.isKeyboardVisible) {
-        self.isKeyboardVisible = YES;
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        [UIView setAnimationDuration:0.3f];
-        self.scrollView.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height - keyboardBounds.size.width);
-        [UIView commitAnimations];
-        
-        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height) animated:YES];
-    }
+    // setup view
+    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+    
+    // setup scroll view
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView.delegate = self;
+    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.scrollView.backgroundColor = [UIColor grayColor];
+    self.scrollView.autoresizesSubviews = NO;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = YES;
+    //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.scrollView addSubview:self.sdlView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
+    [self.view addSubview:self.scrollView];
 }
 
-- (void)keyboardWillHide:(NSNotification *)aNotification {
-    CGRect keyboardBounds;
-    NSValue *beginValue = [aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    [beginValue getValue:&keyboardBounds];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     
-    if (self.isKeyboardVisible) {
-        self.isKeyboardVisible = NO;
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        [UIView setAnimationDuration:0.3f];
-        self.scrollView.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height + keyboardBounds.size.width);
-        [UIView commitAnimations];
-        
-        [self.scrollView setContentOffset:CGPointZero animated:YES];
+    // scale DOS layer view to fit screen while maintaing aspect ratio
+    CGFloat aspectRatio = self.sdlView.bounds.size.width / self.sdlView.bounds.size.height;
+    
+    if (self.view.bounds.size.width / aspectRatio <= self.view.bounds.size.height) {
+        self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.width / aspectRatio);
+    } else {
+        self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.height, self.view.bounds.size.height / aspectRatio);
     }
+    
+    self.scrollView.contentSize = self.sdlView.bounds.size;
+}
+ 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
+    // get keyboard values
+    CGRect keyboardFrame = [[aNotification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    NSTimeInterval animationDuration = [[aNotification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve animationCurve = [[aNotification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
+    
+    // keyboard orientation is always returned in portrait orientation coordinates, so it must be converted to the local orientation
+    CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame toView:nil];
+    
+    if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
+        NSLog(@"keyboard show");
+        
+        if (!self.isKeyboardVisible) {
+            self.isKeyboardVisible = YES;
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:animationDuration];
+            [UIView setAnimationCurve:animationCurve];
+            
+            UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+            self.scrollView.contentInset = contentInsets;
+            self.scrollView.scrollIndicatorInsets = contentInsets;
+            
+            [UIView commitAnimations];
+            
+            CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
+            [self.scrollView setContentOffset:contentOffset animated:YES];
+
+        }
+    } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
+        NSLog(@"keyboard hide");
+        
+        if (self.isKeyboardVisible) {
+            self.isKeyboardVisible = NO;
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:animationDuration];
+            [UIView setAnimationCurve:animationCurve];
+            
+            self.scrollView.contentInset = UIEdgeInsetsZero;
+            
+            [UIView commitAnimations];
+        }
+    }
+    
+
 }
 
 - (void)singleTap {
     if (!self.isKeyboardVisible) {
-        [self.idbView showKeyboard];
+        [self.sdlView showKeyboard];
     } else {
-        [self.idbView hideKeyboard];
+        [self.sdlView hideKeyboard];
     }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

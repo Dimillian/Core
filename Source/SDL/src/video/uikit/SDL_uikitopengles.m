@@ -31,7 +31,6 @@
 
 #ifdef IDOSBOX
 #import "IDBAppDelegate.h"
-#import "IDBView.h"
 #import "IDBViewController.h"
 #import "IDBNavigationController.h"
 #endif
@@ -106,18 +105,14 @@ void UIKit_GL_SwapWindow(_THIS, SDL_Window * window)
 
 SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 {
-#ifdef IDOSBOX
-    IDBView *view;
-#else
 	SDL_uikitopenglview *view;
-#endif
 	SDL_WindowData *data = (SDL_WindowData *) window->driverdata;
     UIScreen *uiscreen = (UIScreen *) window->display->driverdata;
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = [[IDBView alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
+    view = [[SDL_uikitopenglview alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
 									retainBacking: _this->gl_config.retained_backing \
 									rBits: _this->gl_config.red_size \
 									gBits: _this->gl_config.green_size \
@@ -137,7 +132,7 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	data->view = view;
     
 #ifdef IDOSBOX
-    IDBViewController *viewController = [[IDBViewController alloc] initWithIDBView:view];
+    IDBViewController *viewController = [[IDBViewController alloc] initWithSDLView:view];
     IDBNavigationController *navigationController = [[IDBNavigationController alloc] initWithRootViewController:viewController];
     [uiwindow setRootViewController:navigationController];
     

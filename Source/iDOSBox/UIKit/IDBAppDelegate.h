@@ -8,13 +8,13 @@
 
 #import "SDL_uikitappdelegate.h"
 
-@class IDBView;
+@class SDL_uikitopenglview;
 @class IDBViewController;
 @class IDBNavigationController;
 
 @interface IDBAppDelegate : SDLUIKitDelegate
 
-@property (readwrite, nonatomic) IDBView *view;
+@property (readwrite, nonatomic) SDL_uikitopenglview *view;
 @property (readwrite, nonatomic) IDBViewController *viewController;
 @property (readwrite, nonatomic) IDBNavigationController *navigationController;
 

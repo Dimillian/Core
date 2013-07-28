@@ -295,11 +295,9 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
-		CEB14349179783A900FB938C /* IDBScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB14348179783A900FB938C /* IDBScrollView.m */; };
 		CEB1434A1797889700FB938C /* IDBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826A1796754200972087 /* IDBAppDelegate.m */; };
 		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
 		CEDB8271179675C600972087 /* IDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB8270179675C600972087 /* IDBViewController.m */; };
-		CEDB82741796766F00972087 /* IDBView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB82731796766F00972087 /* IDBView.m */; };
 		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
 		CEDB828717967B4400972087 /* IDBLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828217967AEF00972087 /* IDBLinkedList.m */; };
 		CEDB828817967B4400972087 /* IDBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828417967AEF00972087 /* IDBQueue.m */; };
@@ -855,8 +853,6 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
-		CEB14347179783A900FB938C /* IDBScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBScrollView.h; sourceTree = "<group>"; };
-		CEB14348179783A900FB938C /* IDBScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBScrollView.m; sourceTree = "<group>"; };
 		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDB82691796754200972087 /* IDBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBAppDelegate.h; sourceTree = "<group>"; };
 		CEDB826A1796754200972087 /* IDBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBAppDelegate.m; sourceTree = "<group>"; };
@@ -864,8 +860,6 @@
 		CEDB826D179675A600972087 /* IDBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBNavigationController.m; sourceTree = "<group>"; };
 		CEDB826F179675C600972087 /* IDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBViewController.h; sourceTree = "<group>"; };
 		CEDB8270179675C600972087 /* IDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBViewController.m; sourceTree = "<group>"; };
-		CEDB82721796766E00972087 /* IDBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBView.h; sourceTree = "<group>"; };
-		CEDB82731796766F00972087 /* IDBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBView.m; sourceTree = "<group>"; };
 		CEDB828117967AEF00972087 /* IDBLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBLinkedList.h; sourceTree = "<group>"; };
 		CEDB828217967AEF00972087 /* IDBLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBLinkedList.m; sourceTree = "<group>"; };
 		CEDB828317967AEF00972087 /* IDBQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBQueue.h; sourceTree = "<group>"; };
@@ -1811,10 +1805,6 @@
 				CEDB826D179675A600972087 /* IDBNavigationController.m */,
 				CEDB826F179675C600972087 /* IDBViewController.h */,
 				CEDB8270179675C600972087 /* IDBViewController.m */,
-				CEDB82721796766E00972087 /* IDBView.h */,
-				CEDB82731796766F00972087 /* IDBView.m */,
-				CEB14347179783A900FB938C /* IDBScrollView.h */,
-				CEB14348179783A900FB938C /* IDBScrollView.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2072,8 +2062,6 @@
 				CEDB828917967B4400972087 /* IDBStack.m in Sources */,
 				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
 				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
-				CEDB82741796766F00972087 /* IDBView.m in Sources */,
-				CEB14349179783A900FB938C /* IDBScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
