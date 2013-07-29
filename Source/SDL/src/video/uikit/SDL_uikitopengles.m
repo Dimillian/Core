@@ -30,7 +30,6 @@
 #include <dlfcn.h>
 
 #ifdef IDOSBOX
-#import "IDBAppDelegate.h"
 #import "IDBViewController.h"
 #import "IDBNavigationController.h"
 #endif
@@ -136,9 +135,9 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
     IDBNavigationController *navigationController = [[IDBNavigationController alloc] initWithRootViewController:viewController];
     [uiwindow setRootViewController:navigationController];
     
-    [IDBAppDelegate sharedAppDelegate].view = view;
-    [IDBAppDelegate sharedAppDelegate].viewController = viewController;
-    [IDBAppDelegate sharedAppDelegate].navigationController = navigationController;
+    //[IDBAppDelegate sharedAppDelegate].view = view;
+    //[IDBAppDelegate sharedAppDelegate].viewController = viewController;
+    //[IDBAppDelegate sharedAppDelegate].navigationController = navigationController;
     
     [viewController release];
     [navigationController release];

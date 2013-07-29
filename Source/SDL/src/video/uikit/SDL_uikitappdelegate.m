@@ -95,17 +95,17 @@ int main(int argc, char **argv) {
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	
+#ifndef IDOSBOX
 	SDL_SendQuit();
 	 /* hack to prevent automatic termination.  See SDL_uikitevents.m for details */
 	longjmp(*(jump_env()), 1);
-	
+#endif
 }
 
 - (void) applicationWillResignActive:(UIApplication*)application
 {
     //NSLog(@"%@", NSStringFromSelector(_cmd));
-
+    
     // Send every window on every screen a MINIMIZED event.
     SDL_VideoDevice *_this = SDL_GetVideoDevice();
     if (!_this) {

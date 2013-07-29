@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IDBAppDelegate.h"
+#import "SDL_uikitappdelegate.h"
 
-@interface IDBDemoAppDelegate : IDBAppDelegate
+@interface IDBDemoAppDelegate : SDLUIKitDelegate
 
 @end

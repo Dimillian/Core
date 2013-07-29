@@ -36,6 +36,12 @@
 	SDL_DelKeyboard(0);
 	[textField release];
 #endif
+    
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+#endif
+    
 	[super dealloc];
 }
 
@@ -45,8 +51,13 @@
 	
 #if SDL_IPHONE_KEYBOARD
 	[self initializeKeyboard];
-#endif	
+#endif
 
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
+#endif
+    
 	int i;
 	for (i=0; i<MAX_SIMULTANEOUS_TOUCHES; i++) {
         mice[i].id = i;
@@ -58,6 +69,16 @@
 	return self;
 
 }
+
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
+- (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
+    if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
+        keyboardVisible = YES;
+    } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
+        keyboardVisible = NO;
+    }
+}
+#endif
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
@@ -261,7 +282,10 @@
 
 /* Terminates the editing session */
 - (BOOL)textFieldShouldReturn:(UITextField*)_textField {
+#ifdef IDOSBOX
+#else
 	[self hideKeyboard];
+#endif
 	return YES;
 }
 
