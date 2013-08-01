@@ -38,10 +38,10 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.delegate = self;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.scrollView.backgroundColor = [UIColor grayColor];
+    self.scrollView.backgroundColor = [UIColor blackColor];
     self.scrollView.autoresizesSubviews = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = YES;
+    self.scrollView.showsVerticalScrollIndicator = NO;
     [self.scrollView addSubview:self.sdlView];
     
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
@@ -74,7 +74,6 @@
     
     // adjust scroll view content size
     self.scrollView.contentSize = self.sdlView.bounds.size;
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,30 +101,38 @@
     // keyboard orientation is always returned in portrait orientation coordinates, so it must be converted to the local orientation
     CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
         
-    if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {        
+    if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:animationDuration];
         [UIView setAnimationCurve:animationCurve];
         
+        // add content inset to adjust for keyboard appearing
         UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
         self.scrollView.contentInset = contentInsets;
         self.scrollView.scrollIndicatorInsets = contentInsets;
         
         [UIView commitAnimations];
         
-        // scroll to bottom
-        CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
-        [self.scrollView setContentOffset:contentOffset animated:YES];
-    } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {        
+        // scroll to bottom of scrollview if possible
+        if ([self scrollViewCanScroll]) {
+            CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
+            [self.scrollView setContentOffset:contentOffset animated:YES];
+        }
+    } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:animationDuration];
         [UIView setAnimationCurve:animationCurve];
         
+        // remove content inset after keyboard dissapears
         self.scrollView.contentInset = UIEdgeInsetsZero;
         self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
         
         [UIView commitAnimations];
     }
+}
+
+- (BOOL)scrollViewCanScroll {
+    return self.scrollView.bounds.size.height - self.scrollView.contentInset.bottom - self.scrollView.contentInset.top < self.scrollView.contentSize.height;
 }
 
 - (void)singleTap {

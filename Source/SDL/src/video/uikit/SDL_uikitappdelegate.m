@@ -98,9 +98,8 @@ int main(int argc, char **argv) {
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-    
 #ifdef IDOSBOX
-    self.window = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].applicationFrame] autorelease];
+    self.window = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds] autorelease];
     self.sdlView = [[[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)
                                                  retainBacking:NO
                                                  rBits:0
