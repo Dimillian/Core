@@ -111,13 +111,7 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = [[SDL_uikitopenglview alloc] initWithFrame: CGRectMake(0, 0, 640, 400) \
-									retainBacking: _this->gl_config.retained_backing \
-									rBits: _this->gl_config.red_size \
-									gBits: _this->gl_config.green_size \
-									bBits: _this->gl_config.blue_size \
-									aBits: _this->gl_config.alpha_size \
-									depthBits: _this->gl_config.depth_size];
+    view = (SDL_uikitopenglview *)[SDLUIKitDelegate sharedAppDelegate].sdlView;
 #else
     view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
                                         retainBacking: _this->gl_config.retained_backing \
@@ -130,24 +124,13 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	
 	data->view = view;
     
-#ifdef IDOSBOX
-    IDBViewController *viewController = [[IDBViewController alloc] initWithSDLView:view];
-    IDBNavigationController *navigationController = [[IDBNavigationController alloc] initWithRootViewController:viewController];
-    [uiwindow setRootViewController:navigationController];
-    
-    //[IDBAppDelegate sharedAppDelegate].view = view;
-    //[IDBAppDelegate sharedAppDelegate].viewController = viewController;
-    //[IDBAppDelegate sharedAppDelegate].navigationController = navigationController;
-    
-    [viewController release];
-    [navigationController release];
-#else
+#ifndef IDOSBOX
 	/* add the view to our window */
     [uiwindow addSubview: view ];
-#endif
+    
 	/* Don't worry, the window retained the view */
 	[view release];
-	
+#endif
 	if ( UIKit_GL_MakeCurrent(_this, window, view) < 0 ) {
         UIKit_GL_DeleteContext(_this, view);
         return NULL;

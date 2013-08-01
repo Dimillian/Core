@@ -22,9 +22,21 @@
 
 #import <UIKit/UIKit.h>
 
+#ifdef IDOSBOX
+@class SDL_uikitopenglview;
+@class IDBNavigationController;
+@class IDBViewController;
+#endif
+
 /* *INDENT-OFF* */
 @interface SDLUIKitDelegate:NSObject<UIApplicationDelegate> {
 }
+
+#ifdef IDOSBOX
+@property (readwrite, retain) SDL_uikitopenglview *sdlView;
+@property (readwrite, retain) IDBNavigationController *navigationController;
+@property (readwrite, retain) IDBViewController *sdlViewController;
+#endif
 
 +(SDLUIKitDelegate *)sharedAppDelegate;
 

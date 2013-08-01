@@ -27,6 +27,11 @@
 #import "SDL_events_c.h"
 #import "jumphack.h"
 
+#ifdef IDOSBOX
+#import "IDBNavigationController.h"
+#import "IDBViewController.h"
+#endif
+
 #ifdef main
 #undef main
 #endif
@@ -60,6 +65,11 @@ int main(int argc, char **argv) {
 
 @implementation SDLUIKitDelegate
 
+#ifdef IDOSBOX
+// window needs to be synthesized because it is declared optional in UIApplicationDelegate protocol
+@synthesize window = _window;
+#endif
+
 /* convenience method */
 +(SDLUIKitDelegate *)sharedAppDelegate {
 	/* the delegate is set in UIApplicationMain(), which is garaunteed to be called before this method */
@@ -88,7 +98,21 @@ int main(int argc, char **argv) {
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-			
+    
+#ifdef IDOSBOX
+    self.window = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].applicationFrame] autorelease];
+    self.sdlView = [[[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)
+                                                 retainBacking:NO
+                                                 rBits:0
+                                                 gBits:0
+                                                 bBits:0
+                                                 aBits:0
+                                                 depthBits:0] autorelease];
+    self.sdlViewController = [[[IDBViewController alloc] initWithSDLView:self.sdlView] autorelease];
+    self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.sdlViewController] autorelease];
+    [self.window setRootViewController:self.navigationController];
+#endif
+    
 	/* Set working directory to resource path */
 	[[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
 	[self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
