@@ -42,10 +42,9 @@
     self.scrollView.autoresizesSubviews = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    [self.scrollView addSubview:self.sdlView];
-    
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
-    [self.sdlView addGestureRecognizer:singleTapRecognizer];
+    [self.scrollView addGestureRecognizer:singleTapRecognizer];
+    [self.scrollView addSubview:self.sdlView];
     
     [self.view addSubview:self.scrollView];
 }
