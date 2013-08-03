@@ -7,46 +7,48 @@
 //
 
 #import "IDBViewController.h"
-#import "SDL_uikitview.h"
+#import "SDL_uikitopenglview.h"
 #import "QuartzCore/CALayer.h"
 
 @interface IDBViewController ()
 
 @property (readwrite, nonatomic) UIScrollView *scrollView;
-@property (readwrite, nonatomic) SDL_uikitview *sdlView;
+@property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 @property (readonly, nonatomic) CGSize unscaledSDLViewSize;
 
 @end
 
 @implementation IDBViewController
 
-- (id)initWithSDLView:(SDL_uikitview *)sdlView {
+- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
     if (self = [super init]) {
         _sdlView = sdlView;
-        _unscaledSDLViewSize = sdlView.bounds.size;
+        _unscaledSDLViewSize = self.sdlView.bounds.size;
     }
     return self;
 }
 
 - (void)loadView {
     // don't call [super loadView] because view is created programatically
+    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.sdlView];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    // setup view
-    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // setup scroll view
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    self.scrollView.delegate = self;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.scrollView.backgroundColor = [UIColor blackColor];
     self.scrollView.autoresizesSubviews = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
-    [self.scrollView addSubview:self.sdlView];
-    
-    [self.view addSubview:self.scrollView];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -68,9 +70,8 @@
         self.sdlView.layer.magnificationFilter = kCAFilterLinear;
     }
     
-    // center horizontally
+    // center SDL view horizontally
     self.sdlView.center = CGPointMake(self.scrollView.center.x, self.sdlView.center.y);
-    
     // adjust scroll view content size
     self.scrollView.contentSize = self.sdlView.bounds.size;
 }
@@ -95,22 +96,37 @@
     // get keyboard values
     CGRect keyboardFrame = [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval animationDuration = [[aNotification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    UIViewAnimationCurve animationCurve = [[aNotification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
+    // UIViewAnimationCurve needs to be converted to UIViewAnimationOptions for animation block
+    UIViewAnimationOptions animationOptions;
+    switch ((UIViewAnimationCurve)[[aNotification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue]) {
+        case UIViewAnimationCurveEaseInOut: {
+            animationOptions = UIViewAnimationOptionCurveEaseInOut;
+        } break;
+        case UIViewAnimationCurveEaseIn: {
+            animationOptions = UIViewAnimationOptionCurveEaseIn;
+        } break;
+        case UIViewAnimationCurveEaseOut: {
+            animationOptions = UIViewAnimationOptionCurveEaseOut;
+        } break;
+        case UIViewAnimationCurveLinear: {
+            animationOptions = UIViewAnimationOptionCurveLinear;
+        } break;
+    }
     
     // keyboard orientation is always returned in portrait orientation coordinates, so it must be converted to the local orientation
     CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
         
     if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:animationDuration];
-        [UIView setAnimationCurve:animationCurve];
-        
         // add content inset to adjust for keyboard appearing
-        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
-        self.scrollView.contentInset = contentInsets;
-        self.scrollView.scrollIndicatorInsets = contentInsets;
-        
-        [UIView commitAnimations];
+        [UIView animateWithDuration:animationDuration
+                              delay:0.0f
+                            options:animationOptions
+                         animations:^{
+                                    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+                                    self.scrollView.contentInset = contentInsets;
+                                    self.scrollView.scrollIndicatorInsets = contentInsets;
+                                    }
+                         completion:NULL];
         
         // scroll to bottom of scrollview if possible
         if ([self scrollViewCanScroll]) {
@@ -118,15 +134,15 @@
             [self.scrollView setContentOffset:contentOffset animated:YES];
         }
     } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:animationDuration];
-        [UIView setAnimationCurve:animationCurve];
-        
         // remove content inset after keyboard dissapears
-        self.scrollView.contentInset = UIEdgeInsetsZero;
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
-        
-        [UIView commitAnimations];
+        [UIView animateWithDuration:animationDuration
+                              delay:0.0f
+                            options:animationOptions
+                         animations:^{
+                                    self.scrollView.contentInset = UIEdgeInsetsZero;
+                                    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+                                    }
+                         completion:NULL];
     }
 }
 
@@ -134,7 +150,7 @@
     return self.scrollView.bounds.size.height - self.scrollView.contentInset.bottom - self.scrollView.contentInset.top < self.scrollView.contentSize.height;
 }
 
-- (void)singleTap {
+- (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
     if (!self.sdlView.keyboardVisible) {
         [self.sdlView showKeyboard];
     } else {

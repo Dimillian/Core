@@ -295,6 +295,8 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
+		CED33B2117AC63DE00CD0BF4 /* IDBContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED33B2017AC63DE00CD0BF4 /* IDBContainerViewController.m */; };
+		CED33B2417AC66C300CD0BF4 /* IDBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED33B2317AC66C300CD0BF4 /* IDBTableViewController.m */; };
 		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
 		CEDB8271179675C600972087 /* IDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB8270179675C600972087 /* IDBViewController.m */; };
 		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
@@ -852,6 +854,10 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
+		CED33B1F17AC63DE00CD0BF4 /* IDBContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBContainerViewController.h; sourceTree = "<group>"; };
+		CED33B2017AC63DE00CD0BF4 /* IDBContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBContainerViewController.m; sourceTree = "<group>"; };
+		CED33B2217AC66C300CD0BF4 /* IDBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBTableViewController.h; sourceTree = "<group>"; };
+		CED33B2317AC66C300CD0BF4 /* IDBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBTableViewController.m; sourceTree = "<group>"; };
 		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDB826C179675A600972087 /* IDBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBNavigationController.h; sourceTree = "<group>"; };
 		CEDB826D179675A600972087 /* IDBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBNavigationController.m; sourceTree = "<group>"; };
@@ -1800,6 +1806,10 @@
 				CEDB826D179675A600972087 /* IDBNavigationController.m */,
 				CEDB826F179675C600972087 /* IDBViewController.h */,
 				CEDB8270179675C600972087 /* IDBViewController.m */,
+				CED33B2217AC66C300CD0BF4 /* IDBTableViewController.h */,
+				CED33B2317AC66C300CD0BF4 /* IDBTableViewController.m */,
+				CED33B1F17AC63DE00CD0BF4 /* IDBContainerViewController.h */,
+				CED33B2017AC63DE00CD0BF4 /* IDBContainerViewController.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2056,6 +2066,8 @@
 				CEDB828917967B4400972087 /* IDBStack.m in Sources */,
 				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
 				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
+				CED33B2117AC63DE00CD0BF4 /* IDBContainerViewController.m in Sources */,
+				CED33B2417AC66C300CD0BF4 /* IDBTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

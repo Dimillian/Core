@@ -28,8 +28,10 @@
 #import "jumphack.h"
 
 #ifdef IDOSBOX
+#import "IDBContainerViewController.h"
 #import "IDBNavigationController.h"
 #import "IDBViewController.h"
+#import "IDBTableViewController.h"
 #endif
 
 #ifdef main
@@ -61,6 +63,17 @@ int main(int argc, char **argv) {
 	[pool release];
 	
 }
+#endif
+
+#ifdef IDOSBOX
+@interface SDLUIKitDelegate ()
+
+@property (readwrite, retain, nonatomic) IDBNavigationController *navigationController;
+@property (readwrite, retain, nonatomic) IDBContainerViewController *containerController;
+@property (readwrite, retain, nonatomic) IDBViewController *sdlViewController;
+@property (readwrite, retain, nonatomic) IDBTableViewController *tableViewController;
+
+@end
 #endif
 
 @implementation SDLUIKitDelegate
@@ -99,16 +112,22 @@ int main(int argc, char **argv) {
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
+    SDL_uikitopenglview *sdlView = [[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)
+                                                                retainBacking:NO
+                                                                        rBits:0
+                                                                        gBits:0
+                                                                        bBits:0
+                                                                        aBits:0
+                                                                    depthBits:0];
+    
+    self.sdlViewController = [[[IDBViewController alloc] initWithSDLView:sdlView] autorelease];
+    [sdlView release];
+    self.tableViewController = [[[IDBTableViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+    self.containerController = [[[IDBContainerViewController alloc] initWithPrimaryViewController:self.sdlViewController
+                                                                       andSecondaryViewController:self.tableViewController] autorelease];
+    self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.containerController] autorelease];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds] autorelease];
-    self.sdlView = [[[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)
-                                                 retainBacking:NO
-                                                 rBits:0
-                                                 gBits:0
-                                                 bBits:0
-                                                 aBits:0
-                                                 depthBits:0] autorelease];
-    self.sdlViewController = [[[IDBViewController alloc] initWithSDLView:self.sdlView] autorelease];
-    self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.sdlViewController] autorelease];
     [self.window setRootViewController:self.navigationController];
 #endif
     
