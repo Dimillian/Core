@@ -22,11 +22,17 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setNavigationBarHidden:YES];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone];
+    // hide navigation bar
+    self.navigationBarHidden = YES;
+    
+    // only show status bar on iPad
+    [UIApplication sharedApplication].statusBarHidden = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+    
+    // stop tool bar appearance from resizing view
+    //self.toolbar.translucent = YES;
 }
 
 @end

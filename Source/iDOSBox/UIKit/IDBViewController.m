@@ -30,7 +30,7 @@
 
 - (void)loadView {
     // don't call [super loadView] because view is created programatically
-    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.sdlView];
@@ -38,17 +38,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view.autoresizesSubviews = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // setup scroll view
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.scrollView.backgroundColor = [UIColor blackColor];
-    self.scrollView.autoresizesSubviews = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
+    
+    // swipe up gesture recognizer
+    UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeUpGesture:)];
+    swipeGestureUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeGestureUpRecognizer];
+    // swipe down gesture recognizer
+    UISwipeGestureRecognizer *swipeGestureDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDownGesture:)];
+    swipeGestureDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeGestureDownRecognizer];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -56,8 +63,8 @@
     
     // scale SDL view to fit screen while maintaing aspect ratio
     CGFloat sdlAspectRatio = self.unscaledSDLViewSize.width / self.unscaledSDLViewSize.height;
-    CGFloat screenAspectRatio = self.view.bounds.size.width / self.view.bounds.size.height;
-    if (sdlAspectRatio > screenAspectRatio) {
+    CGFloat viewAspectRatio = self.view.bounds.size.width / self.view.bounds.size.height;
+    if (sdlAspectRatio > viewAspectRatio) {
         self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.width / sdlAspectRatio);
     } else {
         self.sdlView.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.height * sdlAspectRatio, self.view.bounds.size.height);
@@ -148,6 +155,19 @@
 
 - (BOOL)scrollViewCanScroll {
     return self.scrollView.bounds.size.height - self.scrollView.contentInset.bottom - self.scrollView.contentInset.top < self.scrollView.contentSize.height;
+}
+
+#pragma mark Touch Events
+- (void)swipeUpGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
+    if (self.navigationController.toolbarHidden) {
+        [self.navigationController setToolbarHidden:NO animated:YES];
+    }
+}
+
+- (void)swipeDownGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
+    if (!self.navigationController.toolbarHidden) {
+        [self.navigationController setToolbarHidden:YES animated:YES];
+    }
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {

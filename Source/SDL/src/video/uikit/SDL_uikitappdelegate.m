@@ -28,10 +28,8 @@
 #import "jumphack.h"
 
 #ifdef IDOSBOX
-#import "IDBContainerViewController.h"
 #import "IDBNavigationController.h"
 #import "IDBViewController.h"
-#import "IDBTableViewController.h"
 #endif
 
 #ifdef main
@@ -112,22 +110,13 @@ int main(int argc, char **argv) {
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
-    SDL_uikitopenglview *sdlView = [[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)
-                                                                retainBacking:NO
-                                                                        rBits:0
-                                                                        gBits:0
-                                                                        bBits:0
-                                                                        aBits:0
-                                                                    depthBits:0];
-    
+    SDL_uikitopenglview *sdlView = [[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)];
     self.sdlViewController = [[[IDBViewController alloc] initWithSDLView:sdlView] autorelease];
     [sdlView release];
-    self.tableViewController = [[[IDBTableViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
-    self.containerController = [[[IDBContainerViewController alloc] initWithPrimaryViewController:self.sdlViewController
-                                                                       andSecondaryViewController:self.tableViewController] autorelease];
-    self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.containerController] autorelease];
     
+    self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.sdlViewController] autorelease];
     self.window = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds] autorelease];
+    
     [self.window setRootViewController:self.navigationController];
 #endif
     
@@ -137,11 +126,9 @@ int main(int argc, char **argv) {
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-#ifndef IDOSBOX
 	SDL_SendQuit();
 	 /* hack to prevent automatic termination.  See SDL_uikitevents.m for details */
 	longjmp(*(jump_env()), 1);
-#endif
 }
 
 - (void) applicationWillResignActive:(UIApplication*)application
