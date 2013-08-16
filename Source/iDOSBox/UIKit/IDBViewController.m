@@ -59,6 +59,12 @@
     UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     swipeGestureUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp | UISwipeGestureRecognizerDirectionDown;
     [self.view addGestureRecognizer:swipeGestureUpRecognizer];
+    
+    UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(hideButtonPressed)];
+    UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playButtonPressed)];
+    UIBarButtonItem *pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(pauseButtonPressed)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    self.toolbarItems = [NSArray arrayWithObjects:hideButton, flexibleSpace, playButton, pauseButton, nil];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -109,29 +115,25 @@
     return UIStatusBarAnimationNone;
 }
 
-- (void)pauseOrResume:(NSNotification *)aNotification {
-    if ([aNotification.name isEqualToString:UIApplicationDidBecomeActiveNotification]) {
-        if (self.paused) {
-            self.paused = NO;
-            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
-            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
-            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
-            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
-        }
-    } else if ([aNotification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
-        if (!self.paused) {
-            self.paused = YES;
-            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
-            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
-            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
-            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
-        }
+#pragma mark Accessors
+- (void)setMenuOpen:(BOOL)menuOpen {
+    _menuOpen = menuOpen;
+    [self.navigationController setNavigationBarHidden:!self.menuOpen animated:YES];
+    [self.navigationController setToolbarHidden:!self.menuOpen animated:YES];
+}
+
+- (void)setPaused:(BOOL)paused {
+    if (_paused != paused) {
+        SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
+        SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
+        SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
+        SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
     }
+    _paused = paused;
     return;
 }
 
-#pragma mark Notifications
-
+#pragma mark Events
 - (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
     // get keyboard values
     CGRect keyboardFrame = [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -139,8 +141,9 @@
     
     // keyboard orientation is always returned in portrait orientation coordinates, so it must be converted to the local orientation
     CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
-        
+    
     if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
+        self.menuOpen = NO;
         // add content inset to adjust for keyboard appearing
         [UIView animateWithDuration:animationDuration
                               delay:0.0f
@@ -171,13 +174,6 @@
     }
 }
 
-- (void)setMenuOpen:(BOOL)menuOpen {
-    _menuOpen = menuOpen;
-    [self.navigationController setNavigationBarHidden:!self.menuOpen animated:YES];
-    [self.navigationController setToolbarHidden:!self.menuOpen animated:YES];
-}
-
-#pragma mark Touch Events
 - (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
     self.menuOpen = !self.menuOpen;
     return;
@@ -189,6 +185,22 @@
     } else {
         [self.sdlView hideKeyboard];
     }
+}
+
+#pragma mark
+- (void)hideButtonPressed {
+    self.menuOpen = !self.menuOpen;
+    return;
+}
+
+- (void)playButtonPressed {
+    self.paused = NO;
+    return;
+}
+
+- (void)pauseButtonPressed {
+    self.paused = YES;
+    return;
 }
 
 @end
