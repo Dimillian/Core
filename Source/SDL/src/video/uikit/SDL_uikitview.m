@@ -49,7 +49,7 @@
 
 	self = [super initWithFrame: frame];
 	
-#if SDL_IPHONE_KEYBOARD
+#if SDL_IPHONE_KEYBOARD && !defined(IDOSBOX)
 	[self initializeKeyboard];
 #endif
 
@@ -239,8 +239,13 @@
 	
 	if ([string length] == 0) {
 		/* it wants to replace text with nothing, ie a delete */
+#ifdef IDOSBOX
+        SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_BACKSPACE);
+		SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_BACKSPACE);
+#else
 		SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_DELETE);
 		SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_DELETE);
+#endif
 	}
 	else {
 		/* go through all the characters in the string we've been sent
@@ -277,12 +282,18 @@
 			}			
 		}
 	}
+#ifdef IDOSBOX
+    return YES;
+#else
 	return NO; /* don't allow the edit! (keep placeholder text there) */
+#endif
 }
 
 /* Terminates the editing session */
 - (BOOL)textFieldShouldReturn:(UITextField*)_textField {
 #ifdef IDOSBOX
+    SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_RETURN);
+    SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_RETURN);
 #else
 	[self hideKeyboard];
 #endif

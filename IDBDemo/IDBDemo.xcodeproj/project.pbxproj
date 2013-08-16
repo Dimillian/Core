@@ -338,6 +338,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
@@ -350,6 +351,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;

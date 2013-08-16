@@ -111,6 +111,8 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
     view = (SDL_uikitopenglview *)[SDLUIKitDelegate sharedAppDelegate].sdlViewController.sdlView;
+    // keyboard needs to be initialized now that SDL is properly initialized
+    [view initializeKeyboard];
 #else
     view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
                                         retainBacking: _this->gl_config.retained_backing \

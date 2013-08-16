@@ -8,10 +8,13 @@
 
 #import "IDBViewController.h"
 #import "SDL_uikitopenglview.h"
+#import "SDL_keyboard_c.h"
 #import "QuartzCore/CALayer.h"
 
 @interface IDBViewController ()
 
+@property (readwrite, nonatomic) BOOL menuOpen;
+@property (readwrite, nonatomic) BOOL paused;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
 @property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 @property (readonly, nonatomic) CGSize unscaledSDLViewSize;
@@ -22,6 +25,8 @@
 
 - (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
     if (self = [super init]) {
+        _menuOpen = NO;
+        _paused = NO;
         _sdlView = sdlView;
         _unscaledSDLViewSize = self.sdlView.bounds.size;
     }
@@ -30,7 +35,7 @@
 
 - (void)loadView {
     // don't call [super loadView] because view is created programatically
-    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.sdlView];
@@ -38,7 +43,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.autoresizesSubviews = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.menuOpen = YES;
     
     // setup scroll view
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -49,13 +56,9 @@
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
     
     // swipe up gesture recognizer
-    UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeUpGesture:)];
-    swipeGestureUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    swipeGestureUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp | UISwipeGestureRecognizerDirectionDown;
     [self.view addGestureRecognizer:swipeGestureUpRecognizer];
-    // swipe down gesture recognizer
-    UISwipeGestureRecognizer *swipeGestureDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDownGesture:)];
-    swipeGestureDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view addGestureRecognizer:swipeGestureDownRecognizer];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -85,7 +88,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     // register keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -99,26 +101,41 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return !self.menuOpen;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationNone;
+}
+
+- (void)pauseOrResume:(NSNotification *)aNotification {
+    if ([aNotification.name isEqualToString:UIApplicationDidBecomeActiveNotification]) {
+        if (self.paused) {
+            self.paused = NO;
+            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
+            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
+            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
+            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
+        }
+    } else if ([aNotification.name isEqualToString:UIApplicationWillResignActiveNotification]) {
+        if (!self.paused) {
+            self.paused = YES;
+            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
+            SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
+            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
+            SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
+        }
+    }
+    return;
+}
+
+#pragma mark Notifications
+
 - (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
     // get keyboard values
     CGRect keyboardFrame = [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval animationDuration = [[aNotification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    // UIViewAnimationCurve needs to be converted to UIViewAnimationOptions for animation block
-    UIViewAnimationOptions animationOptions;
-    switch ((UIViewAnimationCurve)[[aNotification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue]) {
-        case UIViewAnimationCurveEaseInOut: {
-            animationOptions = UIViewAnimationOptionCurveEaseInOut;
-        } break;
-        case UIViewAnimationCurveEaseIn: {
-            animationOptions = UIViewAnimationOptionCurveEaseIn;
-        } break;
-        case UIViewAnimationCurveEaseOut: {
-            animationOptions = UIViewAnimationOptionCurveEaseOut;
-        } break;
-        case UIViewAnimationCurveLinear: {
-            animationOptions = UIViewAnimationOptionCurveLinear;
-        } break;
-    }
     
     // keyboard orientation is always returned in portrait orientation coordinates, so it must be converted to the local orientation
     CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
@@ -127,16 +144,16 @@
         // add content inset to adjust for keyboard appearing
         [UIView animateWithDuration:animationDuration
                               delay:0.0f
-                            options:animationOptions
+                            options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                                    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
-                                    self.scrollView.contentInset = contentInsets;
-                                    self.scrollView.scrollIndicatorInsets = contentInsets;
-                                    }
+                             UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+                             self.scrollView.contentInset = contentInsets;
+                             self.scrollView.scrollIndicatorInsets = contentInsets;
+                         }
                          completion:NULL];
         
         // scroll to bottom of scrollview if possible
-        if ([self scrollViewCanScroll]) {
+        if (self.scrollView.bounds.size.height - self.scrollView.contentInset.bottom - self.scrollView.contentInset.top < self.scrollView.contentSize.height) {
             CGPoint contentOffset = CGPointMake(0, self.scrollView.contentSize.height - (self.scrollView.bounds.size.height - adjustedKeyboardFrame.size.height));
             [self.scrollView setContentOffset:contentOffset animated:YES];
         }
@@ -144,30 +161,26 @@
         // remove content inset after keyboard dissapears
         [UIView animateWithDuration:animationDuration
                               delay:0.0f
-                            options:animationOptions
+                            options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                                    self.scrollView.contentInset = UIEdgeInsetsZero;
-                                    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
-                                    }
+                             UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+                             self.scrollView.contentInset = contentInsets;
+                             self.scrollView.scrollIndicatorInsets = contentInsets;
+                         }
                          completion:NULL];
     }
 }
 
-- (BOOL)scrollViewCanScroll {
-    return self.scrollView.bounds.size.height - self.scrollView.contentInset.bottom - self.scrollView.contentInset.top < self.scrollView.contentSize.height;
+- (void)setMenuOpen:(BOOL)menuOpen {
+    _menuOpen = menuOpen;
+    [self.navigationController setNavigationBarHidden:!self.menuOpen animated:YES];
+    [self.navigationController setToolbarHidden:!self.menuOpen animated:YES];
 }
 
 #pragma mark Touch Events
-- (void)swipeUpGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
-    if (self.navigationController.toolbarHidden) {
-        [self.navigationController setToolbarHidden:NO animated:YES];
-    }
-}
-
-- (void)swipeDownGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
-    if (!self.navigationController.toolbarHidden) {
-        [self.navigationController setToolbarHidden:YES animated:YES];
-    }
+- (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
+    self.menuOpen = !self.menuOpen;
+    return;
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
