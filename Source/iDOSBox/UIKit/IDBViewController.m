@@ -191,14 +191,16 @@
 }
 
 - (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
-    self.menuVisible = !self.menuVisible;
     self.menuOpen = !self.menuOpen;
+    self.menuVisible = self.menuOpen;
     return;
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
     if (self.sdlView.keyboardVisible) {
         [self.sdlView hideKeyboard];
+    } else if (self.menuOpen) {
+        self.menuOpen = NO;
     }
 }
 
