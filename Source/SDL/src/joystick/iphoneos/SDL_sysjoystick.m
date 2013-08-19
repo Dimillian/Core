@@ -26,7 +26,9 @@
 #include "SDL_joystick.h"
 #include "../SDL_sysjoystick.h"
 #include "../SDL_joystick_c.h"
+#ifndef IDOSBOX
 #import "SDLUIAccelerationDelegate.h"
+#endif
 
 const char *accelerometerName = "iPhone accelerometer";
 
@@ -69,7 +71,9 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 		joystick->nballs = 0;
 		joystick->nbuttons = 0;
 		joystick->name  = accelerometerName;
+#ifndef IDOSBOX
 		[[SDLUIAccelerationDelegate sharedDelegate] startup];
+#endif
 		return 0;
 	}
 	else {
@@ -87,7 +91,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 void
 SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 {
-	
+#ifndef IDOSBOX
 	Sint16 orientation[3];
 	
 	if ([[SDLUIAccelerationDelegate sharedDelegate] hasNewData]) {
@@ -100,7 +104,7 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 		SDL_PrivateJoystickAxis(joystick, 2, orientation[2]);
 
 	}
-	
+#endif
     return;
 }
 
@@ -108,9 +112,11 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 void
 SDL_SYS_JoystickClose(SDL_Joystick * joystick)
 {
+#ifndef IDOSBOX
 	if (joystick->index == 0 && [[SDLUIAccelerationDelegate sharedDelegate] isRunning]) {
 		[[SDLUIAccelerationDelegate sharedDelegate] shutdown];
 	}
+#endif
 	SDL_SetError("No joystick open with that index");
 
     return;

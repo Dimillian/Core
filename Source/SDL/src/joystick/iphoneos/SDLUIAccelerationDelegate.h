@@ -23,6 +23,8 @@
 #import <UIKit/UIKit.h>
 #import "SDL_types.h"
 
+#ifndef IDOSBOX
+
 /* *INDENT-OFF* */
 @interface SDLUIAccelerationDelegate: NSObject <UIAccelerometerDelegate> {
 
@@ -43,3 +45,5 @@
 
 @end
 /* *INDENT-ON* */
+
+#endif

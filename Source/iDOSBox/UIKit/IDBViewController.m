@@ -13,6 +13,7 @@
 
 @interface IDBViewController ()
 
+@property (readwrite, nonatomic) BOOL menuVisible;
 @property (readwrite, nonatomic) BOOL menuOpen;
 @property (readwrite, nonatomic) BOOL paused;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
@@ -25,6 +26,7 @@
 
 - (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
     if (self = [super init]) {
+        _menuVisible = NO;
         _menuOpen = NO;
         _paused = NO;
         _sdlView = sdlView;
@@ -61,10 +63,11 @@
     [self.view addGestureRecognizer:swipeGestureUpRecognizer];
     
     UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(hideButtonPressed)];
+    UIBarButtonItem *keyboardButton = [[UIBarButtonItem alloc] initWithTitle:@"Keyboard" style:UIBarButtonItemStylePlain target:self action:@selector(keyboardButtonPressed)];
     UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playButtonPressed)];
     UIBarButtonItem *pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(pauseButtonPressed)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    self.toolbarItems = [NSArray arrayWithObjects:hideButton, flexibleSpace, playButton, pauseButton, nil];
+    self.toolbarItems = [NSArray arrayWithObjects:hideButton, keyboardButton, flexibleSpace, playButton, pauseButton, nil];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -108,7 +111,7 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
-    return !self.menuOpen;
+    return !self.menuVisible;
 }
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
@@ -118,8 +121,15 @@
 #pragma mark Accessors
 - (void)setMenuOpen:(BOOL)menuOpen {
     _menuOpen = menuOpen;
-    [self.navigationController setNavigationBarHidden:!self.menuOpen animated:YES];
-    [self.navigationController setToolbarHidden:!self.menuOpen animated:YES];
+    [self setMenuVisible:menuOpen];
+    return;
+}
+
+- (void)setMenuVisible:(BOOL)menuVisible {
+    _menuVisible = menuVisible;
+    [self.navigationController setNavigationBarHidden:!self.menuVisible animated:YES];
+    [self.navigationController setToolbarHidden:!self.menuVisible animated:YES];
+    return;
 }
 
 - (void)setPaused:(BOOL)paused {
@@ -143,7 +153,9 @@
     CGRect adjustedKeyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
     
     if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
-        self.menuOpen = NO;
+        // hide navigation and toolbar
+        self.menuVisible = NO;
+        
         // add content inset to adjust for keyboard appearing
         [UIView animateWithDuration:animationDuration
                               delay:0.0f
@@ -161,6 +173,10 @@
             [self.scrollView setContentOffset:contentOffset animated:YES];
         }
     } else if ([aNotification.name isEqualToString:UIKeyboardWillHideNotification]) {
+        // show navigation and toolbar if they were visible before the keyboard was opened
+        if (self.menuOpen) {
+            self.menuVisible = YES;
+        }
         // remove content inset after keyboard dissapears
         [UIView animateWithDuration:animationDuration
                               delay:0.0f
@@ -175,21 +191,26 @@
 }
 
 - (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
+    self.menuVisible = !self.menuVisible;
     self.menuOpen = !self.menuOpen;
     return;
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    if (!self.sdlView.keyboardVisible) {
-        [self.sdlView showKeyboard];
-    } else {
+    if (self.sdlView.keyboardVisible) {
         [self.sdlView hideKeyboard];
     }
 }
 
 #pragma mark
 - (void)hideButtonPressed {
+    self.menuVisible = !self.menuVisible;
     self.menuOpen = !self.menuOpen;
+    return;
+}
+
+- (void)keyboardButtonPressed {
+    [self.sdlView showKeyboard];
     return;
 }
 

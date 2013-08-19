@@ -24,6 +24,8 @@
 /* needed for SDL_IPHONE_MAX_GFORCE macro */
 #import "../../../include/SDL_config_iphoneos.h"
 
+#ifndef IDOSBOX
+
 static SDLUIAccelerationDelegate *sharedDelegate=nil;
 
 @implementation SDLUIAccelerationDelegate
@@ -140,3 +142,5 @@ static SDLUIAccelerationDelegate *sharedDelegate=nil;
 }
 
 @end
+
+#endif
