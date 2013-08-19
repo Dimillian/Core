@@ -187,6 +187,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = user;
+				TargetAttributes = {
+					CEF6D5481791E823006134CF = {
+						DevelopmentTeam = 6J5ZBBT7M9;
+					};
+				};
 			};
 			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "IDBDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -335,11 +340,14 @@
 		CEF6D5671791E823006134CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -348,11 +356,14 @@
 		CEF6D5681791E823006134CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
 			};

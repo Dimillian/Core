@@ -497,13 +497,17 @@ public:
 		if (event->type!=SDL_KEYDOWN && event->type!=SDL_KEYUP) return false;
 		Bitu key=GetKeyCode(event->key.keysym);
 //		LOG_MSG("key type %i is %x [%x %x]",event->type,key,event->key.keysym.sym,event->key.keysym.scancode);
+#ifndef IDOSBOX
 		assert(Bitu(event->key.keysym.sym)<keys);
+#endif
 		if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
 		else DeactivateBindList(&lists[key],true);
 		return 0;
 	}
 	CBind * CreateKeyBind(SDLKey _key) {
+#ifndef IDOSBOX
 		if (!usescancodes) assert((Bitu)_key<keys);
+#endif
 		return new CKeyBind(&lists[(Bitu)_key],_key);
 	}
 private:
@@ -2246,7 +2250,7 @@ static void InitializeJoysticks(void) {
 static void CreateBindGroups(void) {
 	bindgroups.clear();
 #ifdef IDOSBOX
-    new CKeyBindGroup(SDL_NUM_SCANCODES);
+    new CKeyBindGroup(MAX_SDLKEYS);
 #else
 	new CKeyBindGroup(SDLK_LAST);
 #endif
