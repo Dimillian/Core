@@ -27,6 +27,9 @@
 #include "callback.h"
 #include "support.h"
 
+#ifdef IDOSBOX
+extern "C" const char * c_drive_mount_directory();
+#endif
 
 Bitu call_shellstop;
 /* Larger scope so shell_del autoexec can use it to
@@ -304,6 +307,19 @@ void DOS_Shell::Run(void) {
 	if (machine == MCH_HERC) WriteOut(MSG_Get("SHELL_STARTUP_HERC"));
 	WriteOut(MSG_Get("SHELL_STARTUP_END"));
 
+#ifdef IDOSBOX
+    char input[CMD_MAXLINE];
+    // mount drive
+    sprintf(input, "mount C \"%s\"", c_drive_mount_directory());
+    ParseLine(input);
+    // goto mounted drive
+    sprintf(input, "C:");
+    ParseLine(input);
+    // clear screen
+    sprintf(input, "CLS");
+    ParseLine(input);
+#endif
+    
 	if (cmd->FindString("/INIT",line,true)) {
 		strcpy(input_line,line.c_str());
 		line.erase();

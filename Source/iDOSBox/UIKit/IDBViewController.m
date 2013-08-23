@@ -15,7 +15,6 @@
 
 @property (readwrite, nonatomic) BOOL menuVisible;
 @property (readwrite, nonatomic) BOOL menuOpen;
-@property (readwrite, nonatomic) BOOL paused;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
 @property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 @property (readonly, nonatomic) CGSize unscaledSDLViewSize;
@@ -143,6 +142,24 @@
     return;
 }
 
+#pragma mark DOSBox
+const char * dosbox_config_directory() {
+    return [[[NSBundle mainBundle] bundlePath] UTF8String];
+}
+
+const char * dosbox_config_filename() {
+    return "dosbox-ios.conf";
+}
+
+const char * c_drive_mount_directory() {
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] UTF8String];
+}
+
+- (void)sendCommand:(NSString *)command {
+    SDL_SendKeyboardText(0, [command UTF8String]);
+    return;
+}
+
 #pragma mark Events
 - (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
     // get keyboard values
@@ -197,14 +214,15 @@
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    if (self.sdlView.keyboardVisible) {
+    if (self.paused) {
+        self.paused = NO;
+    } else if (self.sdlView.keyboardVisible) {
         [self.sdlView hideKeyboard];
     } else if (self.menuOpen) {
         self.menuOpen = NO;
     }
 }
 
-#pragma mark
 - (void)hideButtonPressed {
     self.menuVisible = !self.menuVisible;
     self.menuOpen = !self.menuOpen;

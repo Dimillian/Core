@@ -23,6 +23,13 @@
 #include <string>
 #include <stdlib.h>
 
+#ifdef IDOSBOX
+extern "C" {
+    const char * dosbox_config_directory();
+    const char * dosbox_config_filename();
+}
+#endif
+
 #ifdef WIN32
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0400
@@ -61,6 +68,8 @@ void Cross::GetPlatformConfigDir(std::string& in) {
 #elif defined(MACOSX)
 	in = "~/Library/Preferences";
 	ResolveHomedir(in);
+#elif defined(IDOSBOX)
+    in = dosbox_config_directory();
 #else
 	in = "~/.dosbox";
 	ResolveHomedir(in);
@@ -76,7 +85,12 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #else /*linux freebsd*/
 #define DEFAULT_CONFIG_FILE "dosbox-" VERSION ".conf"
 #endif
+    
+#ifdef IDOSBOX
+    in = dosbox_config_filename();
+#else
 	in = DEFAULT_CONFIG_FILE;
+#endif
 }
 
 void Cross::CreatePlatformConfigDir(std::string& in) {

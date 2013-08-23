@@ -93,7 +93,6 @@ int main(int argc, char **argv) {
 }
 
 - (void)postFinishLaunch {
-
 	/* run the user's application, passing argc and argv */
 	int exit_status = SDL_main(forward_argc, forward_argv);
 	
@@ -133,8 +132,9 @@ int main(int argc, char **argv) {
 
 - (void) applicationWillResignActive:(UIApplication*)application
 {
-    [self pauseOrResume];
-    
+#ifdef IDOSBOX
+    self.sdlViewController.paused = YES;
+#endif
     //NSLog(@"%@", NSStringFromSelector(_cmd));
     
     // Send every window on every screen a MINIMIZED event.
@@ -171,26 +171,6 @@ int main(int argc, char **argv) {
             SDL_SendWindowEvent(window, SDL_WINDOWEVENT_RESTORED, 0, 0);
         }
     }
-    
-    SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		// flush event queue.
-        continue;
-	}
-    
-    // resume on next run loop
-    [self performSelector:@selector(pauseOrResume) withObject:self afterDelay:0.0f];
-
-}
-
-- (void)pauseOrResume {
-    /*
-    SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
-    SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
-    SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
-    SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
-     */
-    return;
 }
 
 @end

@@ -1985,8 +1985,10 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// if none found => parse localdir conf
+#ifndef IDOSBOX
 	if(!control->configfiles.size()) control->ParseConfigFile("dosbox.conf");
-
+#endif
+    
 	// if none found => parse userlevel conf
 	if(!control->configfiles.size()) {
 		config_file.clear();
