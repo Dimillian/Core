@@ -23,7 +23,7 @@ Contributing
 * Developement is ongoing as new features are added and bugs are fixed; fork and pull the project to submit your own changes for review.
 * All changes to DOSBox and SDL made for iOS are marked with the preprocessor macro `IDOSBOX`. Your own changes must use the macro too (e.g. `#ifdef IDOSBOX`) for logging and readability purposes as DOSBox and SDL will likely need to be updated at some point in the future when new versions are released.
 * DOSBox source is located at `Source/DOSBox`; SDL source is located at `Source/SDL`; iDOSBox user interface classes are located in `Source/iDOSBox/UIKit`.
-* iDOSBox is built as three static libraries, corresponding to the three source folders listed above. To use iDOSBox in your own project, drag the project into your own Xcode project and add the libraries as dependencies. Your `UIApplicationDelegate` should inherit from `SDLUikitAppDelegate`. Further details for interfacing with DOS are provided in comments in the appropriate files.
+* iDOSBox is built as three static libraries, corresponding to the three source folders listed above. To use iDOSBox in your own project, drag the project into your own Xcode project and add the libraries as dependencies. Your `UIApplicationDelegate` should inherit from `SDLUikitAppDelegate`. Further details for interfacing with DOS are provided in comments in the demo project at `IDBDemo/Source`.
 * iDOSBox is based on DOSBox 0.74 and SDL 1.2 for iOS. SDL 2 is not supported because it is not backwards compatible with DOSBox which uses SDL 1.2.
 
 Screenshots
