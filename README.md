@@ -20,7 +20,7 @@ Apple requires all apps that run emulated code to include the executable bundled
 
 Contributing
 ------------
-* Developement is ongoing as new features are added and bugs are fixed; fork and pull the project to submit your own changes for review.
+* Developement is ongoing as new features are added and bugs are fixed; fork and pull the project to submit your own changes for review. Bug reports and feature requests are welcome too!
 * All changes to DOSBox and SDL made for iOS are marked with the preprocessor macro `IDOSBOX`. Your own changes must use the macro too (e.g. `#ifdef IDOSBOX`) for logging and readability purposes as DOSBox and SDL will likely need to be updated at some point in the future when new versions are released.
 * DOSBox source is located at `Source/DOSBox`; SDL source is located at `Source/SDL`; iDOSBox user interface classes are located in `Source/iDOSBox/UIKit`.
 * iDOSBox is built as three static libraries, corresponding to the three source folders listed above. To use iDOSBox in your own project, drag the project into your own Xcode project and add the libraries as dependencies. Your `UIApplicationDelegate` should inherit from `SDLUikitAppDelegate`. Further details for interfacing with DOS are provided in comments in the demo project at `IDBDemo/Source`.
