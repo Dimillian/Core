@@ -30,6 +30,7 @@
 #ifdef IDOSBOX
 #import "IDBNavigationController.h"
 #import "IDBViewController.h"
+#import "IDBModel.h"
 #endif
 
 #ifdef main
@@ -110,7 +111,7 @@ int main(int argc, char **argv) {
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
     SDL_uikitopenglview *sdlView = [[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)];
-    self.sdlViewController = [[[IDBViewController alloc] initWithSDLView:sdlView] autorelease];
+    self.sdlViewController = [[[IDBViewController alloc] initWithIDBModel:[[[IDBModel alloc] init] autorelease] andSDLView:sdlView] autorelease];
     [sdlView release];
     
     self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.sdlViewController] autorelease];
@@ -132,9 +133,6 @@ int main(int argc, char **argv) {
 
 - (void) applicationWillResignActive:(UIApplication*)application
 {
-#ifdef IDOSBOX
-    self.sdlViewController.paused = YES;
-#endif
     //NSLog(@"%@", NSStringFromSelector(_cmd));
     
     // Send every window on every screen a MINIMIZED event.

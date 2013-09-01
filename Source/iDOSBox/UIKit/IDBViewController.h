@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class IDBModel;
 @class SDL_uikitopenglview;
 
 @interface IDBViewController : UIViewController
 
-@property (readwrite, nonatomic) BOOL paused;
 @property (readonly, nonatomic) SDL_uikitopenglview *sdlView;
 
-- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView;
+- (id)initWithIDBModel:(IDBModel *)model andSDLView:(SDL_uikitopenglview *)sdlView;
 
 @end

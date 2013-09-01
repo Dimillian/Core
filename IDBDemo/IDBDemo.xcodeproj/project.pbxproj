@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CEA5628417C2E1C900148011 /* dosbox-ios.conf in Resources */ = {isa = PBXBuildFile; fileRef = CEA5628317C2E1C900148011 /* dosbox-ios.conf */; };
+		CEE3CD0817D3D6A500EF75F1 /* Documents in Resources */ = {isa = PBXBuildFile; fileRef = CEE3CD0717D3D6A500EF75F1 /* Documents */; };
 		CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54C1791E823006134CF /* UIKit.framework */; };
 		CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54E1791E823006134CF /* Foundation.framework */; };
 		CEF6D5511791E823006134CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CEA5628317C2E1C900148011 /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
+		CEE3CD0717D3D6A500EF75F1 /* Documents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documents; sourceTree = "<group>"; };
 		CEF6D5491791E823006134CF /* IDBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D54C1791E823006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D54E1791E823006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 		CEF6D56A1791E83A006134CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CEA5628317C2E1C900148011 /* dosbox-ios.conf */,
+				CEE3CD0717D3D6A500EF75F1 /* Documents */,
 				CEF6D5541791E823006134CF /* IDBDemo-Info.plist */,
 				CEF6D55E1791E823006134CF /* Default.png */,
 				CEF6D5601791E823006134CF /* Default@2x.png */,
@@ -250,9 +250,9 @@
 			files = (
 				CEF6D5571791E823006134CF /* InfoPlist.strings in Resources */,
 				CEF6D55F1791E823006134CF /* Default.png in Resources */,
-				CEA5628417C2E1C900148011 /* dosbox-ios.conf in Resources */,
 				CEF6D5611791E823006134CF /* Default@2x.png in Resources */,
 				CEF6D5631791E823006134CF /* Default-568h@2x.png in Resources */,
+				CEE3CD0817D3D6A500EF75F1 /* Documents in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,28 +7,29 @@
 //
 
 #import "IDBViewController.h"
+#import "IDBModel.h"
 #import "SDL_uikitopenglview.h"
-#import "SDL_keyboard_c.h"
 #import "QuartzCore/CALayer.h"
 
 @interface IDBViewController ()
 
+@property (readwrite, nonatomic) IDBModel *idbModel;
+@property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 @property (readwrite, nonatomic) BOOL menuVisible;
 @property (readwrite, nonatomic) BOOL menuOpen;
 @property (readwrite, nonatomic) UIScrollView *scrollView;
-@property (readwrite, nonatomic) SDL_uikitopenglview *sdlView;
 @property (readonly, nonatomic) CGSize unscaledSDLViewSize;
 
 @end
 
 @implementation IDBViewController
 
-- (id)initWithSDLView:(SDL_uikitopenglview *)sdlView {
+- (id)initWithIDBModel:(IDBModel *)model andSDLView:(SDL_uikitopenglview *)sdlView {
     if (self = [super init]) {
+        _idbModel = model;
+        _sdlView = sdlView;
         _menuVisible = NO;
         _menuOpen = NO;
-        _paused = NO;
-        _sdlView = sdlView;
         _unscaledSDLViewSize = self.sdlView.bounds.size;
     }
     return self;
@@ -45,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     self.menuOpen = YES;
     
     // setup scroll view
@@ -97,8 +98,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // register keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHideNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -107,6 +109,7 @@
     // unregister keyboard notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -131,37 +134,8 @@
     return;
 }
 
-- (void)setPaused:(BOOL)paused {
-    if (_paused != paused) {
-        SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_LALT);
-        SDL_SendKeyboardKey(0, SDL_PRESSED, SDL_SCANCODE_PAUSE);
-        SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_PAUSE);
-        SDL_SendKeyboardKey(0, SDL_RELEASED, SDL_SCANCODE_LALT);
-    }
-    _paused = paused;
-    return;
-}
-
-#pragma mark DOSBox
-const char * dosbox_config_directory() {
-    return [[[NSBundle mainBundle] bundlePath] UTF8String];
-}
-
-const char * dosbox_config_filename() {
-    return "dosbox-ios.conf";
-}
-
-const char * c_drive_mount_directory() {
-    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] UTF8String];
-}
-
-- (void)sendCommand:(NSString *)command {
-    SDL_SendKeyboardText(0, [command UTF8String]);
-    return;
-}
-
 #pragma mark Events
-- (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
+- (void)keyboardWillShowOrHideNotification:(NSNotification *)aNotification {
     // get keyboard values
     CGRect keyboardFrame = [[aNotification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval animationDuration = [[aNotification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -178,7 +152,10 @@ const char * c_drive_mount_directory() {
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, adjustedKeyboardFrame.size.height, 0.0f);
+                             UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.scrollView.contentInset.top,
+                                                                           self.scrollView.contentInset.left,
+                                                                           self.scrollView.contentInset.bottom + adjustedKeyboardFrame.size.height,
+                                                                           self.scrollView.contentInset.right);
                              self.scrollView.contentInset = contentInsets;
                              self.scrollView.scrollIndicatorInsets = contentInsets;
                          }
@@ -199,7 +176,10 @@ const char * c_drive_mount_directory() {
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+                             UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.scrollView.contentInset.top,
+                                                                           self.scrollView.contentInset.left,
+                                                                           self.scrollView.contentInset.bottom - adjustedKeyboardFrame.size.height,
+                                                                           self.scrollView.contentInset.right);
                              self.scrollView.contentInset = contentInsets;
                              self.scrollView.scrollIndicatorInsets = contentInsets;
                          }
@@ -207,15 +187,21 @@ const char * c_drive_mount_directory() {
     }
 }
 
+- (void)applicationWillResignActiveNotification:(NSNotification *)aNotification {
+    self.idbModel.paused = YES;
+}
+
 - (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
-    self.menuOpen = !self.menuOpen;
-    self.menuVisible = self.menuOpen;
+    if (!self.menuOpen) {
+        self.menuOpen = YES;
+        self.menuVisible = YES;
+    }
     return;
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    if (self.paused) {
-        self.paused = NO;
+    if (self.idbModel.paused) {
+        self.idbModel.paused = NO;
     } else if (self.sdlView.keyboardVisible) {
         [self.sdlView hideKeyboard];
     } else if (self.menuOpen) {
@@ -235,12 +221,12 @@ const char * c_drive_mount_directory() {
 }
 
 - (void)playButtonPressed {
-    self.paused = NO;
+    self.idbModel.paused = NO;
     return;
 }
 
 - (void)pauseButtonPressed {
-    self.paused = YES;
+    self.idbModel.paused = YES;
     return;
 }
 
