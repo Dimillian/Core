@@ -1,5 +1,5 @@
 //
-// FireAndIce-iOS
+// iDOSBox
 // Copyright (C) 2013  Matthew Vilim
 //
 // This program is free software: you can redistribute it and/or modify
