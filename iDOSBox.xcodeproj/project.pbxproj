@@ -298,15 +298,8 @@
 		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
 		CEDB8271179675C600972087 /* IDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB8270179675C600972087 /* IDBViewController.m */; };
 		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
-		CEDB828717967B4400972087 /* IDBLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828217967AEF00972087 /* IDBLinkedList.m */; };
-		CEDB828817967B4400972087 /* IDBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828417967AEF00972087 /* IDBQueue.m */; };
-		CEDB828917967B4400972087 /* IDBStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828617967AEF00972087 /* IDBStack.m */; };
-		CEDB828E17967DC400972087 /* IDBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB828C17967DB600972087 /* IDBConstants.m */; };
 		CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* IDBConstants.h */; };
 		CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* IDBDebug.h */; };
-		CEE3CC3517D3D0BD00EF75F1 /* IDBLinkedList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828117967AEF00972087 /* IDBLinkedList.h */; };
-		CEE3CC3617D3D0BD00EF75F1 /* IDBQueue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828317967AEF00972087 /* IDBQueue.h */; };
-		CEE3CC3717D3D0BD00EF75F1 /* IDBStack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828517967AEF00972087 /* IDBStack.h */; };
 		CEE3CC3817D3D0BD00EF75F1 /* IDBNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB826C179675A600972087 /* IDBNavigationController.h */; };
 		CEE3CC3917D3D0BD00EF75F1 /* IDBViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB826F179675C600972087 /* IDBViewController.h */; };
 		CEE3CD0B17D3D7BD00EF75F1 /* IDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */; };
@@ -369,9 +362,6 @@
 				CEE3CD0C17D3D7C800EF75F1 /* IDBModel.h in CopyFiles */,
 				CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */,
 				CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */,
-				CEE3CC3517D3D0BD00EF75F1 /* IDBLinkedList.h in CopyFiles */,
-				CEE3CC3617D3D0BD00EF75F1 /* IDBQueue.h in CopyFiles */,
-				CEE3CC3717D3D0BD00EF75F1 /* IDBStack.h in CopyFiles */,
 				CEE3CC3817D3D0BD00EF75F1 /* IDBNavigationController.h in CopyFiles */,
 				CEE3CC3917D3D0BD00EF75F1 /* IDBViewController.h in CopyFiles */,
 			);
@@ -874,14 +864,7 @@
 		CEDB826D179675A600972087 /* IDBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBNavigationController.m; sourceTree = "<group>"; };
 		CEDB826F179675C600972087 /* IDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBViewController.h; sourceTree = "<group>"; };
 		CEDB8270179675C600972087 /* IDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBViewController.m; sourceTree = "<group>"; };
-		CEDB828117967AEF00972087 /* IDBLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBLinkedList.h; sourceTree = "<group>"; };
-		CEDB828217967AEF00972087 /* IDBLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBLinkedList.m; sourceTree = "<group>"; };
-		CEDB828317967AEF00972087 /* IDBQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBQueue.h; sourceTree = "<group>"; };
-		CEDB828417967AEF00972087 /* IDBQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBQueue.m; sourceTree = "<group>"; };
-		CEDB828517967AEF00972087 /* IDBStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBStack.h; sourceTree = "<group>"; };
-		CEDB828617967AEF00972087 /* IDBStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBStack.m; sourceTree = "<group>"; };
 		CEDB828B17967DB600972087 /* IDBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBConstants.h; sourceTree = "<group>"; };
-		CEDB828C17967DB600972087 /* IDBConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDBConstants.m; sourceTree = "<group>"; };
 		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDebug.h; sourceTree = "<group>"; };
 		CEE3CC2F17D3CC5F00EF75F1 /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBModel.h; sourceTree = "<group>"; };
@@ -1828,26 +1811,11 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		CEDB828017967AD800972087 /* DataStructures */ = {
-			isa = PBXGroup;
-			children = (
-				CEDB828117967AEF00972087 /* IDBLinkedList.h */,
-				CEDB828217967AEF00972087 /* IDBLinkedList.m */,
-				CEDB828317967AEF00972087 /* IDBQueue.h */,
-				CEDB828417967AEF00972087 /* IDBQueue.m */,
-				CEDB828517967AEF00972087 /* IDBStack.h */,
-				CEDB828617967AEF00972087 /* IDBStack.m */,
-			);
-			path = DataStructures;
-			sourceTree = "<group>";
-		};
 		CEDB828A17967D7D00972087 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				CEDB828B17967DB600972087 /* IDBConstants.h */,
-				CEDB828C17967DB600972087 /* IDBConstants.m */,
 				CEDB828D17967DB600972087 /* IDBDebug.h */,
-				CEDB828017967AD800972087 /* DataStructures */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2081,11 +2049,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDB828E17967DC400972087 /* IDBConstants.m in Sources */,
-				CEDB828717967B4400972087 /* IDBLinkedList.m in Sources */,
 				CEE3CD0B17D3D7BD00EF75F1 /* IDBModel.m in Sources */,
-				CEDB828817967B4400972087 /* IDBQueue.m in Sources */,
-				CEDB828917967B4400972087 /* IDBStack.m in Sources */,
 				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
 				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
 			);

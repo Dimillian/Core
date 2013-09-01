@@ -17,11 +17,9 @@
 //
 
 #import "IDBModel.h"
+#import "IDBConstants.h"
 #import "SDL_keyboard_c.h"
 #import "keyinfotable.h"
-
-NSString * const IDBStartupCommands[] = { @"dir", @"help" };
-NSString * const IDBConfigFilename = @"dosbox-ios.conf";
 
 typedef NS_ENUM(NSUInteger, IDBKeyState) {
     IDBKeyPress,

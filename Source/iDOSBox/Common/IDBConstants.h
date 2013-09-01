@@ -16,3 +16,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import  <Foundation/Foundation.h>
+
+static NSString * const IDBStartupCommands[] = { @"dir", @"help" };
+static NSString * const IDBConfigFilename = @"dosbox-ios.conf";
