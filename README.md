@@ -1,7 +1,7 @@
 iDOSBox
 =======
 
-iDOSBox is an iOS port of [DOSBox](http://www.dosbox.com/) written with [Simple DirectMedia Layer (SDL)](http://www.libsdl.org/)
+iOS port of [DOSBox](http://www.dosbox.com/) written with [Simple DirectMedia Layer (SDL)](http://www.libsdl.org/)
 
 ![iDOSBox iPad screenshot](/Documentation/idosbox_ipad_keyboard.png)
 
