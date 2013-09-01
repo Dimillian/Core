@@ -1,7 +1,7 @@
 iDOSBox
 =======
 
-iDOSBox is an iOS port of [DOSBox](http://www.dosbox.com/) written with [Simple DirectMedia Layer (SDL)](http://www.libsdl.org/)
+iOS port of [DOSBox](http://www.dosbox.com/) written with [Simple DirectMedia Layer (SDL)](http://www.libsdl.org/)
 
 ![iDOSBox iPad screenshot](/Documentation/idosbox_ipad_keyboard.png)
 
@@ -12,8 +12,8 @@ Features
 * Controls optomized for iOS and touchscreens
 * Supports both iPhone and iPad, including iOS 7
 
-Using iDOSBox
--------------
+Usage
+-----
 iDOSBox will be available shortly in the App Store for free; in the meantime, it can be 'one click' built from Xcode by downloading the [source](https://github.com/matthewvilim/iDOSBox) from Github.
 
 Apple requires all apps that run emulated code to include the executable bundled with the app; it follows that you can't add your own programs to iDOSBox from the App Store. You're encouraged to download the source, add your own programs as desired, and publish to the App Store.
