@@ -68,10 +68,10 @@ void dosbox_post_startup() {
         // change directory to C drive
         [IDBModel sendCommand:@"C:"];
         // clear screen
-        [IDBModel sendCommand:@"CLS"];
+        [IDBModel sendCommand:@"cls"];
         
         // run startup commands
-        for (NSUInteger i = 0; i < sizeof(IDBStartupCommands)/sizeof(IDBStartupCommands[0]); i++) {
+        for (NSUInteger i = 0; IDBStartupCommands[i]; i++) {
             [IDBModel sendCommand:IDBStartupCommands[i]];
         }
         
@@ -92,7 +92,7 @@ void dosbox_post_startup() {
 + (void)sendText:(NSString *)text {
     for (NSUInteger i = 0; i < [text length]; i++) {
         unichar key = [text characterAtIndex:i];
-        NSAssert(isascii(key), @"");
+        NSAssert(isascii(key), @"character is not ASCII");
         UIKitKeyInfo keyInfo = unicharToUIKeyInfoTable[key];
         
         const BOOL shiftPressed = keyInfo.mod & KMOD_SHIFT;

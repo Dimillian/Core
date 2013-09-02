@@ -68,9 +68,8 @@ int main(int argc, char **argv) {
 @interface SDLUIKitDelegate ()
 
 @property (readwrite, retain, nonatomic) IDBNavigationController *navigationController;
-@property (readwrite, retain, nonatomic) IDBContainerViewController *containerController;
 @property (readwrite, retain, nonatomic) IDBViewController *sdlViewController;
-@property (readwrite, retain, nonatomic) IDBTableViewController *tableViewController;
+@property (readwrite, retain, nonatomic) IDBModel *idbModel;
 
 @end
 #endif
@@ -111,7 +110,8 @@ int main(int argc, char **argv) {
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
     SDL_uikitopenglview *sdlView = [[SDL_uikitopenglview alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 640.0f, 400.0f)];
-    self.sdlViewController = [[[IDBViewController alloc] initWithIDBModel:[[[IDBModel alloc] init] autorelease] andSDLView:sdlView] autorelease];
+    self.idbModel = [[[IDBModel alloc] init] autorelease];
+    self.sdlViewController = [[[IDBViewController alloc] initWithIDBModel:self.idbModel andSDLView:sdlView] autorelease];
     [sdlView release];
     
     self.navigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.sdlViewController] autorelease];

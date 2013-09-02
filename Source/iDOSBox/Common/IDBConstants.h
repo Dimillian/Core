@@ -18,8 +18,7 @@
 
 #import  <Foundation/Foundation.h>
 
-// add your own commands here that should be run on startup
-static NSString * const IDBStartupCommands[] = { @"dir", @"help" };
+static NSString * const IDBStartupCommands[] = { nil };
 // name of the dosbox configuration file
 static NSString * const IDBConfigFilename = @"dosbox-ios.conf";
 static NSString * const IDBCDriveFolder = @"CDrive";

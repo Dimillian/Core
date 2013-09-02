@@ -25,9 +25,8 @@
 #ifdef IDOSBOX
 @class SDL_uikitopenglview;
 @class IDBNavigationController;
-@class IDBContainerViewController;
-@class IDBTableViewController;
 @class IDBViewController;
+@class IDBModel;
 #endif
 
 /* *INDENT-OFF* */
@@ -36,9 +35,8 @@
 
 #ifdef IDOSBOX
 @property (readonly, retain, nonatomic) IDBNavigationController *navigationController;
-@property (readonly, retain, nonatomic) IDBContainerViewController *containerController;
 @property (readonly, retain, nonatomic) IDBViewController *sdlViewController;
-@property (readonly, retain, nonatomic) IDBTableViewController *tableViewController;
+@property (readonly, retain, nonatomic) IDBModel *idbModel;
 #endif
 
 +(SDLUIKitDelegate *)sharedAppDelegate;
