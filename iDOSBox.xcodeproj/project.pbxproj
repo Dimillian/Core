@@ -355,7 +355,7 @@
 		};
 		CEDB825B179674BF00972087 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
@@ -866,9 +866,9 @@
 		CEDB8270179675C600972087 /* IDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBViewController.m; sourceTree = "<group>"; };
 		CEDB828B17967DB600972087 /* IDBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBConstants.h; sourceTree = "<group>"; };
 		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDebug.h; sourceTree = "<group>"; };
-		CEE3CC2F17D3CC5F00EF75F1 /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBModel.h; sourceTree = "<group>"; };
 		CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBModel.m; sourceTree = "<group>"; };
+		CEE3CD8017D41D5C00EF75F1 /* IDB-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDB-Prefix.pch"; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1790,8 +1790,7 @@
 		CEDB825F179674BF00972087 /* iDOSBox */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CC2F17D3CC5F00EF75F1 /* dosbox-ios.conf */,
-				CEE3CC3117D3CEA800EF75F1 /* Documents */,
+				CEE3CD8017D41D5C00EF75F1 /* IDB-Prefix.pch */,
 				CEDB828A17967D7D00972087 /* Common */,
 				CEDB827F17967ABD00972087 /* UIKit */,
 			);
@@ -1818,13 +1817,6 @@
 				CEDB828D17967DB600972087 /* IDBDebug.h */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		CEE3CC3117D3CEA800EF75F1 /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Documents;
 			sourceTree = "<group>";
 		};
 		CEF6D5821791EAEC006134CF /* Source */ = {
@@ -2171,7 +2163,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					IDOSBOX,
+					"DEBUG=1",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -2195,7 +2190,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = IDOSBOX;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2274,11 +2269,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREFIX_HEADER = "Source/iDOSBox/IDB-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2293,7 +2285,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "Source/iDOSBox/IDB-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2330,7 +2323,7 @@
 				DSTROOT = /tmp/SDL.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;

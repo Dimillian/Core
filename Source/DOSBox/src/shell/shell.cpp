@@ -28,7 +28,9 @@
 #include "support.h"
 
 #ifdef IDOSBOX
-extern "C" const char * c_drive_mount_directory();
+extern "C" {
+    void dosbox_post_startup();
+}
 #endif
 
 Bitu call_shellstop;
@@ -306,18 +308,8 @@ void DOS_Shell::Run(void) {
 	if (machine == MCH_CGA) WriteOut(MSG_Get("SHELL_STARTUP_CGA"));
 	if (machine == MCH_HERC) WriteOut(MSG_Get("SHELL_STARTUP_HERC"));
 	WriteOut(MSG_Get("SHELL_STARTUP_END"));
-
 #ifdef IDOSBOX
-    char input[CMD_MAXLINE];
-    // mount drive
-    sprintf(input, "mount C \"%s\"", c_drive_mount_directory());
-    ParseLine(input);
-    // goto mounted drive
-    sprintf(input, "C:");
-    ParseLine(input);
-    // clear screen
-    sprintf(input, "CLS");
-    ParseLine(input);
+    dosbox_post_startup();
 #endif
     
 	if (cmd->FindString("/INIT",line,true)) {

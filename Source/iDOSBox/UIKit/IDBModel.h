@@ -16,13 +16,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface IDBModel : NSObject
 
 @property (readwrite, nonatomic) BOOL paused;
 
-- (void)sendText:(NSString *)text;
-- (void)sendCommand:(NSString *)command;
++ (void)sendText:(NSString *)text;
++ (void)sendCommand:(NSString *)command;
 
 @end

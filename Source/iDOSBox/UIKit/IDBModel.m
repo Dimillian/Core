@@ -27,42 +27,69 @@ typedef NS_ENUM(NSUInteger, IDBKeyState) {
     IDBKeyRelease,
 };
 
+void dosbox_post_startup() {
+    static bool startup_complete = false;
+    // make sure this function is only run once
+    if (!startup_complete) {
+        startup_complete = true;
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *cDriveDocumentPath = [documentsPath stringByAppendingPathComponent:IDBCDriveFolder];
+        NSString *cDriveBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:IDBCDriveFolder];
+        
+        // create C drive folder in documents if it does not exist
+        if (![fileManager fileExistsAtPath:cDriveDocumentPath]) {
+            NSError *error;
+            if (![fileManager createDirectoryAtPath:cDriveDocumentPath withIntermediateDirectories:NO attributes:nil error:&error]) {
+                IDB_LOG(@"%@", [error localizedDescription]);
+            }
+        }
+        
+        // copy files from C drive folder in bundle to documents
+        NSError *error;
+        NSArray *cDriveBundleContents = [fileManager contentsOfDirectoryAtPath:cDriveBundlePath error:&error];
+        if (cDriveBundleContents) {
+            for (NSString *itemName in cDriveBundleContents) {
+                NSString *itemBundlePath = [cDriveBundlePath stringByAppendingPathComponent:itemName];
+                NSString *itemDocumentPath = [cDriveDocumentPath stringByAppendingPathComponent:itemName];
+                if (![fileManager fileExistsAtPath:itemDocumentPath]) {
+                    if (![fileManager copyItemAtPath:itemBundlePath toPath:itemDocumentPath error:&error]) {
+                        IDB_LOG(@"%@", [error localizedDescription]);
+                    }
+                }
+            }
+        } else {
+            IDB_LOG(@"%@", [error localizedDescription]);
+        }
+        
+        // mount C drive
+        [IDBModel sendCommand:[NSString stringWithFormat:@"mount C \"%@\"", cDriveDocumentPath]];
+        // change directory to C drive
+        [IDBModel sendCommand:@"C:"];
+        // clear screen
+        [IDBModel sendCommand:@"CLS"];
+        
+        // run startup commands
+        for (NSUInteger i = 0; i < sizeof(IDBStartupCommands)/sizeof(IDBStartupCommands[0]); i++) {
+            [IDBModel sendCommand:IDBStartupCommands[i]];
+        }
+        
+        // HELP: add your own runtime startup commands here
+        
+    }
+    return;
+}
+
 @interface IDBModel ()
 
-- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
++ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
 
 @end
 
 @implementation IDBModel
 
-- (id)init {
-    if (self = [super init]) {
-        _paused = NO;
-        
-        [self performSelector:@selector(test) withObject:self afterDelay:1.0f];
-    }
-    return self;
-}
-
-- (void)test {
-    for (NSUInteger i = 0; i < sizeof(IDBStartupCommands)/sizeof(IDBStartupCommands[0]); i++) {
-        [self sendCommand:IDBStartupCommands[i]];
-    }
-}
-
-const char * dosbox_config_directory() {
-    return [[[NSBundle mainBundle] bundlePath] UTF8String];
-}
-
-const char * dosbox_config_filename() {
-    return [IDBConfigFilename UTF8String];
-}
-
-const char * c_drive_mount_directory() {
-    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] UTF8String];
-}
-
-- (void)sendText:(NSString *)text {
++ (void)sendText:(NSString *)text {
     for (NSUInteger i = 0; i < [text length]; i++) {
         unichar key = [text characterAtIndex:i];
         NSAssert(isascii(key), @"");
@@ -70,17 +97,17 @@ const char * c_drive_mount_directory() {
         
         const BOOL shiftPressed = keyInfo.mod & KMOD_SHIFT;
         if (shiftPressed) {
-            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
+            [IDBModel sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
         }
-        [self sendKey:keyInfo.code withState:IDBKeyTap];
+        [IDBModel sendKey:keyInfo.code withState:IDBKeyTap];
         if (shiftPressed) {
-            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
+            [IDBModel sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
         }
     }
     return;
 }
 
-- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state  {
++ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state  {
     switch (state) {
         case IDBKeyPress: {
             SDL_SendKeyboardKey(0, SDL_PRESSED, scancode);
@@ -96,17 +123,32 @@ const char * c_drive_mount_directory() {
     return;
 }
 
-- (void)sendCommand:(NSString *)command {
-    [self sendText:command];
-    [self sendKey:SDL_SCANCODE_RETURN withState:IDBKeyTap];
++ (void)sendCommand:(NSString *)command {
+    [IDBModel sendText:command];
+    [IDBModel sendKey:SDL_SCANCODE_RETURN withState:IDBKeyTap];
     return;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        _paused = NO;
+    }
+    return self;
+}
+
+const char * dosbox_config_path() {
+    return [[[NSBundle mainBundle] resourcePath] UTF8String];
+}
+
+const char * dosbox_config_filename() {
+    return [IDBConfigFilename UTF8String];
 }
 
 - (void)setPaused:(BOOL)paused {
     if (_paused != paused) {
-        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
-        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];
-        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
+        [IDBModel sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
+        [IDBModel sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];
+        [IDBModel sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
     }
     _paused = paused;
     return;

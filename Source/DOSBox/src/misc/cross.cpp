@@ -25,7 +25,7 @@
 
 #ifdef IDOSBOX
 extern "C" {
-    const char * dosbox_config_directory();
+    const char * dosbox_config_path();
     const char * dosbox_config_filename();
 }
 #endif
@@ -69,7 +69,7 @@ void Cross::GetPlatformConfigDir(std::string& in) {
 	in = "~/Library/Preferences";
 	ResolveHomedir(in);
 #elif defined(IDOSBOX)
-    in = dosbox_config_directory();
+    in = dosbox_config_path();
 #else
 	in = "~/.dosbox";
 	ResolveHomedir(in);

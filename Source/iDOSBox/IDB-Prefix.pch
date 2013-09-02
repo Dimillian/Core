@@ -16,24 +16,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#pragma Macros
-// enable or disable debug mode
-#if DEBUG
-    #define IDB_DEBUG 1
-#else
-    #define IDB_DEBUG 0
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
-// enable or disable logging
-#if IDB_DEBUG
-    #define IDB_LOG(string, ...) NSLog((@"iDOSBox: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
-#else
-    #define IDB_LOG(string, ...) do {} while (0)
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "IDBDebug.h"
 #endif
-
-// enable or disable memory management logging
-#define IDB_LOG_INIT(object) IDB_LOG(@"init %@", object)
-#define IDB_LOG_DEALLOC(object) IDB_LOG(@"dealloc %@", object)
-
-#pragma mark Errors
-static NSString * const FIArgumentNilError = @"argument cannot be nil";
