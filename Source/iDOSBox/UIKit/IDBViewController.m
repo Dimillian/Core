@@ -51,12 +51,14 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.sdlView];
+    return;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.menuOpen = YES;
     
     // setup scroll view
@@ -110,7 +112,6 @@
     // register keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHideNotification:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHideNotification:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -119,7 +120,6 @@
     // unregister keyboard notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -194,11 +194,9 @@
                              self.scrollView.scrollIndicatorInsets = contentInsets;
                          }
                          completion:NULL];
+        
+        [self.scrollView setContentOffset:CGPointZero animated:YES];
     }
-}
-
-- (void)applicationWillResignActiveNotification:(NSNotification *)aNotification {
-    self.idbModel.paused = YES;
 }
 
 - (void)swipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer {

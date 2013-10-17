@@ -134,6 +134,9 @@ int main(int argc, char **argv) {
 - (void) applicationWillResignActive:(UIApplication*)application
 {
     //NSLog(@"%@", NSStringFromSelector(_cmd));
+#ifdef IDOSBOX
+    self.idbModel.paused = YES;
+#endif
     
     // Send every window on every screen a MINIMIZED event.
     SDL_VideoDevice *_this = SDL_GetVideoDevice();
@@ -169,6 +172,10 @@ int main(int argc, char **argv) {
             SDL_SendWindowEvent(window, SDL_WINDOWEVENT_RESTORED, 0, 0);
         }
     }
+    
+#ifdef IDOSBOX
+    //self.idbModel.paused = NO;
+#endif
 }
 
 @end

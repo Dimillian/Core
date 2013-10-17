@@ -954,17 +954,17 @@
 		36EBC1C7AAD6A5A6047E67B3 /* cpu */ = {
 			isa = PBXGroup;
 			children = (
+				36EBCCAE82CA3E21719CAA29 /* core_dyn_x86 */,
+				36EBCD2FB0E4D7130479C460 /* core_dynrec */,
+				36EBC7D7E323F6DA8FC3801C /* core_normal */,
+				36EBC397DE59CF25BD42E697 /* core_full */,
 				36EBC7912599CA4748C2C43D /* cpu.cpp */,
 				36EBC2626466F953FE32E2C6 /* modrm.h */,
-				36EBC397DE59CF25BD42E697 /* core_full */,
 				36EBC92EA5FF677F4E530FA9 /* flags.cpp */,
 				36EBCF76E72694610CC7D057 /* modrm.cpp */,
 				36EBCBB5F96FFFF0CBF3DEBB /* paging.cpp */,
-				36EBCD2FB0E4D7130479C460 /* core_dynrec */,
-				36EBC7D7E323F6DA8FC3801C /* core_normal */,
 				36EBC18124E4CD8B205E04BD /* lazyflags.h */,
 				36EBC832030A8D15C142BBAD /* callback.cpp */,
-				36EBCCAE82CA3E21719CAA29 /* core_dyn_x86 */,
 				36EBCA77E9B03C5870EBFB80 /* core_full.cpp */,
 				36EBCA009CAE8DD64D58F991 /* instructions.h */,
 				36EBCF6AD0E2DE6D91FE2835 /* core_dynrec.cpp */,
@@ -2171,7 +2171,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -2194,7 +2194,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2204,6 +2204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = NO;
@@ -2235,6 +2236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = NO;
@@ -2265,6 +2267,7 @@
 		CEDB8267179674BF00972087 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
@@ -2281,6 +2284,7 @@
 		CEDB8268179674BF00972087 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
@@ -2297,6 +2301,7 @@
 		CEE95C01178A1E0F001BD8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/SDL.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2312,13 +2317,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		CEE95C02178A1E0F001BD8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/SDL.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2333,7 +2339,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

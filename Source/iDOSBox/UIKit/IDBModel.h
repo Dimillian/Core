@@ -16,10 +16,22 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import "SDL_scancode.h"
+
+typedef NS_ENUM(NSUInteger, IDBKeyState) {
+    IDBKeyPress,
+    IDBKeyTap,
+    IDBKeyRelease,
+};
+
 @interface IDBModel : NSObject
 
 @property (readwrite, nonatomic) BOOL paused;
 
++ (NSMutableArray *)commandQueue;
++ (void)enqueueCommand:(NSString *)command;
++ (NSString *)dequeueCommand;
++ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
 + (void)sendText:(NSString *)text;
 + (void)sendCommand:(NSString *)command;
 

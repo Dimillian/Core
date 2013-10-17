@@ -29,7 +29,7 @@
 
 #ifdef IDOSBOX
 extern "C" {
-    void dosbox_post_startup();
+    const char * dosbox_command_dequeue();
 }
 #endif
 
@@ -308,14 +308,12 @@ void DOS_Shell::Run(void) {
 	if (machine == MCH_CGA) WriteOut(MSG_Get("SHELL_STARTUP_CGA"));
 	if (machine == MCH_HERC) WriteOut(MSG_Get("SHELL_STARTUP_HERC"));
 	WriteOut(MSG_Get("SHELL_STARTUP_END"));
-#ifdef IDOSBOX
-    dosbox_post_startup();
-#endif
     
 	if (cmd->FindString("/INIT",line,true)) {
 		strcpy(input_line,line.c_str());
 		line.erase();
 		ParseLine(input_line);
+        WriteOut_NoParsing("\n");
 	}
 	do {
 		if (bf){
@@ -336,6 +334,18 @@ void DOS_Shell::Run(void) {
 			ParseLine(input_line);
 			if (echo && !bf) WriteOut_NoParsing("\n");
 		}
+        
+#ifdef IDOSBOX
+        // execute commands recieved directly through queue
+        while (const char *command = dosbox_command_dequeue()) {
+            char command_buffer[CMD_MAXLINE];
+            strcpy(command_buffer, command);
+            ParseLine(command_buffer);
+            if (echo) {
+                WriteOut("\n");
+            }
+        }
+#endif
 	} while (!exit);
 }
 

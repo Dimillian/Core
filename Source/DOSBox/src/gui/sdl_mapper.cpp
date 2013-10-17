@@ -2043,13 +2043,15 @@ static struct {
 	{"pageup",SDLK_PAGEUP},	{"insert",SDLK_INSERT},		{"home",SDLK_HOME},
 	{"delete",SDLK_DELETE},	{"end",SDLK_END},			{"up",SDLK_UP},
 	{"left",SDLK_LEFT},		{"down",SDLK_DOWN},			{"right",SDLK_RIGHT},
+#ifndef IDOSBOX
 	{"kp_0",SDLK_KP0},	{"kp_1",SDLK_KP1},	{"kp_2",SDLK_KP2},	{"kp_3",SDLK_KP3},
 	{"kp_4",SDLK_KP4},	{"kp_5",SDLK_KP5},	{"kp_6",SDLK_KP6},	{"kp_7",SDLK_KP7},
 	{"kp_8",SDLK_KP8},	{"kp_9",SDLK_KP9},	{"numlock",SDLK_NUMLOCK},
 	{"kp_divide",SDLK_KP_DIVIDE},	{"kp_multiply",SDLK_KP_MULTIPLY},
 	{"kp_minus",SDLK_KP_MINUS},		{"kp_plus",SDLK_KP_PLUS},
 	{"kp_period",SDLK_KP_PERIOD},	{"kp_enter",SDLK_KP_ENTER},
-
+#endif
+    
 #if defined (MACOSX)
 	/* Intl Mac keyboards in US layout actually put U+00A7 SECTION SIGN here */
 	{"lessthan",SDLK_WORLD_0},
