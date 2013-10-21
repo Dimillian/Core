@@ -34,9 +34,9 @@
 }
 
 #ifdef IDOSBOX
-@property (readonly, retain, nonatomic) IDBNavigationController *navigationController;
-@property (readonly, retain, nonatomic) IDBViewController *sdlViewController;
-@property (readonly, retain, nonatomic) IDBModel *idbModel;
+@property (readwrite, retain, nonatomic) IDBNavigationController *navigationController;
+@property (readwrite, retain, nonatomic) IDBViewController *sdlViewController;
+@property (readwrite, retain, nonatomic) IDBModel *idbModel;
 #endif
 
 +(SDLUIKitDelegate *)sharedAppDelegate;

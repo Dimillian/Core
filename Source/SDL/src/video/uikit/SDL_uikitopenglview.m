@@ -121,14 +121,6 @@
 	return self;
 }
 
-#ifdef IDOSBOX
-
-- (id)initWithFrame:(CGRect)frame {
-    return [self initWithFrame:frame retainBacking:YES rBits:0 gBits:0 bBits:0 aBits:0 depthBits:0];
-}
-
-#endif
-
 - (void)setCurrentContext {
 	[EAGLContext setCurrentContext:context];
 }

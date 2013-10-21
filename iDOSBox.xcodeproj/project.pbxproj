@@ -295,6 +295,7 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
+		CEA3321A1814CBE500F76146 /* IDBView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA332191814CBE500F76146 /* IDBView.m */; };
 		CEA5C45E1813BA12005A6059 /* IDBKeyboardKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C45D1813BA12005A6059 /* IDBKeyboardKeyView.m */; };
 		CEA5C4611813BED1005A6059 /* IDBKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C4601813BED1005A6059 /* IDBKeyboardView.m */; };
 		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
@@ -861,6 +862,8 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
+		CEA332181814CBE500F76146 /* IDBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBView.h; sourceTree = "<group>"; };
+		CEA332191814CBE500F76146 /* IDBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBView.m; sourceTree = "<group>"; };
 		CEA5C45C1813BA12005A6059 /* IDBKeyboardKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBKeyboardKeyView.h; sourceTree = "<group>"; };
 		CEA5C45D1813BA12005A6059 /* IDBKeyboardKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBKeyboardKeyView.m; sourceTree = "<group>"; };
 		CEA5C45F1813BED1005A6059 /* IDBKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBKeyboardView.h; sourceTree = "<group>"; };
@@ -1824,6 +1827,8 @@
 				CEDB8270179675C600972087 /* IDBViewController.m */,
 				CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */,
 				CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */,
+				CEA332181814CBE500F76146 /* IDBView.h */,
+				CEA332191814CBE500F76146 /* IDBView.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2063,6 +2068,7 @@
 				CEE3CD0B17D3D7BD00EF75F1 /* IDBModel.m in Sources */,
 				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
 				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
+				CEA3321A1814CBE500F76146 /* IDBView.m in Sources */,
 				CEA5C4611813BED1005A6059 /* IDBKeyboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

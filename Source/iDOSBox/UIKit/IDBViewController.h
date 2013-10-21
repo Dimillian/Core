@@ -19,12 +19,12 @@
 #import <UIKit/UIKit.h>
 
 @class IDBModel;
-@class SDL_uikitopenglview;
+@class IDBView;
 
 @interface IDBViewController : UIViewController
 
-@property (readonly, nonatomic) SDL_uikitopenglview *sdlView;
+@property (readonly, nonatomic) IDBView *idbView;
 
-- (id)initWithIDBModel:(IDBModel *)model andSDLView:(SDL_uikitopenglview *)sdlView;
+- (id)initWithIDBModel:(IDBModel *)model andSDLView:(IDBView *)idbView;
 
 @end

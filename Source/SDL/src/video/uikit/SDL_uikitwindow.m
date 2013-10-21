@@ -137,21 +137,20 @@ int UIKit_CreateWindow(_THIS, SDL_Window *window) {
         }
     }
 
-#ifdef IDOSBOX
-    UIWindow *uiwindow = [SDLUIKitDelegate sharedAppDelegate].window;
-#else
     /* ignore the size user requested, and make a fullscreen window */
     // !!! FIXME: can we have a smaller view?
     UIWindow *uiwindow = [UIWindow alloc];
+#ifdef IDOSBOX
+    uiwindow = [uiwindow initWithFrame:[UIScreen mainScreen].bounds];
+#else
     if (window->flags & SDL_WINDOW_BORDERLESS)
         uiwindow = [uiwindow initWithFrame:[uiscreen bounds]];
     else
         uiwindow = [uiwindow initWithFrame:[uiscreen applicationFrame]];
-
+#endif
     if (SDL_UIKit_supports_multiple_displays) {
         [uiwindow setScreen:uiscreen];
     }
-#endif
     
     if (SetupWindowData(_this, window, uiwindow, SDL_TRUE) < 0) {
         [uiwindow release];

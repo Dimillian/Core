@@ -30,7 +30,10 @@
 #include <dlfcn.h>
 
 #ifdef IDOSBOX
+#import "IDBModel.h"
+#import "IDBView.h"
 #import "IDBViewController.h"
+#import "IDBNavigationController.h"
 #endif
 
 static int UIKit_GL_Initialize(_THIS);
@@ -103,16 +106,28 @@ void UIKit_GL_SwapWindow(_THIS, SDL_Window * window)
 
 SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 {
+#ifdef IDOSBOX
+    IDBView *view;
+#else
 	SDL_uikitopenglview *view;
+#endif
 	SDL_WindowData *data = (SDL_WindowData *) window->driverdata;
     UIScreen *uiscreen = (UIScreen *) window->display->driverdata;
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = (SDL_uikitopenglview *)[SDLUIKitDelegate sharedAppDelegate].sdlViewController.sdlView;
-    // keyboard needs to be initialized now that SDL is properly initialized
-    [view initializeKeyboard];
+    view = [[IDBView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)];
+    IDBModel *idbModel = [[[IDBModel alloc] init] autorelease];
+    [SDLUIKitDelegate sharedAppDelegate].idbModel = idbModel;
+    
+    IDBViewController *idbViewConroller = [[[IDBViewController alloc] initWithIDBModel:idbModel andSDLView:view] autorelease];
+    [SDLUIKitDelegate sharedAppDelegate].sdlViewController = idbViewConroller;
+    
+    IDBNavigationController *idbNavigationController = [[[IDBNavigationController alloc] initWithRootViewController:idbViewConroller] autorelease];
+    [SDLUIKitDelegate sharedAppDelegate].navigationController = idbNavigationController;
+    
+    [uiwindow setRootViewController:idbNavigationController];
 #else
     view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
                                         retainBacking: _this->gl_config.retained_backing \
