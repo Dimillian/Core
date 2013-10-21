@@ -274,8 +274,16 @@
 				SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_LSHIFT);
 			}
 			/* send a keydown and keyup even for the character */
+#ifdef IDOSBOX
 			SDL_SendKeyboardKey( 0, SDL_PRESSED, code);
+            int64_t delayInSeconds = 1.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                SDL_SendKeyboardKey( 0, SDL_RELEASED, code);
+                    });
+#else
 			SDL_SendKeyboardKey( 0, SDL_RELEASED, code);
+#endif
 			if (mod & KMOD_SHIFT) {
 				/* If character uses shift, press shift back up */
 				SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_LSHIFT);

@@ -87,6 +87,10 @@ MidiHandler Midi_none;
 #include "midi_coremidi.h"
 #include "midi_coreaudio.h"
 
+#elif defined(IDOSBOX)
+
+#include "midi_coremidi.h"
+
 #elif defined (WIN32)
 
 #include "midi_win32.h"

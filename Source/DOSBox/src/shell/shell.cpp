@@ -341,9 +341,6 @@ void DOS_Shell::Run(void) {
             char command_buffer[CMD_MAXLINE];
             strcpy(command_buffer, command);
             ParseLine(command_buffer);
-            if (echo) {
-                WriteOut("\n");
-            }
         }
 #endif
 	} while (!exit);

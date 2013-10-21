@@ -10,15 +10,16 @@
 		CE006A6C17D427C100C589FC /* dosbox-ios.conf in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6617D426E500C589FC /* dosbox-ios.conf */; };
 		CE006A7017D42A4E00C589FC /* CDrive in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6F17D42A4E00C589FC /* CDrive */; };
 		CE026A6117D4492C00943AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE026A6017D4492C00943AE4 /* Images.xcassets */; };
+		CEADE6A51812560300268532 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEADE6A41812560300268532 /* CoreMIDI.framework */; };
+		CEADE6A81812644400268532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
+		CEADE6A91812644F00268532 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */; };
 		CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54C1791E823006134CF /* UIKit.framework */; };
 		CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54E1791E823006134CF /* Foundation.framework */; };
-		CEF6D5511791E823006134CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
 		CEF6D5591791E823006134CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D5581791E823006134CF /* main.m */; };
 		CEF6D55D1791E823006134CF /* IDBDemoAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */; };
 		CEF6D55F1791E823006134CF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D55E1791E823006134CF /* Default.png */; };
 		CEF6D5611791E823006134CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5601791E823006134CF /* Default@2x.png */; };
 		CEF6D5631791E823006134CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5621791E823006134CF /* Default-568h@2x.png */; };
-		CEF6D57B1791E9CF006134CF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */; };
 		CEF6D57D1791E9D3006134CF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57C1791E9D3006134CF /* QuartzCore.framework */; };
 		CEF6D57F1791E9D7006134CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57E1791E9D7006134CF /* OpenGLES.framework */; };
 		CEF6D5801791E9F9006134CF /* libDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5721791E98E006134CF /* libDOSBox.a */; };
@@ -53,6 +54,10 @@
 		CE006A6617D426E500C589FC /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CE006A6F17D42A4E00C589FC /* CDrive */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CDrive; sourceTree = "<group>"; };
 		CE026A6017D4492C00943AE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IDBDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		CEADE69D181252D400268532 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEADE6A21812555A00268532 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEADE6A41812560300268532 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		CEADE6A6181262DE00268532 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CEF6D5491791E823006134CF /* IDBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D54C1791E823006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D54E1791E823006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,14 +81,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF6D5801791E9F9006134CF /* libDOSBox.a in Frameworks */,
-				CEF6D5811791E9F9006134CF /* libSDL.a in Frameworks */,
+				CEADE6A91812644F00268532 /* AudioToolbox.framework in Frameworks */,
+				CEADE6A81812644400268532 /* CoreGraphics.framework in Frameworks */,
+				CEADE6A51812560300268532 /* CoreMIDI.framework in Frameworks */,
 				CEF6D57F1791E9D7006134CF /* OpenGLES.framework in Frameworks */,
 				CEF6D57D1791E9D3006134CF /* QuartzCore.framework in Frameworks */,
-				CEF6D57B1791E9CF006134CF /* AudioToolbox.framework in Frameworks */,
 				CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */,
 				CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */,
-				CEF6D5511791E823006134CF /* CoreGraphics.framework in Frameworks */,
+				CEF6D5801791E9F9006134CF /* libDOSBox.a in Frameworks */,
+				CEF6D5811791E9F9006134CF /* libSDL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,10 @@
 		CEF6D54B1791E823006134CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEADE6A6181262DE00268532 /* CoreAudio.framework */,
+				CEADE6A41812560300268532 /* CoreMIDI.framework */,
+				CEADE6A21812555A00268532 /* MobileCoreServices.framework */,
+				CEADE69D181252D400268532 /* AVFoundation.framework */,
 				CEF6D57E1791E9D7006134CF /* OpenGLES.framework */,
 				CEF6D57C1791E9D3006134CF /* QuartzCore.framework */,
 				CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */,
@@ -183,7 +193,7 @@
 		CEF6D5411791E823006134CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = user;
 				TargetAttributes = {
 					CEF6D5481791E823006134CF = {
@@ -328,7 +338,6 @@
 		CEF6D5671791E823006134CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -347,7 +356,6 @@
 		CEF6D5681791E823006134CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

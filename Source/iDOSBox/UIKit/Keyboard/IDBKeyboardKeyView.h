@@ -17,7 +17,32 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "SDL_scancode.h"
 
-@interface IDBNavigationController : UINavigationController
+typedef NS_ENUM(NSUInteger, IDBKeyboardKeySize) {
+    IDBKeyboardKeySize100,
+    IDBKeyboardKeySize125,
+    IDBKeyboardKeySize150,
+    IDBKeyboardKeySize175,
+    IDBKeyboardKeySize200,
+    IDBKeyboardKeySize225,
+    IDBKeyboardKeySize275,
+    IDBKeyboardKeySizeSpace,
+};
+
+typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
+    IDBKeyboardKeyStatePress,
+    IDBKeyboardKeyStateRelease,
+};
+
+@protocol IDBKeyboardKeyViewDelegate <NSObject>
+
+- (void)keyStateChange:(IDBKeyboardKeyState)keyState withScancode:(SDL_scancode)keyScancode;
+
+@end
+
+@interface IDBKeyboardKeyView : UIView
+
+@property (weak, readwrite, nonatomic) id<IDBKeyboardKeyViewDelegate> delegate;
 
 @end

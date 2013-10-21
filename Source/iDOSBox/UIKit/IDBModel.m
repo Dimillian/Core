@@ -1,20 +1,20 @@
-//
-// iDOSBox
-// Copyright (C) 2013  Matthew Vilim
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
+/*
+ * iDOSBox
+ * Copyright (C) 2013  Matthew Vilim
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #import "IDBModel.h"
 #import "IDBConstants.h"
@@ -105,18 +105,15 @@ const char * dosbox_command_dequeue() {
     return;
 }
 
-+ (void)sendCommand:(NSString *)command {
-    [IDBModel sendText:command];
-    [IDBModel sendKey:SDL_SCANCODE_RETURN withState:IDBKeyTap];
-    return;
-}
-
 - (id)init {
     if (self = [super init]) {
         _paused = NO;
         [IDBModel enqueueCommand:[NSString stringWithFormat:@"mount C \"%@\"", [self mountDocumentDirectory]]];
         [IDBModel enqueueCommand:@"C:"];
-        [IDBModel enqueueCommand:@"cls"];
+        for (NSUInteger i = 0; i < sizeof(IDBStartupCommands) / sizeof(IDBStartupCommands[0]); i++) {
+            [IDBModel enqueueCommand:IDBStartupCommands[i]];
+        }
+        [IDBModel enqueueCommand:@"FIRE"];
     }
     return self;
 }

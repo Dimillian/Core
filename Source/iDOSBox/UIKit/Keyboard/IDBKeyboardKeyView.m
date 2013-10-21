@@ -16,8 +16,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
+#import "IDBKeyboardKeyView.h"
 
-@interface IDBNavigationController : UINavigationController
+@interface IDBKeyboardKeyView ()
+
+@property (readwrite, nonatomic) IDBKeyboardKeySize size;
+@property (readwrite, nonatomic) SDL_scancode scancode;
+
+@end
+
+@implementation IDBKeyboardKeyView
+
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)keyScancode {
+    if (self = [super initWithFrame:CGRectZero]) {
+        
+    }
+    return self;
+}
 
 @end
