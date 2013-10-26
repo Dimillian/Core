@@ -28,16 +28,15 @@ typedef NS_ENUM(NSUInteger, IDBKeyState) {
 
 @property (readwrite, nonatomic) BOOL paused;
 
-+ (NSString *)dosboxConfigPath;
-+ (NSString *)dosboxConfigFilename;
-+ (NSArray *)startupCommands;
-
-+ (NSMutableArray *)commandQueue;
-+ (void)enqueueCommand:(NSString *)command;
-+ (void)enqueueCommands:(NSArray *)commands;
-+ (NSString *)dequeueCommand;
-
-+ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
-+ (void)sendString:(NSString *)text;
++ (id)sharedModel;
+- (NSString *)dosboxConfigPath;
+- (NSString *)dosboxConfigFilename;
+- (NSArray *)startupCommands;
+- (NSMutableArray *)commandQueue;
+- (void)enqueueCommand:(NSString *)command;
+- (void)enqueueCommands:(NSArray *)commands;
+- (NSString *)dequeueCommand;
+- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
+- (void)sendString:(NSString *)text;
 
 @end

@@ -27,7 +27,7 @@
 #include "callback.h"
 #include "support.h"
 
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 extern "C" {
     const char * dosbox_command_dequeue();
 }
@@ -335,7 +335,7 @@ void DOS_Shell::Run(void) {
 			if (echo && !bf) WriteOut_NoParsing("\n");
 		}
         
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
         // execute commands recieved directly through queue
         while (const char *command = dosbox_command_dequeue()) {
             char command_buffer[CMD_MAXLINE];

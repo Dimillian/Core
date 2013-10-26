@@ -7,31 +7,27 @@
 //
 
 #import "NADOSModel.h"
-
-@implementation NGDOSModel (test)
-
-+ (NSString *)dosboxConfigPath {
-    return [[NSBundle mainBundle] resourcePath];
-}
-
-+ (NSString *)dosboxConfigFilename {
-    return @"dosbox-ios.conf";
-}
-
-+ (NSArray *)startupCommands {
-    return [NSArray arrayWithObjects:@"cls", nil];
-}
-
-@end
  
 @implementation NADOSModel
 
 - (id)init {
     if (self = ([super init])) {
-        [NGDOSModel enqueueCommand:[NSString stringWithFormat:@"mount C \"%@\"", [self mountDocumentDirectory:@"CDrive"]]];
-        [NGDOSModel enqueueCommands:[NSArray arrayWithObjects:@"cls", @"C:", @"FIRE", nil]];
+        [self enqueueCommand:[NSString stringWithFormat:@"mount C \"%@\"", [self mountDocumentDirectory:@"CDrive"]]];
+        [self enqueueCommands:[NSArray arrayWithObjects:@"cls", @"C:", @"FIRE", nil]];
     }
     return self;
+}
+
+- (NSString *)dosboxConfigPath {
+    return [[NSBundle mainBundle] resourcePath];
+}
+
+- (NSString *)dosboxConfigFilename {
+    return @"dosbox-ios.conf";
+}
+
+- (NSArray *)startupCommands {
+    return [NSArray arrayWithObjects:@"cls", nil];
 }
 
 - (NSString *)mountDocumentDirectory:(NSString *)folderName {

@@ -37,7 +37,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     self.dosView = [[NADOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)];
-    self.dosModel = [[NADOSModel alloc] init];
+    self.dosModel = [NADOSModel sharedModel];
     self.dosViewController = [[NADOSViewController alloc] initWithIDBModel:self.dosModel andDOSView:self.dosView];
     self.dosNavigationController = [[NADOSNavigationController alloc] initWithRootViewController:self.dosViewController];
     

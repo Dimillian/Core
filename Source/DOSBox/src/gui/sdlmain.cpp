@@ -1303,7 +1303,7 @@ static void GUI_StartUp(Section * sec) {
 			}
 		}
         
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 		bool exit_splash = true;
 #else
         bool exit_splash = false;
@@ -1903,7 +1903,7 @@ int main(int argc, char* argv[]) {
 	 */
 	putenv(const_cast<char*>("SDL_DISABLE_LOCK_KEYS=1"));
 #endif
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 	if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER
 #else
     if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_CDROM
@@ -1985,7 +1985,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// if none found => parse localdir conf
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 	if(!control->configfiles.size()) control->ParseConfigFile("dosbox.conf");
 #endif
     

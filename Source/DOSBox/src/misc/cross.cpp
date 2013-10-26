@@ -23,7 +23,7 @@
 #include <string>
 #include <stdlib.h>
 
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 extern "C" {
     const char * dosbox_config_path();
     const char * dosbox_config_filename();
@@ -68,7 +68,7 @@ void Cross::GetPlatformConfigDir(std::string& in) {
 #elif defined(MACOSX)
 	in = "~/Library/Preferences";
 	ResolveHomedir(in);
-#elif defined(IDOSBOX)
+#elif defined(NOSTALGIA)
     in = dosbox_config_path();
 #else
 	in = "~/.dosbox";
@@ -86,7 +86,7 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #define DEFAULT_CONFIG_FILE "dosbox-" VERSION ".conf"
 #endif
     
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
     in = dosbox_config_filename();
 #else
 	in = DEFAULT_CONFIG_FILE;

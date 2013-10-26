@@ -87,7 +87,7 @@ MidiHandler Midi_none;
 #include "midi_coremidi.h"
 #include "midi_coreaudio.h"
 
-#elif defined(IDOSBOX)
+#elif defined(NOSTALGIA)
 
 #include "midi_coremidi.h"
 

@@ -24,7 +24,7 @@
 /* needed for SDL_IPHONE_MAX_GFORCE macro */
 #import "../../../include/SDL_config_iphoneos.h"
 
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 
 static SDLUIAccelerationDelegate *sharedDelegate=nil;
 

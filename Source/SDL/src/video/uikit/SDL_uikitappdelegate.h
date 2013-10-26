@@ -22,7 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 @class NGDOSView;
 @class NGDOSModel;
 #endif
@@ -31,7 +31,7 @@
 @interface SDLUIKitDelegate:NSObject<UIApplicationDelegate> {
 }
 
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 @property (readwrite, retain, nonatomic) NGDOSView *dosView;
 @property (readwrite, retain, nonatomic) NGDOSModel *dosModel;
 

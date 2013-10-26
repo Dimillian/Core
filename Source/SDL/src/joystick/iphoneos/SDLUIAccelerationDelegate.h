@@ -23,7 +23,7 @@
 #import <UIKit/UIKit.h>
 #import "SDL_types.h"
 
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 
 /* *INDENT-OFF* */
 @interface SDLUIAccelerationDelegate: NSObject <UIAccelerometerDelegate> {

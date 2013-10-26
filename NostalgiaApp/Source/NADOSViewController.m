@@ -110,7 +110,7 @@
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    [NGDOSModel sendKey:SDL_SCANCODE_1 withState:IDBKeyPress];
+    [self.dosModel sendKey:SDL_SCANCODE_1 withState:IDBKeyPress];
     if (self.dosModel.paused) {
         self.dosModel.paused = NO;
     } else if (self.menuOpen) {

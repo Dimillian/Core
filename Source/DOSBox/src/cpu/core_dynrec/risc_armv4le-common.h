@@ -104,7 +104,7 @@ static void cache_block_closing(Bit8u* block_start,Bitu block_size) {
 	register unsigned long _beg __asm ("a1") = (unsigned long)(block_start);				// block start
 	register unsigned long _end __asm ("a2") = (unsigned long)(block_start+block_size);		// block end
 	register unsigned long _flg __asm ("a3") = 0;
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
 	__asm __volatile ("@ swi 0x9f0002		@ sys_cacheflush"
         : // no outputs
         : "r" (_beg), "r" (_end), "r" (_flg)

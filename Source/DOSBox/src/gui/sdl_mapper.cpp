@@ -497,7 +497,7 @@ public:
 		if (event->type!=SDL_KEYDOWN && event->type!=SDL_KEYUP) return false;
 		Bitu key=GetKeyCode(event->key.keysym);
 //		LOG_MSG("key type %i is %x [%x %x]",event->type,key,event->key.keysym.sym,event->key.keysym.scancode);
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 		assert(Bitu(event->key.keysym.sym)<keys);
 #endif
 		if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
@@ -505,7 +505,7 @@ public:
 		return 0;
 	}
 	CBind * CreateKeyBind(SDLKey _key) {
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 		if (!usescancodes) assert((Bitu)_key<keys);
 #endif
 		return new CKeyBind(&lists[(Bitu)_key],_key);
@@ -2043,7 +2043,7 @@ static struct {
 	{"pageup",SDLK_PAGEUP},	{"insert",SDLK_INSERT},		{"home",SDLK_HOME},
 	{"delete",SDLK_DELETE},	{"end",SDLK_END},			{"up",SDLK_UP},
 	{"left",SDLK_LEFT},		{"down",SDLK_DOWN},			{"right",SDLK_RIGHT},
-#ifndef IDOSBOX
+#ifndef NOSTALGIA
 	{"kp_0",SDLK_KP0},	{"kp_1",SDLK_KP1},	{"kp_2",SDLK_KP2},	{"kp_3",SDLK_KP3},
 	{"kp_4",SDLK_KP4},	{"kp_5",SDLK_KP5},	{"kp_6",SDLK_KP6},	{"kp_7",SDLK_KP7},
 	{"kp_8",SDLK_KP8},	{"kp_9",SDLK_KP9},	{"numlock",SDLK_NUMLOCK},
@@ -2251,7 +2251,7 @@ static void InitializeJoysticks(void) {
 
 static void CreateBindGroups(void) {
 	bindgroups.clear();
-#ifdef IDOSBOX
+#ifdef NOSTALGIA
     new CKeyBindGroup(MAX_SDLKEYS);
 #else
 	new CKeyBindGroup(SDLK_LAST);

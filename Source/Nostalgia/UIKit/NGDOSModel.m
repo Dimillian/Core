@@ -22,18 +22,16 @@
 #import "SDL_keyboard_c.h"
 #import "keyinfotable.h"
 
-static NSMutableArray *commandQueue;
-
 const char * dosbox_config_path() {
-    return [[NGDOSModel dosboxConfigPath] UTF8String];
+    return [[[NGDOSModel sharedModel] dosboxConfigPath] UTF8String];
 }
 
 const char * dosbox_config_filename() {
-    return [[NGDOSModel dosboxConfigFilename] UTF8String];
+    return [[[NGDOSModel sharedModel] dosboxConfigFilename] UTF8String];
 }
 
 const char * dosbox_command_dequeue() {
-    NSString *command = [NGDOSModel dequeueCommand];
+    NSString *command = [[NGDOSModel sharedModel] dequeueCommand];
     if (command) {
         return [command UTF8String];
     } else {
@@ -41,53 +39,69 @@ const char * dosbox_command_dequeue() {
     }
 }
 
+@interface NGDOSModel ()
+
+@property (readwrite, nonatomic) NSMutableArray *commandQueue;
+
+@end
+
 @implementation NGDOSModel
 
-+ (NSString *)dosboxConfigPath {
-    NSAssert(false, NGShouldOverride);
-    return nil;
-}
-
-+ (NSString *)dosboxConfigFilename {
-    NSAssert(false, NGShouldOverride);
-    return nil;
-}
-
-+ (NSArray *)startupCommands {
-    NSAssert(false, NGShouldOverride);
-    return nil;
-}
-
-+ (NSMutableArray *)commandQueue {
-    if (!commandQueue) {
-        commandQueue = [[NSMutableArray alloc] init];
++ (instancetype)sharedModel {
+    static NGDOSModel *sharedModel = nil;
+    if (!sharedModel) {
+        sharedModel = [[[self class] alloc] init];
     }
-    return commandQueue;
+    return sharedModel;
 }
 
-+ (void)enqueueCommand:(NSString *)command {
-    [[NGDOSModel commandQueue] addObject:command];
+- (id)init {
+    if (self = [super init]) {
+        _commandQueue = [NSMutableArray array];
+        _paused = NO;
+        [self enqueueCommands:[self startupCommands]];
+    }
+    return self;
+}
+
+- (NSString *)dosboxConfigPath {
+    NSAssert(false, NGShouldOverride);
+    return nil;
+}
+
+- (NSString *)dosboxConfigFilename {
+    NSAssert(false, NGShouldOverride);
+    return nil;
+}
+
+- (NSArray *)startupCommands {
+    NSAssert(false, NGShouldOverride);
+    return nil;
+}
+
+- (void)enqueueCommand:(NSString *)command {
+    [self.commandQueue addObject:command];
     return;
 }
 
-+ (void)enqueueCommands:(NSArray *)commands {
+- (void)enqueueCommands:(NSArray *)commands {
     for (NSString *command in commands) {
-        [NGDOSModel enqueueCommand:command];
+        [self enqueueCommand:command];
     }
     return;
 }
 
-+ (NSString *)dequeueCommand {
-    if ([NGDOSModel commandQueue].count > 0) {
-        NSString *command = [[NGDOSModel commandQueue] objectAtIndex:0];
-        [[NGDOSModel commandQueue] removeObjectAtIndex:0];
+- (NSString *)dequeueCommand {
+    if (self.commandQueue.count > 0) {
+        NSString *command = [self.commandQueue objectAtIndex:0];
+        [self.commandQueue removeObjectAtIndex:0];
         return command;
     } else {
         return nil;
     }
 }
 
-+ (void)sendString:(NSString *)string {
+- (void)sendString:(NSString *)string {
     for (NSUInteger i = 0; i < [string length]; i++) {
         unichar key = [string characterAtIndex:i];
         NSAssert(isascii(key), @"character is not ASCII");
@@ -95,17 +109,17 @@ const char * dosbox_command_dequeue() {
         
         const BOOL shiftPressed = keyInfo.mod & KMOD_SHIFT;
         if (shiftPressed) {
-            [NGDOSModel sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
+            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
         }
-        [NGDOSModel sendKey:keyInfo.code withState:IDBKeyTap];
+        [self sendKey:keyInfo.code withState:IDBKeyTap];
         if (shiftPressed) {
-            [NGDOSModel sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
+            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
         }
     }
     return;
 }
 
-+ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state  {
+- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state  {
     switch (state) {
         case IDBKeyPress: {
             SDL_SendKeyboardKey(0, SDL_PRESSED, scancode);
@@ -121,20 +135,12 @@ const char * dosbox_command_dequeue() {
     return;
 }
 
-- (id)init {
-    if (self = [super init]) {
-        _paused = NO;
-        [NGDOSModel enqueueCommands:[NGDOSModel startupCommands]];
-    }
-    return self;
-}
-
 - (void)setPaused:(BOOL)paused {
-    [NGDOSModel sendKey:SDL_SCANCODE_1 withState:IDBKeyTap];
+    [self sendKey:SDL_SCANCODE_1 withState:IDBKeyTap];
     if (_paused != paused) {
-        [NGDOSModel sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
-        [NGDOSModel sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];
-        [NGDOSModel sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
+        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
+        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];
+        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
     }
     _paused = paused;
     return;
