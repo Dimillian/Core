@@ -34,6 +34,8 @@
 #import "IDBView.h"
 #import "IDBViewController.h"
 #import "IDBNavigationController.h"
+
+#import "SDL_keyboard_c.h"
 #endif
 
 static int UIKit_GL_Initialize(_THIS);
@@ -117,17 +119,15 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = [[IDBView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)];
-    IDBModel *idbModel = [[[IDBModel alloc] init] autorelease];
-    [SDLUIKitDelegate sharedAppDelegate].idbModel = idbModel;
-    
-    IDBViewController *idbViewConroller = [[[IDBViewController alloc] initWithIDBModel:idbModel andSDLView:view] autorelease];
-    [SDLUIKitDelegate sharedAppDelegate].sdlViewController = idbViewConroller;
-    
-    IDBNavigationController *idbNavigationController = [[[IDBNavigationController alloc] initWithRootViewController:idbViewConroller] autorelease];
-    [SDLUIKitDelegate sharedAppDelegate].navigationController = idbNavigationController;
-    
-    [uiwindow setRootViewController:idbNavigationController];
+    view = [SDLUIKitDelegate sharedAppDelegate].idbViewController.idbView;
+    if (!SDL_GetKeyboard(0)) {
+        SDL_Keyboard keyboard;
+        SDL_zero(keyboard);
+        SDL_AddKeyboard(&keyboard, 0);
+        SDLKey keymap[SDL_NUM_SCANCODES];
+        SDL_GetDefaultKeymap(keymap);
+        SDL_SetKeymap(0, 0, keymap, SDL_NUM_SCANCODES);
+    }
 #else
     view = [[SDL_uikitopenglview alloc] initWithFrame: [uiwindow bounds] \
                                         retainBacking: _this->gl_config.retained_backing \

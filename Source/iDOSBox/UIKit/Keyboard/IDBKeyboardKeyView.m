@@ -20,6 +20,7 @@
 
 @interface IDBKeyboardKeyView ()
 
+@property (readwrite, nonatomic) UIBezierPath *shape;
 @property (readwrite, nonatomic) IDBKeyboardKeySize size;
 @property (readwrite, nonatomic) SDL_scancode scancode;
 
@@ -28,10 +29,28 @@
 @implementation IDBKeyboardKeyView
 
 - (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)keyScancode {
-    if (self = [super initWithFrame:CGRectZero]) {
+    if (self = [super initWithFrame:CGRectMake(0.0f, 0.0f, 400.0f, 400.0f)]) {
+        self.shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(100.0f, 300.0, 100.0f, 50.0f) cornerRadius:8.0f];
+        self.backgroundColor = [UIColor clearColor];
+        self.shape.lineWidth = 2.0f;
         
+        self.layer.masksToBounds = NO;
+        self.clipsToBounds = YES;
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+        self.layer.shadowOpacity = 0.3f;
+        self.layer.shadowRadius = 5.0f;
+        self.layer.shadowPath = self.shape.CGPath;
     }
     return self;
+}
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    [[UIColor blackColor] setStroke];
+    [[UIColor whiteColor] setFill];
+    [self.shape strokeWithBlendMode:kCGBlendModeNormal alpha:0.5f];
+    [self.shape fillWithBlendMode:kCGBlendModeHardLight alpha:0.4f];
 }
 
 @end

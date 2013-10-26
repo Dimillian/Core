@@ -152,6 +152,7 @@ const char * dosbox_command_dequeue() {
 }
 
 - (void)setPaused:(BOOL)paused {
+    [IDBModel sendKey:SDL_SCANCODE_1 withState:IDBKeyTap];
     if (_paused != paused) {
         [IDBModel sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
         [IDBModel sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];

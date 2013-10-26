@@ -45,4 +45,6 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @property (weak, readwrite, nonatomic) id<IDBKeyboardKeyViewDelegate> delegate;
 
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)keyScancode;
+
 @end

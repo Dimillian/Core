@@ -21,6 +21,10 @@
 #import "IDBView.h"
 #import "SDL_uikitopenglview.h"
 
+// TESTING ONLY
+#import "IDBKeyboardKeyView.h"
+
+
 @interface IDBViewController ()
 
 @property (readwrite, nonatomic) IDBModel *idbModel;
@@ -49,6 +53,10 @@
     
     [self.idbView setFrame:self.view.bounds];
     self.idbView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // TESTING ONLY
+    IDBKeyboardKeyView *test = [[IDBKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
+    [self.idbView addSubview:test];
     return;
 }
 

@@ -30,6 +30,7 @@
 #ifdef IDOSBOX
 #import "IDBNavigationController.h"
 #import "IDBViewController.h"
+#import "IDBView.h"
 #import "IDBModel.h"
 #endif
 
@@ -64,10 +65,19 @@ int main(int argc, char **argv) {
 }
 #endif
 
+#ifdef IDOSBOX
+@interface SDLUIKitDelegate ()
+
+@property (readwrite, retain, nonatomic) IDBNavigationController *idbNavigationController;
+@property (readwrite, retain, nonatomic) IDBViewController *idbViewController;
+@property (readwrite, retain, nonatomic) IDBModel *idbModel;
+
+@end
+#endif
+
 @implementation SDLUIKitDelegate
 
 #ifdef IDOSBOX
-// window needs to be synthesized because it is declared optional in UIApplicationDelegate protocol
 @synthesize window = _window;
 #endif
 
@@ -98,6 +108,18 @@ int main(int argc, char **argv) {
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+#ifdef IDOSBOX
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.idbModel = [[[IDBModel alloc] init] autorelease];
+    IDBView *idbView = [[[IDBView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
+    self.idbViewController = [[[IDBViewController alloc] initWithIDBModel:self.idbModel andSDLView:idbView] autorelease];
+    
+    self.idbNavigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.idbViewController] autorelease];
+    
+    [self.window setRootViewController:self.idbNavigationController];
+#endif
+    
     /* Set working directory to resource path */
 	[[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
 	[self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
@@ -112,16 +134,12 @@ int main(int argc, char **argv) {
 - (void) applicationWillResignActive:(UIApplication*)application
 {
     //NSLog(@"%@", NSStringFromSelector(_cmd));
-#ifdef IDOSBOX
-    self.idbModel.paused = YES;
-#endif
-    
     // Send every window on every screen a MINIMIZED event.
     SDL_VideoDevice *_this = SDL_GetVideoDevice();
     if (!_this) {
         return;
     }
-
+    
     int i;
     for (i = 0; i < _this->num_displays; i++) {
         const SDL_VideoDisplay *display = &_this->displays[i];
@@ -130,6 +148,7 @@ int main(int argc, char **argv) {
             SDL_SendWindowEvent(window, SDL_WINDOWEVENT_MINIMIZED, 0, 0);
         }
     }
+    glFinish();
 }
 
 - (void) applicationDidBecomeActive:(UIApplication*)application
@@ -141,7 +160,7 @@ int main(int argc, char **argv) {
     if (!_this) {
         return;
     }
-
+    
     int i;
     for (i = 0; i < _this->num_displays; i++) {
         const SDL_VideoDisplay *display = &_this->displays[i];
@@ -150,10 +169,6 @@ int main(int argc, char **argv) {
             SDL_SendWindowEvent(window, SDL_WINDOWEVENT_RESTORED, 0, 0);
         }
     }
-    
-#ifdef IDOSBOX
-    //self.idbModel.paused = NO;
-#endif
 }
 
 @end
