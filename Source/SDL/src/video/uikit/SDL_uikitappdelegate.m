@@ -28,10 +28,8 @@
 #import "jumphack.h"
 
 #ifdef IDOSBOX
-#import "IDBNavigationController.h"
-#import "IDBViewController.h"
-#import "IDBView.h"
-#import "IDBModel.h"
+#import "NGDOSModel.h"
+#import "NGDOSView.h"
 #endif
 
 #ifdef main
@@ -63,16 +61,6 @@ int main(int argc, char **argv) {
 	[pool release];
 	
 }
-#endif
-
-#ifdef IDOSBOX
-@interface SDLUIKitDelegate ()
-
-@property (readwrite, retain, nonatomic) IDBNavigationController *idbNavigationController;
-@property (readwrite, retain, nonatomic) IDBViewController *idbViewController;
-@property (readwrite, retain, nonatomic) IDBModel *idbModel;
-
-@end
 #endif
 
 @implementation SDLUIKitDelegate
@@ -107,22 +95,23 @@ int main(int argc, char **argv) {
 	exit(exit_status);
 }
 
+#ifdef IDOSBOX
+- (void)initSDL {
+    [self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
+}
+#endif
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    self.idbModel = [[[IDBModel alloc] init] autorelease];
-    IDBView *idbView = [[[IDBView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
-    self.idbViewController = [[[IDBViewController alloc] initWithIDBModel:self.idbModel andSDLView:idbView] autorelease];
-    
-    self.idbNavigationController = [[[IDBNavigationController alloc] initWithRootViewController:self.idbViewController] autorelease];
-    
-    [self.window setRootViewController:self.idbNavigationController];
-#endif
-    
+    self.dosView = [[[NGDOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
+    self.dosModel = [[[NGDOSModel alloc] init] autorelease];
+    [self initSDL];
+#else
     /* Set working directory to resource path */
 	[[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
 	[self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
+#endif
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -30,11 +30,7 @@
 #include <dlfcn.h>
 
 #ifdef IDOSBOX
-#import "IDBModel.h"
-#import "IDBView.h"
-#import "IDBViewController.h"
-#import "IDBNavigationController.h"
-
+#import "NGDOSView.h"
 #import "SDL_keyboard_c.h"
 #endif
 
@@ -108,18 +104,14 @@ void UIKit_GL_SwapWindow(_THIS, SDL_Window * window)
 
 SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 {
-#ifdef IDOSBOX
-    IDBView *view;
-#else
 	SDL_uikitopenglview *view;
-#endif
 	SDL_WindowData *data = (SDL_WindowData *) window->driverdata;
     UIScreen *uiscreen = (UIScreen *) window->display->driverdata;
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
 #ifdef IDOSBOX
-    view = [SDLUIKitDelegate sharedAppDelegate].idbViewController.idbView;
+    view = [SDLUIKitDelegate sharedAppDelegate].dosView;
     if (!SDL_GetKeyboard(0)) {
         SDL_Keyboard keyboard;
         SDL_zero(keyboard);

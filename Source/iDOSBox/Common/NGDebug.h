@@ -16,9 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import  <Foundation/Foundation.h>
+// enable or disable debug mode
+#if DEBUG
+    #define NG_DEBUG 1
+#else
+    #define NG_DEBUG 0
+#endif
 
-static NSString * const IDBStartupCommands[] = { @"cls" };
-// name of the dosbox configuration file
-static NSString * const IDBConfigFilename = @"dosbox-ios.conf";
-static NSString * const IDBCDriveFolder = @"CDrive";
+// enable or disable logging
+#if NG_DEBUG
+    #define NG_LOG(string, ...) NSLog((@"Nostalgia: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
+#else
+    #define NG_LOG(string, ...) do {} while (0)
+#endif
+
+// enable or disable memory management logging
+#define NG_LOG_INIT(object) NG_LOG(@"init %@", object)
+#define NG_LOG_DEALLOC(object) NG_LOG(@"dealloc %@", object)
+
+static NSString * const NGArgumentNilError = @"argument cannot be nil";
+static NSString * const NGShouldOverride = @"method implementation should be overridden";

@@ -16,24 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma Macros
-// enable or disable debug mode
-#if DEBUG
-    #define IDB_DEBUG 1
-#else
-    #define IDB_DEBUG 0
-#endif
+#import "NADOSNavigationController.h"
 
-// enable or disable logging
-#if IDB_DEBUG
-    #define IDB_LOG(string, ...) NSLog((@"iDOSBox: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
-#else
-    #define IDB_LOG(string, ...) do {} while (0)
-#endif
+@interface NADOSNavigationController ()
 
-// enable or disable memory management logging
-#define IDB_LOG_INIT(object) IDB_LOG(@"init %@", object)
-#define IDB_LOG_DEALLOC(object) IDB_LOG(@"dealloc %@", object)
+@end
 
-#pragma mark Errors
-static NSString * const FIArgumentNilError = @"argument cannot be nil";
+@implementation NADOSNavigationController
+
+- (NSUInteger)supportedInterfaceOrientations {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    } else {
+        return UIInterfaceOrientationMaskLandscape;
+    }
+}
+
+@end

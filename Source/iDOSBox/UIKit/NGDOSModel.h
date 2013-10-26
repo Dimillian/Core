@@ -16,14 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Availability.h>
+#import "SDL_scancode.h"
 
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
-#endif
+typedef NS_ENUM(NSUInteger, IDBKeyState) {
+    IDBKeyPress,
+    IDBKeyTap,
+    IDBKeyRelease,
+};
 
-#ifdef __OBJC__
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-#import "IDBDebug.h"
-#endif
+@interface NGDOSModel : NSObject
+
+@property (readwrite, nonatomic) BOOL paused;
+
++ (NSString *)dosboxConfigPath;
++ (NSString *)dosboxConfigFilename;
++ (NSArray *)startupCommands;
+
++ (NSMutableArray *)commandQueue;
++ (void)enqueueCommand:(NSString *)command;
++ (void)enqueueCommands:(NSArray *)commands;
++ (NSString *)dequeueCommand;
+
++ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
++ (void)sendString:(NSString *)text;
+
+@end

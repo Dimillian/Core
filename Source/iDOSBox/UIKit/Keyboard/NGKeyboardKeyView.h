@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @end
 
-@interface IDBKeyboardKeyView : UIView
+@interface NGKeyboardKeyView : UIView
 
 @property (weak, readwrite, nonatomic) id<IDBKeyboardKeyViewDelegate> delegate;
 

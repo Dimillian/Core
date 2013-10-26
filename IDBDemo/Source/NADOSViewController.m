@@ -16,30 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "IDBViewController.h"
-#import "IDBModel.h"
-#import "IDBView.h"
-#import "SDL_uikitopenglview.h"
+#import "NADOSViewController.h"
+#import "NADOSModel.h"
+#import "NADOSView.h"
 
 // TESTING ONLY
-#import "IDBKeyboardKeyView.h"
+#import "NGKeyboardKeyView.h"
 
+@interface NADOSViewController ()
 
-@interface IDBViewController ()
-
-@property (readwrite, nonatomic) IDBModel *idbModel;
-@property (readwrite, nonatomic) IDBView *idbview;
+@property (readwrite, nonatomic) NADOSModel *dosModel;
+@property (readwrite, nonatomic) NADOSView *dosView;
 @property (readwrite, nonatomic) BOOL menuVisible;
 @property (readwrite, nonatomic) BOOL menuOpen;
 
 @end
 
-@implementation IDBViewController
+@implementation NADOSViewController
 
-- (id)initWithIDBModel:(IDBModel *)model andSDLView:(IDBView *)idbView {
+- (id)initWithIDBModel:(NADOSModel *)dosModel andDOSView:(NADOSView *)dosView {
     if (self = [super init]) {
-        _idbView = idbView;
-        _idbModel = model;
+        _dosView = dosView;
+        _dosModel = dosModel;
         _menuVisible = NO;
         _menuOpen = NO;
     }
@@ -49,14 +47,14 @@
 - (void)loadView {
     // don't call [super loadView] because view is created programatically
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view addSubview:self.idbView];
+    [self.view addSubview:self.dosView];
     
-    [self.idbView setFrame:self.view.bounds];
-    self.idbView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.dosView setFrame:self.view.bounds];
+    self.dosView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // TESTING ONLY
-    IDBKeyboardKeyView *test = [[IDBKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
-    [self.idbView addSubview:test];
+    NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
+    [self.dosView addSubview:test];
     return;
 }
 
@@ -66,7 +64,7 @@
     self.menuOpen = YES;
     
     // setup scroll view
-    self.idbView.contentMode = UIViewContentModeScaleAspectFit;
+    self.dosView.contentMode = UIViewContentModeScaleAspectFit;
     
     // swipe up gesture recognizer
     UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
@@ -112,9 +110,9 @@
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    [IDBModel sendKey:SDL_SCANCODE_1 withState:IDBKeyPress];
-    if (self.idbModel.paused) {
-        self.idbModel.paused = NO;
+    [NGDOSModel sendKey:SDL_SCANCODE_1 withState:IDBKeyPress];
+    if (self.dosModel.paused) {
+        self.dosModel.paused = NO;
     } else if (self.menuOpen) {
         self.menuOpen = NO;
     }
@@ -127,12 +125,12 @@
 }
 
 - (void)playButtonPressed {
-    self.idbModel.paused = NO;
+    self.dosModel.paused = NO;
     return;
 }
 
 - (void)pauseButtonPressed {
-    self.idbModel.paused = YES;
+    self.dosModel.paused = YES;
     return;
 }
 

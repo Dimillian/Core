@@ -16,13 +16,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "IDBDemoAppDelegate.h"
+#import <UIKit/UIKit.h>
+#import "SDL_uikitappdelegate.h"
 
-@implementation IDBDemoAppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [super applicationDidFinishLaunching:application];
-    return YES;
-}
+@interface NAAppDelegate : SDLUIKitDelegate
 
 @end

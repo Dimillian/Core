@@ -1,8 +1,8 @@
 //
-//  IDBView.h
-//  iDOSBox
+//  NGDosView.h
+//  Nostalgia
 //
-//  Created by user on 10/20/13.
+//  Created by user on 10/26/13.
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 extern const CGSize IDBWindowSize;
 
-@interface IDBView : SDL_uikitopenglview
+@interface NGDOSView : SDL_uikitopenglview
 
 @end

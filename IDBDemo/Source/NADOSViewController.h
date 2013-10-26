@@ -18,13 +18,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class IDBModel;
-@class IDBView;
+@class NADOSModel;
+@class NADOSView;
 
-@interface IDBViewController : UIViewController
+@interface NADOSViewController : UIViewController
 
-@property (readonly, nonatomic) IDBView *idbView;
+@property (readonly, nonatomic) NADOSView *dosView;
 
-- (id)initWithIDBModel:(IDBModel *)model andSDLView:(IDBView *)idbView;
+- (id)initWithIDBModel:(NADOSModel *)dosModel andDOSView:(NADOSView *)dosView;
 
 @end

@@ -10,40 +10,45 @@
 		CE006A6C17D427C100C589FC /* dosbox-ios.conf in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6617D426E500C589FC /* dosbox-ios.conf */; };
 		CE006A7017D42A4E00C589FC /* CDrive in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6F17D42A4E00C589FC /* CDrive */; };
 		CE026A6117D4492C00943AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE026A6017D4492C00943AE4 /* Images.xcassets */; };
+		CEA448E0181B8A0F00022715 /* NADOSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */; };
+		CEA448E1181B8A0F00022715 /* NADOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DF181B8A0F00022715 /* NADOSViewController.m */; };
+		CEA448E7181B97B900022715 /* NADOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448E6181B97B900022715 /* NADOSModel.m */; };
+		CEA448EB181B995A00022715 /* NADOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448EA181B995A00022715 /* NADOSView.m */; };
+		CEA448F2181BA75300022715 /* libDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448EF181BA75300022715 /* libDOSBox.a */; };
+		CEA448F4181BA75300022715 /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448F1181BA75300022715 /* libSDL.a */; };
+		CEA448F8181BAF0300022715 /* libNostalgia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448F7181BAF0200022715 /* libNostalgia.a */; };
 		CEADE6A51812560300268532 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEADE6A41812560300268532 /* CoreMIDI.framework */; };
 		CEADE6A81812644400268532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
 		CEADE6A91812644F00268532 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */; };
 		CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54C1791E823006134CF /* UIKit.framework */; };
 		CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D54E1791E823006134CF /* Foundation.framework */; };
 		CEF6D5591791E823006134CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D5581791E823006134CF /* main.m */; };
-		CEF6D55D1791E823006134CF /* IDBDemoAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */; };
+		CEF6D55D1791E823006134CF /* NAAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEF6D55C1791E823006134CF /* NAAppDelegate.mm */; };
 		CEF6D55F1791E823006134CF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D55E1791E823006134CF /* Default.png */; };
 		CEF6D5611791E823006134CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5601791E823006134CF /* Default@2x.png */; };
 		CEF6D5631791E823006134CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF6D5621791E823006134CF /* Default-568h@2x.png */; };
 		CEF6D57D1791E9D3006134CF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57C1791E9D3006134CF /* QuartzCore.framework */; };
 		CEF6D57F1791E9D7006134CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57E1791E9D7006134CF /* OpenGLES.framework */; };
-		CEF6D5801791E9F9006134CF /* libDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5721791E98E006134CF /* libDOSBox.a */; };
-		CEF6D5811791E9F9006134CF /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5741791E98E006134CF /* libSDL.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CEDB827A179678D800972087 /* PBXContainerItemProxy */ = {
+		CEA448FE181BB03500022715 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			containerPortal = CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CEDB825D179674BF00972087;
-			remoteInfo = iDOSBox;
+			remoteInfo = Nostalgia;
 		};
-		CEF6D5711791E98E006134CF /* PBXContainerItemProxy */ = {
+		CEA44900181BB03500022715 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			containerPortal = CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CE2CA1CE1787A14D001F6D5F;
 			remoteInfo = DOSBox;
 		};
-		CEF6D5731791E98E006134CF /* PBXContainerItemProxy */ = {
+		CEA44902181BB03500022715 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+			containerPortal = CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = CEE95BF7178A1E0F001BD8FD;
 			remoteInfo = SDL;
@@ -54,23 +59,36 @@
 		CE006A6617D426E500C589FC /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CE006A6F17D42A4E00C589FC /* CDrive */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CDrive; sourceTree = "<group>"; };
 		CE026A6017D4492C00943AE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IDBDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		CEA448DC181B8A0F00022715 /* NADOSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSNavigationController.h; sourceTree = "<group>"; };
+		CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADOSNavigationController.m; sourceTree = "<group>"; };
+		CEA448DE181B8A0F00022715 /* NADOSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSViewController.h; sourceTree = "<group>"; };
+		CEA448DF181B8A0F00022715 /* NADOSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADOSViewController.m; sourceTree = "<group>"; };
+		CEA448E5181B97B900022715 /* NADOSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSModel.h; sourceTree = "<group>"; };
+		CEA448E6181B97B900022715 /* NADOSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADOSModel.m; sourceTree = "<group>"; };
+		CEA448E9181B995A00022715 /* NADOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSView.h; sourceTree = "<group>"; };
+		CEA448EA181B995A00022715 /* NADOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADOSView.m; sourceTree = "<group>"; };
+		CEA448EF181BA75300022715 /* libDOSBox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDOSBox.a; path = "../../../Library/Developer/Xcode/DerivedData/IDBDemo-bblosungedkhbwhgdclfvncmgpbj/Build/Products/Debug-iphoneos/libDOSBox.a"; sourceTree = "<group>"; };
+		CEA448F0181BA75300022715 /* libNostalgia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNostalgia.a; path = "../build/Debug-iphoneos/libNostalgia.a"; sourceTree = "<group>"; };
+		CEA448F1181BA75300022715 /* libSDL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL.a; path = "../../../Library/Developer/Xcode/DerivedData/IDBDemo-bblosungedkhbwhgdclfvncmgpbj/Build/Products/Debug-iphoneos/libSDL.a"; sourceTree = "<group>"; };
+		CEA448F5181BADAC00022715 /* libNostalgia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNostalgia.a; path = "../build/Debug-iphoneos/libNostalgia.a"; sourceTree = "<group>"; };
+		CEA448F7181BAF0200022715 /* libNostalgia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNostalgia.a; path = "../build/Debug-iphoneos/libNostalgia.a"; sourceTree = "<group>"; };
 		CEADE69D181252D400268532 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CEADE6A21812555A00268532 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEADE6A41812560300268532 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		CEADE6A6181262DE00268532 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		CEF6D5491791E823006134CF /* IDBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF6D5491791E823006134CF /* NostalgiaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NostalgiaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D54C1791E823006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D54E1791E823006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEF6D5501791E823006134CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CEF6D5541791E823006134CF /* IDBDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IDBDemo-Info.plist"; sourceTree = "<group>"; };
+		CEF6D5541791E823006134CF /* NostalgiaApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NostalgiaApp-Info.plist"; sourceTree = "<group>"; };
 		CEF6D5581791E823006134CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CEF6D55A1791E823006134CF /* IDBDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDBDemo-Prefix.pch"; sourceTree = "<group>"; };
-		CEF6D55B1791E823006134CF /* IDBDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDemoAppDelegate.h; sourceTree = "<group>"; };
-		CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IDBDemoAppDelegate.mm; sourceTree = "<group>"; };
+		CEF6D55A1791E823006134CF /* NostalgiaApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NostalgiaApp-Prefix.pch"; sourceTree = "<group>"; };
+		CEF6D55B1791E823006134CF /* NAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAAppDelegate.h; sourceTree = "<group>"; };
+		CEF6D55C1791E823006134CF /* NAAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NAAppDelegate.mm; sourceTree = "<group>"; };
 		CEF6D55E1791E823006134CF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CEF6D5601791E823006134CF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CEF6D5621791E823006134CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iDOSBox.xcodeproj; path = ../iDOSBox.xcodeproj; sourceTree = "<group>"; };
+		CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nostalgia.xcodeproj; path = ../Nostalgia.xcodeproj; sourceTree = "<group>"; };
 		CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEF6D57C1791E9D3006134CF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEF6D57E1791E9D7006134CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -81,6 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA448F8181BAF0300022715 /* libNostalgia.a in Frameworks */,
+				CEA448F2181BA75300022715 /* libDOSBox.a in Frameworks */,
+				CEA448F4181BA75300022715 /* libSDL.a in Frameworks */,
 				CEADE6A91812644F00268532 /* AudioToolbox.framework in Frameworks */,
 				CEADE6A81812644400268532 /* CoreGraphics.framework in Frameworks */,
 				CEADE6A51812560300268532 /* CoreMIDI.framework in Frameworks */,
@@ -88,14 +109,22 @@
 				CEF6D57D1791E9D3006134CF /* QuartzCore.framework in Frameworks */,
 				CEF6D54D1791E823006134CF /* UIKit.framework in Frameworks */,
 				CEF6D54F1791E823006134CF /* Foundation.framework in Frameworks */,
-				CEF6D5801791E9F9006134CF /* libDOSBox.a in Frameworks */,
-				CEF6D5811791E9F9006134CF /* libSDL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEA448F9181BB03500022715 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEA448FF181BB03500022715 /* libNostalgia.a */,
+				CEA44901181BB03500022715 /* libDOSBox.a */,
+				CEA44903181BB03500022715 /* libSDL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CEF6D5401791E823006134CF = {
 			isa = PBXGroup;
 			children = (
@@ -103,14 +132,14 @@
 				CEF6D5691791E836006134CF /* Source */,
 				CEF6D54B1791E823006134CF /* Frameworks */,
 				CEF6D54A1791E823006134CF /* Products */,
-				CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */,
+				CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
 		CEF6D54A1791E823006134CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEF6D5491791E823006134CF /* IDBDemo.app */,
+				CEF6D5491791E823006134CF /* NostalgiaApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +147,11 @@
 		CEF6D54B1791E823006134CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEA448F7181BAF0200022715 /* libNostalgia.a */,
+				CEA448F5181BADAC00022715 /* libNostalgia.a */,
+				CEA448EF181BA75300022715 /* libDOSBox.a */,
+				CEA448F0181BA75300022715 /* libNostalgia.a */,
+				CEA448F1181BA75300022715 /* libSDL.a */,
 				CEADE6A6181262DE00268532 /* CoreAudio.framework */,
 				CEADE6A41812560300268532 /* CoreMIDI.framework */,
 				CEADE6A21812555A00268532 /* MobileCoreServices.framework */,
@@ -135,10 +169,18 @@
 		CEF6D5691791E836006134CF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CEF6D55B1791E823006134CF /* IDBDemoAppDelegate.h */,
-				CEF6D55C1791E823006134CF /* IDBDemoAppDelegate.mm */,
+				CEA448DC181B8A0F00022715 /* NADOSNavigationController.h */,
+				CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */,
+				CEA448E5181B97B900022715 /* NADOSModel.h */,
+				CEA448E6181B97B900022715 /* NADOSModel.m */,
+				CEA448DE181B8A0F00022715 /* NADOSViewController.h */,
+				CEA448DF181B8A0F00022715 /* NADOSViewController.m */,
+				CEA448E9181B995A00022715 /* NADOSView.h */,
+				CEA448EA181B995A00022715 /* NADOSView.m */,
+				CEF6D55B1791E823006134CF /* NAAppDelegate.h */,
+				CEF6D55C1791E823006134CF /* NAAppDelegate.mm */,
 				CEF6D5581791E823006134CF /* main.m */,
-				CEF6D55A1791E823006134CF /* IDBDemo-Prefix.pch */,
+				CEF6D55A1791E823006134CF /* NostalgiaApp-Prefix.pch */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -148,7 +190,7 @@
 			children = (
 				CE026A6017D4492C00943AE4 /* Images.xcassets */,
 				CE006A6F17D42A4E00C589FC /* CDrive */,
-				CEF6D5541791E823006134CF /* IDBDemo-Info.plist */,
+				CEF6D5541791E823006134CF /* NostalgiaApp-Info.plist */,
 				CE006A6617D426E500C589FC /* dosbox-ios.conf */,
 				CEF6D55E1791E823006134CF /* Default.png */,
 				CEF6D5601791E823006134CF /* Default@2x.png */,
@@ -157,22 +199,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CEF6D56D1791E98E006134CF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CEDB827B179678D800972087 /* libiDOSBox.a */,
-				CEF6D5721791E98E006134CF /* libDOSBox.a */,
-				CEF6D5741791E98E006134CF /* libSDL.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEF6D5481791E823006134CF /* IDBDemo */ = {
+		CEF6D5481791E823006134CF /* NostalgiaApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "IDBDemo" */;
+			buildConfigurationList = CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "NostalgiaApp" */;
 			buildPhases = (
 				CEF6D5451791E823006134CF /* Sources */,
 				CEF6D5461791E823006134CF /* Frameworks */,
@@ -182,9 +214,9 @@
 			);
 			dependencies = (
 			);
-			name = IDBDemo;
+			name = NostalgiaApp;
 			productName = IDBDemo;
-			productReference = CEF6D5491791E823006134CF /* IDBDemo.app */;
+			productReference = CEF6D5491791E823006134CF /* NostalgiaApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +233,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "IDBDemo" */;
+			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "NostalgiaApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -213,37 +245,37 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CEF6D56D1791E98E006134CF /* Products */;
-					ProjectRef = CEF6D56C1791E98E006134CF /* iDOSBox.xcodeproj */;
+					ProductGroup = CEA448F9181BB03500022715 /* Products */;
+					ProjectRef = CEF6D56C1791E98E006134CF /* Nostalgia.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				CEF6D5481791E823006134CF /* IDBDemo */,
+				CEF6D5481791E823006134CF /* NostalgiaApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CEDB827B179678D800972087 /* libiDOSBox.a */ = {
+		CEA448FF181BB03500022715 /* libNostalgia.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libiDOSBox.a;
-			remoteRef = CEDB827A179678D800972087 /* PBXContainerItemProxy */;
+			path = libNostalgia.a;
+			remoteRef = CEA448FE181BB03500022715 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CEF6D5721791E98E006134CF /* libDOSBox.a */ = {
+		CEA44901181BB03500022715 /* libDOSBox.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libDOSBox.a;
-			remoteRef = CEF6D5711791E98E006134CF /* PBXContainerItemProxy */;
+			remoteRef = CEA44900181BB03500022715 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CEF6D5741791E98E006134CF /* libSDL.a */ = {
+		CEA44903181BB03500022715 /* libSDL.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSDL.a;
-			remoteRef = CEF6D5731791E98E006134CF /* PBXContainerItemProxy */;
+			remoteRef = CEA44902181BB03500022715 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -269,8 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA448E7181B97B900022715 /* NADOSModel.m in Sources */,
+				CEA448E1181B8A0F00022715 /* NADOSViewController.m in Sources */,
 				CEF6D5591791E823006134CF /* main.m in Sources */,
-				CEF6D55D1791E823006134CF /* IDBDemoAppDelegate.mm in Sources */,
+				CEA448E0181B8A0F00022715 /* NADOSNavigationController.m in Sources */,
+				CEA448EB181B995A00022715 /* NADOSView.m in Sources */,
+				CEF6D55D1791E823006134CF /* NAAppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +331,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					IDOSBOX,
 					"DEBUG=1",
-					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -324,6 +360,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = IDOSBOX;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -338,14 +375,18 @@
 		CEF6D5671791E823006134CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
-				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Source/NostalgiaApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Resources/NostalgiaApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
@@ -356,14 +397,18 @@
 		CEF6D5681791E823006134CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/IDBDemo-Prefix.pch";
-				INFOPLIST_FILE = "Resources/IDBDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Source/NostalgiaApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Resources/NostalgiaApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/iDOSBox/** ../Source/DOSBox/include ../Source/SDL/**";
@@ -374,7 +419,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEF6D5441791E823006134CF /* Build configuration list for PBXProject "IDBDemo" */ = {
+		CEF6D5441791E823006134CF /* Build configuration list for PBXProject "NostalgiaApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEF6D5641791E823006134CF /* Debug */,
@@ -383,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "IDBDemo" */ = {
+		CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "NostalgiaApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEF6D5671791E823006134CF /* Debug */,

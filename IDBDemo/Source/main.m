@@ -17,12 +17,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "IDBDemoAppDelegate.h"
+#import "NAAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([IDBDemoAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([NAAppDelegate class]));
     }
 }

@@ -16,20 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "IDBNavigationController.h"
+#import <UIKit/UIKit.h>
 
-@interface IDBNavigationController ()
-
-@end
-
-@implementation IDBNavigationController
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskLandscape;
-    }
-}
+@interface NADOSNavigationController : UINavigationController
 
 @end

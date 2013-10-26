@@ -295,18 +295,14 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
-		CEA3321A1814CBE500F76146 /* IDBView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA332191814CBE500F76146 /* IDBView.m */; };
-		CEA5C45E1813BA12005A6059 /* IDBKeyboardKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C45D1813BA12005A6059 /* IDBKeyboardKeyView.m */; };
-		CEA5C4611813BED1005A6059 /* IDBKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C4601813BED1005A6059 /* IDBKeyboardView.m */; };
-		CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB826D179675A600972087 /* IDBNavigationController.m */; };
-		CEDB8271179675C600972087 /* IDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB8270179675C600972087 /* IDBViewController.m */; };
-		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
-		CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* IDBConstants.h */; };
-		CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* IDBDebug.h */; };
-		CEE3CC3817D3D0BD00EF75F1 /* IDBNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB826C179675A600972087 /* IDBNavigationController.h */; };
-		CEE3CC3917D3D0BD00EF75F1 /* IDBViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB826F179675C600972087 /* IDBViewController.h */; };
-		CEE3CD0B17D3D7BD00EF75F1 /* IDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */; };
-		CEE3CD0C17D3D7C800EF75F1 /* IDBModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */; };
+		CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* NGDOSView.m */; };
+		CEA5C45E1813BA12005A6059 /* NGKeyboardKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */; };
+		CEA5C4611813BED1005A6059 /* NGKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C4601813BED1005A6059 /* NGKeyboardView.m */; };
+		CEDB827E179679A000972087 /* libNostalgia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libNostalgia.a */; };
+		CEE3CC3317D3D0BD00EF75F1 /* NGConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* NGConstants.h */; };
+		CEE3CC3417D3D0BD00EF75F1 /* NGDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* NGDebug.h */; };
+		CEE3CD0B17D3D7BD00EF75F1 /* NGDOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* NGDOSModel.m */; };
+		CEE3CD0C17D3D7C800EF75F1 /* NGDOSModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* NGDOSModel.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -362,11 +358,9 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				CEE3CD0C17D3D7C800EF75F1 /* IDBModel.h in CopyFiles */,
-				CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */,
-				CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */,
-				CEE3CC3817D3D0BD00EF75F1 /* IDBNavigationController.h in CopyFiles */,
-				CEE3CC3917D3D0BD00EF75F1 /* IDBViewController.h in CopyFiles */,
+				CEE3CD0C17D3D7C800EF75F1 /* NGDOSModel.h in CopyFiles */,
+				CEE3CC3317D3D0BD00EF75F1 /* NGConstants.h in CopyFiles */,
+				CEE3CC3417D3D0BD00EF75F1 /* NGDebug.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,22 +856,18 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
-		CEA332181814CBE500F76146 /* IDBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBView.h; sourceTree = "<group>"; };
-		CEA332191814CBE500F76146 /* IDBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBView.m; sourceTree = "<group>"; };
-		CEA5C45C1813BA12005A6059 /* IDBKeyboardKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBKeyboardKeyView.h; sourceTree = "<group>"; };
-		CEA5C45D1813BA12005A6059 /* IDBKeyboardKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBKeyboardKeyView.m; sourceTree = "<group>"; };
-		CEA5C45F1813BED1005A6059 /* IDBKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBKeyboardView.h; sourceTree = "<group>"; };
-		CEA5C4601813BED1005A6059 /* IDBKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBKeyboardView.m; sourceTree = "<group>"; };
-		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDB826C179675A600972087 /* IDBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBNavigationController.h; sourceTree = "<group>"; };
-		CEDB826D179675A600972087 /* IDBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBNavigationController.m; sourceTree = "<group>"; };
-		CEDB826F179675C600972087 /* IDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBViewController.h; sourceTree = "<group>"; };
-		CEDB8270179675C600972087 /* IDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBViewController.m; sourceTree = "<group>"; };
-		CEDB828B17967DB600972087 /* IDBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBConstants.h; sourceTree = "<group>"; };
-		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBDebug.h; sourceTree = "<group>"; };
-		CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBModel.h; sourceTree = "<group>"; };
-		CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBModel.m; sourceTree = "<group>"; };
-		CEE3CD8017D41D5C00EF75F1 /* IDB-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDB-Prefix.pch"; sourceTree = "<group>"; };
+		CEA448EC181B9A4C00022715 /* NGDOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGDOSView.h; sourceTree = "<group>"; };
+		CEA448ED181B9A4C00022715 /* NGDOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGDOSView.m; sourceTree = "<group>"; };
+		CEA5C45C1813BA12005A6059 /* NGKeyboardKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardKeyView.h; sourceTree = "<group>"; };
+		CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardKeyView.m; sourceTree = "<group>"; };
+		CEA5C45F1813BED1005A6059 /* NGKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardView.h; sourceTree = "<group>"; };
+		CEA5C4601813BED1005A6059 /* NGKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardView.m; sourceTree = "<group>"; };
+		CEDB825D179674BF00972087 /* libNostalgia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNostalgia.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDB828B17967DB600972087 /* NGConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGConstants.h; sourceTree = "<group>"; };
+		CEDB828D17967DB600972087 /* NGDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGDebug.h; sourceTree = "<group>"; };
+		CEE3CD0917D3D7BD00EF75F1 /* NGDOSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGDOSModel.h; sourceTree = "<group>"; };
+		CEE3CD0A17D3D7BD00EF75F1 /* NGDOSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGDOSModel.m; sourceTree = "<group>"; };
+		CEE3CD8017D41D5C00EF75F1 /* Nostalgia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nostalgia-Prefix.pch"; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -906,7 +896,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */,
+				CEDB827E179679A000972087 /* libNostalgia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1752,7 +1742,7 @@
 			children = (
 				CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */,
 				CEE95BF7178A1E0F001BD8FD /* libSDL.a */,
-				CEDB825D179674BF00972087 /* libiDOSBox.a */,
+				CEDB825D179674BF00972087 /* libNostalgia.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1799,10 +1789,10 @@
 		CEA5C45B1813B99C005A6059 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				CEA5C45C1813BA12005A6059 /* IDBKeyboardKeyView.h */,
-				CEA5C45D1813BA12005A6059 /* IDBKeyboardKeyView.m */,
-				CEA5C45F1813BED1005A6059 /* IDBKeyboardView.h */,
-				CEA5C4601813BED1005A6059 /* IDBKeyboardView.m */,
+				CEA5C45C1813BA12005A6059 /* NGKeyboardKeyView.h */,
+				CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */,
+				CEA5C45F1813BED1005A6059 /* NGKeyboardView.h */,
+				CEA5C4601813BED1005A6059 /* NGKeyboardView.m */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -1810,7 +1800,7 @@
 		CEDB825F179674BF00972087 /* iDOSBox */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD8017D41D5C00EF75F1 /* IDB-Prefix.pch */,
+				CEE3CD8017D41D5C00EF75F1 /* Nostalgia-Prefix.pch */,
 				CEDB828A17967D7D00972087 /* Common */,
 				CEDB827F17967ABD00972087 /* UIKit */,
 			);
@@ -1821,14 +1811,10 @@
 			isa = PBXGroup;
 			children = (
 				CEA5C45B1813B99C005A6059 /* Keyboard */,
-				CEDB826C179675A600972087 /* IDBNavigationController.h */,
-				CEDB826D179675A600972087 /* IDBNavigationController.m */,
-				CEDB826F179675C600972087 /* IDBViewController.h */,
-				CEDB8270179675C600972087 /* IDBViewController.m */,
-				CEE3CD0917D3D7BD00EF75F1 /* IDBModel.h */,
-				CEE3CD0A17D3D7BD00EF75F1 /* IDBModel.m */,
-				CEA332181814CBE500F76146 /* IDBView.h */,
-				CEA332191814CBE500F76146 /* IDBView.m */,
+				CEE3CD0917D3D7BD00EF75F1 /* NGDOSModel.h */,
+				CEE3CD0A17D3D7BD00EF75F1 /* NGDOSModel.m */,
+				CEA448EC181B9A4C00022715 /* NGDOSView.h */,
+				CEA448ED181B9A4C00022715 /* NGDOSView.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1836,8 +1822,8 @@
 		CEDB828A17967D7D00972087 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEDB828B17967DB600972087 /* IDBConstants.h */,
-				CEDB828D17967DB600972087 /* IDBDebug.h */,
+				CEDB828B17967DB600972087 /* NGConstants.h */,
+				CEDB828D17967DB600972087 /* NGDebug.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1872,9 +1858,9 @@
 			productReference = CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CEDB825C179674BF00972087 /* iDOSBox */ = {
+		CEDB825C179674BF00972087 /* Nostalgia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */;
+			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "Nostalgia" */;
 			buildPhases = (
 				CEDB8259179674BF00972087 /* Sources */,
 				CEDB825A179674BF00972087 /* Frameworks */,
@@ -1884,9 +1870,9 @@
 			);
 			dependencies = (
 			);
-			name = iDOSBox;
+			name = Nostalgia;
 			productName = iDOSBox;
-			productReference = CEDB825D179674BF00972087 /* libiDOSBox.a */;
+			productReference = CEDB825D179674BF00972087 /* libNostalgia.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CEE95BF6178A1E0F001BD8FD /* SDL */ = {
@@ -1915,7 +1901,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = user;
 			};
-			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "iDOSBox" */;
+			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "Nostalgia" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1927,7 +1913,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEDB825C179674BF00972087 /* iDOSBox */,
+				CEDB825C179674BF00972087 /* Nostalgia */,
 				CE2CA1CD1787A14D001F6D5F /* DOSBox */,
 				CEE95BF6178A1E0F001BD8FD /* SDL */,
 			);
@@ -2064,12 +2050,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA5C45E1813BA12005A6059 /* IDBKeyboardKeyView.m in Sources */,
-				CEE3CD0B17D3D7BD00EF75F1 /* IDBModel.m in Sources */,
-				CEDB826E179675A600972087 /* IDBNavigationController.m in Sources */,
-				CEDB8271179675C600972087 /* IDBViewController.m in Sources */,
-				CEA3321A1814CBE500F76146 /* IDBView.m in Sources */,
-				CEA5C4611813BED1005A6059 /* IDBKeyboardView.m in Sources */,
+				CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */,
+				CEA5C45E1813BA12005A6059 /* NGKeyboardKeyView.m in Sources */,
+				CEE3CD0B17D3D7BD00EF75F1 /* NGDOSModel.m in Sources */,
+				CEA5C4611813BED1005A6059 /* NGKeyboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2298,11 +2282,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/iDOSBox/IDB-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/iDOSBox/Nostalgia-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nostalgia;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2315,11 +2299,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/iDOSBox/IDB-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/iDOSBox/Nostalgia-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nostalgia;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2372,7 +2356,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "iDOSBox" */ = {
+		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "Nostalgia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE2CA1DA1787A14D001F6D5F /* Debug */,
@@ -2390,7 +2374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */ = {
+		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "Nostalgia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEDB8267179674BF00972087 /* Debug */,

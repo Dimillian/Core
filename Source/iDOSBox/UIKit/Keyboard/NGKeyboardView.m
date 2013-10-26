@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "IDBKeyboardView.h"
+#import "NGKeyboardView.h"
 #import "SDL_keyboard_c.h"
 
-@implementation IDBKeyboardView
+@implementation NGKeyboardView
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -16,22 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "SDL_scancode.h"
+#import <Availability.h>
 
-typedef NS_ENUM(NSUInteger, IDBKeyState) {
-    IDBKeyPress,
-    IDBKeyTap,
-    IDBKeyRelease,
-};
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
 
-@interface IDBModel : NSObject
-
-@property (readwrite, nonatomic) BOOL paused;
-
-+ (NSMutableArray *)commandQueue;
-+ (void)enqueueCommand:(NSString *)command;
-+ (NSString *)dequeueCommand;
-+ (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
-+ (void)sendText:(NSString *)text;
-
-@end
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "NGDebug.h"
+#endif

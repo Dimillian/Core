@@ -23,10 +23,8 @@
 #import <UIKit/UIKit.h>
 
 #ifdef IDOSBOX
-@class SDL_uikitopenglview;
-@class IDBNavigationController;
-@class IDBViewController;
-@class IDBModel;
+@class NGDOSView;
+@class NGDOSModel;
 #endif
 
 /* *INDENT-OFF* */
@@ -34,9 +32,10 @@
 }
 
 #ifdef IDOSBOX
-@property (readonly, retain, nonatomic) IDBNavigationController *idbNavigationController;
-@property (readonly, retain, nonatomic) IDBViewController *idbViewController;
-@property (readonly, retain, nonatomic) IDBModel *idbModel;
+@property (readwrite, retain, nonatomic) NGDOSView *dosView;
+@property (readwrite, retain, nonatomic) NGDOSModel *dosModel;
+
+- (void)initSDL;
 #endif
 
 +(SDLUIKitDelegate *)sharedAppDelegate;

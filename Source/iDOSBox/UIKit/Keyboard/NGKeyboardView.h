@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IDBKeyboardKeyView.h"
+#import "NGKeyboardKeyView.h"
 
-@interface IDBKeyboardView : UIView <IDBKeyboardKeyViewDelegate>
+@interface NGKeyboardView : UIView <IDBKeyboardKeyViewDelegate>
 
 @end
