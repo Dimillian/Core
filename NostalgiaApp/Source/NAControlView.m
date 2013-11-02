@@ -21,33 +21,34 @@
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-  //  CGContextAddPath(context, self.shape.CGPath);
-  //  CGFloat fillAlpha = self.isPressed ? 0.6f : 0.4f;
-  //  CGContextSetRGBFillColor(context, 0.0f, 0.0f, 0.0f, fillAlpha);
-  //  CGContextFillPath(context);
     
+    CGFloat strokeWidth = 5.0f;
+    
+    // inner stroke
     CGContextSaveGState(context); {
+        // clip
         CGContextBeginPath(context);
         CGContextAddPath(context, self.shape.CGPath);
         CGContextClip(context);
+        // stroke
         CGContextAddPath(context, self.shape.CGPath);
         CGFloat strokeAlpha = self.isPressed ? 0.8f : 0.6f;
         CGContextSetRGBStrokeColor(context, 1.0f, 1.0f, 1.0f, strokeAlpha);
-        CGContextSetLineWidth(context, 5.0f);
+        CGContextSetLineWidth(context, strokeWidth);
         CGContextStrokePath(context);
     } CGContextRestoreGState(context);
-
+    
+    // fill inside inner stroke
     CGContextSaveGState(context); {
+        // clip
         CGContextBeginPath(context);
         CGContextAddPath(context, self.shape.CGPath);
-        
-        CGContextSetLineWidth(context, 5.0f);
+        CGContextSetLineWidth(context, strokeWidth);
         CGContextReplacePathWithStrokedPath(context);
         CGContextAddRect(context, CGRectInfinite);
         CGContextClip(context);
-        
+        // fill
         CGContextAddPath(context, self.shape.CGPath);
-        
         CGFloat fillAlpha = self.isPressed ? 0.6f : 0.4f;
         CGContextSetRGBFillColor(context, 0.0f, 0.0f, 0.0f, fillAlpha);
         CGContextFillPath(context);
@@ -59,7 +60,21 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    if (![self.shape containsPoint:[touch locationInView:self]]) {
+        self.isPressed = NO;
+        [self setNeedsDisplay];
+    }
+    return;
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.isPressed = NO;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     self.isPressed = NO;
     [self setNeedsDisplay];
 }

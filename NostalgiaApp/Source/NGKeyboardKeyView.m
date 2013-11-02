@@ -30,8 +30,6 @@
 
 @implementation NGKeyboardKeyView
 
-@synthesize isPressed = _isPressed;
-
 - (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)aScancode {
     if (self = [super initWithShape:[UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:6.0f]]) {
         _scancode = aScancode;
@@ -43,25 +41,13 @@
 }
 
 - (void)setIsPressed:(BOOL)isPressed {
-    if (_isPressed != isPressed) {
-        _isPressed = isPressed;
-        if (isPressed) {
-            [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyPress];
-        } else {
-            [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyRelease];
-        }
+    [super setIsPressed:isPressed];
+    if (isPressed) {
+        [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyPress];
+    } else {
+        [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyRelease];
     }
     return;
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = YES;
-    [self setNeedsDisplay];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = NO;
-    [self setNeedsDisplay];
 }
 
 @end

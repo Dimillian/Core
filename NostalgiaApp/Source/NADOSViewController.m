@@ -22,6 +22,7 @@
 
 // TESTING ONLY
 #import "NGKeyboardKeyView.h"
+#import "NGJoystickView.h"
 
 @interface NADOSViewController ()
 
@@ -54,7 +55,10 @@
     
     // TESTING ONLY
     NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
+    NGJoystickView *test2 = [[NGJoystickView alloc] initWithRadius:60.0f];
     [self.dosView addSubview:test];
+    [self.dosView addSubview:test2];
+    test2.center = CGPointMake(100.0f, 200.0f);
     test.center = CGPointMake(300.0f, 300.0f);
     return;
 }
@@ -70,6 +74,7 @@
     // swipe up gesture recognizer
     UISwipeGestureRecognizer *swipeGestureUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     swipeGestureUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp | UISwipeGestureRecognizerDirectionDown;
+    swipeGestureUpRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:swipeGestureUpRecognizer];
     
     UIBarButtonItem *hideButton = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(hideButtonPressed)];

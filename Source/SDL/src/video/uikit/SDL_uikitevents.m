@@ -52,7 +52,7 @@ UIKit_PumpEvents(_THIS)
 		} while(result == kCFRunLoopRunHandledSource);
         
 #ifdef NOSTALGIA
-        /* enable scrolling for UIScrollView */
+        // fix UIScrollView scrolling
         do {
             result = CFRunLoopRunInMode((CFStringRef)UITrackingRunLoopMode, 0, TRUE);
         } while(result == kCFRunLoopRunHandledSource);
