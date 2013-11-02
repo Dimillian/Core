@@ -111,7 +111,7 @@ const char * dosbox_command_dequeue() {
         if (shiftPressed) {
             [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
         }
-        [self sendKey:keyInfo.code withState:IDBKeyTap];
+    //    [self sendKey:keyInfo.code withState:IDBKeyTap];
         if (shiftPressed) {
             [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
         }
@@ -124,10 +124,6 @@ const char * dosbox_command_dequeue() {
         case IDBKeyPress: {
             SDL_SendKeyboardKey(0, SDL_PRESSED, scancode);
         } break;
-        case IDBKeyTap: {
-            SDL_SendKeyboardKey(0, SDL_PRESSED, scancode);
-            SDL_SendKeyboardKey(0, SDL_RELEASED, scancode);
-        } break;
         case IDBKeyRelease: {
             SDL_SendKeyboardKey(0, SDL_RELEASED, scancode);
         } break;
@@ -136,13 +132,13 @@ const char * dosbox_command_dequeue() {
 }
 
 - (void)setPaused:(BOOL)paused {
-    [self sendKey:SDL_SCANCODE_1 withState:IDBKeyTap];
     if (_paused != paused) {
+        _paused = paused;
         [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
-        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyTap];
+        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyPress];
         [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
+        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyRelease];
     }
-    _paused = paused;
     return;
 }
 

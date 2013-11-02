@@ -10,6 +10,7 @@
 		CE006A6C17D427C100C589FC /* dosbox-ios.conf in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6617D426E500C589FC /* dosbox-ios.conf */; };
 		CE006A7017D42A4E00C589FC /* CDrive in Resources */ = {isa = PBXBuildFile; fileRef = CE006A6F17D42A4E00C589FC /* CDrive */; };
 		CE026A6117D4492C00943AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE026A6017D4492C00943AE4 /* Images.xcassets */; };
+		CEA32012182375D8003AA1C8 /* NAControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA32011182375D8003AA1C8 /* NAControlView.m */; };
 		CEA448E0181B8A0F00022715 /* NADOSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */; };
 		CEA448E1181B8A0F00022715 /* NADOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DF181B8A0F00022715 /* NADOSViewController.m */; };
 		CEA448E7181B97B900022715 /* NADOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448E6181B97B900022715 /* NADOSModel.m */; };
@@ -17,6 +18,8 @@
 		CEA448F2181BA75300022715 /* libDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448EF181BA75300022715 /* libDOSBox.a */; };
 		CEA448F4181BA75300022715 /* libSDL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448F1181BA75300022715 /* libSDL.a */; };
 		CEA448F8181BAF0300022715 /* libNostalgia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA448F7181BAF0200022715 /* libNostalgia.a */; };
+		CEA7CD3B181CDB32004BA538 /* NGKeyboardKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA7CD38181CDB32004BA538 /* NGKeyboardKeyView.m */; };
+		CEA7CD3C181CDB32004BA538 /* NGKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA7CD3A181CDB32004BA538 /* NGKeyboardView.m */; };
 		CEADE6A51812560300268532 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEADE6A41812560300268532 /* CoreMIDI.framework */; };
 		CEADE6A81812644400268532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D5501791E823006134CF /* CoreGraphics.framework */; };
 		CEADE6A91812644F00268532 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */; };
@@ -59,6 +62,9 @@
 		CE006A6617D426E500C589FC /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CE006A6F17D42A4E00C589FC /* CDrive */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CDrive; sourceTree = "<group>"; };
 		CE026A6017D4492C00943AE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NostalgiaApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		CEA32010182375D8003AA1C8 /* NAControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAControlView.h; sourceTree = "<group>"; };
+		CEA32011182375D8003AA1C8 /* NAControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAControlView.m; sourceTree = "<group>"; };
+		CEA320161823771A003AA1C8 /* NAControlViewSubclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAControlViewSubclass.h; sourceTree = "<group>"; };
 		CEA448DC181B8A0F00022715 /* NADOSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSNavigationController.h; sourceTree = "<group>"; };
 		CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NADOSNavigationController.m; sourceTree = "<group>"; };
 		CEA448DE181B8A0F00022715 /* NADOSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADOSViewController.h; sourceTree = "<group>"; };
@@ -72,6 +78,10 @@
 		CEA448F1181BA75300022715 /* libSDL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL.a; path = "../../../Library/Developer/Xcode/DerivedData/IDBDemo-bblosungedkhbwhgdclfvncmgpbj/Build/Products/Debug-iphoneos/libSDL.a"; sourceTree = "<group>"; };
 		CEA448F5181BADAC00022715 /* libNostalgia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNostalgia.a; path = "../build/Debug-iphoneos/libNostalgia.a"; sourceTree = "<group>"; };
 		CEA448F7181BAF0200022715 /* libNostalgia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNostalgia.a; path = "../build/Debug-iphoneos/libNostalgia.a"; sourceTree = "<group>"; };
+		CEA7CD37181CDB32004BA538 /* NGKeyboardKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardKeyView.h; sourceTree = "<group>"; };
+		CEA7CD38181CDB32004BA538 /* NGKeyboardKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardKeyView.m; sourceTree = "<group>"; };
+		CEA7CD39181CDB32004BA538 /* NGKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardView.h; sourceTree = "<group>"; };
+		CEA7CD3A181CDB32004BA538 /* NGKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardView.m; sourceTree = "<group>"; };
 		CEADE69D181252D400268532 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CEADE6A21812555A00268532 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEADE6A41812560300268532 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
@@ -169,6 +179,13 @@
 		CEF6D5691791E836006134CF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEA320161823771A003AA1C8 /* NAControlViewSubclass.h */,
+				CEA32010182375D8003AA1C8 /* NAControlView.h */,
+				CEA32011182375D8003AA1C8 /* NAControlView.m */,
+				CEA7CD37181CDB32004BA538 /* NGKeyboardKeyView.h */,
+				CEA7CD38181CDB32004BA538 /* NGKeyboardKeyView.m */,
+				CEA7CD39181CDB32004BA538 /* NGKeyboardView.h */,
+				CEA7CD3A181CDB32004BA538 /* NGKeyboardView.m */,
 				CEA448DC181B8A0F00022715 /* NADOSNavigationController.h */,
 				CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */,
 				CEA448E5181B97B900022715 /* NADOSModel.h */,
@@ -304,7 +321,10 @@
 				CEA448E7181B97B900022715 /* NADOSModel.m in Sources */,
 				CEA448E1181B8A0F00022715 /* NADOSViewController.m in Sources */,
 				CEF6D5591791E823006134CF /* main.m in Sources */,
+				CEA7CD3B181CDB32004BA538 /* NGKeyboardKeyView.m in Sources */,
+				CEA7CD3C181CDB32004BA538 /* NGKeyboardView.m in Sources */,
 				CEA448E0181B8A0F00022715 /* NADOSNavigationController.m in Sources */,
+				CEA32012182375D8003AA1C8 /* NAControlView.m in Sources */,
 				CEA448EB181B995A00022715 /* NADOSView.m in Sources */,
 				CEF6D55D1791E823006134CF /* NAAppDelegate.mm in Sources */,
 			);

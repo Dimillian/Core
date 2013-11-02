@@ -24,7 +24,6 @@
 
 #ifdef NOSTALGIA
 @class NGDOSView;
-@class NGDOSModel;
 #endif
 
 /* *INDENT-OFF* */
@@ -33,9 +32,8 @@
 
 #ifdef NOSTALGIA
 @property (readwrite, retain, nonatomic) NGDOSView *dosView;
-@property (readwrite, retain, nonatomic) NGDOSModel *dosModel;
 
-- (void)initSDL;
+- (void)startSDL;
 #endif
 
 +(SDLUIKitDelegate *)sharedAppDelegate;

@@ -55,6 +55,7 @@
     // TESTING ONLY
     NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
     [self.dosView addSubview:test];
+    test.center = CGPointMake(300.0f, 300.0f);
     return;
 }
 

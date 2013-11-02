@@ -18,6 +18,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SDL_scancode.h"
+#import "NAControlView.h"
 
 typedef NS_ENUM(NSUInteger, IDBKeyboardKeySize) {
     IDBKeyboardKeySize100,
@@ -41,10 +42,10 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @end
 
-@interface NGKeyboardKeyView : UIView
+@interface NGKeyboardKeyView : NAControlView
 
 @property (weak, readwrite, nonatomic) id<IDBKeyboardKeyViewDelegate> delegate;
 
-- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)keyScancode;
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)aScancode;
 
 @end

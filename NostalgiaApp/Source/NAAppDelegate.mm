@@ -43,7 +43,7 @@
     
     [self.window setRootViewController:self.dosNavigationController];
     
-    [self initSDL];
+    [self startSDL];
     return YES;
 }
 

@@ -96,7 +96,7 @@ int main(int argc, char **argv) {
 }
 
 #ifdef NOSTALGIA
-- (void)initSDL {
+- (void)startSDL {
     [self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
 }
 #endif
@@ -105,8 +105,7 @@ int main(int argc, char **argv) {
 #ifdef NOSTALGIA
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.dosView = [[[NGDOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
-    self.dosModel = [[[NGDOSModel alloc] init] autorelease];
-    [self initSDL];
+    [self startSDL];
 #else
     /* Set working directory to resource path */
 	[[NSFileManager defaultManager] changeCurrentDirectoryPath: [[NSBundle mainBundle] resourcePath]];
@@ -137,7 +136,6 @@ int main(int argc, char **argv) {
             SDL_SendWindowEvent(window, SDL_WINDOWEVENT_MINIMIZED, 0, 0);
         }
     }
-    glFinish();
 }
 
 - (void) applicationDidBecomeActive:(UIApplication*)application

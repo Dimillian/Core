@@ -296,8 +296,6 @@
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
 		CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* NGDOSView.m */; };
-		CEA5C45E1813BA12005A6059 /* NGKeyboardKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */; };
-		CEA5C4611813BED1005A6059 /* NGKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5C4601813BED1005A6059 /* NGKeyboardView.m */; };
 		CEDB827E179679A000972087 /* libNostalgia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libNostalgia.a */; };
 		CEE3CC3317D3D0BD00EF75F1 /* NGConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* NGConstants.h */; };
 		CEE3CC3417D3D0BD00EF75F1 /* NGDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* NGDebug.h */; };
@@ -858,10 +856,6 @@
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
 		CEA448EC181B9A4C00022715 /* NGDOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGDOSView.h; sourceTree = "<group>"; };
 		CEA448ED181B9A4C00022715 /* NGDOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGDOSView.m; sourceTree = "<group>"; };
-		CEA5C45C1813BA12005A6059 /* NGKeyboardKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardKeyView.h; sourceTree = "<group>"; };
-		CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardKeyView.m; sourceTree = "<group>"; };
-		CEA5C45F1813BED1005A6059 /* NGKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKeyboardView.h; sourceTree = "<group>"; };
-		CEA5C4601813BED1005A6059 /* NGKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKeyboardView.m; sourceTree = "<group>"; };
 		CEDB825D179674BF00972087 /* libNostalgia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNostalgia.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDB828B17967DB600972087 /* NGConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGConstants.h; sourceTree = "<group>"; };
 		CEDB828D17967DB600972087 /* NGDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGDebug.h; sourceTree = "<group>"; };
@@ -1786,17 +1780,6 @@
 			name = dummy;
 			sourceTree = "<group>";
 		};
-		CEA5C45B1813B99C005A6059 /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-				CEA5C45C1813BA12005A6059 /* NGKeyboardKeyView.h */,
-				CEA5C45D1813BA12005A6059 /* NGKeyboardKeyView.m */,
-				CEA5C45F1813BED1005A6059 /* NGKeyboardView.h */,
-				CEA5C4601813BED1005A6059 /* NGKeyboardView.m */,
-			);
-			path = Keyboard;
-			sourceTree = "<group>";
-		};
 		CEDB825F179674BF00972087 /* Nostalgia */ = {
 			isa = PBXGroup;
 			children = (
@@ -1810,7 +1793,6 @@
 		CEDB827F17967ABD00972087 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEA5C45B1813B99C005A6059 /* Keyboard */,
 				CEE3CD0917D3D7BD00EF75F1 /* NGDOSModel.h */,
 				CEE3CD0A17D3D7BD00EF75F1 /* NGDOSModel.m */,
 				CEA448EC181B9A4C00022715 /* NGDOSView.h */,
@@ -2051,9 +2033,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */,
-				CEA5C45E1813BA12005A6059 /* NGKeyboardKeyView.m in Sources */,
 				CEE3CD0B17D3D7BD00EF75F1 /* NGDOSModel.m in Sources */,
-				CEA5C4611813BED1005A6059 /* NGKeyboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,6 @@
 
 typedef NS_ENUM(NSUInteger, IDBKeyState) {
     IDBKeyPress,
-    IDBKeyTap,
     IDBKeyRelease,
 };
 

@@ -38,7 +38,15 @@ extern SDL_error *SDL_GetErrBuf(void);
 
 #define SDL_ERRBUFIZE	1024
 
+#ifdef NOSTALGIA
+
+#if DEBUG
 #define DEBUG_ERROR
+#endif
+
+#else
+#define DEBUG_ERROR
+#endif
 
 /* Private functions */
 
