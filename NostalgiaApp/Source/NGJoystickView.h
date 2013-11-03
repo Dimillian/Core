@@ -7,16 +7,17 @@
 //
 
 #import "NAControlView.h"
-#import "SDL_scancode.h"
+
+@class NGKey;
 
 @interface NGJoystickView : NAControlView
 
-- (id)initWithRadius:(CGFloat)aRadius;
+- (id)initWithRadius:(CGFloat)radius;
 
 @property (readwrite, nonatomic) BOOL isKeyboardJoystick;
-@property (readwrite, nonatomic) SDL_scancode upKey;
-@property (readwrite, nonatomic) SDL_scancode downKey;
-@property (readwrite, nonatomic) SDL_scancode rightKey;
-@property (readwrite, nonatomic) SDL_scancode leftKey;
+@property (readwrite, nonatomic) NGKey *upKey;
+@property (readwrite, nonatomic) NGKey *downKey;
+@property (readwrite, nonatomic) NGKey *rightKey;
+@property (readwrite, nonatomic) NGKey *leftKey;
 
 @end

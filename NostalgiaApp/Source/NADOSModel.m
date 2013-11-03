@@ -13,7 +13,7 @@
 - (id)init {
     if (self = ([super init])) {
         [self enqueueCommand:[NSString stringWithFormat:@"mount C \"%@\"", [self mountDocumentDirectory:@"CDrive"]]];
-        [self enqueueCommands:[NSArray arrayWithObjects:@"cls", @"C:", @"FIRE", nil]];
+        [self enqueueCommands:@[@"cls", @"C:", @"FIRE"]];
     }
     return self;
 }
@@ -27,7 +27,7 @@
 }
 
 - (NSArray *)startupCommands {
-    return [NSArray arrayWithObjects:@"cls", nil];
+    return @[@"cls"];
 }
 
 - (NSString *)mountDocumentDirectory:(NSString *)folderName {

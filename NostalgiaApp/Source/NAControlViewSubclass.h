@@ -11,4 +11,7 @@
 @property (readwrite, nonatomic) UIBezierPath *shape;
 @property (readwrite, nonatomic) BOOL isPressed;
 
+- (UIColor *)strokeColor;
+- (UIColor *)fillColor;
+
 @end

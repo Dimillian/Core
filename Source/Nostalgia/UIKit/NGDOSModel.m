@@ -18,9 +18,7 @@
 
 #import "NGDOSModel.h"
 #import "NGConstants.h"
-#import "SDL_keysym.h"
-#import "SDL_keyboard_c.h"
-#import "keyinfotable.h"
+#import "NGKey.h"
 
 const char * dosbox_config_path() {
     return [[[NGDOSModel sharedModel] dosboxConfigPath] UTF8String];
@@ -101,43 +99,15 @@ const char * dosbox_command_dequeue() {
     }
 }
 
-- (void)sendString:(NSString *)string {
-    for (NSUInteger i = 0; i < [string length]; i++) {
-        unichar key = [string characterAtIndex:i];
-        NSAssert(isascii(key), @"character is not ASCII");
-        UIKitKeyInfo keyInfo = unicharToUIKeyInfoTable[key];
-        
-        const BOOL shiftPressed = keyInfo.mod & KMOD_SHIFT;
-        if (shiftPressed) {
-            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyPress];
-        }
-    //    [self sendKey:keyInfo.code withState:IDBKeyTap];
-        if (shiftPressed) {
-            [self sendKey:SDL_SCANCODE_LSHIFT withState:IDBKeyRelease];
-        }
-    }
-    return;
-}
-
-- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state  {
-    switch (state) {
-        case IDBKeyPress: {
-            SDL_SendKeyboardKey(0, SDL_PRESSED, scancode);
-        } break;
-        case IDBKeyRelease: {
-            SDL_SendKeyboardKey(0, SDL_RELEASED, scancode);
-        } break;
-    }
-    return;
-}
-
 - (void)setPaused:(BOOL)paused {
     if (_paused != paused) {
         _paused = paused;
-        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyPress];
-        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyPress];
-        [self sendKey:SDL_SCANCODE_LALT withState:IDBKeyRelease];
-        [self sendKey:SDL_SCANCODE_PAUSE withState:IDBKeyRelease];
+        NGKey *altKey = [NGKey keyWithScancode:SDL_SCANCODE_LALT];
+        NGKey *pauseKey = [NGKey keyWithScancode:SDL_SCANCODE_LALT];
+        altKey.isPressed = YES;
+        pauseKey.isPressed = YES;
+        altKey.isPressed = NO;
+        pauseKey.isPressed = NO;
     }
     return;
 }

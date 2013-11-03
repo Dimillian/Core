@@ -32,8 +32,7 @@
         CGContextClip(context);
         // stroke
         CGContextAddPath(context, self.shape.CGPath);
-        CGFloat strokeAlpha = self.isPressed ? 0.8f : 0.6f;
-        CGContextSetRGBStrokeColor(context, 1.0f, 1.0f, 1.0f, strokeAlpha);
+        CGContextSetStrokeColorWithColor(context, [self strokeColor].CGColor);
         CGContextSetLineWidth(context, strokeWidth);
         CGContextStrokePath(context);
     } CGContextRestoreGState(context);
@@ -49,15 +48,13 @@
         CGContextClip(context);
         // fill
         CGContextAddPath(context, self.shape.CGPath);
-        CGFloat fillAlpha = self.isPressed ? 0.6f : 0.4f;
-        CGContextSetRGBFillColor(context, 0.0f, 0.0f, 0.0f, fillAlpha);
+        CGContextSetFillColorWithColor(context, [self fillColor].CGColor);
         CGContextFillPath(context);
     } CGContextRestoreGState(context);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = YES;
-    [self setNeedsDisplay];
+    [self touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -75,8 +72,17 @@
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = NO;
-    [self setNeedsDisplay];
+    [self touchesEnded:touches withEvent:event];
+}
+
+- (UIColor *)strokeColor {
+    CGFloat alpha = self.isPressed ? 0.8f : 0.6f;
+    return [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:alpha];
+}
+
+- (UIColor *)fillColor {
+    CGFloat alpha = self.isPressed ? 0.6f : 0.4f;
+    return [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:alpha];
 }
 
 @end

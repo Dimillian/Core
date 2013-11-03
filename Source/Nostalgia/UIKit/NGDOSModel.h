@@ -18,11 +18,6 @@
 
 #import "SDL_scancode.h"
 
-typedef NS_ENUM(NSUInteger, IDBKeyState) {
-    IDBKeyPress,
-    IDBKeyRelease,
-};
-
 @interface NGDOSModel : NSObject
 
 @property (readwrite, nonatomic) BOOL paused;
@@ -35,7 +30,5 @@ typedef NS_ENUM(NSUInteger, IDBKeyState) {
 - (void)enqueueCommand:(NSString *)command;
 - (void)enqueueCommands:(NSArray *)commands;
 - (NSString *)dequeueCommand;
-- (void)sendKey:(SDL_scancode)scancode withState:(IDBKeyState)state;
-- (void)sendString:(NSString *)text;
 
 @end

@@ -18,35 +18,75 @@
 
 #import "NGKeyboardKeyView.h"
 #import "NAControlViewSubclass.h"
-#import "NADOSModel.h"
+#import "NGKey.h"
 
 @interface NGKeyboardKeyView ()
 
-@property (readwrite, nonatomic) UILabel *label;
 @property (readwrite, nonatomic) IDBKeyboardKeySize size;
-@property (readwrite, nonatomic) SDL_scancode scancode;
+@property (readwrite, nonatomic) NGKey *key;
 
 @end
 
 @implementation NGKeyboardKeyView
 
-- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)aScancode {
-    if (self = [super initWithShape:[UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:6.0f]]) {
-        _scancode = aScancode;
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 100.0f)];
-        [self.label setText:@"W"];
-        [self addSubview:_label];
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(NGKey *)key {
+    UIBezierPath *shape;
+    const CGFloat cornerRadius = 6.0f;
+    switch (keySize) {
+        case IDBKeyboardKeySize100: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize125: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize150: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize175: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize200: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize225: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySize275: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeySizeSpace: {
+            shape = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, 100.0f, 50.0f) cornerRadius:cornerRadius];
+        } break;
+        case IDBKeyboardKeyCircle: {
+            const CGFloat radius = 40.0f;
+            shape = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius startAngle:0.0f endAngle:2.0f * M_PI clockwise:YES];
+        } break;
+    }
+    
+    if (self = [super initWithShape:shape]) {
+        _key = key;
     }
     return self;
 }
 
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    NSDictionary* attributes = @{NSForegroundColorAttributeName : [self strokeColor], NSFontAttributeName : [UIFont fontWithName:@"Helvetica" size:30]};
+    NSMutableAttributedString *keyText = [[NSMutableAttributedString alloc] initWithString:self.key.name attributes:attributes];
+    if (keyText.length > 3) {
+        [keyText.mutableString setString:@""];
+    }
+    
+    CGPoint center = CGPointMake(self.bounds.size.width / 2.0f + self.bounds.origin.x - keyText.size.width / 2.0f,
+                                 self.bounds.size.height / 2.0f + self.bounds.origin.y - keyText.size.height / 2.0f);
+    
+    [keyText drawAtPoint:center];
+}
+
 - (void)setIsPressed:(BOOL)isPressed {
     [super setIsPressed:isPressed];
-    if (isPressed) {
-        [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyPress];
-    } else {
-        [[NADOSModel sharedModel] sendKey:self.scancode withState:IDBKeyRelease];
-    }
+    self.key.isPressed = isPressed;
     return;
 }
 

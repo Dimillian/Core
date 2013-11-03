@@ -19,6 +19,7 @@
 #import "NADOSViewController.h"
 #import "NADOSModel.h"
 #import "NADOSView.h"
+#import "NGKey.h"
 
 // TESTING ONLY
 #import "NGKeyboardKeyView.h"
@@ -54,12 +55,15 @@
     self.dosView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // TESTING ONLY
-    NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeySize100 andScancode:SDL_SCANCODE_1];
+    NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_1]];
     NGJoystickView *test2 = [[NGJoystickView alloc] initWithRadius:60.0f];
+    NGKeyboardKeyView *test3 = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_SPACE]];
     [self.dosView addSubview:test];
     [self.dosView addSubview:test2];
-    test2.center = CGPointMake(100.0f, 200.0f);
+    [self.dosView addSubview:test3];
     test.center = CGPointMake(300.0f, 300.0f);
+    test2.center = CGPointMake(100.0f, 200.0f);
+    test3.center = CGPointMake(300.0f, 500.0f);
     return;
 }
 
@@ -82,7 +86,7 @@
     UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playButtonPressed)];
     UIBarButtonItem *pauseButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(pauseButtonPressed)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    self.toolbarItems = [NSArray arrayWithObjects:hideButton, keyboardButton, flexibleSpace, playButton, pauseButton, nil];
+    self.toolbarItems = @[hideButton, keyboardButton, flexibleSpace, playButton, pauseButton];
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -116,7 +120,6 @@
 }
 
 - (void)singleTap:(UITapGestureRecognizer *)tapGestureRecognizer {
-    [self.dosModel sendKey:SDL_SCANCODE_1 withState:IDBKeyPress];
     if (self.dosModel.paused) {
         self.dosModel.paused = NO;
     } else if (self.menuOpen) {

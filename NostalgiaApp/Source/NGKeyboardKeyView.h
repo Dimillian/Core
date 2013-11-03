@@ -17,8 +17,9 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "SDL_scancode.h"
 #import "NAControlView.h"
+
+@class NGKey;
 
 typedef NS_ENUM(NSUInteger, IDBKeyboardKeySize) {
     IDBKeyboardKeySize100,
@@ -29,6 +30,7 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeySize) {
     IDBKeyboardKeySize225,
     IDBKeyboardKeySize275,
     IDBKeyboardKeySizeSpace,
+    IDBKeyboardKeyCircle,
 };
 
 typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
@@ -38,7 +40,6 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @protocol IDBKeyboardKeyViewDelegate <NSObject>
 
-- (void)keyStateChange:(IDBKeyboardKeyState)keyState withScancode:(SDL_scancode)keyScancode;
 
 @end
 
@@ -46,6 +47,6 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @property (weak, readwrite, nonatomic) id<IDBKeyboardKeyViewDelegate> delegate;
 
-- (id)initWithSize:(IDBKeyboardKeySize)keySize andScancode:(SDL_scancode)aScancode;
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(NGKey *)key;
 
 @end

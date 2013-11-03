@@ -295,6 +295,7 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
+		CEA1CC3C182558AE00E0957A /* NGKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* NGKey.m */; };
 		CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* NGDOSView.m */; };
 		CEDB827E179679A000972087 /* libNostalgia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libNostalgia.a */; };
 		CEE3CC3317D3D0BD00EF75F1 /* NGConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* NGConstants.h */; };
@@ -854,6 +855,8 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
+		CEA1CC3A182558AE00E0957A /* NGKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGKey.h; sourceTree = "<group>"; };
+		CEA1CC3B182558AE00E0957A /* NGKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGKey.m; sourceTree = "<group>"; };
 		CEA448EC181B9A4C00022715 /* NGDOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGDOSView.h; sourceTree = "<group>"; };
 		CEA448ED181B9A4C00022715 /* NGDOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGDOSView.m; sourceTree = "<group>"; };
 		CEDB825D179674BF00972087 /* libNostalgia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNostalgia.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1797,6 +1800,8 @@
 				CEE3CD0A17D3D7BD00EF75F1 /* NGDOSModel.m */,
 				CEA448EC181B9A4C00022715 /* NGDOSView.h */,
 				CEA448ED181B9A4C00022715 /* NGDOSView.m */,
+				CEA1CC3A182558AE00E0957A /* NGKey.h */,
+				CEA1CC3B182558AE00E0957A /* NGKey.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2032,6 +2037,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA1CC3C182558AE00E0957A /* NGKey.m in Sources */,
 				CEA448EE181B9A4C00022715 /* NGDOSView.m in Sources */,
 				CEE3CD0B17D3D7BD00EF75F1 /* NGDOSModel.m in Sources */,
 			);
