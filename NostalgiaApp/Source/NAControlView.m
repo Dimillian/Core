@@ -54,7 +54,9 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self touchesMoved:touches withEvent:event];
+    self.isPressed = YES;
+    [self setNeedsDisplay];
+    return;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

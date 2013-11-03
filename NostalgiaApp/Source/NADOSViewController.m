@@ -58,12 +58,21 @@
     NGKeyboardKeyView *test = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_1]];
     NGJoystickView *test2 = [[NGJoystickView alloc] initWithRadius:60.0f];
     NGKeyboardKeyView *test3 = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_SPACE]];
+    NGKeyboardKeyView *test4 = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_3]];
+    NGKeyboardKeyView *test5 = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_2]];
+    NGKeyboardKeyView *test6 = [[NGKeyboardKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[NGKey keyWithScancode:SDL_SCANCODE_5]];
     [self.dosView addSubview:test];
     [self.dosView addSubview:test2];
     [self.dosView addSubview:test3];
+    [self.dosView addSubview:test4];
+    [self.dosView addSubview:test5];
+    [self.dosView addSubview:test6];
     test.center = CGPointMake(300.0f, 300.0f);
     test2.center = CGPointMake(100.0f, 200.0f);
     test3.center = CGPointMake(300.0f, 500.0f);
+    test4.center = CGPointMake(300.0f, 600.0f);
+    test5.center = CGPointMake(300.0f, 700.0f);
+    test6.center = CGPointMake(300.0f, 800.0f);
     return;
 }
 

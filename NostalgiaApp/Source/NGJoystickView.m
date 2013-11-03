@@ -44,7 +44,7 @@
         self.leftKey.isPressed = NO;
     }
     
-    if (fabs(slope) > tanf(M_PI / 8)) {
+    if (fabs(slope) > tanf(M_PI / 4)) {
         self.upKey.isPressed = touchLocation.y < center.y;
         self.downKey.isPressed = touchLocation.y > center.y;
     } else {

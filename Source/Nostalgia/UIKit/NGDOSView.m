@@ -17,7 +17,7 @@ const CGSize IDBWindowSize = { 640.0f, 400.0f };
 }
 
 - (void)layoutSubviews {
-    if (self.bounds.size.width > IDBWindowSize.width && self.bounds.size.height > IDBWindowSize.height) {
+    if (self.bounds.size.width > 1.5 * IDBWindowSize.width && self.bounds.size.height > 1.5 * IDBWindowSize.height) {
         self.layer.magnificationFilter = kCAFilterNearest;
     } else {
         self.layer.magnificationFilter = kCAFilterLinear;

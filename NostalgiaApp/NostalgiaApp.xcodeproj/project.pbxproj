@@ -12,6 +12,7 @@
 		CE026A6117D4492C00943AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE026A6017D4492C00943AE4 /* Images.xcassets */; };
 		CEA1CC351824CEB800E0957A /* NGJoystickView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC341824CEB800E0957A /* NGJoystickView.m */; };
 		CEA32012182375D8003AA1C8 /* NAControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA32011182375D8003AA1C8 /* NAControlView.m */; };
+		CEA4369D18262A1A009B1AF6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEADE6A6181262DE00268532 /* CoreAudio.framework */; };
 		CEA448E0181B8A0F00022715 /* NADOSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DD181B8A0F00022715 /* NADOSNavigationController.m */; };
 		CEA448E1181B8A0F00022715 /* NADOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448DF181B8A0F00022715 /* NADOSViewController.m */; };
 		CEA448E7181B97B900022715 /* NADOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448E6181B97B900022715 /* NADOSModel.m */; };
@@ -112,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA4369D18262A1A009B1AF6 /* CoreAudio.framework in Frameworks */,
 				CEA448F8181BAF0300022715 /* libNostalgia.a in Frameworks */,
 				CEA448F2181BA75300022715 /* libDOSBox.a in Frameworks */,
 				CEA448F4181BA75300022715 /* libSDL.a in Frameworks */,
