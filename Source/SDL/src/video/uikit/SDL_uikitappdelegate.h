@@ -22,16 +22,16 @@
 
 #import <UIKit/UIKit.h>
 
-#ifdef NOSTALGIA
-@class NGDOSView;
+#ifdef IDOSBOX
+@class IDBDOSView;
 #endif
 
 /* *INDENT-OFF* */
 @interface SDLUIKitDelegate:NSObject<UIApplicationDelegate> {
 }
 
-#ifdef NOSTALGIA
-@property (readwrite, retain, nonatomic) NGDOSView *dosView;
+#ifdef IDOSBOX
+@property (readwrite, retain, nonatomic) IDBDOSView *dosView;
 
 - (void)startSDL;
 #endif

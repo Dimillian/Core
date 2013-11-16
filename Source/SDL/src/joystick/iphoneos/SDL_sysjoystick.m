@@ -26,7 +26,7 @@
 #include "SDL_joystick.h"
 #include "../SDL_sysjoystick.h"
 #include "../SDL_joystick_c.h"
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 #import "SDLUIAccelerationDelegate.h"
 #endif
 
@@ -71,7 +71,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 		joystick->nballs = 0;
 		joystick->nbuttons = 0;
 		joystick->name  = accelerometerName;
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 		[[SDLUIAccelerationDelegate sharedDelegate] startup];
 #endif
 		return 0;
@@ -91,7 +91,7 @@ SDL_SYS_JoystickOpen(SDL_Joystick * joystick)
 void
 SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 {
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 	Sint16 orientation[3];
 	
 	if ([[SDLUIAccelerationDelegate sharedDelegate] hasNewData]) {
@@ -112,7 +112,7 @@ SDL_SYS_JoystickUpdate(SDL_Joystick * joystick)
 void
 SDL_SYS_JoystickClose(SDL_Joystick * joystick)
 {
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 	if (joystick->index == 0 && [[SDLUIAccelerationDelegate sharedDelegate] isRunning]) {
 		[[SDLUIAccelerationDelegate sharedDelegate] shutdown];
 	}

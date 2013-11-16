@@ -51,7 +51,7 @@ UIKit_PumpEvents(_THIS)
 			result = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, TRUE);
 		} while(result == kCFRunLoopRunHandledSource);
         
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
         // fix UIScrollView scrolling
         do {
             result = CFRunLoopRunInMode((CFStringRef)UITrackingRunLoopMode, 0, TRUE);

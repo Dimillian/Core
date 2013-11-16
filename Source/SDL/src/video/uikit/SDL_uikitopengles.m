@@ -29,8 +29,8 @@
 #include "SDL_loadso.h"
 #include <dlfcn.h>
 
-#ifdef NOSTALGIA
-#import "NGDOSView.h"
+#ifdef IDOSBOX
+#import "IDBDOSView.h"
 #import "SDL_keyboard_c.h"
 #endif
 
@@ -110,7 +110,7 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	UIWindow *uiwindow = data->uiwindow;
 
     /* construct our view, passing in SDL's OpenGL configuration data */
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
     view = [SDLUIKitDelegate sharedAppDelegate].dosView;
     if (!SDL_GetKeyboard(0)) {
         SDL_Keyboard keyboard;
@@ -132,7 +132,7 @@ SDL_GLContext UIKit_GL_CreateContext(_THIS, SDL_Window * window)
 	
 	data->view = view;
     
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 	/* add the view to our window */
     [uiwindow addSubview: view ];
     

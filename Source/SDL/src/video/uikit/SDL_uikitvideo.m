@@ -216,7 +216,7 @@ UIKit_VideoInit(_THIS)
 static int
 UIKit_SetDisplayMode(_THIS, SDL_VideoDisplay * display, SDL_DisplayMode * mode)
 {
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
     UIScreen *uiscreen = (UIScreen *) display->driverdata;
     if (!SDL_UIKit_supports_multiple_displays) {
         // Not on at least iPhoneOS 3.2 (versions prior to iPad).

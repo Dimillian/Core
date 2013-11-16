@@ -37,7 +37,7 @@
 	[textField release];
 #endif
     
-#if SDL_IPHONE_KEYBOARD && defined(NOSTALGIA)
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 #endif
@@ -49,11 +49,11 @@
 
 	self = [super initWithFrame: frame];
 	
-#if SDL_IPHONE_KEYBOARD && !defined(NOSTALGIA)
+#if SDL_IPHONE_KEYBOARD && !defined(IDOSBOX)
 	[self initializeKeyboard];
 #endif
 
-#if SDL_IPHONE_KEYBOARD && defined(NOSTALGIA)
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
 #endif
@@ -70,7 +70,7 @@
 
 }
 
-#if SDL_IPHONE_KEYBOARD && defined(NOSTALGIA)
+#if SDL_IPHONE_KEYBOARD && defined(IDOSBOX)
 - (void)keyboardWillShowOrHide:(NSNotification *)aNotification {
     if ([aNotification.name isEqualToString:UIKeyboardWillShowNotification]) {
         keyboardVisible = YES;
@@ -239,7 +239,7 @@
 	
 	if ([string length] == 0) {
 		/* it wants to replace text with nothing, ie a delete */
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
         SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_BACKSPACE);
 		SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_BACKSPACE);
 #else
@@ -274,7 +274,7 @@
 				SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_LSHIFT);
 			}
 			/* send a keydown and keyup even for the character */
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
 			SDL_SendKeyboardKey( 0, SDL_PRESSED, code);
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -290,7 +290,7 @@
 			}			
 		}
 	}
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
     return YES;
 #else
 	return NO; /* don't allow the edit! (keep placeholder text there) */
@@ -299,7 +299,7 @@
 
 /* Terminates the editing session */
 - (BOOL)textFieldShouldReturn:(UITextField*)_textField {
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
     SDL_SendKeyboardKey( 0, SDL_PRESSED, SDL_SCANCODE_RETURN);
     SDL_SendKeyboardKey( 0, SDL_RELEASED, SDL_SCANCODE_RETURN);
 #else

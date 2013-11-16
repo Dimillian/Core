@@ -93,7 +93,7 @@
 			[self release];
 			return nil;
 		}
-		
+		glEnable(GL_MULTISAMPLE);
 		/* create the buffers */
 		glGenFramebuffersOES(1, &viewFramebuffer);
 		glGenRenderbuffersOES(1, &viewRenderbuffer);
@@ -112,7 +112,7 @@
 			glRenderbufferStorageOES(GL_RENDERBUFFER_OES, depthBufferFormat, backingWidth, backingHeight);
 			glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT_OES, GL_RENDERBUFFER_OES, depthRenderbuffer);
 		}
-			
+                
 		if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
 			return NO;
 		}

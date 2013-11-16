@@ -27,9 +27,9 @@
 #import "SDL_events_c.h"
 #import "jumphack.h"
 
-#ifdef NOSTALGIA
-#import "NGDOSModel.h"
-#import "NGDOSView.h"
+#ifdef IDOSBOX
+#import "IDBDOSModel.h"
+#import "IDBDOSView.h"
 #endif
 
 #ifdef main
@@ -41,7 +41,7 @@ static int forward_argc;
 static char **forward_argv;
 
 /* ignore because app delegate should be subclassed */
-#ifndef NOSTALGIA
+#ifndef IDOSBOX
 int main(int argc, char **argv) {
 
 	int i;
@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 
 @implementation SDLUIKitDelegate
 
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
 @synthesize window = _window;
 #endif
 
@@ -95,16 +95,16 @@ int main(int argc, char **argv) {
 	exit(exit_status);
 }
 
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
 - (void)startSDL {
     [self performSelector:@selector(postFinishLaunch) withObject:nil afterDelay:0.0];
 }
 #endif
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-#ifdef NOSTALGIA
+#ifdef IDOSBOX
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.dosView = [[[NGDOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
+    self.dosView = [[[IDBDOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
     [self startSDL];
 #else
     /* Set working directory to resource path */

@@ -864,9 +864,9 @@ GLES_RenderCopy(SDL_Renderer * renderer, SDL_Texture * texture,
     case SDL_TEXTURESCALEMODE_SLOW:
     case SDL_TEXTURESCALEMODE_BEST:
         data->glTexParameteri(texturedata->type, GL_TEXTURE_MIN_FILTER,
-                              GL_LINEAR);
+                              GL_NEAREST);
         data->glTexParameteri(texturedata->type, GL_TEXTURE_MAG_FILTER,
-                              GL_LINEAR);
+                              GL_NEAREST);
         break;
     }
 
