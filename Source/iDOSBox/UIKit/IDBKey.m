@@ -22,10 +22,12 @@
 }
 
 - (id)initWithScancode:(SDL_scancode)scancode {
+    IDB_LOG_INIT(self);
     if (self  = [super init]) {
         _isPressed = NO;
         _scancode = scancode;
     }
+    IDB_LOG_INIT(self);
     return self;
 }
 
@@ -50,6 +52,10 @@
     } else {
         return @"";
     }
+}
+
+- (void)dealloc {
+    IDB_LOG_DEALLOC(self);
 }
 
 @end

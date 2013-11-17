@@ -298,7 +298,6 @@
 		CEA1CC3C182558AE00E0957A /* IDBKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* IDBKey.m */; };
 		CEA448EE181B9A4C00022715 /* IDBDOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* IDBDOSView.m */; };
 		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
-		CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828B17967DB600972087 /* IDBConstants.h */; };
 		CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* IDBDebug.h */; };
 		CEE3CD0B17D3D7BD00EF75F1 /* IDBDOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* IDBDOSModel.m */; };
 		CEE3CD0C17D3D7C800EF75F1 /* IDBDOSModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* IDBDOSModel.h */; };
@@ -358,7 +357,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				CEE3CD0C17D3D7C800EF75F1 /* IDBDOSModel.h in CopyFiles */,
-				CEE3CC3317D3D0BD00EF75F1 /* IDBConstants.h in CopyFiles */,
 				CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,7 +858,6 @@
 		CEA448EC181B9A4C00022715 /* IDBDOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IDBDOSView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CEA448ED181B9A4C00022715 /* IDBDOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IDBDOSView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDB828B17967DB600972087 /* IDBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDBConstants.h; sourceTree = "<group>"; };
 		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IDBDebug.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CEE3CD0917D3D7BD00EF75F1 /* IDBDOSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBDOSModel.h; sourceTree = "<group>"; };
 		CEE3CD0A17D3D7BD00EF75F1 /* IDBDOSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBDOSModel.m; sourceTree = "<group>"; };
@@ -1809,7 +1806,6 @@
 		CEDB828A17967D7D00972087 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEDB828B17967DB600972087 /* IDBConstants.h */,
 				CEDB828D17967DB600972087 /* IDBDebug.h */,
 			);
 			path = Common;

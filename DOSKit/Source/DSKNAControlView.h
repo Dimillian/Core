@@ -12,6 +12,9 @@
 
 @protocol NAControlViewDelegate <NSObject>
 
+@required
+@property (readwrite, nonatomic) BOOL isLocked;
+
 @optional
 - (void)controlView:(DSKNAControlView *)controlView touchBegan:(CGPoint)touchLocation;
 - (void)controlView:(DSKNAControlView *)controlView touchMoved:(CGPoint)touchLocation;

@@ -7,13 +7,18 @@
 //
 
 #import "DSKDOSModel.h"
- 
+
+NSString * const DSKDOSBoxConfigFilename = @"dosbox-ios.conf";
+NSString * const DSKBundleCDriveFolder = @"CDrive";
+
 @implementation DSKDOSModel
 
 - (id)init {
     if (self = ([super init])) {
-        [self enqueueCommand:[NSString stringWithFormat:@"mount C \"%@\"", [self mountDocumentDirectory:@"CDrive"]]];
-        [self enqueueCommands:@[@"cls", @"C:", @"FIRE"]];
+        [self mountBundlePath:DSKBundleCDriveFolder];
+        [self clearScreen];
+        [self enqueueCommand:[self dosPathFromPath:@"" inDrive:'C']];
+        [self enqueueCommand:@"FIRE"];
     }
     return self;
 }
@@ -23,18 +28,18 @@
 }
 
 - (NSString *)dosboxConfigFilename {
-    return @"dosbox-ios.conf";
+    return DSKDOSBoxConfigFilename;
 }
 
 - (NSArray *)startupCommands {
-    return @[@"cls"];
+    return @[];
 }
 
-- (NSString *)mountDocumentDirectory:(NSString *)folderName {
+- (void)mountBundlePath:(NSString *)bundlePath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *cDriveDocumentPath = [documentsPath stringByAppendingPathComponent:folderName];
-    NSString *cDriveBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:folderName];
+    NSString *cDriveDocumentPath = [documentsPath stringByAppendingPathComponent:bundlePath];
+    NSString *cDriveBundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:bundlePath];
     
     // create C drive folder in documents if it does not exist
     if (![fileManager fileExistsAtPath:cDriveDocumentPath]) {
@@ -60,7 +65,8 @@
     } else {
         IDB_LOG(@"%@", [error localizedDescription]);
     }
-    return cDriveDocumentPath;
+    [self mountPath:cDriveDocumentPath toDrive:'C'];
+    return;
 }
 
 @end

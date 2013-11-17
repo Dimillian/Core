@@ -17,8 +17,11 @@
  */
 
 #import "IDBDOSModel.h"
-#import "IDBConstants.h"
 #import "IDBKey.h"
+
+NSString * const IDBMountCommand = @"mount";
+NSString * const IDBClearScreenCommand = @"cls";
+NSString * const IDBChangeDirectoryCommand = @"cd";
 
 const char * dosbox_config_path() {
     return [[[IDBDOSModel sharedModel] dosboxConfigPath] UTF8String];
@@ -35,6 +38,10 @@ const char * dosbox_command_dequeue() {
     } else {
         return NULL;
     }
+}
+
+static inline void DriveLetterErrorCheck(char letter) {
+    NSCAssert((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'), IDBInvalidArgumentError);
 }
 
 @interface IDBDOSModel ()
@@ -54,26 +61,28 @@ const char * dosbox_command_dequeue() {
 }
 
 - (id)init {
+    IDB_LOG_INIT(self);
     if (self = [super init]) {
         _commandQueue = [NSMutableArray array];
         _paused = NO;
         [self enqueueCommands:[self startupCommands]];
+        [self clearScreen];
     }
     return self;
 }
 
 - (NSString *)dosboxConfigPath {
-    NSAssert(false, IDBShouldOverride);
+    NSAssert(false, IDBShouldOverrideError);
     return nil;
 }
 
 - (NSString *)dosboxConfigFilename {
-    NSAssert(false, IDBShouldOverride);
+    NSAssert(false, IDBShouldOverrideError);
     return nil;
 }
 
 - (NSArray *)startupCommands {
-    NSAssert(false, IDBShouldOverride);
+    NSAssert(false, IDBShouldOverrideError);
     return nil;
 }
 
@@ -99,6 +108,27 @@ const char * dosbox_command_dequeue() {
     }
 }
 
+- (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter {
+    DriveLetterErrorCheck(driveLetter);
+    [self enqueueCommand:[NSString stringWithFormat:@"%@ %c \"%@\"", IDBMountCommand, driveLetter, mountPath]];
+    return;
+}
+
+- (void)changeDirectory:(NSString *)newDirectory {
+    [self enqueueCommand:[NSString stringWithFormat:@"%@ \"%@\"", IDBChangeDirectoryCommand, newDirectory]];
+    return;
+}
+
+- (void)clearScreen {
+    [self enqueueCommand:IDBClearScreenCommand];
+}
+
+- (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter {
+    NSAssert(path, IDBArgumentNilError);
+    DriveLetterErrorCheck(driveLetter);
+    return [NSString stringWithFormat:@"%c:\\%@", driveLetter, path];
+}
+
 - (void)setPaused:(BOOL)paused {
     if (_paused != paused) {
         _paused = paused;
@@ -117,6 +147,10 @@ const char * dosbox_command_dequeue() {
         }
     }
     return;
+}
+
+- (void)dealloc {
+    IDB_LOG_DEALLOC(self);
 }
 
 @end

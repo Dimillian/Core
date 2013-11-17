@@ -18,6 +18,9 @@
 
 #import "SDL_scancode.h"
 
+extern NSString * const IDBMountCommand;
+extern NSString * const IDBClearScreenCommand;
+
 @interface IDBDOSModel : NSObject
 
 @property (readwrite, nonatomic) BOOL paused;
@@ -30,5 +33,9 @@
 - (void)enqueueCommand:(NSString *)command;
 - (void)enqueueCommands:(NSArray *)commands;
 - (NSString *)dequeueCommand;
+- (void)changeDirectory:(NSString *)newDirectory;
+- (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter;
+- (void)clearScreen;
+- (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter;
 
 @end

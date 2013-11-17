@@ -17,9 +17,11 @@
 
 @implementation DSKControlGridView
 
+@synthesize isLocked = _isLocked;
+
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _isLocked = YES;
+        _isLocked = NO;
         
         DSKKeyView *test = [[DSKKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[IDBKey keyWithScancode:SDL_SCANCODE_1]];
         test.delegate = self;

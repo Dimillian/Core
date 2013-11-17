@@ -11,6 +11,4 @@
 
 @interface DSKControlGridView : UIView <NAControlViewDelegate>
 
-@property (readwrite, nonatomic) BOOL isLocked;
-
 @end

@@ -25,14 +25,15 @@
 
 // enable or disable logging
 #if IDB_DEBUG
-    #define IDB_LOG(string, ...) NSLog((@"IDOSBOX: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
+    #define IDB_LOG(string, ...) NSLog((@"IDOSBox: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
 #else
     #define IDB_LOG(string, ...) do {} while (0)
 #endif
 
 // enable or disable memory management logging
-#define IDB_LOG_INIT(object) NG_LOG(@"init %@", object)
-#define IDB_LOG_DEALLOC(object) NG_LOG(@"dealloc %@", object)
+#define IDB_LOG_INIT(object) IDB_LOG(@"init %@", object)
+#define IDB_LOG_DEALLOC(object) IDB_LOG(@"dealloc %@", object)
 
 static NSString * const IDBArgumentNilError = @"argument cannot be nil";
-static NSString * const IDBShouldOverride = @"method implementation should be overridden";
+static NSString * const IDBShouldOverrideError = @"method implementation should be overridden";
+static NSString * const IDBInvalidArgumentError = @"argument is invalid";

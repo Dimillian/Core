@@ -8,6 +8,8 @@
 
 #import "IDBDOSModel.h"
 
+extern NSString * const DSKDOSBoxConfigFilename;
+
 @interface DSKDOSModel : IDBDOSModel
 
 @end
