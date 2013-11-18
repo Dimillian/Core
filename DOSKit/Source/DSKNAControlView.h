@@ -16,18 +16,19 @@
 @property (readwrite, nonatomic) BOOL isLocked;
 
 @optional
-- (void)controlView:(DSKNAControlView *)controlView touchBegan:(CGPoint)touchLocation;
-- (void)controlView:(DSKNAControlView *)controlView touchMoved:(CGPoint)touchLocation;
-- (void)controlView:(DSKNAControlView *)controlView touchEnded:(CGPoint)touchLocation;
-- (void)controlView:(DSKNAControlView *)controlView touchCancelled:(CGPoint)touchLocation;
+- (void)controlView:(DSKNAControlView *)controlView touchesBegan:(NSSet *)touches;
+- (void)controlView:(DSKNAControlView *)controlView touchesMoved:(NSSet *)touches;
+- (void)controlView:(DSKNAControlView *)controlView touchesEnded:(NSSet *)touches;
+- (void)controlView:(DSKNAControlView *)controlView touchesCancelled:(NSSet *)touches;
 
 @end
 
 @interface DSKNAControlView : UIView
 
-- (CGPoint)boundsCenter;
 @property (weak, readwrite, nonatomic) id <NAControlViewDelegate> delegate;
+@property (readwrite, nonatomic) CGPoint touchOffset;
 
 - (id)initWithShape:(UIBezierPath *)aShape;
+- (CGPoint)boundsCenter;
 
 @end

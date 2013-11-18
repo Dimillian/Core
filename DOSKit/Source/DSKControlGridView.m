@@ -53,7 +53,27 @@
     return self;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)controlView:(DSKNAControlView *)controlView touchesBegan:(NSSet *)touches {
+    if (!self.isLocked) {
+        CGPoint touchLocation = [[touches anyObject] locationInView:self];
+        controlView.touchOffset = CGPointMake(controlView.center.x - touchLocation.x, controlView.center.y - touchLocation.y);
+    }
+    return;
+}
+
+- (void)controlView:(DSKNAControlView *)controlView touchesMoved:(NSSet *)touches {
+    if (!self.isLocked) {
+        CGPoint touchLocation = [[touches anyObject] locationInView:self];
+        controlView.center = CGPointMake(touchLocation.x + controlView.touchOffset.x, touchLocation.y + controlView.touchOffset.y);
+    }
+}
+
+- (void)controlView:(DSKNAControlView *)controlView touchesEnded:(NSSet *)touches {
     
 }
+
+- (void)controlView:(DSKNAControlView *)controlView touchesCancelled:(NSSet *)touches {
+    
+}
+
 @end

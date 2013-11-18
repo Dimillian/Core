@@ -11,8 +11,6 @@
 
 @interface DSKNAControlView ()
 
-@property (readwrite, nonatomic) CGPoint previousLocation;
-
 @end
 
 @implementation DSKNAControlView
@@ -65,17 +63,33 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlView:self touchesBegan:touches];
     self.isPressed = YES;
-    self.previousLocation = self.center;
+    if (!self.delegate.isLocked) {
+        //[self.shape applyTransform:CGAffineTransformMakeScale(2.0f, 2.0f)];
+        //self.bounds = self.shape.bounds;
+        
+        CATransform3D transform = CATransform3DMakeScale(2.0f, 2.0f, 1.0f);
+        CABasicAnimation* animation;
+        animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        // Now assign the transform as the animation's value. While
+        // animating, CABasicAnimation will vary the transform
+        // attribute of its target, which for this transform will spin
+        // the target like a wheel on its z-axis.
+        animation.toValue = [NSValue valueWithCATransform3D:transform];
+        
+        animation.duration = 2;  // two seconds
+        animation.cumulative = YES;
+        animation.repeatCount = 10000;
+        [self.layer addAnimation:animation forKey:nil];
+    }
     [self setNeedsDisplay];
     return;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlView:self touchesMoved:touches];
     UITouch *touch = [[event allTouches] anyObject];
-    if (!self.delegate.isLocked) {
-        self.center = [touch locationInView:self];
-    }
     if (![self.shape containsPoint:[touch locationInView:self]]) {
         self.isPressed = NO;
         [self setNeedsDisplay];
@@ -84,11 +98,13 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlView:self touchesEnded:touches];
     self.isPressed = NO;
     [self setNeedsDisplay];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlView:self touchesCancelled:touches];
     [self touchesEnded:touches withEvent:event];
 }
 

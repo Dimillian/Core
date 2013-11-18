@@ -86,7 +86,9 @@
 
 - (void)setIsPressed:(BOOL)isPressed {
     [super setIsPressed:isPressed];
-    self.key.isPressed = isPressed;
+    if (self.delegate.isLocked) {
+        self.key.isPressed = isPressed;
+    }
     return;
 }
 
