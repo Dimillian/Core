@@ -62,50 +62,62 @@
     return CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.delegate controlView:self touchesBegan:touches];
-    self.isPressed = YES;
-    if (!self.delegate.isLocked) {
-        //[self.shape applyTransform:CGAffineTransformMakeScale(2.0f, 2.0f)];
-        //self.bounds = self.shape.bounds;
-        
-        CATransform3D transform = CATransform3DMakeScale(2.0f, 2.0f, 1.0f);
-        CABasicAnimation* animation;
-        animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-        // Now assign the transform as the animation's value. While
-        // animating, CABasicAnimation will vary the transform
-        // attribute of its target, which for this transform will spin
-        // the target like a wheel on its z-axis.
-        animation.toValue = [NSValue valueWithCATransform3D:transform];
-        
-        animation.duration = 2;  // two seconds
-        animation.cumulative = YES;
-        animation.repeatCount = 10000;
-        [self.layer addAnimation:animation forKey:nil];
+- (void)setIsPressed:(BOOL)isPressed {
+    _isPressed = isPressed;
+    
+    NSTimeInterval duration = 0.1;
+    CGFloat scale;
+    if (isPressed) {
+        scale = self.delegate.isLocked ? 0.95f : 1.1f;
+    } else {
+        scale = 1.0f;
     }
+    [UIView animateWithDuration: duration
+                          delay: 0.0
+                        options: (UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction)
+                     animations:^{self.transform = CGAffineTransformMakeScale(scale, scale);}
+                     completion:^(BOOL finished) { }];
+    return;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.isPressed = YES;
+    
     [self setNeedsDisplay];
     return;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.delegate controlView:self touchesMoved:touches];
-    UITouch *touch = [[event allTouches] anyObject];
+    UITouch *touch = [touches anyObject];
     if (![self.shape containsPoint:[touch locationInView:self]]) {
         self.isPressed = NO;
-        [self setNeedsDisplay];
     }
+    
+    if (!self.delegate.isLocked) {
+        [self.delegate controlViewDragBegan:self];
+        CGPoint previousLocation = [[touches anyObject] previousLocationInView:self.superview];
+        CGPoint location = [[touches anyObject] locationInView:self.superview];
+        self.center = CGPointMake(self.center.x + location.x - previousLocation.x,
+                                  self.center.y + location.y - previousLocation.y);
+    }
+    
+    [self setNeedsDisplay];
     return;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.delegate controlView:self touchesEnded:touches];
     self.isPressed = NO;
+    if (!self.delegate.isLocked) {
+        [self.delegate controlViewDragEnded:self];
+    }
+    
     [self setNeedsDisplay];
+    return;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.delegate controlView:self touchesCancelled:touches];
     [self touchesEnded:touches withEvent:event];
+    return;
 }
 
 - (UIColor *)strokeColor {
@@ -114,7 +126,12 @@
 }
 
 - (UIColor *)fillColor {
-    CGFloat alpha = self.isPressed ? 0.6f : 0.4f;
+    CGFloat alpha;
+    if (self.isPressed) {
+        alpha = self.delegate.isLocked ? 0.6f : 0.3f;
+    } else {
+        alpha = 0.4f;
+    }
     return [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:alpha];
 }
 

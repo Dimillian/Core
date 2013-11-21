@@ -140,6 +140,7 @@
 }
 
 - (void)hideButtonPressed {
+    self.controlGridView.isLocked = !self.controlGridView.isLocked;
     self.menuVisible = !self.menuVisible;
     self.menuOpen = !self.menuOpen;
     return;

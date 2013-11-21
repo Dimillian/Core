@@ -16,10 +16,8 @@
 @property (readwrite, nonatomic) BOOL isLocked;
 
 @optional
-- (void)controlView:(DSKNAControlView *)controlView touchesBegan:(NSSet *)touches;
-- (void)controlView:(DSKNAControlView *)controlView touchesMoved:(NSSet *)touches;
-- (void)controlView:(DSKNAControlView *)controlView touchesEnded:(NSSet *)touches;
-- (void)controlView:(DSKNAControlView *)controlView touchesCancelled:(NSSet *)touches;
+- (void)controlViewDragBegan:(DSKNAControlView *)controlView;
+- (void)controlViewDragEnded:(DSKNAControlView *)controlView;
 
 @end
 
