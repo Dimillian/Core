@@ -58,21 +58,8 @@
     } CGContextRestoreGState(context);
 }
 
-- (CGPoint)boundsCenter {
-    return CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-}
-
-- (void)setIsPressed:(BOOL)isPressed {
-    _isPressed = isPressed;
-    
-    NSTimeInterval duration = 0.1;
-    CGFloat scale;
-    if (isPressed) {
-        scale = self.delegate.isLocked ? 0.95f : 1.1f;
-    } else {
-        scale = 1.0f;
-    }
-    [UIView animateWithDuration: duration
+- (void)animateScale:(CGFloat)scale {
+    [UIView animateWithDuration: 0.1
                           delay: 0.0
                         options: (UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{self.transform = CGAffineTransformMakeScale(scale, scale);}
@@ -80,25 +67,37 @@
     return;
 }
 
+- (CGPoint)boundsCenter {
+    return CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+}
+
+- (void)setIsPressed:(BOOL)isPressed {
+    _isPressed = isPressed;
+    
+    CGFloat scale;
+    scale = self.isPressed ? 0.95f : 1.1f;
+    [self animateScale:scale];
+    return;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = YES;
+    [self.delegate controlViewDragBegan:self withTouches:touches];
+    
+    if (self.delegate.isLocked) {
+        self.isPressed = YES;
+    }
     
     [self setNeedsDisplay];
     return;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlViewDragMoved:self withTouches:touches];
     UITouch *touch = [touches anyObject];
     if (![self.shape containsPoint:[touch locationInView:self]]) {
-        self.isPressed = NO;
-    }
-    
-    if (!self.delegate.isLocked) {
-        [self.delegate controlViewDragBegan:self];
-        CGPoint previousLocation = [[touches anyObject] previousLocationInView:self.superview];
-        CGPoint location = [[touches anyObject] locationInView:self.superview];
-        self.center = CGPointMake(self.center.x + location.x - previousLocation.x,
-                                  self.center.y + location.y - previousLocation.y);
+        if (self.delegate.isLocked) {
+            self.isPressed = NO;
+        }
     }
     
     [self setNeedsDisplay];
@@ -106,9 +105,9 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.isPressed = NO;
-    if (!self.delegate.isLocked) {
-        [self.delegate controlViewDragEnded:self];
+    [self.delegate controlViewDragEnded:self withTouches:touches];
+    if (self.delegate.isLocked) {
+        self.isPressed = NO;
     }
     
     [self setNeedsDisplay];
@@ -116,6 +115,7 @@
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.delegate controlViewDragCancelled:self withTouches:touches];
     [self touchesEnded:touches withEvent:event];
     return;
 }

@@ -16,8 +16,10 @@
 @property (readwrite, nonatomic) BOOL isLocked;
 
 @optional
-- (void)controlViewDragBegan:(DSKNAControlView *)controlView;
-- (void)controlViewDragEnded:(DSKNAControlView *)controlView;
+- (void)controlViewDragBegan:(DSKNAControlView *)controlView withTouches:(NSSet *)touches;
+- (void)controlViewDragMoved:(DSKNAControlView *)controlView withTouches:(NSSet *)touches;
+- (void)controlViewDragEnded:(DSKNAControlView *)controlView withTouches:(NSSet *)touches;
+- (void)controlViewDragCancelled:(DSKNAControlView *)controlView withTouches:(NSSet *)touches;
 
 @end
 
@@ -27,6 +29,7 @@
 @property (readwrite, nonatomic) CGPoint touchOffset;
 
 - (id)initWithShape:(UIBezierPath *)aShape;
+- (void)animateScale:(CGFloat)scale;
 - (CGPoint)boundsCenter;
 
 @end
