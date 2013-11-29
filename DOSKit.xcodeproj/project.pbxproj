@@ -249,17 +249,6 @@
 		CEE2FDD418490FA800BD8127 /* SDL_stretch.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2418490FA800BD8127 /* SDL_stretch.c */; };
 		CEE2FDD518490FA800BD8127 /* SDL_surface.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2518490FA800BD8127 /* SDL_surface.c */; };
 		CEE2FDD618490FA800BD8127 /* SDL_video.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2718490FA800BD8127 /* SDL_video.c */; };
-		CEE2FDD718490FA800BD8127 /* SDL_cocoaclipboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2A18490FA800BD8127 /* SDL_cocoaclipboard.m */; };
-		CEE2FDD818490FA800BD8127 /* SDL_cocoaevents.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2C18490FA800BD8127 /* SDL_cocoaevents.m */; };
-		CEE2FDD918490FA800BD8127 /* SDL_cocoakeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD2E18490FA800BD8127 /* SDL_cocoakeyboard.m */; };
-		CEE2FDDA18490FA800BD8127 /* SDL_cocoamessagebox.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3018490FA800BD8127 /* SDL_cocoamessagebox.m */; };
-		CEE2FDDB18490FA800BD8127 /* SDL_cocoamodes.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3218490FA800BD8127 /* SDL_cocoamodes.m */; };
-		CEE2FDDC18490FA800BD8127 /* SDL_cocoamouse.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3418490FA800BD8127 /* SDL_cocoamouse.m */; };
-		CEE2FDDD18490FA800BD8127 /* SDL_cocoamousetap.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3618490FA800BD8127 /* SDL_cocoamousetap.m */; };
-		CEE2FDDE18490FA800BD8127 /* SDL_cocoaopengl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3818490FA800BD8127 /* SDL_cocoaopengl.m */; };
-		CEE2FDDF18490FA800BD8127 /* SDL_cocoashape.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3A18490FA800BD8127 /* SDL_cocoashape.m */; };
-		CEE2FDE018490FA800BD8127 /* SDL_cocoavideo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3C18490FA800BD8127 /* SDL_cocoavideo.m */; };
-		CEE2FDE118490FA800BD8127 /* SDL_cocoawindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD3E18490FA800BD8127 /* SDL_cocoawindow.m */; };
 		CEE2FDE218490FA800BD8127 /* SDL_nullevents.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD4018490FA800BD8127 /* SDL_nullevents.c */; };
 		CEE2FDE318490FA800BD8127 /* SDL_nullframebuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD4218490FA800BD8127 /* SDL_nullframebuffer.c */; };
 		CEE2FDE418490FA800BD8127 /* SDL_nullvideo.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD4418490FA800BD8127 /* SDL_nullvideo.c */; };
@@ -808,28 +797,6 @@
 		CEE2FD2518490FA800BD8127 /* SDL_surface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_surface.c; sourceTree = "<group>"; };
 		CEE2FD2618490FA800BD8127 /* SDL_sysvideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysvideo.h; sourceTree = "<group>"; };
 		CEE2FD2718490FA800BD8127 /* SDL_video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_video.c; sourceTree = "<group>"; };
-		CEE2FD2918490FA800BD8127 /* SDL_cocoaclipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoaclipboard.h; sourceTree = "<group>"; };
-		CEE2FD2A18490FA800BD8127 /* SDL_cocoaclipboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoaclipboard.m; sourceTree = "<group>"; };
-		CEE2FD2B18490FA800BD8127 /* SDL_cocoaevents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoaevents.h; sourceTree = "<group>"; };
-		CEE2FD2C18490FA800BD8127 /* SDL_cocoaevents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoaevents.m; sourceTree = "<group>"; };
-		CEE2FD2D18490FA800BD8127 /* SDL_cocoakeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoakeyboard.h; sourceTree = "<group>"; };
-		CEE2FD2E18490FA800BD8127 /* SDL_cocoakeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoakeyboard.m; sourceTree = "<group>"; };
-		CEE2FD2F18490FA800BD8127 /* SDL_cocoamessagebox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoamessagebox.h; sourceTree = "<group>"; };
-		CEE2FD3018490FA800BD8127 /* SDL_cocoamessagebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoamessagebox.m; sourceTree = "<group>"; };
-		CEE2FD3118490FA800BD8127 /* SDL_cocoamodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoamodes.h; sourceTree = "<group>"; };
-		CEE2FD3218490FA800BD8127 /* SDL_cocoamodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoamodes.m; sourceTree = "<group>"; };
-		CEE2FD3318490FA800BD8127 /* SDL_cocoamouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoamouse.h; sourceTree = "<group>"; };
-		CEE2FD3418490FA800BD8127 /* SDL_cocoamouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoamouse.m; sourceTree = "<group>"; };
-		CEE2FD3518490FA800BD8127 /* SDL_cocoamousetap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoamousetap.h; sourceTree = "<group>"; };
-		CEE2FD3618490FA800BD8127 /* SDL_cocoamousetap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoamousetap.m; sourceTree = "<group>"; };
-		CEE2FD3718490FA800BD8127 /* SDL_cocoaopengl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoaopengl.h; sourceTree = "<group>"; };
-		CEE2FD3818490FA800BD8127 /* SDL_cocoaopengl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoaopengl.m; sourceTree = "<group>"; };
-		CEE2FD3918490FA800BD8127 /* SDL_cocoashape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoashape.h; sourceTree = "<group>"; };
-		CEE2FD3A18490FA800BD8127 /* SDL_cocoashape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoashape.m; sourceTree = "<group>"; };
-		CEE2FD3B18490FA800BD8127 /* SDL_cocoavideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoavideo.h; sourceTree = "<group>"; };
-		CEE2FD3C18490FA800BD8127 /* SDL_cocoavideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoavideo.m; sourceTree = "<group>"; };
-		CEE2FD3D18490FA800BD8127 /* SDL_cocoawindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cocoawindow.h; sourceTree = "<group>"; };
-		CEE2FD3E18490FA800BD8127 /* SDL_cocoawindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_cocoawindow.m; sourceTree = "<group>"; };
 		CEE2FD4018490FA800BD8127 /* SDL_nullevents.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_nullevents.c; sourceTree = "<group>"; };
 		CEE2FD4118490FA800BD8127 /* SDL_nullevents_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_nullevents_c.h; sourceTree = "<group>"; };
 		CEE2FD4218490FA800BD8127 /* SDL_nullframebuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_nullframebuffer.c; sourceTree = "<group>"; };
@@ -1890,40 +1857,10 @@
 				CEE2FD2518490FA800BD8127 /* SDL_surface.c */,
 				CEE2FD2618490FA800BD8127 /* SDL_sysvideo.h */,
 				CEE2FD2718490FA800BD8127 /* SDL_video.c */,
-				CEE2FD2818490FA800BD8127 /* cocoa */,
 				CEE2FD3F18490FA800BD8127 /* dummy */,
 				CEE2FD4618490FA800BD8127 /* uikit */,
 			);
 			path = video;
-			sourceTree = "<group>";
-		};
-		CEE2FD2818490FA800BD8127 /* cocoa */ = {
-			isa = PBXGroup;
-			children = (
-				CEE2FD2918490FA800BD8127 /* SDL_cocoaclipboard.h */,
-				CEE2FD2A18490FA800BD8127 /* SDL_cocoaclipboard.m */,
-				CEE2FD2B18490FA800BD8127 /* SDL_cocoaevents.h */,
-				CEE2FD2C18490FA800BD8127 /* SDL_cocoaevents.m */,
-				CEE2FD2D18490FA800BD8127 /* SDL_cocoakeyboard.h */,
-				CEE2FD2E18490FA800BD8127 /* SDL_cocoakeyboard.m */,
-				CEE2FD2F18490FA800BD8127 /* SDL_cocoamessagebox.h */,
-				CEE2FD3018490FA800BD8127 /* SDL_cocoamessagebox.m */,
-				CEE2FD3118490FA800BD8127 /* SDL_cocoamodes.h */,
-				CEE2FD3218490FA800BD8127 /* SDL_cocoamodes.m */,
-				CEE2FD3318490FA800BD8127 /* SDL_cocoamouse.h */,
-				CEE2FD3418490FA800BD8127 /* SDL_cocoamouse.m */,
-				CEE2FD3518490FA800BD8127 /* SDL_cocoamousetap.h */,
-				CEE2FD3618490FA800BD8127 /* SDL_cocoamousetap.m */,
-				CEE2FD3718490FA800BD8127 /* SDL_cocoaopengl.h */,
-				CEE2FD3818490FA800BD8127 /* SDL_cocoaopengl.m */,
-				CEE2FD3918490FA800BD8127 /* SDL_cocoashape.h */,
-				CEE2FD3A18490FA800BD8127 /* SDL_cocoashape.m */,
-				CEE2FD3B18490FA800BD8127 /* SDL_cocoavideo.h */,
-				CEE2FD3C18490FA800BD8127 /* SDL_cocoavideo.m */,
-				CEE2FD3D18490FA800BD8127 /* SDL_cocoawindow.h */,
-				CEE2FD3E18490FA800BD8127 /* SDL_cocoawindow.m */,
-			);
-			path = cocoa;
 			sourceTree = "<group>";
 		};
 		CEE2FD3F18490FA800BD8127 /* dummy */ = {
@@ -2207,7 +2144,6 @@
 				CEE2FD7E18490FA800BD8127 /* SDLUIAccelerationDelegate.m in Sources */,
 				CEE2FDB418490FA800BD8127 /* SDL_test_log.c in Sources */,
 				CEE2FDC318490FA800BD8127 /* SDL_systimer.c in Sources */,
-				CEE2FDDB18490FA800BD8127 /* SDL_cocoamodes.m in Sources */,
 				CEE2FD6C18490FA800BD8127 /* SDL_clipboardevents.c in Sources */,
 				CEE2FD6318490FA800BD8127 /* SDL_audio.c in Sources */,
 				CEE2FD8318490FA800BD8127 /* e_rem_pio2.c in Sources */,
@@ -2233,15 +2169,12 @@
 				CEE2FDCC18490FA800BD8127 /* SDL_blit_slow.c in Sources */,
 				CEE2FD8F18490FA800BD8127 /* SDL_sysloadso.c in Sources */,
 				CEE2FDE918490FA800BD8127 /* SDL_uikitopengles.m in Sources */,
-				CEE2FDD818490FA800BD8127 /* SDL_cocoaevents.m in Sources */,
 				CEE2FDD418490FA800BD8127 /* SDL_stretch.c in Sources */,
 				CEE2FDCE18490FA800BD8127 /* SDL_clipboard.c in Sources */,
 				CEE2FDAE18490FA800BD8127 /* SDL_test_harness.c in Sources */,
 				CEE2FD9018490FA800BD8127 /* SDL_dummy_main.c in Sources */,
 				CEE2FD6518490FA800BD8127 /* SDL_audiodev.c in Sources */,
 				CEE2FDA218490FA800BD8127 /* SDL_getenv.c in Sources */,
-				CEE2FDDF18490FA800BD8127 /* SDL_cocoashape.m in Sources */,
-				CEE2FDE018490FA800BD8127 /* SDL_cocoavideo.m in Sources */,
 				CEE2FD9F18490FA800BD8127 /* SDL_drawpoint.c in Sources */,
 				CEE2FD6D18490FA800BD8127 /* SDL_dropevents.c in Sources */,
 				CEE2FDB518490FA800BD8127 /* SDL_test_md5.c in Sources */,
@@ -2267,11 +2200,8 @@
 				CEE2FDAD18490FA800BD8127 /* SDL_test_fuzzer.c in Sources */,
 				CEE2FDD618490FA800BD8127 /* SDL_video.c in Sources */,
 				CEE2FDA318490FA800BD8127 /* SDL_iconv.c in Sources */,
-				CEE2FDD718490FA800BD8127 /* SDL_cocoaclipboard.m in Sources */,
-				CEE2FDDE18490FA800BD8127 /* SDL_cocoaopengl.m in Sources */,
 				CEE2FD8118490FA800BD8127 /* e_log.c in Sources */,
 				CEE2FD7F18490FA800BD8127 /* SDL_sysjoystick.m in Sources */,
-				CEE2FDDC18490FA800BD8127 /* SDL_cocoamouse.m in Sources */,
 				CEE2FDA018490FA800BD8127 /* SDL_render_sw.c in Sources */,
 				CEE2FD8918490FA800BD8127 /* s_copysign.c in Sources */,
 				CEE2FD5C18490FA800BD8127 /* SDL.c in Sources */,
@@ -2280,17 +2210,14 @@
 				CEE2FDE418490FA800BD8127 /* SDL_nullvideo.c in Sources */,
 				CEE2FDC618490FA800BD8127 /* SDL_blit_0.c in Sources */,
 				CEE2FD9A18490FA800BD8127 /* SDL_shaders_gles2.c in Sources */,
-				CEE2FDDD18490FA800BD8127 /* SDL_cocoamousetap.m in Sources */,
 				CEE2FDAC18490FA800BD8127 /* SDL_test_font.c in Sources */,
 				CEE2FDB318490FA800BD8127 /* SDL_test_imagePrimitivesBlend.c in Sources */,
 				CEE2FD9C18490FA800BD8127 /* SDL_blendline.c in Sources */,
-				CEE2FDD918490FA800BD8127 /* SDL_cocoakeyboard.m in Sources */,
 				CEE2FDCD18490FA800BD8127 /* SDL_bmp.c in Sources */,
 				CEE2FDC818490FA800BD8127 /* SDL_blit_A.c in Sources */,
 				CEE2FDCF18490FA800BD8127 /* SDL_egl.c in Sources */,
 				CEE2FD9118490FA800BD8127 /* SDL_power.c in Sources */,
 				CEE2FDEB18490FA800BD8127 /* SDL_uikitvideo.m in Sources */,
-				CEE2FDE118490FA800BD8127 /* SDL_cocoawindow.m in Sources */,
 				CEE2FD8718490FA800BD8127 /* k_sin.c in Sources */,
 				CEE2FD9D18490FA800BD8127 /* SDL_blendpoint.c in Sources */,
 				CEE2FDD518490FA800BD8127 /* SDL_surface.c in Sources */,
@@ -2310,7 +2237,6 @@
 				CEE2FD8A18490FA800BD8127 /* s_cos.c in Sources */,
 				CEE2FD8218490FA800BD8127 /* e_pow.c in Sources */,
 				CEE2FD7218490FA800BD8127 /* SDL_quit.c in Sources */,
-				CEE2FDDA18490FA800BD8127 /* SDL_cocoamessagebox.m in Sources */,
 				CEE2FDE618490FA800BD8127 /* SDL_uikitevents.m in Sources */,
 				CEE2FDC118490FA800BD8127 /* SDL_systls.c in Sources */,
 				CEE2FDE518490FA800BD8127 /* SDL_uikitappdelegate.m in Sources */,
