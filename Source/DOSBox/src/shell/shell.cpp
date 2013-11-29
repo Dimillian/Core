@@ -27,11 +27,6 @@
 #include "callback.h"
 #include "support.h"
 
-#ifdef IDOSBOX
-extern "C" {
-    const char * dosbox_command_dequeue();
-}
-#endif
 
 Bitu call_shellstop;
 /* Larger scope so shell_del autoexec can use it to
@@ -308,12 +303,11 @@ void DOS_Shell::Run(void) {
 	if (machine == MCH_CGA) WriteOut(MSG_Get("SHELL_STARTUP_CGA"));
 	if (machine == MCH_HERC) WriteOut(MSG_Get("SHELL_STARTUP_HERC"));
 	WriteOut(MSG_Get("SHELL_STARTUP_END"));
-    
+
 	if (cmd->FindString("/INIT",line,true)) {
 		strcpy(input_line,line.c_str());
 		line.erase();
 		ParseLine(input_line);
-        WriteOut_NoParsing("\n");
 	}
 	do {
 		if (bf){
@@ -334,15 +328,6 @@ void DOS_Shell::Run(void) {
 			ParseLine(input_line);
 			if (echo && !bf) WriteOut_NoParsing("\n");
 		}
-        
-#ifdef IDOSBOX
-        // execute commands recieved directly through queue
-        while (const char *command = dosbox_command_dequeue()) {
-            char command_buffer[CMD_MAXLINE];
-            strcpy(command_buffer, command);
-            ParseLine(command_buffer);
-        }
-#endif
 	} while (!exit);
 }
 

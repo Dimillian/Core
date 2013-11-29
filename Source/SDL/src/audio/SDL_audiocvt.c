@@ -1,23 +1,22 @@
 /*
-    SDL - Simple DirectMedia Layer
-    Copyright (C) 1997-2010 Sam Lantinga
+  Simple DirectMedia Layer
+  Copyright (C) 1997-2013 Sam Lantinga <slouken@libsdl.org>
 
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 2.1 of the License, or (at your option) any later version.
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
 
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Lesser General Public License for more details.
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-    Sam Lantinga
-    slouken@libsdl.org
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
 */
 #include "SDL_config.h"
 
@@ -26,12 +25,9 @@
 #include "SDL_audio.h"
 #include "SDL_audio_c.h"
 
-/* #define DEBUG_CONVERT */
+#include "SDL_assert.h"
 
-/* !!! FIXME */
-#ifndef assert
-#define assert(x)
-#endif
+/* #define DEBUG_CONVERT */
 
 /* Effectively mix right and left channels into a single channel */
 static void SDLCALL
@@ -296,10 +292,10 @@ SDL_ConvertStereo(SDL_AudioCVT * cvt, SDL_AudioFormat format)
     { \
         const type *src = (const type *) (cvt->buf + cvt->len_cvt); \
         type *dst = (type *) (cvt->buf + cvt->len_cvt * 2); \
-        for (i = cvt->len_cvt / 2; i; --i, --src) { \
-            const type val = *src; \
+        for (i = cvt->len_cvt / sizeof(type); i; --i) { \
+            src -= 1; \
             dst -= 2; \
-            dst[0] = dst[1] = val; \
+            dst[0] = dst[1] = *src; \
         } \
     }
 
@@ -881,9 +877,9 @@ SDL_FindFrequencyMultiple(const int src_rate, const int dst_rate)
     int lo, hi;
     int div;
 
-    assert(src_rate != 0);
-    assert(dst_rate != 0);
-    assert(src_rate != dst_rate);
+    SDL_assert(src_rate != 0);
+    SDL_assert(dst_rate != 0);
+    SDL_assert(src_rate != dst_rate);
 
     if (src_rate < dst_rate) {
         lo = src_rate;
@@ -971,20 +967,25 @@ SDL_BuildAudioCVT(SDL_AudioCVT * cvt,
      * !!! FIXME: good in practice as it sounds in theory, though.
      */
 
+    /* Sanity check target pointer */
+    if (cvt == NULL) {
+        return SDL_InvalidParamError("cvt");
+    }
+
     /* there are no unsigned types over 16 bits, so catch this up front. */
     if ((SDL_AUDIO_BITSIZE(src_fmt) > 16) && (!SDL_AUDIO_ISSIGNED(src_fmt))) {
-        SDL_SetError("Invalid source format");
-        return -1;
+        return SDL_SetError("Invalid source format");
     }
     if ((SDL_AUDIO_BITSIZE(dst_fmt) > 16) && (!SDL_AUDIO_ISSIGNED(dst_fmt))) {
-        SDL_SetError("Invalid destination format");
-        return -1;
+        return SDL_SetError("Invalid destination format");
     }
 
     /* prevent possible divisions by zero, etc. */
+    if ((src_channels == 0) || (dst_channels == 0)) {
+        return SDL_SetError("Source or destination channels is zero");
+    }
     if ((src_rate == 0) || (dst_rate == 0)) {
-        SDL_SetError("Source or destination rate is zero");
-        return -1;
+        return SDL_SetError("Source or destination rate is zero");
     }
 #ifdef DEBUG_CONVERT
     printf("Build format %04x->%04x, channels %u->%u, rate %d->%d\n",

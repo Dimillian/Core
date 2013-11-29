@@ -1,25 +1,28 @@
 /*
-    SDL - Simple DirectMedia Layer
-    Copyright (C) 1997-2010 Sam Lantinga
+  Simple DirectMedia Layer
+  Copyright (C) 1997-2013 Sam Lantinga <slouken@libsdl.org>
 
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 2.1 of the License, or (at your option) any later version.
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
 
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Lesser General Public License for more details.
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
 
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-    Sam Lantinga
-    slouken@libsdl.org
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
 */
 #include "SDL_config.h"
+
+#if defined(__WIN32__)
+#include "../core/windows/SDL_windows.h"
+#endif
 
 /* CPU feature detection for SDL */
 
@@ -34,25 +37,26 @@
 #endif
 #if defined(__MACOSX__) && (defined(__ppc__) || defined(__ppc64__))
 #include <sys/sysctl.h>         /* For AltiVec check */
+#elif defined(__OpenBSD__) && defined(__powerpc__)
+#include <sys/param.h>
+#include <sys/sysctl.h> /* For AltiVec check */
+#include <machine/cpu.h>
 #elif SDL_ALTIVEC_BLITTERS && HAVE_SETJMP
 #include <signal.h>
 #include <setjmp.h>
 #endif
-#ifdef __WIN32__
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#endif
 
 #define CPU_HAS_RDTSC   0x00000001
-#define CPU_HAS_MMX     0x00000002
-#define CPU_HAS_MMXEXT  0x00000004
-#define CPU_HAS_3DNOW   0x00000010
-#define CPU_HAS_3DNOWEXT 0x00000020
-#define CPU_HAS_SSE     0x00000040
-#define CPU_HAS_SSE2    0x00000080
-#define CPU_HAS_ALTIVEC 0x00000100
+#define CPU_HAS_ALTIVEC 0x00000002
+#define CPU_HAS_MMX     0x00000004
+#define CPU_HAS_3DNOW   0x00000008
+#define CPU_HAS_SSE     0x00000010
+#define CPU_HAS_SSE2    0x00000020
+#define CPU_HAS_SSE3    0x00000040
+#define CPU_HAS_SSE41   0x00000100
+#define CPU_HAS_SSE42   0x00000200
 
-#if SDL_ALTIVEC_BLITTERS && HAVE_SETJMP && !__MACOSX__
+#if SDL_ALTIVEC_BLITTERS && HAVE_SETJMP && !__MACOSX__ && !__OpenBSD__
 /* This is the brute force way of detecting instruction sets...
    the idea is borrowed from the libmpeg2 library - thanks!
  */
@@ -64,7 +68,7 @@ illegal_instruction(int sig)
 }
 #endif /* HAVE_SETJMP */
 
-static __inline__ int
+static SDL_INLINE int
 CPU_haveCPUID(void)
 {
     int has_CPUID = 0;
@@ -188,7 +192,7 @@ done:
     a = b = c = d = 0
 #endif
 
-static __inline__ int
+static SDL_INLINE int
 CPU_getCPUIDFeatures(void)
 {
     int features = 0;
@@ -202,21 +206,7 @@ CPU_getCPUIDFeatures(void)
     return features;
 }
 
-static __inline__ int
-CPU_getCPUIDFeaturesExt(void)
-{
-    int features = 0;
-    int a, b, c, d;
-
-    cpuid(0x80000000, a, b, c, d);
-    if (a >= 0x80000001) {
-        cpuid(0x80000001, a, b, c, d);
-        features = d;
-    }
-    return features;
-}
-
-static __inline__ int
+static SDL_INLINE int
 CPU_haveRDTSC(void)
 {
     if (CPU_haveCPUID()) {
@@ -225,66 +215,16 @@ CPU_haveRDTSC(void)
     return 0;
 }
 
-static __inline__ int
-CPU_haveMMX(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeatures() & 0x00800000);
-    }
-    return 0;
-}
-
-static __inline__ int
-CPU_haveMMXExt(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeaturesExt() & 0x00400000);
-    }
-    return 0;
-}
-
-static __inline__ int
-CPU_have3DNow(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeaturesExt() & 0x80000000);
-    }
-    return 0;
-}
-
-static __inline__ int
-CPU_have3DNowExt(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeaturesExt() & 0x40000000);
-    }
-    return 0;
-}
-
-static __inline__ int
-CPU_haveSSE(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeatures() & 0x02000000);
-    }
-    return 0;
-}
-
-static __inline__ int
-CPU_haveSSE2(void)
-{
-    if (CPU_haveCPUID()) {
-        return (CPU_getCPUIDFeatures() & 0x04000000);
-    }
-    return 0;
-}
-
-static __inline__ int
+static SDL_INLINE int
 CPU_haveAltiVec(void)
 {
     volatile int altivec = 0;
-#if defined(__MACOSX__) && (defined(__ppc__) || defined(__ppc64__))
+#if (defined(__MACOSX__) && (defined(__ppc__) || defined(__ppc64__))) || (defined(__OpenBSD__) && defined(__powerpc__))
+#ifdef __OpenBSD__
+    int selectors[2] = { CTL_MACHDEP, CPU_ALTIVEC };
+#else
     int selectors[2] = { CTL_HW, HW_VECTORUNIT };
+#endif
     int hasVectorUnit = 0;
     size_t length = sizeof(hasVectorUnit);
     int error = sysctl(selectors, 2, &hasVectorUnit, &length, NULL, 0);
@@ -302,10 +242,97 @@ CPU_haveAltiVec(void)
     return altivec;
 }
 
+static SDL_INLINE int
+CPU_haveMMX(void)
+{
+    if (CPU_haveCPUID()) {
+        return (CPU_getCPUIDFeatures() & 0x00800000);
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_have3DNow(void)
+{
+    if (CPU_haveCPUID()) {
+        int a, b, c, d;
+
+        cpuid(0x80000000, a, b, c, d);
+        if (a >= 0x80000001) {
+            cpuid(0x80000001, a, b, c, d);
+            return (d & 0x80000000);
+        }
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_haveSSE(void)
+{
+    if (CPU_haveCPUID()) {
+        return (CPU_getCPUIDFeatures() & 0x02000000);
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_haveSSE2(void)
+{
+    if (CPU_haveCPUID()) {
+        return (CPU_getCPUIDFeatures() & 0x04000000);
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_haveSSE3(void)
+{
+    if (CPU_haveCPUID()) {
+        int a, b, c, d;
+
+        cpuid(0, a, b, c, d);
+        if (a >= 1) {
+            cpuid(1, a, b, c, d);
+            return (c & 0x00000001);
+        }
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_haveSSE41(void)
+{
+    if (CPU_haveCPUID()) {
+        int a, b, c, d;
+
+        cpuid(1, a, b, c, d);
+        if (a >= 1) {
+            cpuid(1, a, b, c, d);
+            return (c & 0x00080000);
+        }
+    }
+    return 0;
+}
+
+static SDL_INLINE int
+CPU_haveSSE42(void)
+{
+    if (CPU_haveCPUID()) {
+        int a, b, c, d;
+
+        cpuid(1, a, b, c, d);
+        if (a >= 1) {
+            cpuid(1, a, b, c, d);
+            return (c & 0x00100000);
+        }
+    }
+    return 0;
+}
+
 static int SDL_CPUCount = 0;
 
 int
-SDL_GetCPUCount()
+SDL_GetCPUCount(void)
 {
     if (!SDL_CPUCount) {
 #if defined(HAVE_SYSCONF) && defined(_SC_NPROCESSORS_ONLN)
@@ -335,12 +362,45 @@ SDL_GetCPUCount()
 }
 
 /* Oh, such a sweet sweet trick, just not very useful. :) */
-const char *
-SDL_GetCPUType()
+static const char *
+SDL_GetCPUType(void)
 {
-    static char SDL_CPUType[48];
+    static char SDL_CPUType[13];
 
     if (!SDL_CPUType[0]) {
+        int i = 0;
+        int a, b, c, d;
+
+        if (CPU_haveCPUID()) {
+            cpuid(0x00000000, a, b, c, d);
+            SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
+            SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
+            SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
+            SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
+            SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+            SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+            SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+            SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+            SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
+            SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
+            SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
+            SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
+        }
+        if (!SDL_CPUType[0]) {
+            SDL_strlcpy(SDL_CPUType, "Unknown", sizeof(SDL_CPUType));
+        }
+    }
+    return SDL_CPUType;
+}
+
+
+#ifdef TEST_MAIN  /* !!! FIXME: only used for test at the moment. */
+static const char *
+SDL_GetCPUName(void)
+{
+    static char SDL_CPUName[48];
+
+    if (!SDL_CPUName[0]) {
         int i = 0;
         int a, b, c, d;
 
@@ -348,63 +408,85 @@ SDL_GetCPUType()
             cpuid(0x80000000, a, b, c, d);
             if (a >= 0x80000004) {
                 cpuid(0x80000002, a, b, c, d);
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
                 cpuid(0x80000003, a, b, c, d);
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
                 cpuid(0x80000004, a, b, c, d);
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(a & 0xff); a >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(b & 0xff); b >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(c & 0xff); c >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
-                SDL_CPUType[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(a & 0xff); a >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(b & 0xff); b >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(c & 0xff); c >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
+                SDL_CPUName[i++] = (char)(d & 0xff); d >>= 8;
             }
         }
-        if (!SDL_CPUType[0]) {
-            SDL_strlcpy(SDL_CPUType, "Unknown", sizeof(SDL_CPUType));
+        if (!SDL_CPUName[0]) {
+            SDL_strlcpy(SDL_CPUName, "Unknown", sizeof(SDL_CPUName));
         }
     }
-    return SDL_CPUType;
+    return SDL_CPUName;
+}
+#endif
+
+int
+SDL_GetCPUCacheLineSize(void)
+{
+    const char *cpuType = SDL_GetCPUType();
+
+    if (SDL_strcmp(cpuType, "GenuineIntel") == 0) {
+        int a, b, c, d;
+
+        cpuid(0x00000001, a, b, c, d);
+        return (((b >> 8) & 0xff) * 8);
+    } else if (SDL_strcmp(cpuType, "AuthenticAMD") == 0) {
+        int a, b, c, d;
+
+        cpuid(0x80000005, a, b, c, d);
+        return (c & 0xff);
+    } else {
+        /* Just make a guess here... */
+        return SDL_CACHELINE_SIZE;
+    }
 }
 
 static Uint32 SDL_CPUFeatures = 0xFFFFFFFF;
@@ -417,17 +499,14 @@ SDL_GetCPUFeatures(void)
         if (CPU_haveRDTSC()) {
             SDL_CPUFeatures |= CPU_HAS_RDTSC;
         }
+        if (CPU_haveAltiVec()) {
+            SDL_CPUFeatures |= CPU_HAS_ALTIVEC;
+        }
         if (CPU_haveMMX()) {
             SDL_CPUFeatures |= CPU_HAS_MMX;
         }
-        if (CPU_haveMMXExt()) {
-            SDL_CPUFeatures |= CPU_HAS_MMXEXT;
-        }
         if (CPU_have3DNow()) {
             SDL_CPUFeatures |= CPU_HAS_3DNOW;
-        }
-        if (CPU_have3DNowExt()) {
-            SDL_CPUFeatures |= CPU_HAS_3DNOWEXT;
         }
         if (CPU_haveSSE()) {
             SDL_CPUFeatures |= CPU_HAS_SSE;
@@ -435,8 +514,14 @@ SDL_GetCPUFeatures(void)
         if (CPU_haveSSE2()) {
             SDL_CPUFeatures |= CPU_HAS_SSE2;
         }
-        if (CPU_haveAltiVec()) {
-            SDL_CPUFeatures |= CPU_HAS_ALTIVEC;
+        if (CPU_haveSSE3()) {
+            SDL_CPUFeatures |= CPU_HAS_SSE3;
+        }
+        if (CPU_haveSSE41()) {
+            SDL_CPUFeatures |= CPU_HAS_SSE41;
+        }
+        if (CPU_haveSSE42()) {
+            SDL_CPUFeatures |= CPU_HAS_SSE42;
         }
     }
     return SDL_CPUFeatures;
@@ -452,6 +537,15 @@ SDL_HasRDTSC(void)
 }
 
 SDL_bool
+SDL_HasAltiVec(void)
+{
+    if (SDL_GetCPUFeatures() & CPU_HAS_ALTIVEC) {
+        return SDL_TRUE;
+    }
+    return SDL_FALSE;
+}
+
+SDL_bool
 SDL_HasMMX(void)
 {
     if (SDL_GetCPUFeatures() & CPU_HAS_MMX) {
@@ -461,27 +555,9 @@ SDL_HasMMX(void)
 }
 
 SDL_bool
-SDL_HasMMXExt(void)
-{
-    if (SDL_GetCPUFeatures() & CPU_HAS_MMXEXT) {
-        return SDL_TRUE;
-    }
-    return SDL_FALSE;
-}
-
-SDL_bool
 SDL_Has3DNow(void)
 {
     if (SDL_GetCPUFeatures() & CPU_HAS_3DNOW) {
-        return SDL_TRUE;
-    }
-    return SDL_FALSE;
-}
-
-SDL_bool
-SDL_Has3DNowExt(void)
-{
-    if (SDL_GetCPUFeatures() & CPU_HAS_3DNOWEXT) {
         return SDL_TRUE;
     }
     return SDL_FALSE;
@@ -506,13 +582,76 @@ SDL_HasSSE2(void)
 }
 
 SDL_bool
-SDL_HasAltiVec(void)
+SDL_HasSSE3(void)
 {
-    if (SDL_GetCPUFeatures() & CPU_HAS_ALTIVEC) {
+    if (SDL_GetCPUFeatures() & CPU_HAS_SSE3) {
         return SDL_TRUE;
     }
     return SDL_FALSE;
 }
+
+SDL_bool
+SDL_HasSSE41(void)
+{
+    if (SDL_GetCPUFeatures() & CPU_HAS_SSE41) {
+        return SDL_TRUE;
+    }
+    return SDL_FALSE;
+}
+
+SDL_bool
+SDL_HasSSE42(void)
+{
+    if (SDL_GetCPUFeatures() & CPU_HAS_SSE42) {
+        return SDL_TRUE;
+    }
+    return SDL_FALSE;
+}
+
+static int SDL_SystemRAM = 0;
+
+int
+SDL_GetSystemRAM(void)
+{
+    if (!SDL_SystemRAM) {
+#if defined(HAVE_SYSCONF) && defined(_SC_PHYS_PAGES) && defined(_SC_PAGESIZE)
+        if (SDL_SystemRAM <= 0) {
+            SDL_SystemRAM = (int)((Sint64)sysconf(_SC_PHYS_PAGES) * sysconf(_SC_PAGESIZE) / (1024*1024));
+        }
+#endif
+#ifdef HAVE_SYSCTLBYNAME
+        if (SDL_SystemRAM <= 0) {
+#ifdef __FreeBSD__
+#ifdef HW_REALMEM
+            int mib[2] = {CTL_HW, HW_REALMEM};
+#else
+            /* might only report up to 2 GiB */
+            int mib[2] = {CTL_HW, HW_PHYSMEM};
+#endif /* HW_REALMEM */
+#else
+            int mib[2] = {CTL_HW, HW_MEMSIZE};
+#endif /* __FreeBSD__ */
+            Uint64 memsize = 0;
+            size_t len = sizeof(memsize);
+            
+            if (sysctl(mib, 2, &memsize, &len, NULL, 0) == 0) {
+                SDL_SystemRAM = (int)(memsize / (1024*1024));
+            }
+        }
+#endif
+#ifdef __WIN32__
+        if (SDL_SystemRAM <= 0) {
+            MEMORYSTATUSEX stat;
+            stat.dwLength = sizeof(stat);
+            if (GlobalMemoryStatusEx(&stat)) {
+                SDL_SystemRAM = (int)(stat.ullTotalPhys / (1024 * 1024));
+            }
+        }
+#endif
+    }
+    return SDL_SystemRAM;
+}
+
 
 #ifdef TEST_MAIN
 
@@ -522,15 +661,19 @@ int
 main()
 {
     printf("CPU count: %d\n", SDL_GetCPUCount());
-    printf("CPU name: %s\n", SDL_GetCPUType());
+    printf("CPU type: %s\n", SDL_GetCPUType());
+    printf("CPU name: %s\n", SDL_GetCPUName());
+    printf("CacheLine size: %d\n", SDL_GetCPUCacheLineSize());
     printf("RDTSC: %d\n", SDL_HasRDTSC());
+    printf("Altivec: %d\n", SDL_HasAltiVec());
     printf("MMX: %d\n", SDL_HasMMX());
-    printf("MMXExt: %d\n", SDL_HasMMXExt());
     printf("3DNow: %d\n", SDL_Has3DNow());
-    printf("3DNowExt: %d\n", SDL_Has3DNowExt());
     printf("SSE: %d\n", SDL_HasSSE());
     printf("SSE2: %d\n", SDL_HasSSE2());
-    printf("AltiVec: %d\n", SDL_HasAltiVec());
+    printf("SSE3: %d\n", SDL_HasSSE3());
+    printf("SSE4.1: %d\n", SDL_HasSSE41());
+    printf("SSE4.2: %d\n", SDL_HasSSE42());
+    printf("RAM: %d MB\n", SDL_GetSystemRAM());
     return 0;
 }
 

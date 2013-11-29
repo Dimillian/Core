@@ -497,17 +497,13 @@ public:
 		if (event->type!=SDL_KEYDOWN && event->type!=SDL_KEYUP) return false;
 		Bitu key=GetKeyCode(event->key.keysym);
 //		LOG_MSG("key type %i is %x [%x %x]",event->type,key,event->key.keysym.sym,event->key.keysym.scancode);
-#ifndef IDOSBOX
 		assert(Bitu(event->key.keysym.sym)<keys);
-#endif
 		if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
 		else DeactivateBindList(&lists[key],true);
 		return 0;
 	}
 	CBind * CreateKeyBind(SDLKey _key) {
-#ifndef IDOSBOX
 		if (!usescancodes) assert((Bitu)_key<keys);
-#endif
 		return new CKeyBind(&lists[(Bitu)_key],_key);
 	}
 private:
@@ -2043,15 +2039,13 @@ static struct {
 	{"pageup",SDLK_PAGEUP},	{"insert",SDLK_INSERT},		{"home",SDLK_HOME},
 	{"delete",SDLK_DELETE},	{"end",SDLK_END},			{"up",SDLK_UP},
 	{"left",SDLK_LEFT},		{"down",SDLK_DOWN},			{"right",SDLK_RIGHT},
-#ifndef IDOSBOX
 	{"kp_0",SDLK_KP0},	{"kp_1",SDLK_KP1},	{"kp_2",SDLK_KP2},	{"kp_3",SDLK_KP3},
 	{"kp_4",SDLK_KP4},	{"kp_5",SDLK_KP5},	{"kp_6",SDLK_KP6},	{"kp_7",SDLK_KP7},
 	{"kp_8",SDLK_KP8},	{"kp_9",SDLK_KP9},	{"numlock",SDLK_NUMLOCK},
 	{"kp_divide",SDLK_KP_DIVIDE},	{"kp_multiply",SDLK_KP_MULTIPLY},
 	{"kp_minus",SDLK_KP_MINUS},		{"kp_plus",SDLK_KP_PLUS},
 	{"kp_period",SDLK_KP_PERIOD},	{"kp_enter",SDLK_KP_ENTER},
-#endif
-    
+
 #if defined (MACOSX)
 	/* Intl Mac keyboards in US layout actually put U+00A7 SECTION SIGN here */
 	{"lessthan",SDLK_WORLD_0},
@@ -2251,11 +2245,7 @@ static void InitializeJoysticks(void) {
 
 static void CreateBindGroups(void) {
 	bindgroups.clear();
-#ifdef IDOSBOX
-    new CKeyBindGroup(MAX_SDLKEYS);
-#else
 	new CKeyBindGroup(SDLK_LAST);
-#endif
 	if (joytype != JOY_NONE) {
 #if defined (REDUCE_JOYSTICK_POLLING)
 		// direct access to the SDL joystick, thus removed from the event handling

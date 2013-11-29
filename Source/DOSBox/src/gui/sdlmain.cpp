@@ -404,9 +404,6 @@ static SDL_Surface * GFX_SetupSurfaceScaled(Bit32u sdl_flags, Bit32u bpp) {
 	Bit16u fixedWidth;
 	Bit16u fixedHeight;
 
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES,16);
-    
 	if (sdl.desktop.fullscreen) {
 		fixedWidth = sdl.desktop.full.fixed ? sdl.desktop.full.width : 0;
 		fixedHeight = sdl.desktop.full.fixed ? sdl.desktop.full.height : 0;
@@ -477,8 +474,6 @@ Bitu GFX_SetSize(Bitu width,Bitu height,Bitu flags,double scalex,double scaley,G
 	switch (sdl.desktop.want_type) {
 	case SCREEN_SURFACE:
 dosurface:
-            SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-            SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES,16);
 		if (flags & GFX_CAN_8) bpp=8;
 		if (flags & GFX_CAN_15) bpp=15;
 		if (flags & GFX_CAN_16) bpp=16;
@@ -1268,8 +1263,6 @@ static void GUI_StartUp(Section * sec) {
 
 #endif	//OPENGL
 	/* Initialize screen for first time */
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES,16);
 	sdl.surface=SDL_SetVideoMode(640,400,0,0);
 	if (sdl.surface == NULL) E_Exit("Could not initialize video: %s",SDL_GetError());
 	sdl.desktop.bpp=sdl.surface->format->BitsPerPixel;
@@ -1309,13 +1302,9 @@ static void GUI_StartUp(Section * sec) {
 //#endif
 			}
 		}
-        
-#ifdef IDOSBOX
-		bool exit_splash = true;
-#else
-        bool exit_splash = false;
-#endif
-        
+
+		bool exit_splash = false;
+
 		static Bitu max_splash_loop = 600;
 		static Bitu splash_fade = 100;
 		static bool use_fadeout = true;
@@ -1669,8 +1658,6 @@ static void show_warning(char const * const message) {
 #endif
 	printf(message);
 	if(textonly) return;
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES,16);
 	if(!sdl.surface) sdl.surface = SDL_SetVideoMode(640,400,0,0);
 	if(!sdl.surface) return;
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
@@ -1912,18 +1899,11 @@ int main(int argc, char* argv[]) {
 	 */
 	putenv(const_cast<char*>("SDL_DISABLE_LOCK_KEYS=1"));
 #endif
-#ifdef IDOSBOX
-	if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER
-#else
-    if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_CDROM
-#endif
+	if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_CDROM
 		|SDL_INIT_NOPARACHUTE
 		) < 0 ) E_Exit("Can't init SDL %s",SDL_GetError());
 	sdl.inited = true;
 
-                  SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-                  SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
-                  
 #ifndef DISABLE_JOYSTICK
 	//Initialise Joystick seperately. This way we can warn when it fails instead
 	//of exiting the application
@@ -1997,10 +1977,8 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	// if none found => parse localdir conf
-#ifndef IDOSBOX
 	if(!control->configfiles.size()) control->ParseConfigFile("dosbox.conf");
-#endif
-    
+
 	// if none found => parse userlevel conf
 	if(!control->configfiles.size()) {
 		config_file.clear();
