@@ -25,12 +25,6 @@
 		CEE2FB9618490D7200BD8127 /* debug_disasm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAE918490D7100BD8127 /* debug_disasm.cpp */; };
 		CEE2FB9718490D7200BD8127 /* debug_gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAEA18490D7100BD8127 /* debug_gui.cpp */; };
 		CEE2FB9818490D7200BD8127 /* debug_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAEC18490D7100BD8127 /* debug_win32.cpp */; };
-		CEE2FB9918490D7200BD8127 /* cdrom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAEF18490D7100BD8127 /* cdrom.cpp */; };
-		CEE2FB9A18490D7200BD8127 /* cdrom_aspi_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF118490D7100BD8127 /* cdrom_aspi_win32.cpp */; };
-		CEE2FB9B18490D7200BD8127 /* cdrom_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF218490D7100BD8127 /* cdrom_image.cpp */; };
-		CEE2FB9C18490D7200BD8127 /* cdrom_ioctl_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF318490D7100BD8127 /* cdrom_ioctl_linux.cpp */; };
-		CEE2FB9D18490D7200BD8127 /* cdrom_ioctl_os2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF418490D7100BD8127 /* cdrom_ioctl_os2.cpp */; };
-		CEE2FB9E18490D7200BD8127 /* cdrom_ioctl_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF518490D7100BD8127 /* cdrom_ioctl_win32.cpp */; };
 		CEE2FB9F18490D7200BD8127 /* dos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF718490D7100BD8127 /* dos.cpp */; };
 		CEE2FBA018490D7200BD8127 /* dos_classes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAF818490D7100BD8127 /* dos_classes.cpp */; };
 		CEE2FBA118490D7200BD8127 /* dos_devices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAFA18490D7100BD8127 /* dos_devices.cpp */; };
@@ -40,7 +34,6 @@
 		CEE2FBA518490D7200BD8127 /* dos_keyboard_layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAFE18490D7100BD8127 /* dos_keyboard_layout.cpp */; };
 		CEE2FBA618490D7200BD8127 /* dos_memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0018490D7100BD8127 /* dos_memory.cpp */; };
 		CEE2FBA718490D7200BD8127 /* dos_misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0118490D7100BD8127 /* dos_misc.cpp */; };
-		CEE2FBA818490D7200BD8127 /* dos_mscdex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0218490D7100BD8127 /* dos_mscdex.cpp */; };
 		CEE2FBA918490D7200BD8127 /* dos_programs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0318490D7100BD8127 /* dos_programs.cpp */; };
 		CEE2FBAA18490D7200BD8127 /* dos_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0418490D7100BD8127 /* dos_tables.cpp */; };
 		CEE2FBAB18490D7200BD8127 /* drive_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FB0518490D7100BD8127 /* drive_cache.cpp */; };
@@ -404,13 +397,6 @@
 		CEE2FAEB18490D7100BD8127 /* debug_inc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug_inc.h; sourceTree = "<group>"; };
 		CEE2FAEC18490D7100BD8127 /* debug_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug_win32.cpp; sourceTree = "<group>"; };
 		CEE2FAED18490D7100BD8127 /* disasm_tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = disasm_tables.h; sourceTree = "<group>"; };
-		CEE2FAEF18490D7100BD8127 /* cdrom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
-		CEE2FAF018490D7100BD8127 /* cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdrom.h; sourceTree = "<group>"; };
-		CEE2FAF118490D7100BD8127 /* cdrom_aspi_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_aspi_win32.cpp; sourceTree = "<group>"; };
-		CEE2FAF218490D7100BD8127 /* cdrom_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_image.cpp; sourceTree = "<group>"; };
-		CEE2FAF318490D7100BD8127 /* cdrom_ioctl_linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_linux.cpp; sourceTree = "<group>"; };
-		CEE2FAF418490D7100BD8127 /* cdrom_ioctl_os2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_os2.cpp; sourceTree = "<group>"; };
-		CEE2FAF518490D7100BD8127 /* cdrom_ioctl_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_win32.cpp; sourceTree = "<group>"; };
 		CEE2FAF618490D7100BD8127 /* dev_con.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dev_con.h; sourceTree = "<group>"; };
 		CEE2FAF718490D7100BD8127 /* dos.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos.cpp; sourceTree = "<group>"; };
 		CEE2FAF818490D7100BD8127 /* dos_classes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_classes.cpp; sourceTree = "<group>"; };
@@ -423,7 +409,6 @@
 		CEE2FAFF18490D7100BD8127 /* dos_keyboard_layout_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dos_keyboard_layout_data.h; sourceTree = "<group>"; };
 		CEE2FB0018490D7100BD8127 /* dos_memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_memory.cpp; sourceTree = "<group>"; };
 		CEE2FB0118490D7100BD8127 /* dos_misc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_misc.cpp; sourceTree = "<group>"; };
-		CEE2FB0218490D7100BD8127 /* dos_mscdex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_mscdex.cpp; sourceTree = "<group>"; };
 		CEE2FB0318490D7100BD8127 /* dos_programs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_programs.cpp; sourceTree = "<group>"; };
 		CEE2FB0418490D7100BD8127 /* dos_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_tables.cpp; sourceTree = "<group>"; };
 		CEE2FB0518490D7100BD8127 /* drive_cache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drive_cache.cpp; sourceTree = "<group>"; };
@@ -1113,13 +1098,6 @@
 		CEE2FAEE18490D7100BD8127 /* dos */ = {
 			isa = PBXGroup;
 			children = (
-				CEE2FAEF18490D7100BD8127 /* cdrom.cpp */,
-				CEE2FAF018490D7100BD8127 /* cdrom.h */,
-				CEE2FAF118490D7100BD8127 /* cdrom_aspi_win32.cpp */,
-				CEE2FAF218490D7100BD8127 /* cdrom_image.cpp */,
-				CEE2FAF318490D7100BD8127 /* cdrom_ioctl_linux.cpp */,
-				CEE2FAF418490D7100BD8127 /* cdrom_ioctl_os2.cpp */,
-				CEE2FAF518490D7100BD8127 /* cdrom_ioctl_win32.cpp */,
 				CEE2FAF618490D7100BD8127 /* dev_con.h */,
 				CEE2FAF718490D7100BD8127 /* dos.cpp */,
 				CEE2FAF818490D7100BD8127 /* dos_classes.cpp */,
@@ -1132,7 +1110,6 @@
 				CEE2FAFF18490D7100BD8127 /* dos_keyboard_layout_data.h */,
 				CEE2FB0018490D7100BD8127 /* dos_memory.cpp */,
 				CEE2FB0118490D7100BD8127 /* dos_misc.cpp */,
-				CEE2FB0218490D7100BD8127 /* dos_mscdex.cpp */,
 				CEE2FB0318490D7100BD8127 /* dos_programs.cpp */,
 				CEE2FB0418490D7100BD8127 /* dos_tables.cpp */,
 				CEE2FB0518490D7100BD8127 /* drive_cache.cpp */,
@@ -2014,14 +1991,12 @@
 				CEE2FBBE18490D7200BD8127 /* gameblaster.cpp in Sources */,
 				CEE2FBFF18490D7200BD8127 /* shell_batch.cpp in Sources */,
 				CEE2FB9518490D7200BD8127 /* debug.cpp in Sources */,
-				CEE2FB9B18490D7200BD8127 /* cdrom_image.cpp in Sources */,
 				CEE2FB9418490D7200BD8127 /* paging.cpp in Sources */,
 				CEE2FBAF18490D7200BD8127 /* drive_virtual.cpp in Sources */,
 				CEE2FBCB18490D7200BD8127 /* pcspeaker.cpp in Sources */,
 				CEE2FBF018490D7200BD8127 /* int10_vesa.cpp in Sources */,
 				CEE2FBF118490D7200BD8127 /* int10_video_state.cpp in Sources */,
 				CEE2FBFE18490D7200BD8127 /* shell.cpp in Sources */,
-				CEE2FBA818490D7200BD8127 /* dos_mscdex.cpp in Sources */,
 				CEE2FBE218490D7200BD8127 /* vga_seq.cpp in Sources */,
 				CEE2FBD418490D7200BD8127 /* softmodem.cpp in Sources */,
 				CEE2FBE418490D7200BD8127 /* vga_xga.cpp in Sources */,
@@ -2087,12 +2062,10 @@
 				CEE2FBA618490D7200BD8127 /* dos_memory.cpp in Sources */,
 				CEE2FBC018490D7200BD8127 /* hardware.cpp in Sources */,
 				CEE2FBD318490D7200BD8127 /* serialport.cpp in Sources */,
-				CEE2FB9A18490D7200BD8127 /* cdrom_aspi_win32.cpp in Sources */,
 				CEE2FBB818490D7200BD8127 /* sdlmain.cpp in Sources */,
 				CEE2FBFC18490D7200BD8127 /* setup.cpp in Sources */,
 				CEE2FBAD18490D7200BD8127 /* drive_iso.cpp in Sources */,
 				CEE2FBD618490D7200BD8127 /* timer.cpp in Sources */,
-				CEE2FB9E18490D7200BD8127 /* cdrom_ioctl_win32.cpp in Sources */,
 				CEE2FBF418490D7200BD8127 /* xms.cpp in Sources */,
 				CEE2FB8B18490D7200BD8127 /* core_dyn_x86.cpp in Sources */,
 				CEE2FBA218490D7200BD8127 /* dos_execute.cpp in Sources */,
@@ -2100,7 +2073,6 @@
 				CEE2FBEE18490D7200BD8127 /* int10_pal.cpp in Sources */,
 				CEE2FBB918490D7200BD8127 /* adlib.cpp in Sources */,
 				CEE2FBEB18490D7200BD8127 /* int10_memory.cpp in Sources */,
-				CEE2FB9C18490D7200BD8127 /* cdrom_ioctl_linux.cpp in Sources */,
 				CEE2FBC518490D7200BD8127 /* keyboard.cpp in Sources */,
 				CEE2FBFD18490D7200BD8127 /* support.cpp in Sources */,
 				CEE2FBDB18490D7200BD8127 /* vga_draw.cpp in Sources */,
@@ -2113,8 +2085,6 @@
 				CEE2FBB418490D7200BD8127 /* render.cpp in Sources */,
 				CEE2FBD018490D7200BD8127 /* misc_util.cpp in Sources */,
 				CEE2FBB518490D7200BD8127 /* render_scalers.cpp in Sources */,
-				CEE2FB9D18490D7200BD8127 /* cdrom_ioctl_os2.cpp in Sources */,
-				CEE2FB9918490D7200BD8127 /* cdrom.cpp in Sources */,
 				CEE2FBA718490D7200BD8127 /* dos_misc.cpp in Sources */,
 				CEE2FBA518490D7200BD8127 /* dos_keyboard_layout.cpp in Sources */,
 			);

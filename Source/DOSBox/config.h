@@ -214,7 +214,7 @@
 #undef TM_IN_SYS_TIME
 
 /* Version number of package */
-#undef VERSION
+#define VERSION "0.74"
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
  significant byte first (like Motorola and SPARC, unlike Intel). */

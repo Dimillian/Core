@@ -22,7 +22,11 @@
 #include "inout.h"
 #include "setup.h"
 #include "cpu.h"
+#if DOSKIT
+#include "../cpu/lazyflags.h"
+#else
 #include "../src/cpu/lazyflags.h"
+#endif
 #include "callback.h"
 
 //#define ENABLE_PORTLOG
