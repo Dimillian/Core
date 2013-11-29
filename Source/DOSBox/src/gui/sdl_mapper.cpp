@@ -701,7 +701,11 @@ public:
 		if (axes_cap>axes) axes_cap=axes;
 		hats_cap=emulated_hats;
 		if (hats_cap>hats) hats_cap=hats;
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+        LOG_MSG("Using joystick %s with %d axes, %d buttons and %d hat(s)",SDL_JoystickName(sdl_joystick),axes,buttons,hats);
+#else
 		LOG_MSG("Using joystick %s with %d axes, %d buttons and %d hat(s)",SDL_JoystickName(stick),axes,buttons,hats);
+#endif
 	}
 	~CStickBindGroup() {
 		SDL_JoystickClose(sdl_joystick);
@@ -907,7 +911,11 @@ private:
 		return configname;
 	}
 	const char * BindStart(void) {
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+        if (sdl_joystick!=NULL) return SDL_JoystickName(sdl_joystick);
+#else
 		if (sdl_joystick!=NULL) return SDL_JoystickName(stick);
+#endif
 		else return "[missing joystick]";
 	}
 
