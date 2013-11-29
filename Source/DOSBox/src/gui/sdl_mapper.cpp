@@ -362,7 +362,11 @@ typedef char assert_right_size [MAX_SCANCODES == (sizeof(sdlkey_map)/sizeof(sdlk
 #else // !MACOSX
 
 #define MAX_SCANCODES 212
+#if SDL_VERSION_ATLEAST(2,0,0)
+static SDL_Keycode sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
+#else
 static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
+#endif
 	SDLK_1,SDLK_2,SDLK_3,SDLK_4,SDLK_5,SDLK_6,SDLK_7,SDLK_8,SDLK_9,SDLK_0,
 	/* 0x0c: */
 	SDLK_MINUS,SDLK_EQUALS,SDLK_BACKSPACE,SDLK_TAB,
@@ -376,9 +380,15 @@ static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
 	SDLK_LALT,SDLK_SPACE,SDLK_CAPSLOCK,
 	SDLK_F1,SDLK_F2,SDLK_F3,SDLK_F4,SDLK_F5,SDLK_F6,SDLK_F7,SDLK_F8,SDLK_F9,SDLK_F10,
 	/* 0x45: */
+#if SDL_VERSION_ATLEAST(2,0,0)
+    SDLK_NUMLOCKCLEAR,SDLK_SCROLLLOCK,
+	SDLK_KP_7,SDLK_KP_8,SDLK_KP_9,SDLK_KP_MINUS,SDLK_KP_4,SDLK_KP_5,SDLK_KP_6,SDLK_KP_PLUS,
+	SDLK_KP_1,SDLK_KP_2,SDLK_KP_3,SDLK_KP_0,SDLK_KP_PERIOD,
+#else
 	SDLK_NUMLOCK,SDLK_SCROLLOCK,
 	SDLK_KP7,SDLK_KP8,SDLK_KP9,SDLK_KP_MINUS,SDLK_KP4,SDLK_KP5,SDLK_KP6,SDLK_KP_PLUS,
 	SDLK_KP1,SDLK_KP2,SDLK_KP3,SDLK_KP0,SDLK_KP_PERIOD,
+#endif
 	SDLK_UNKNOWN,SDLK_UNKNOWN,
 	SDLK_LESS,SDLK_F11,SDLK_F12,
 	Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,Z,
@@ -392,15 +402,26 @@ static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
 
 #undef Z
 
-
+#if SDL_VERSION_ATLEAST(2,0,0)
+SDL_Keycode MapSDLCode(Bitu skey) {
+#else
 SDLKey MapSDLCode(Bitu skey) {
+#endif
 	if (usescancodes) {
 		if (skey<MAX_SCANCODES) return sdlkey_map[skey];
 		else return SDLK_UNKNOWN;
+#if SDL_VERSION_ATLEAST(2,0,0)
+    } else return (SDL_Keycode)skey;
+#else
 	} else return (SDLKey)skey;
+#endif
 }
 
+#if SDL_VERSION_ATLEAST(2,0,0)
+Bitu GetKeyCode(SDL_Keysym keysym) {
+#else
 Bitu GetKeyCode(SDL_keysym keysym) {
+#endif
 	if (usescancodes) {
 		Bitu key=(Bitu)keysym.scancode;
 		if (key==0
@@ -456,7 +477,11 @@ class CKeyBindGroup;
 
 class CKeyBind : public CBind {
 public:
+#if SDL_VERSION_ATLEAST(2,0,0)
+    CKeyBind(CBindList * _list,SDL_Keycode _key) : CBind(_list) {
+#else
 	CKeyBind(CBindList * _list,SDLKey _key) : CBind(_list) {
+#endif
 		key = _key;
 	}
 	void BindName(char * buf) {
@@ -466,7 +491,11 @@ public:
 		sprintf(buf,"key %d",MapSDLCode((Bitu)key));
 	}
 public:
+#if SDL_VERSION_ATLEAST(2,0,0)
+    SDL_Keycode key;
+#else
 	SDLKey key;
+#endif
 };
 
 class CKeyBindGroup : public  CBindGroup {
@@ -486,23 +515,40 @@ public:
 			if (code<MAX_SDLKEYS) code=scancode_map[code];
 			else code=0;
 		}
+#if SDL_VERSION_ATLEAST(2,0,0)
+        CBind * bind=CreateKeyBind((SDL_Keycode)code);
+#else
 		CBind * bind=CreateKeyBind((SDLKey)code);
+#endif
 		return bind;
 	}
 	CBind * CreateEventBind(SDL_Event * event) {
 		if (event->type!=SDL_KEYDOWN) return 0;
+#if SDL_VERSION_ATLEAST(2,0,0)
+        return CreateKeyBind((SDL_Keycode)GetKeyCode(event->key.keysym));
+#else
 		return CreateKeyBind((SDLKey)GetKeyCode(event->key.keysym));
+#endif
 	};
 	bool CheckEvent(SDL_Event * event) {
 		if (event->type!=SDL_KEYDOWN && event->type!=SDL_KEYUP) return false;
 		Bitu key=GetKeyCode(event->key.keysym);
 //		LOG_MSG("key type %i is %x [%x %x]",event->type,key,event->key.keysym.sym,event->key.keysym.scancode);
 		assert(Bitu(event->key.keysym.sym)<keys);
+#if SDL_VERSION_ATLEAST(2,0,0)
 		if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
 		else DeactivateBindList(&lists[key],true);
+#else
+        if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
+		else DeactivateBindList(&lists[key],true);
+#endif
 		return 0;
 	}
+#if SDL_VERSION_ATLEAST(2,0,0)
+    CBind * CreateKeyBind(SDL_Keycode _key) {
+#else
 	CBind * CreateKeyBind(SDLKey _key) {
+#endif
 		if (!usescancodes) assert((Bitu)_key<keys);
 		return new CKeyBind(&lists[(Bitu)_key],_key);
 	}
@@ -1575,15 +1621,23 @@ public:
 			key=SDLK_KP_MINUS;
 			break;
 		case MK_scrolllock:
+#if SDL_VERSION_ATLEAST(1, 2, 14)
+                key=SDLK_SCROLLLOCK;
+#else
 			key=SDLK_SCROLLOCK;
+#endif
 			break;
 		case MK_pause:
 			key=SDLK_PAUSE;
 			break;
 		case MK_printscreen:
+#if SDL_VERSION_ATLEAST(1, 2, 14)
+            key=SDLK_PRINTSCREEN;
+#else
 			key=SDLK_PRINT;
+#endif
 			break;
-		case MK_home: 
+		case MK_home:
 			key=SDLK_HOME; 
 			break;
 		}
@@ -2034,14 +2088,28 @@ static struct {
 	{"quote", SDLK_QUOTE},	{"backslash",SDLK_BACKSLASH},	{"lshift",SDLK_LSHIFT},
 	{"rshift",SDLK_RSHIFT},	{"lalt",SDLK_LALT},			{"ralt",SDLK_RALT},
 	{"lctrl",SDLK_LCTRL},	{"rctrl",SDLK_RCTRL},		{"comma",SDLK_COMMA},
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+    {"period",SDLK_PERIOD},	{"slash",SDLK_SLASH},		{"printscreen",SDLK_PRINTSCREEN},
+#else
 	{"period",SDLK_PERIOD},	{"slash",SDLK_SLASH},		{"printscreen",SDLK_PRINT},
+#endif
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+    {"scrolllock",SDLK_SCROLLLOCK},	{"pause",SDLK_PAUSE},		{"pagedown",SDLK_PAGEDOWN},
+#else
 	{"scrolllock",SDLK_SCROLLOCK},	{"pause",SDLK_PAUSE},		{"pagedown",SDLK_PAGEDOWN},
+#endif
 	{"pageup",SDLK_PAGEUP},	{"insert",SDLK_INSERT},		{"home",SDLK_HOME},
 	{"delete",SDLK_DELETE},	{"end",SDLK_END},			{"up",SDLK_UP},
 	{"left",SDLK_LEFT},		{"down",SDLK_DOWN},			{"right",SDLK_RIGHT},
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+    {"kp_0",SDLK_KP_0},	{"kp_1",SDLK_KP_1},	{"kp_2",SDLK_KP_2},	{"kp_3",SDLK_KP_3},
+	{"kp_4",SDLK_KP_4},	{"kp_5",SDLK_KP_5},	{"kp_6",SDLK_KP_6},	{"kp_7",SDLK_KP_7},
+	{"kp_8",SDLK_KP_8},	{"kp_9",SDLK_KP_9},	{"numlock",SDLK_CAPSLOCK},
+#else
 	{"kp_0",SDLK_KP0},	{"kp_1",SDLK_KP1},	{"kp_2",SDLK_KP2},	{"kp_3",SDLK_KP3},
 	{"kp_4",SDLK_KP4},	{"kp_5",SDLK_KP5},	{"kp_6",SDLK_KP6},	{"kp_7",SDLK_KP7},
 	{"kp_8",SDLK_KP8},	{"kp_9",SDLK_KP9},	{"numlock",SDLK_NUMLOCK},
+#endif
 	{"kp_divide",SDLK_KP_DIVIDE},	{"kp_multiply",SDLK_KP_MULTIPLY},
 	{"kp_minus",SDLK_KP_MINUS},		{"kp_plus",SDLK_KP_PLUS},
 	{"kp_period",SDLK_KP_PERIOD},	{"kp_enter",SDLK_KP_ENTER},
@@ -2245,7 +2313,11 @@ static void InitializeJoysticks(void) {
 
 static void CreateBindGroups(void) {
 	bindgroups.clear();
-	new CKeyBindGroup(SDLK_LAST);
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+	new CKeyBindGroup(SDL_NUM_SCANCODES);
+#else
+    new CKeyBindGroup(SDLK_LAST);
+#endif
 	if (joytype != JOY_NONE) {
 #if defined (REDUCE_JOYSTICK_POLLING)
 		// direct access to the SDL joystick, thus removed from the event handling
@@ -2464,7 +2536,11 @@ void MAPPER_StartUp(Section * sec) {
 			sdlkey_map[0x60]=SDLK_KP_ENTER;
 			sdlkey_map[0x61]=SDLK_RCTRL;
 			sdlkey_map[0x77]=SDLK_PAUSE;
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+            sdlkey_map[0x63]=SDLK_PRINTSCREEN;
+#else
 			sdlkey_map[0x63]=SDLK_PRINT;
+#endif
 			sdlkey_map[0x64]=SDLK_RALT;
 		} else {
 			sdlkey_map[0x5a]=SDLK_UP;
@@ -2481,7 +2557,11 @@ void MAPPER_StartUp(Section * sec) {
 			sdlkey_map[0x64]=SDLK_KP_ENTER;
 			sdlkey_map[0x65]=SDLK_RCTRL;
 			sdlkey_map[0x66]=SDLK_PAUSE;
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+            sdlkey_map[0x67]=SDLK_PRINTSCREEN;
+#else
 			sdlkey_map[0x67]=SDLK_PRINT;
+#endif
 			sdlkey_map[0x69]=SDLK_RALT;
 		}
 #else
@@ -2506,7 +2586,11 @@ void MAPPER_StartUp(Section * sec) {
 		Bitu i;
 		for (i=0; i<MAX_SDLKEYS; i++) scancode_map[i]=0;
 		for (i=0; i<MAX_SCANCODES; i++) {
+#if SDL_VERSION_ATLEAST(2,0,0)
+            SDL_Keycode key=sdlkey_map[i];
+#else
 			SDLKey key=sdlkey_map[i];
+#endif
 			if (key<MAX_SDLKEYS) scancode_map[key]=(Bit8u)i;
 		}
 	}

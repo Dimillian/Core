@@ -11,17 +11,17 @@
 
 @interface DKKey ()
 
-- (id)initWithScancode:(SDL_scancode)scancode;
+- (id)initWithScancode:(SDL_Scancode)scancode;
 
 @end
 
 @implementation DKKey
 
-+ (id)keyWithScancode:(SDL_scancode)scancode {
++ (id)keyWithScancode:(SDL_Scancode)scancode {
     return [[self alloc] initWithScancode:scancode];
 }
 
-- (id)initWithScancode:(SDL_scancode)scancode {
+- (id)initWithScancode:(SDL_Scancode)scancode {
     DK_LOG_INIT(self);
     if (self  = [super init]) {
         _isPressed = NO;
@@ -34,10 +34,10 @@
     if (isPressed != _isPressed) {
         _isPressed = isPressed;
         if (isPressed) {
-            SDL_SendKeyboardKey(0, SDL_PRESSED, self.scancode);
+            SDL_SendKeyboardKey(SDL_PRESSED, self.scancode);
             DK_LOG(@"%@ key pressed", self.name);
         } else {
-            SDL_SendKeyboardKey(0, SDL_RELEASED, self.scancode);
+            SDL_SendKeyboardKey(SDL_RELEASED, self.scancode);
             DK_LOG(@"%@ key released", self.name);
         }
     }

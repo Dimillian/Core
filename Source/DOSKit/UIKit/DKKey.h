@@ -12,9 +12,9 @@
 @interface DKKey : NSObject
 
 @property (readwrite, nonatomic) BOOL isPressed;
-@property (readwrite, nonatomic) SDL_scancode scancode;
+@property (readwrite, nonatomic) SDL_Scancode scancode;
 
 - (NSString *)name;
-+ (id)keyWithScancode:(SDL_scancode)scancode;
++ (id)keyWithScancode:(SDL_Scancode)scancode;
 
 @end
