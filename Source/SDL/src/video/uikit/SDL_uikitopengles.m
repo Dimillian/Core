@@ -30,7 +30,7 @@
 #include <dlfcn.h>
 
 #ifdef IDOSBOX
-#import "IDBDOSView.h"
+#import "DKView.h"
 #import "SDL_keyboard_c.h"
 #endif
 

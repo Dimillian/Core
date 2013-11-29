@@ -28,8 +28,8 @@
 #import "jumphack.h"
 
 #ifdef IDOSBOX
-#import "IDBDOSModel.h"
-#import "IDBDOSView.h"
+#import "DKCommand.h"
+#import "DKView.h"
 #endif
 
 #ifdef main
@@ -104,7 +104,7 @@ int main(int argc, char **argv) {
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 #ifdef IDOSBOX
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.dosView = [[[IDBDOSView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
+    self.dosView = [[[DKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)] autorelease];
     [self startSDL];
 #else
     /* Set working directory to resource path */

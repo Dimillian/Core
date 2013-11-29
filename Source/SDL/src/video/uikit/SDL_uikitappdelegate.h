@@ -23,7 +23,7 @@
 #import <UIKit/UIKit.h>
 
 #ifdef IDOSBOX
-@class IDBDOSView;
+@class DKView;
 #endif
 
 /* *INDENT-OFF* */
@@ -31,7 +31,7 @@
 }
 
 #ifdef IDOSBOX
-@property (readwrite, retain, nonatomic) IDBDOSView *dosView;
+@property (readwrite, retain, nonatomic) DKView *dosView;
 
 - (void)startSDL;
 #endif

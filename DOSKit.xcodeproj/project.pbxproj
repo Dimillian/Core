@@ -295,12 +295,12 @@
 		CE7627F31790FF8700C36A62 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE7627F01790FF6C00C36A62 /* SDL_cdrom.c */; };
 		CE7628241791115900C36A62 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CE76281F1791112A00C36A62 /* SDL_syssem.c */; };
 		CE76282A1791173000C36A62 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE762829179116E000C36A62 /* SDL_syscdrom.c */; };
-		CEA1CC3C182558AE00E0957A /* IDBKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* IDBKey.m */; };
-		CEA448EE181B9A4C00022715 /* IDBDOSView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* IDBDOSView.m */; };
-		CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libiDOSBox.a */; };
-		CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* IDBDebug.h */; };
-		CEE3CD0B17D3D7BD00EF75F1 /* IDBDOSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* IDBDOSModel.m */; };
-		CEE3CD0C17D3D7C800EF75F1 /* IDBDOSModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* IDBDOSModel.h */; };
+		CEA1CC3C182558AE00E0957A /* DKKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DKKey.m */; };
+		CEA448EE181B9A4C00022715 /* DKView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DKView.m */; };
+		CEDB827E179679A000972087 /* libDOSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libDOSKit.a */; };
+		CEE3CC3417D3D0BD00EF75F1 /* DKDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* DKDebug.h */; };
+		CEE3CD0B17D3D7BD00EF75F1 /* DKCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */; };
+		CEE3CD0C17D3D7C800EF75F1 /* DKCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -356,8 +356,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				CEE3CD0C17D3D7C800EF75F1 /* IDBDOSModel.h in CopyFiles */,
-				CEE3CC3417D3D0BD00EF75F1 /* IDBDebug.h in CopyFiles */,
+				CEE3CD0C17D3D7C800EF75F1 /* DKCommand.h in CopyFiles */,
+				CEE3CC3417D3D0BD00EF75F1 /* DKDebug.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,15 +853,15 @@
 		CE7627F11790FF6C00C36A62 /* SDL_syscdrom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDL_syscdrom.h; path = cdrom/SDL_syscdrom.h; sourceTree = "<group>"; };
 		CE76281F1791112A00C36A62 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syssem.c; path = generic/SDL_syssem.c; sourceTree = "<group>"; };
 		CE762829179116E000C36A62 /* SDL_syscdrom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SDL_syscdrom.c; path = cdrom/dummy/SDL_syscdrom.c; sourceTree = "<group>"; };
-		CEA1CC3A182558AE00E0957A /* IDBKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBKey.h; sourceTree = "<group>"; };
-		CEA1CC3B182558AE00E0957A /* IDBKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBKey.m; sourceTree = "<group>"; };
-		CEA448EC181B9A4C00022715 /* IDBDOSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IDBDOSView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CEA448ED181B9A4C00022715 /* IDBDOSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IDBDOSView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CEDB825D179674BF00972087 /* libiDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDB828D17967DB600972087 /* IDBDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IDBDebug.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CEE3CD0917D3D7BD00EF75F1 /* IDBDOSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDBDOSModel.h; sourceTree = "<group>"; };
-		CEE3CD0A17D3D7BD00EF75F1 /* IDBDOSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDBDOSModel.m; sourceTree = "<group>"; };
-		CEE3CD8017D41D5C00EF75F1 /* iDOSBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iDOSBox-Prefix.pch"; sourceTree = "<group>"; };
+		CEA1CC3A182558AE00E0957A /* DKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKKey.h; sourceTree = "<group>"; };
+		CEA1CC3B182558AE00E0957A /* DKKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKKey.m; sourceTree = "<group>"; };
+		CEA448EC181B9A4C00022715 /* DKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CEA448ED181B9A4C00022715 /* DKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CEDB825D179674BF00972087 /* libDOSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDB828D17967DB600972087 /* DKDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKDebug.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCommand.h; sourceTree = "<group>"; };
+		CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCommand.m; sourceTree = "<group>"; };
+		CEE3CD8017D41D5C00EF75F1 /* DOSKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DOSKit-Prefix.pch"; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -890,7 +890,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDB827E179679A000972087 /* libiDOSBox.a in Frameworks */,
+				CEDB827E179679A000972087 /* libDOSKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,7 +1736,7 @@
 			children = (
 				CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */,
 				CEE95BF7178A1E0F001BD8FD /* libSDL.a */,
-				CEDB825D179674BF00972087 /* libiDOSBox.a */,
+				CEDB825D179674BF00972087 /* libDOSKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1780,25 +1780,25 @@
 			name = dummy;
 			sourceTree = "<group>";
 		};
-		CEDB825F179674BF00972087 /* iDOSBox */ = {
+		CEDB825F179674BF00972087 /* DOSKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD8017D41D5C00EF75F1 /* iDOSBox-Prefix.pch */,
+				CEE3CD8017D41D5C00EF75F1 /* DOSKit-Prefix.pch */,
 				CEDB828A17967D7D00972087 /* Common */,
 				CEDB827F17967ABD00972087 /* UIKit */,
 			);
-			path = iDOSBox;
+			path = DOSKit;
 			sourceTree = "<group>";
 		};
 		CEDB827F17967ABD00972087 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD0917D3D7BD00EF75F1 /* IDBDOSModel.h */,
-				CEE3CD0A17D3D7BD00EF75F1 /* IDBDOSModel.m */,
-				CEA448EC181B9A4C00022715 /* IDBDOSView.h */,
-				CEA448ED181B9A4C00022715 /* IDBDOSView.m */,
-				CEA1CC3A182558AE00E0957A /* IDBKey.h */,
-				CEA1CC3B182558AE00E0957A /* IDBKey.m */,
+				CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */,
+				CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */,
+				CEA448EC181B9A4C00022715 /* DKView.h */,
+				CEA448ED181B9A4C00022715 /* DKView.m */,
+				CEA1CC3A182558AE00E0957A /* DKKey.h */,
+				CEA1CC3B182558AE00E0957A /* DKKey.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1806,7 +1806,7 @@
 		CEDB828A17967D7D00972087 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEDB828D17967DB600972087 /* IDBDebug.h */,
+				CEDB828D17967DB600972087 /* DKDebug.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1814,7 +1814,7 @@
 		CEF6D5821791EAEC006134CF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CEDB825F179674BF00972087 /* iDOSBox */,
+				CEDB825F179674BF00972087 /* DOSKit */,
 				36EBC97C1A3D55FD5FB91D83 /* DOSBox */,
 				36EBC9CAE2C62927AB45181F /* SDL */,
 			);
@@ -1841,9 +1841,9 @@
 			productReference = CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CEDB825C179674BF00972087 /* iDOSBox */ = {
+		CEDB825C179674BF00972087 /* DOSKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */;
+			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSKit" */;
 			buildPhases = (
 				CEDB8259179674BF00972087 /* Sources */,
 				CEDB825A179674BF00972087 /* Frameworks */,
@@ -1853,9 +1853,9 @@
 			);
 			dependencies = (
 			);
-			name = iDOSBox;
+			name = DOSKit;
 			productName = iDOSBox;
-			productReference = CEDB825D179674BF00972087 /* libiDOSBox.a */;
+			productReference = CEDB825D179674BF00972087 /* libDOSKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CEE95BF6178A1E0F001BD8FD /* SDL */ = {
@@ -1881,10 +1881,10 @@
 		CE2CA1C61787A14D001F6D5F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = user;
 			};
-			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "iDOSBox" */;
+			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1896,7 +1896,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEDB825C179674BF00972087 /* iDOSBox */,
+				CEDB825C179674BF00972087 /* DOSKit */,
 				CE2CA1CD1787A14D001F6D5F /* DOSBox */,
 				CEE95BF6178A1E0F001BD8FD /* SDL */,
 			);
@@ -2033,9 +2033,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA1CC3C182558AE00E0957A /* IDBKey.m in Sources */,
-				CEA448EE181B9A4C00022715 /* IDBDOSView.m in Sources */,
-				CEE3CD0B17D3D7BD00EF75F1 /* IDBDOSModel.m in Sources */,
+				CEA1CC3C182558AE00E0957A /* DKKey.m in Sources */,
+				CEA448EE181B9A4C00022715 /* DKView.m in Sources */,
+				CEE3CD0B17D3D7BD00EF75F1 /* DKCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2196,7 +2196,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = NO;
@@ -2228,7 +2227,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = NO;
@@ -2259,16 +2257,15 @@
 		CEDB8267179674BF00972087 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/iDOSBox/iDOSBox-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSKit/DOSKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = iDOSBox;
+				PRODUCT_NAME = DOSKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2276,16 +2273,15 @@
 		CEDB8268179674BF00972087 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/iDOSBox/iDOSBox-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSKit/DOSKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = iDOSBox;
+				PRODUCT_NAME = DOSKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2293,7 +2289,6 @@
 		CEE95C01178A1E0F001BD8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/SDL.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2316,7 +2311,6 @@
 		CEE95C02178A1E0F001BD8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/SDL.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2338,7 +2332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "iDOSBox" */ = {
+		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE2CA1DA1787A14D001F6D5F /* Debug */,
@@ -2356,7 +2350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "iDOSBox" */ = {
+		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEDB8267179674BF00972087 /* Debug */,
