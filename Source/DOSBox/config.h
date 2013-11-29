@@ -1,3 +1,6 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+
 /*
  *  Copyright (C) 2002-2013  The DOSBox Team
  *
@@ -16,7 +19,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef IDOSBOX
+#if DOSKIT
 #include <TargetConditionals.h>
 #endif
 
@@ -39,14 +42,14 @@
 #undef C_DEBUG
 
 /* Define to 1 if you want serial passthrough support (Win32, Posix and OS/2).
-   */
+ */
 #undef C_DIRECTSERIAL
 
 /* Define to 1 to use x86 dynamic cpu core */
 #undef C_DYNAMIC_X86
 
 /* Define to 1 to use recompiling cpu core. Can not be used together with the
-   dynamic-x86 core */
+ dynamic-x86 core */
 #define C_DYNREC 1
 
 /* Define to 1 to enable floating point emulation */
@@ -59,7 +62,7 @@
 #define C_HAS_ATTRIBUTE 1
 
 /* Determines if the compilers supports __builtin_expect for branch
-   prediction. */
+ prediction. */
 #define C_HAS_BUILTIN_EXPECT 1
 
 /* Define to 1 if you have the mprotect function */
@@ -87,10 +90,10 @@
 #undef C_SSHOT
 
 /* The type of cpu this target has */
-#if TARGET_IPHONE_SIMULATOR
-#define C_TARGETCPU X86
-#else
+#if !defined(TARGET_IPHONE_SIMULATOR)
 #define C_TARGETCPU ARMV4LE
+#else
+#define C_TARGETCPU X86
 #endif
 
 /* Define to 1 to use a unaligned memory access */
@@ -133,7 +136,7 @@
 #undef HAVE_PWD_H
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
+#define HAVE_STDINT_H 1
 
 /* Define to 1 if you have the <stdlib.h> header file. */
 #define HAVE_STDLIB_H 1
@@ -211,10 +214,10 @@
 #undef TM_IN_SYS_TIME
 
 /* Version number of package */
-#define VERSION "0.74"
+#undef VERSION
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
-   significant byte first (like Motorola and SPARC, unlike Intel). */
+ significant byte first (like Motorola and SPARC, unlike Intel). */
 #if defined AC_APPLE_UNIVERSAL_BUILD
 # if defined __BIG_ENDIAN__
 #  define WORDS_BIGENDIAN 1
@@ -229,7 +232,7 @@
 #undef const
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
-   calls it, or to nothing if 'inline' is not supported under any name.  */
+ calls it, or to nothing if 'inline' is not supported under any name.  */
 #ifndef __cplusplus
 #undef inline
 #endif
@@ -272,43 +275,41 @@ typedef         double     Real64;
 #if SIZEOF_UNSIGNED_CHAR != 1
 #  error "sizeof (unsigned char) != 1"
 #else
-  typedef unsigned char Bit8u;
-  typedef   signed char Bit8s;
+typedef unsigned char Bit8u;
+typedef   signed char Bit8s;
 #endif
 
 #if SIZEOF_UNSIGNED_SHORT != 2
 #  error "sizeof (unsigned short) != 2"
 #else
-  typedef unsigned short Bit16u;
-  typedef   signed short Bit16s;
+typedef unsigned short Bit16u;
+typedef   signed short Bit16s;
 #endif
 
 #if SIZEOF_UNSIGNED_INT == 4
-  typedef unsigned int Bit32u;
-  typedef   signed int Bit32s;
+typedef unsigned int Bit32u;
+typedef   signed int Bit32s;
 #elif SIZEOF_UNSIGNED_LONG == 4
-  typedef unsigned long Bit32u;
-  typedef   signed long Bit32s;
+typedef unsigned long Bit32u;
+typedef   signed long Bit32s;
 #else
 #  error "can't find sizeof(type) of 4 bytes!"
 #endif
 
 #if SIZEOF_UNSIGNED_LONG == 8
-  typedef unsigned long Bit64u;
-  typedef   signed long Bit64s;
+typedef unsigned long Bit64u;
+typedef   signed long Bit64s;
 #elif SIZEOF_UNSIGNED_LONG_LONG == 8
-  typedef unsigned long long Bit64u;
-  typedef   signed long long Bit64s;
+typedef unsigned long long Bit64u;
+typedef   signed long long Bit64s;
 #else
 #  error "can't find data type of 8 bytes"
 #endif
 
 #if SIZEOF_INT_P == 4
-  typedef Bit32u Bitu;
-  typedef Bit32s Bits;
+typedef Bit32u Bitu;
+typedef Bit32s Bits;
 #else
-  typedef Bit64u Bitu;
-  typedef Bit64s Bits;
+typedef Bit64u Bitu;
+typedef Bit64s Bits;
 #endif
-
-

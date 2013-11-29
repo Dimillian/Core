@@ -30,6 +30,9 @@
 #include "dosbox.h"
 #include "opl.h"
 
+#if DOSKIT
+#include <string.h>
+#endif
 
 static fltype recipsamp;	// inverse of sampling rate
 static Bit16s wavtable[WAVEPREC*3];	// wave form table

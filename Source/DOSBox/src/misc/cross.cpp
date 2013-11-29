@@ -23,6 +23,13 @@
 #include <string>
 #include <stdlib.h>
 
+#if DOSKIT
+extern "C" {
+    const char * dosbox_config_path();
+    const char * dosbox_config_filename();
+}
+#endif
+
 #ifdef WIN32
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0400
@@ -76,7 +83,12 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #else /*linux freebsd*/
 #define DEFAULT_CONFIG_FILE "dosbox-" VERSION ".conf"
 #endif
+
+#if DOSKIT
+    in = dosbox_config_filename();
+#else
 	in = DEFAULT_CONFIG_FILE;
+#endif
 }
 
 void Cross::CreatePlatformConfigDir(std::string& in) {
