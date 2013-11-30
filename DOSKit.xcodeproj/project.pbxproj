@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE53A79E184A8A65009FA4A0 /* SDL_systimer.c in Sources */ = {isa = PBXBuildFile; fileRef = CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */; };
 		CEA1CC3C182558AE00E0957A /* DKKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DKKey.m */; };
 		CEA448EE181B9A4C00022715 /* DKView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DKView.m */; };
 		CEDB827E179679A000972087 /* libDOSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libDOSKit.a */; };
@@ -294,6 +295,7 @@
 
 /* Begin PBXFileReference section */
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systimer.c; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CEA1CC3A182558AE00E0957A /* DKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKKey.h; sourceTree = "<group>"; };
 		CEA1CC3B182558AE00E0957A /* DKKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKKey.m; sourceTree = "<group>"; };
@@ -896,6 +898,14 @@
 				CEF6D4F91791DA80006134CF /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE53A79C184A8A65009FA4A0 /* unix */ = {
+			isa = PBXGroup;
+			children = (
+				CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */,
+			);
+			path = unix;
 			sourceTree = "<group>";
 		};
 		CEDB825F179674BF00972087 /* DOSKit */ = {
@@ -1787,6 +1797,7 @@
 		CEE2FD0518490FA800BD8127 /* timer */ = {
 			isa = PBXGroup;
 			children = (
+				CE53A79C184A8A65009FA4A0 /* unix */,
 				CEE2FD0618490FA800BD8127 /* SDL_timer.c */,
 				CEE2FD0718490FA800BD8127 /* SDL_timer_c.h */,
 				CEE2FD0818490FA800BD8127 /* dummy */,
@@ -2236,6 +2247,7 @@
 				CEE2FD6118490FA800BD8127 /* SDL_atomic.c in Sources */,
 				CEE2FD7918490FA800BD8127 /* SDL_haptic.c in Sources */,
 				CEE2FD5D18490FA800BD8127 /* SDL_assert.c in Sources */,
+				CE53A79E184A8A65009FA4A0 /* SDL_systimer.c in Sources */,
 				CEE2FD7018490FA800BD8127 /* SDL_keyboard.c in Sources */,
 				CEE2FDC418490FA800BD8127 /* SDL_RLEaccel.c in Sources */,
 				CEE2FD6818490FA800BD8127 /* SDL_wave.c in Sources */,
