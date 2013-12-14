@@ -16,23 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "DKCommand.h"
-#import "DKKey.h"
+#import "DCCommand.h"
+#import "DCKey.h"
 
 NSString * const IDBMountCommand = @"mount";
 NSString * const IDBClearScreenCommand = @"cls";
 NSString * const IDBChangeDirectoryCommand = @"cd";
 
 const char * dosbox_config_path() {
-    return [[[DKCommand sharedModel] dosboxConfigPath] UTF8String];
+    return [[[DCCommand sharedModel] dosboxConfigPath] UTF8String];
 }
 
 const char * dosbox_config_filename() {
-    return [[[DKCommand sharedModel] dosboxConfigFilename] UTF8String];
+    return [[[DCCommand sharedModel] dosboxConfigFilename] UTF8String];
 }
 
 const char * dosbox_command_dequeue() {
-    NSString *command = [[DKCommand sharedModel] dequeueCommand];
+    NSString *command = [[DCCommand sharedModel] dequeueCommand];
     if (command) {
         return [command UTF8String];
     } else {
@@ -41,19 +41,19 @@ const char * dosbox_command_dequeue() {
 }
 
 static inline void DriveLetterErrorCheck(char letter) {
-    NSCAssert((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'), DKInvalidArgumentError);
+    NSCAssert((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'), DCInvalidArgumentError);
 }
 
-@interface DKCommand ()
+@interface DCCommand ()
 
 @property (readwrite, nonatomic) NSMutableArray *commandQueue;
 
 @end
 
-@implementation DKCommand
+@implementation DCCommand
 
 + (instancetype)sharedModel {
-    static DKCommand *sharedModel = nil;
+    static DCCommand *sharedModel = nil;
     if (!sharedModel) {
         sharedModel = [[[self class] alloc] init];
     }
@@ -61,7 +61,7 @@ static inline void DriveLetterErrorCheck(char letter) {
 }
 
 - (id)init {
-    DK_LOG_INIT(self);
+    DC_LOG_INIT(self);
     if (self = [super init]) {
         _commandQueue = [NSMutableArray array];
         _paused = NO;
@@ -72,17 +72,17 @@ static inline void DriveLetterErrorCheck(char letter) {
 }
 
 - (NSString *)dosboxConfigPath {
-    NSAssert(false, DKShouldOverrideError);
+    NSAssert(false, DCShouldOverrideError);
     return nil;
 }
 
 - (NSString *)dosboxConfigFilename {
-    NSAssert(false, DKShouldOverrideError);
+    NSAssert(false, DCShouldOverrideError);
     return nil;
 }
 
 - (NSArray *)startupCommands {
-    NSAssert(false, DKShouldOverrideError);
+    NSAssert(false, DCShouldOverrideError);
     return nil;
 }
 
@@ -124,7 +124,7 @@ static inline void DriveLetterErrorCheck(char letter) {
 }
 
 - (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter {
-    NSAssert(path, DKArgumentNilError);
+    NSAssert(path, DCArgumentNilError);
     DriveLetterErrorCheck(driveLetter);
     return [NSString stringWithFormat:@"%c:\\%@", driveLetter, path];
 }
@@ -133,24 +133,24 @@ static inline void DriveLetterErrorCheck(char letter) {
     if (_paused != paused) {
         _paused = paused;
         
-        DKKey *altKey = [DKKey keyWithScancode:SDL_SCANCODE_LALT];
-        DKKey *pauseKey = [DKKey keyWithScancode:SDL_SCANCODE_PAUSE];
+        DCKey *altKey = [DCKey keyWithScancode:SDL_SCANCODE_LALT];
+        DCKey *pauseKey = [DCKey keyWithScancode:SDL_SCANCODE_PAUSE];
         altKey.isPressed = YES;
         pauseKey.isPressed = YES;
         altKey.isPressed = NO;
         pauseKey.isPressed = NO;
         
         if (paused) {
-            DK_LOG(@"DOSBox paused");
+            DC_LOG(@"DOSBox paused");
         } else {
-            DK_LOG(@"DOSBox resumed");
+            DC_LOG(@"DOSBox resumed");
         }
     }
     return;
 }
 
 - (void)dealloc {
-    DK_LOG_DEALLOC(self);
+    DC_LOG_DEALLOC(self);
 }
 
 @end

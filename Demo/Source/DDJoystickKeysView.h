@@ -11,9 +11,9 @@
 
 @interface DDJoystickKeysView : DDJoystickView
 
-@property (readwrite, nonatomic) DKKey *upKey;
-@property (readwrite, nonatomic) DKKey *downKey;
-@property (readwrite, nonatomic) DKKey *rightKey;
-@property (readwrite, nonatomic) DKKey *leftKey;
+@property (readwrite, nonatomic) DCKey *upKey;
+@property (readwrite, nonatomic) DCKey *downKey;
+@property (readwrite, nonatomic) DCKey *rightKey;
+@property (readwrite, nonatomic) DCKey *leftKey;
 
 @end

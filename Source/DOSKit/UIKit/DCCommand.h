@@ -21,7 +21,7 @@
 extern NSString * const IDBMountCommand;
 extern NSString * const IDBClearScreenCommand;
 
-@interface DKCommand : NSObject
+@interface DCCommand : NSObject
 
 @property (readwrite, nonatomic) BOOL paused;
 

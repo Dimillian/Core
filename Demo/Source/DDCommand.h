@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "DKCommand.h"
+#import "DCCommand.h"
 
 extern NSString * const DSKDOSBoxConfigFilename;
 
-@interface DDCommand : DKCommand
+@interface DDCommand : DCCommand
 
 @end

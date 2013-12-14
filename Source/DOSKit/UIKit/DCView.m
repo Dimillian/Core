@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "DKView.h"
+#import "DCView.h"
 
 const CGSize IDBWindowSize = { 640.0f, 400.0f };
 
-@implementation DKView
+@implementation DCView
 
 - (id)initWithFrame:(CGRect)frame {
     DK_LOG_INIT(self);

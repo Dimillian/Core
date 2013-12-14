@@ -8,7 +8,7 @@
 
 #import "DDControlView.h"
 
-@class DKKey;
+@class DCKey;
 
 @interface DDJoystickView : DDControlView
 

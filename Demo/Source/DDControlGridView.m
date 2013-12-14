@@ -9,7 +9,7 @@
 #import "DDControlGridView.h"
 #import "DDKeyView.h"
 #import "DDJoystickKeysView.h"
-#import "DKKey.h"
+#import "DCKey.h"
 
 @interface DDControlGridView ()
 
@@ -23,18 +23,18 @@
     if (self = [super initWithFrame:frame]) {
         _isLocked = NO;
         
-        DDKeyView *test = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_1]];
+        DDKeyView *test = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_1]];
         test.delegate = self;
         DDJoystickKeysView *test2 = [[DDJoystickKeysView alloc] initWithRadius:60.0f];
         test2.upKey.scancode = SDL_SCANCODE_Q;
         test2.downKey.scancode = SDL_SCANCODE_A;
         test2.rightKey.scancode = SDL_SCANCODE_O;
         test2.leftKey.scancode = SDL_SCANCODE_P;
-        DDKeyView *test3 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_SPACE]];
-        DDKeyView *test4 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_3]];
-        DDKeyView *test5 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_F1]];
-        DDKeyView *test6 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_5]];
-        DDKeyView *test7 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DKKey keyWithScancode:SDL_SCANCODE_DOWN]];
+        DDKeyView *test3 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_SPACE]];
+        DDKeyView *test4 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_3]];
+        DDKeyView *test5 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_F1]];
+        DDKeyView *test6 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_5]];
+        DDKeyView *test7 = [[DDKeyView alloc] initWithSize:IDBKeyboardKeyCircle andKey:[DCKey keyWithScancode:SDL_SCANCODE_DOWN]];
         [self addSubview:test];
         [self addSubview:test2];
         [self addSubview:test3];

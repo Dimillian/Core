@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE53A79E184A8A65009FA4A0 /* SDL_systimer.c in Sources */ = {isa = PBXBuildFile; fileRef = CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */; };
-		CEA1CC3C182558AE00E0957A /* DKKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DKKey.m */; };
-		CEA448EE181B9A4C00022715 /* DKView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DKView.m */; };
-		CEDB827E179679A000972087 /* libDOSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libDOSKit.a */; };
+		CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DCKey.m */; };
+		CEA448EE181B9A4C00022715 /* DCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DCView.m */; };
+		CEDB827E179679A000972087 /* libDOSCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDB825D179674BF00972087 /* libDOSCode.a */; };
 		CEE2FB8A18490D7200BD8127 /* callback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAAF18490D7100BD8127 /* callback.cpp */; };
 		CEE2FB8B18490D7200BD8127 /* core_dyn_x86.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAB818490D7100BD8127 /* core_dyn_x86.cpp */; };
 		CEE2FB8C18490D7200BD8127 /* core_dynrec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FAC918490D7100BD8127 /* core_dynrec.cpp */; };
@@ -256,9 +256,9 @@
 		CEE2FDEC18490FA800BD8127 /* SDL_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD5618490FA800BD8127 /* SDL_uikitview.m */; };
 		CEE2FDED18490FA800BD8127 /* SDL_uikitviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD5818490FA800BD8127 /* SDL_uikitviewcontroller.m */; };
 		CEE2FDEE18490FA800BD8127 /* SDL_uikitwindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD5A18490FA800BD8127 /* SDL_uikitwindow.m */; };
-		CEE3CC3417D3D0BD00EF75F1 /* DKDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* DKDebug.h */; };
-		CEE3CD0B17D3D7BD00EF75F1 /* DKCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */; };
-		CEE3CD0C17D3D7C800EF75F1 /* DKCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */; };
+		CEE3CC3417D3D0BD00EF75F1 /* DCDebug.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEDB828D17967DB600972087 /* DCDebug.h */; };
+		CEE3CD0B17D3D7BD00EF75F1 /* DCCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3CD0A17D3D7BD00EF75F1 /* DCCommand.m */; };
+		CEE3CD0C17D3D7C800EF75F1 /* DCCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEE3CD0917D3D7BD00EF75F1 /* DCCommand.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -277,8 +277,8 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				CEE3CD0C17D3D7C800EF75F1 /* DKCommand.h in CopyFiles */,
-				CEE3CC3417D3D0BD00EF75F1 /* DKDebug.h in CopyFiles */,
+				CEE3CD0C17D3D7C800EF75F1 /* DCCommand.h in CopyFiles */,
+				CEE3CC3417D3D0BD00EF75F1 /* DCDebug.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +297,12 @@
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systimer.c; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CEA1CC3A182558AE00E0957A /* DKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKKey.h; sourceTree = "<group>"; };
-		CEA1CC3B182558AE00E0957A /* DKKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKKey.m; sourceTree = "<group>"; };
-		CEA448EC181B9A4C00022715 /* DKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		CEA448ED181B9A4C00022715 /* DKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		CEDB825D179674BF00972087 /* libDOSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDB828D17967DB600972087 /* DKDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKDebug.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CEA1CC3A182558AE00E0957A /* DCKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCKey.h; sourceTree = "<group>"; };
+		CEA1CC3B182558AE00E0957A /* DCKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCKey.m; sourceTree = "<group>"; };
+		CEA448EC181B9A4C00022715 /* DCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CEA448ED181B9A4C00022715 /* DCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DCView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CEDB825D179674BF00972087 /* libDOSCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSCode.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDB828D17967DB600972087 /* DCDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCDebug.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CEE2FA8718490D5900BD8127 /* bios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bios.h; sourceTree = "<group>"; };
 		CEE2FA8818490D5900BD8127 /* bios_disk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bios_disk.h; sourceTree = "<group>"; };
 		CEE2FA8918490D5900BD8127 /* callback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = callback.h; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		CEE2FAFF18490D7100BD8127 /* dos_keyboard_layout_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dos_keyboard_layout_data.h; sourceTree = "<group>"; };
 		CEE2FB0018490D7100BD8127 /* dos_memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_memory.cpp; sourceTree = "<group>"; };
 		CEE2FB0118490D7100BD8127 /* dos_misc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_misc.cpp; sourceTree = "<group>"; };
-		CEE2FB0318490D7100BD8127 /* dos_programs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_programs.cpp; sourceTree = "<group>"; };
+		CEE2FB0318490D7100BD8127 /* dos_programs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = dos_programs.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		CEE2FB0418490D7100BD8127 /* dos_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_tables.cpp; sourceTree = "<group>"; };
 		CEE2FB0518490D7100BD8127 /* drive_cache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drive_cache.cpp; sourceTree = "<group>"; };
 		CEE2FB0618490D7100BD8127 /* drive_fat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drive_fat.cpp; sourceTree = "<group>"; };
@@ -450,14 +450,14 @@
 		CEE2FB2A18490D7100BD8127 /* adlib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = adlib.cpp; sourceTree = "<group>"; };
 		CEE2FB2B18490D7100BD8127 /* adlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adlib.h; sourceTree = "<group>"; };
 		CEE2FB2C18490D7100BD8127 /* cmos.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cmos.cpp; sourceTree = "<group>"; };
-		CEE2FB2D18490D7100BD8127 /* dbopl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbopl.cpp; sourceTree = "<group>"; };
+		CEE2FB2D18490D7100BD8127 /* dbopl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = dbopl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		CEE2FB2E18490D7100BD8127 /* dbopl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbopl.h; sourceTree = "<group>"; };
 		CEE2FB2F18490D7100BD8127 /* disney.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = disney.cpp; sourceTree = "<group>"; };
 		CEE2FB3018490D7100BD8127 /* dma.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dma.cpp; sourceTree = "<group>"; };
 		CEE2FB3118490D7100BD8127 /* gameblaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameblaster.cpp; sourceTree = "<group>"; };
 		CEE2FB3218490D7100BD8127 /* gus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gus.cpp; sourceTree = "<group>"; };
 		CEE2FB3318490D7100BD8127 /* hardware.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hardware.cpp; sourceTree = "<group>"; };
-		CEE2FB3418490D7100BD8127 /* iohandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iohandler.cpp; sourceTree = "<group>"; };
+		CEE2FB3418490D7100BD8127 /* iohandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = iohandler.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		CEE2FB3518490D7100BD8127 /* ipx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ipx.cpp; sourceTree = "<group>"; };
 		CEE2FB3618490D7100BD8127 /* ipxserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ipxserver.cpp; sourceTree = "<group>"; };
 		CEE2FB3718490D7100BD8127 /* joystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = joystick.cpp; sourceTree = "<group>"; };
@@ -465,7 +465,7 @@
 		CEE2FB3918490D7100BD8127 /* memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = memory.cpp; sourceTree = "<group>"; };
 		CEE2FB3A18490D7100BD8127 /* mixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mixer.cpp; sourceTree = "<group>"; };
 		CEE2FB3B18490D7100BD8127 /* mpu401.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpu401.cpp; sourceTree = "<group>"; };
-		CEE2FB3C18490D7100BD8127 /* opl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = opl.cpp; sourceTree = "<group>"; };
+		CEE2FB3C18490D7100BD8127 /* opl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = opl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		CEE2FB3D18490D7100BD8127 /* opl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opl.h; sourceTree = "<group>"; };
 		CEE2FB3E18490D7100BD8127 /* pci_bus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pci_bus.cpp; sourceTree = "<group>"; };
 		CEE2FB3F18490D7100BD8127 /* pci_devices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pci_devices.h; sourceTree = "<group>"; };
@@ -519,7 +519,7 @@
 		CEE2FB7118490D7200BD8127 /* mouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mouse.cpp; sourceTree = "<group>"; };
 		CEE2FB7218490D7200BD8127 /* xms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xms.cpp; sourceTree = "<group>"; };
 		CEE2FB7318490D7200BD8127 /* xms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xms.h; sourceTree = "<group>"; };
-		CEE2FB8018490D7200BD8127 /* cross.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cross.cpp; sourceTree = "<group>"; };
+		CEE2FB8018490D7200BD8127 /* cross.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = cross.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		CEE2FB8118490D7200BD8127 /* messages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = messages.cpp; sourceTree = "<group>"; };
 		CEE2FB8218490D7200BD8127 /* programs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = programs.cpp; sourceTree = "<group>"; };
 		CEE2FB8318490D7200BD8127 /* setup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = setup.cpp; sourceTree = "<group>"; };
@@ -658,7 +658,7 @@
 		CEE2FC9118490FA700BD8127 /* SDL_joystick_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_joystick_c.h; sourceTree = "<group>"; };
 		CEE2FC9218490FA700BD8127 /* SDL_sysjoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysjoystick.h; sourceTree = "<group>"; };
 		CEE2FC9418490FA700BD8127 /* SDL_sysjoystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_sysjoystick.c; sourceTree = "<group>"; };
-		CEE2FC9618490FA700BD8127 /* SDLUIAccelerationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLUIAccelerationDelegate.h; sourceTree = "<group>"; };
+		CEE2FC9618490FA700BD8127 /* SDLUIAccelerationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SDLUIAccelerationDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CEE2FC9718490FA700BD8127 /* SDLUIAccelerationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLUIAccelerationDelegate.m; sourceTree = "<group>"; };
 		CEE2FC9818490FA700BD8127 /* SDL_sysjoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_sysjoystick.m; sourceTree = "<group>"; };
 		CEE2FC9A18490FA700BD8127 /* e_atan2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = e_atan2.c; sourceTree = "<group>"; };
@@ -811,9 +811,9 @@
 		CEE2FD5918490FA800BD8127 /* SDL_uikitwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_uikitwindow.h; sourceTree = "<group>"; };
 		CEE2FD5A18490FA800BD8127 /* SDL_uikitwindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_uikitwindow.m; sourceTree = "<group>"; };
 		CEE2FD5B18490FA800BD8127 /* keyinfotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyinfotable.h; sourceTree = "<group>"; };
-		CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCommand.h; sourceTree = "<group>"; };
-		CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCommand.m; sourceTree = "<group>"; };
-		CEE3CD8017D41D5C00EF75F1 /* DOSKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DOSKit-Prefix.pch"; sourceTree = "<group>"; };
+		CEE3CD0917D3D7BD00EF75F1 /* DCCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommand.h; sourceTree = "<group>"; };
+		CEE3CD0A17D3D7BD00EF75F1 /* DCCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCommand.m; sourceTree = "<group>"; };
+		CEE3CD8017D41D5C00EF75F1 /* DOSCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DOSCode-Prefix.pch"; sourceTree = "<group>"; };
 		CEE95BF7178A1E0F001BD8FD /* libSDL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D4F51791DA80006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D4F71791DA80006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -842,7 +842,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDB827E179679A000972087 /* libDOSKit.a in Frameworks */,
+				CEDB827E179679A000972087 /* libDOSCode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +882,7 @@
 			children = (
 				CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */,
 				CEE95BF7178A1E0F001BD8FD /* libSDL.a */,
-				CEDB825D179674BF00972087 /* libDOSKit.a */,
+				CEDB825D179674BF00972087 /* libDOSCode.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -911,7 +911,7 @@
 		CEDB825F179674BF00972087 /* DOSKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD8017D41D5C00EF75F1 /* DOSKit-Prefix.pch */,
+				CEE3CD8017D41D5C00EF75F1 /* DOSCode-Prefix.pch */,
 				CEDB828A17967D7D00972087 /* Common */,
 				CEDB827F17967ABD00972087 /* UIKit */,
 			);
@@ -921,12 +921,12 @@
 		CEDB827F17967ABD00972087 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD0917D3D7BD00EF75F1 /* DKCommand.h */,
-				CEE3CD0A17D3D7BD00EF75F1 /* DKCommand.m */,
-				CEA448EC181B9A4C00022715 /* DKView.h */,
-				CEA448ED181B9A4C00022715 /* DKView.m */,
-				CEA1CC3A182558AE00E0957A /* DKKey.h */,
-				CEA1CC3B182558AE00E0957A /* DKKey.m */,
+				CEE3CD0917D3D7BD00EF75F1 /* DCCommand.h */,
+				CEE3CD0A17D3D7BD00EF75F1 /* DCCommand.m */,
+				CEA448EC181B9A4C00022715 /* DCView.h */,
+				CEA448ED181B9A4C00022715 /* DCView.m */,
+				CEA1CC3A182558AE00E0957A /* DCKey.h */,
+				CEA1CC3B182558AE00E0957A /* DCKey.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -934,7 +934,7 @@
 		CEDB828A17967D7D00972087 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CEDB828D17967DB600972087 /* DKDebug.h */,
+				CEDB828D17967DB600972087 /* DCDebug.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1922,9 +1922,9 @@
 			productReference = CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CEDB825C179674BF00972087 /* DOSKit */ = {
+		CEDB825C179674BF00972087 /* DOSCode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSKit" */;
+			buildConfigurationList = CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSCode" */;
 			buildPhases = (
 				CEDB8259179674BF00972087 /* Sources */,
 				CEDB825A179674BF00972087 /* Frameworks */,
@@ -1934,9 +1934,9 @@
 			);
 			dependencies = (
 			);
-			name = DOSKit;
+			name = DOSCode;
 			productName = iDOSBox;
-			productReference = CEDB825D179674BF00972087 /* libDOSKit.a */;
+			productReference = CEDB825D179674BF00972087 /* libDOSCode.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CEE95BF6178A1E0F001BD8FD /* SDL */ = {
@@ -1965,7 +1965,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = user;
 			};
-			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSKit" */;
+			buildConfigurationList = CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSCode" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1977,7 +1977,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEDB825C179674BF00972087 /* DOSKit */,
+				CEDB825C179674BF00972087 /* DOSCode */,
 				CE2CA1CD1787A14D001F6D5F /* DOSBox */,
 				CEE95BF6178A1E0F001BD8FD /* SDL */,
 			);
@@ -2105,9 +2105,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA1CC3C182558AE00E0957A /* DKKey.m in Sources */,
-				CEA448EE181B9A4C00022715 /* DKView.m in Sources */,
-				CEE3CD0B17D3D7BD00EF75F1 /* DKCommand.m in Sources */,
+				CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */,
+				CEA448EE181B9A4C00022715 /* DCView.m in Sources */,
+				CEE3CD0B17D3D7BD00EF75F1 /* DCCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2274,7 +2274,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DOSKIT=1",
+					"DOSCODE=1",
 					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -2300,7 +2300,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "DOSKIT=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DOSCODE,
+					"=1",
+				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2379,11 +2382,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/DOSKit/DOSKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSKit/DOSCode-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DOSKit;
+				PRODUCT_NAME = DOSCode;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2395,11 +2398,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/DOSKit/DOSKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSKit/DOSCode-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = Source/SDL/include;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = DOSKit;
+				PRODUCT_NAME = DOSCode;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2450,7 +2453,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSKit" */ = {
+		CE2CA1C91787A14D001F6D5F /* Build configuration list for PBXProject "DOSCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE2CA1DA1787A14D001F6D5F /* Debug */,
@@ -2468,7 +2471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSKit" */ = {
+		CEDB8266179674BF00972087 /* Build configuration list for PBXNativeTarget "DOSCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEDB8267179674BF00972087 /* Debug */,

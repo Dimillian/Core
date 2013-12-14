@@ -45,7 +45,7 @@ NSString * const DSKBundleCDriveFolder = @"CDrive";
     if (![fileManager fileExistsAtPath:cDriveDocumentPath]) {
         NSError *error;
         if (![fileManager createDirectoryAtPath:cDriveDocumentPath withIntermediateDirectories:NO attributes:nil error:&error]) {
-            DK_LOG(@"%@", [error localizedDescription]);
+            DC_LOG(@"%@", [error localizedDescription]);
         }
     }
     
@@ -58,12 +58,12 @@ NSString * const DSKBundleCDriveFolder = @"CDrive";
             NSString *itemDocumentPath = [cDriveDocumentPath stringByAppendingPathComponent:itemName];
             if (![fileManager fileExistsAtPath:itemDocumentPath]) {
                 if (![fileManager copyItemAtPath:itemBundlePath toPath:itemDocumentPath error:&error]) {
-                    DK_LOG(@"%@", [error localizedDescription]);
+                    DC_LOG(@"%@", [error localizedDescription]);
                 }
             }
         }
     } else {
-        DK_LOG(@"%@", [error localizedDescription]);
+        DC_LOG(@"%@", [error localizedDescription]);
     }
     [self mountPath:cDriveDocumentPath toDrive:'C'];
     return;

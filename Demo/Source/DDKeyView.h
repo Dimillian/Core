@@ -19,7 +19,7 @@
 #import <UIKit/UIKit.h>
 #import "DDControlView.h"
 
-@class DKKey;
+@class DCKey;
 
 typedef NS_ENUM(NSUInteger, IDBKeyboardKeySize) {
     IDBKeyboardKeySize100,
@@ -40,6 +40,6 @@ typedef NS_ENUM(NSUInteger, IDBKeyboardKeyState) {
 
 @interface DDKeyView : DDControlView
 
-- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(DKKey *)key;
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(DCKey *)key;
 
 @end

@@ -23,7 +23,7 @@
 #include <string>
 #include <stdlib.h>
 
-#if DOSKIT
+#if DOSCODE
 extern "C" {
     const char * dosbox_config_path();
     const char * dosbox_config_filename();
@@ -84,7 +84,7 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #define DEFAULT_CONFIG_FILE "dosbox-" VERSION ".conf"
 #endif
 
-#if DOSKIT
+#if DOSCODE
     in = dosbox_config_filename();
 #else
 	in = DEFAULT_CONFIG_FILE;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SDL_scancode.h"
 
-@interface DKKey : NSObject
+@interface DCKey : NSObject
 
 @property (readwrite, nonatomic) BOOL isPressed;
 @property (readwrite, nonatomic) SDL_Scancode scancode;

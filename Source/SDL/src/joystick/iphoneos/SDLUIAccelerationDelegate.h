@@ -20,7 +20,7 @@
 */
 
 #import <UIKit/UIKit.h>
-#if DOSKIT
+#if DOSCODE
 #import "SDL_types.h"
 #else
 #import <SDL_types.h>

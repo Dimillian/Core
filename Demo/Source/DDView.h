@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "DKView.h"
+#import "DCView.h"
 
-@interface DDView : DKView
+@interface DDView : DCView
 
 @end

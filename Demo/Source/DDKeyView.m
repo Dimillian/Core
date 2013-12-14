@@ -18,18 +18,18 @@
 
 #import "DDKeyView.h"
 #import "DDControlViewSubclass.h"
-#import "DKKey.h"
+#import "DCKey.h"
 
 @interface DDKeyView ()
 
 @property (readwrite, nonatomic) IDBKeyboardKeySize size;
-@property (readwrite, nonatomic) DKKey *key;
+@property (readwrite, nonatomic) DCKey *key;
 
 @end
 
 @implementation DDKeyView
 
-- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(DKKey *)key {
+- (id)initWithSize:(IDBKeyboardKeySize)keySize andKey:(DCKey *)key {
     UIBezierPath *shape;
     const CGFloat cornerRadius = 6.0f;
     switch (keySize) {

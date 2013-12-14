@@ -30,7 +30,7 @@
 #include "dosbox.h"
 #include "opl.h"
 
-#if DOSKIT
+#if DOSCODE
 #include <string.h>
 #endif
 

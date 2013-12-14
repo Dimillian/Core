@@ -37,30 +37,6 @@
 		CEF6D57F1791E9D7006134CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57E1791E9D7006134CF /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CE56B276184827B900B53F0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CEDB825D179674BF00972087;
-			remoteInfo = DOSKit;
-		};
-		CE56B278184827B900B53F0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE2CA1CE1787A14D001F6D5F;
-			remoteInfo = DOSBox;
-		};
-		CE56B27A184827B900B53F0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CEE95BF7178A1E0F001BD8FD;
-			remoteInfo = SDL;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		CE006A6617D426E500C589FC /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CE006A6F17D42A4E00C589FC /* CDrive */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CDrive; sourceTree = "<group>"; };
@@ -92,19 +68,19 @@
 		CEDCE4E2182F54E400637B4F /* DDControlGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDControlGridView.m; sourceTree = "<group>"; };
 		CEDCE4E7182F5ED000637B4F /* DDJoystickKeysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDJoystickKeysView.h; sourceTree = "<group>"; };
 		CEDCE4E8182F5ED000637B4F /* DDJoystickKeysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDJoystickKeysView.m; sourceTree = "<group>"; };
-		CEF6D5491791E823006134CF /* DOSKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOSKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF6D5491791E823006134CF /* DOSCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOSCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF6D54C1791E823006134CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF6D54E1791E823006134CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEF6D5501791E823006134CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CEF6D5541791E823006134CF /* DOSKitDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DOSKitDemo-Info.plist"; sourceTree = "<group>"; };
+		CEF6D5541791E823006134CF /* DOSCodeDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DOSCodeDemo-Info.plist"; sourceTree = "<group>"; };
 		CEF6D5581791E823006134CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CEF6D55A1791E823006134CF /* DOSKitDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DOSKitDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CEF6D55A1791E823006134CF /* DOSCodeDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DOSCodeDemo-Prefix.pch"; sourceTree = "<group>"; };
 		CEF6D55B1791E823006134CF /* DDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAppDelegate.h; sourceTree = "<group>"; };
 		CEF6D55C1791E823006134CF /* DDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAppDelegate.m; sourceTree = "<group>"; };
 		CEF6D55E1791E823006134CF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CEF6D5601791E823006134CF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CEF6D5621791E823006134CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DOSKit.xcodeproj; path = ../DOSKit.xcodeproj; sourceTree = "<group>"; };
+		CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DOSCode.xcodeproj; path = ../DOSCode.xcodeproj; sourceTree = "<group>"; };
 		CEF6D57A1791E9CF006134CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEF6D57C1791E9D3006134CF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEF6D57E1791E9D7006134CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -131,16 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE56B271184827B900B53F0A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CE56B277184827B900B53F0A /* libDOSKit.a */,
-				CE56B279184827B900B53F0A /* libDOSBox.a */,
-				CE56B27B184827B900B53F0A /* libSDL.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CEF6D5401791E823006134CF = {
 			isa = PBXGroup;
 			children = (
@@ -148,14 +114,14 @@
 				CEF6D5691791E836006134CF /* Source */,
 				CEF6D54B1791E823006134CF /* Frameworks */,
 				CEF6D54A1791E823006134CF /* Products */,
-				CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */,
+				CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
 		CEF6D54A1791E823006134CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEF6D5491791E823006134CF /* DOSKitDemo.app */,
+				CEF6D5491791E823006134CF /* DOSCodeDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,7 +172,7 @@
 				CEDCE4E7182F5ED000637B4F /* DDJoystickKeysView.h */,
 				CEDCE4E8182F5ED000637B4F /* DDJoystickKeysView.m */,
 				CEF6D5581791E823006134CF /* main.m */,
-				CEF6D55A1791E823006134CF /* DOSKitDemo-Prefix.pch */,
+				CEF6D55A1791E823006134CF /* DOSCodeDemo-Prefix.pch */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -216,7 +182,7 @@
 			children = (
 				CE026A6017D4492C00943AE4 /* Images.xcassets */,
 				CE006A6F17D42A4E00C589FC /* CDrive */,
-				CEF6D5541791E823006134CF /* DOSKitDemo-Info.plist */,
+				CEF6D5541791E823006134CF /* DOSCodeDemo-Info.plist */,
 				CE006A6617D426E500C589FC /* dosbox-ios.conf */,
 				CEF6D55E1791E823006134CF /* Default.png */,
 				CEF6D5601791E823006134CF /* Default@2x.png */,
@@ -228,9 +194,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEF6D5481791E823006134CF /* DOSKitDemo */ = {
+		CEF6D5481791E823006134CF /* DOSCodeDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "DOSKitDemo" */;
+			buildConfigurationList = CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "DOSCodeDemo" */;
 			buildPhases = (
 				CEF6D5451791E823006134CF /* Sources */,
 				CEF6D5461791E823006134CF /* Frameworks */,
@@ -240,9 +206,9 @@
 			);
 			dependencies = (
 			);
-			name = DOSKitDemo;
+			name = DOSCodeDemo;
 			productName = IDBDemo;
-			productReference = CEF6D5491791E823006134CF /* DOSKitDemo.app */;
+			productReference = CEF6D5491791E823006134CF /* DOSCodeDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "DOSKitDemo" */;
+			buildConfigurationList = CEF6D5441791E823006134CF /* Build configuration list for PBXProject "DOSCodeDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -269,42 +235,12 @@
 			mainGroup = CEF6D5401791E823006134CF;
 			productRefGroup = CEF6D54A1791E823006134CF /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CE56B271184827B900B53F0A /* Products */;
-					ProjectRef = CEF6D56C1791E98E006134CF /* DOSKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				CEF6D5481791E823006134CF /* DOSKitDemo */,
+				CEF6D5481791E823006134CF /* DOSCodeDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CE56B277184827B900B53F0A /* libDOSKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libDOSKit.a;
-			remoteRef = CE56B276184827B900B53F0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CE56B279184827B900B53F0A /* libDOSBox.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libDOSBox.a;
-			remoteRef = CE56B278184827B900B53F0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CE56B27B184827B900B53F0A /* libSDL.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSDL.a;
-			remoteRef = CE56B27A184827B900B53F0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CEF6D5471791E823006134CF /* Resources */ = {
@@ -363,7 +299,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DOSKIT=1",
+					DOSCODE,
+					"=1",
 					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -392,7 +329,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "DOSKIT=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DOSCODE,
+					"=1",
+				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -413,14 +353,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/DOSKitDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSCodeDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Resources/DOSKitDemo-Info.plist";
+				INFOPLIST_FILE = "Resources/DOSCodeDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = DOSKitDemo;
+				PRODUCT_NAME = DOSCodeDemo;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/DOSKit/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
@@ -436,14 +376,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/DOSKitDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/DOSCodeDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Resources/DOSKitDemo-Info.plist";
+				INFOPLIST_FILE = "Resources/DOSCodeDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = DOSKitDemo;
+				PRODUCT_NAME = DOSCodeDemo;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "../Source/DOSKit/** ../Source/DOSBox/include ../Source/SDL/**";
 				WRAPPER_EXTENSION = app;
@@ -453,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEF6D5441791E823006134CF /* Build configuration list for PBXProject "DOSKitDemo" */ = {
+		CEF6D5441791E823006134CF /* Build configuration list for PBXProject "DOSCodeDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEF6D5641791E823006134CF /* Debug */,
@@ -462,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "DOSKitDemo" */ = {
+		CEF6D5661791E823006134CF /* Build configuration list for PBXNativeTarget "DOSCodeDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEF6D5671791E823006134CF /* Debug */,

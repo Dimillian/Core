@@ -10,6 +10,6 @@
 
 extern const CGSize IDBWindowSize;
 
-@interface DKView : SDL_uikitopenglview
+@interface DCView : SDL_uikitopenglview
 
 @end

@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 user. All rights reserved.
 //
 
-#import "DKKey.h"
+#import "DCKey.h"
 #import "SDL_keyboard_c.h"
 
-@interface DKKey ()
+@interface DCKey ()
 
 - (id)initWithScancode:(SDL_Scancode)scancode;
 
 @end
 
-@implementation DKKey
+@implementation DCKey
 
 + (id)keyWithScancode:(SDL_Scancode)scancode {
     return [[self alloc] initWithScancode:scancode];

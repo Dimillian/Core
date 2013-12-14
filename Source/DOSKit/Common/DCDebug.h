@@ -18,22 +18,22 @@
 
 // enable or disable debug mode
 #if DEBUG
-    #define DK_DEBUG 1
+    #define DC_DEBUG 1
 #else
-    #define DK_DEBUG 0
+    #define DC_DEBUG 0
 #endif
 
 // enable or disable logging
-#if IDB_DEBUG
-    #define DK_LOG(string, ...) NSLog((@"DOSKit: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
+#if DC_DEBUG
+    #define DC_LOG(string, ...) NSLog((@"DOSCode: %@"), [NSString stringWithFormat:(string), ##__VA_ARGS__])
 #else
-    #define DK_LOG(string, ...) do {} while (0)
+    #define DC_LOG(string, ...) do {} while (0)
 #endif
 
 // enable or disable memory management logging
-#define DK_LOG_INIT(object) DK_LOG(@"init %@", object)
-#define DK_LOG_DEALLOC(object) DK_LOG(@"dealloc %@", object)
+#define DC_LOG_INIT(object) DC_LOG(@"init %@", object)
+#define DC_LOG_DEALLOC(object) DC_LOG(@"dealloc %@", object)
 
-static NSString * const DKArgumentNilError = @"argument cannot be nil";
-static NSString * const DKShouldOverrideError = @"method implementation should be overridden";
-static NSString * const DKInvalidArgumentError = @"argument is invalid";
+static NSString * const DCArgumentNilError = @"argument cannot be nil";
+static NSString * const DCShouldOverrideError = @"method implementation should be overridden";
+static NSString * const DCInvalidArgumentError = @"argument is invalid";

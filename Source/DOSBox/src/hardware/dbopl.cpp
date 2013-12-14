@@ -883,7 +883,7 @@ Channel* Channel::BlockTemplate( Chip* chip, Bit32u samples, Bit32s* output ) {
 			return (this + 2);
 		}
 		break;
-#if DOSKIT
+#if DOSCODE
         default: break;
 #endif
 	}
@@ -951,7 +951,7 @@ Channel* Channel::BlockTemplate( Chip* chip, Bit32u samples, Bit32s* output ) {
 			output[ i * 2 + 0 ] += sample & maskLeft;
 			output[ i * 2 + 1 ] += sample & maskRight;
 			break;
-#if DOSKIT
+#if DOSCODE
         default: break;
 #endif
 		}

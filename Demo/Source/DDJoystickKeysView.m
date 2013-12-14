@@ -8,16 +8,16 @@
 
 #import "DDJoystickKeysView.h"
 #import "DDControlViewSubclass.h"
-#import "DKKey.h"
+#import "DCKey.h"
 
 @implementation DDJoystickKeysView
 
 - (id)initWithRadius:(CGFloat)radius {
     if (self = [super initWithRadius:radius]) {
-        self.upKey = [DKKey keyWithScancode:SDL_SCANCODE_UP];
-        self.downKey = [DKKey keyWithScancode:SDL_SCANCODE_DOWN];
-        self.rightKey = [DKKey keyWithScancode:SDL_SCANCODE_RIGHT];
-        self.leftKey = [DKKey keyWithScancode:SDL_SCANCODE_LEFT];
+        self.upKey = [DCKey keyWithScancode:SDL_SCANCODE_UP];
+        self.downKey = [DCKey keyWithScancode:SDL_SCANCODE_DOWN];
+        self.rightKey = [DCKey keyWithScancode:SDL_SCANCODE_RIGHT];
+        self.leftKey = [DCKey keyWithScancode:SDL_SCANCODE_LEFT];
     }
     return self;
 }
