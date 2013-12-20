@@ -25,8 +25,8 @@
 
 #if DOSCODE
 extern "C" {
-    const char * dosbox_config_path();
-    const char * dosbox_config_filename();
+    const char * dc_config_path();
+    const char * dc_config_filename();
 }
 #endif
 
@@ -85,7 +85,7 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #endif
 
 #if DOSCODE
-    in = dosbox_config_filename();
+    in = dc_config_filename();
 #else
 	in = DEFAULT_CONFIG_FILE;
 #endif

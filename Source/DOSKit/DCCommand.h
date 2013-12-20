@@ -18,8 +18,9 @@
 
 #import "SDL_scancode.h"
 
-extern NSString * const IDBMountCommand;
+extern NSString * const DCMountCommand;
 extern NSString * const DCClearScreenCommand;
+extern NSString * const DCChangeDirectoryCommand;
 
 @interface DCCommand : NSObject
 

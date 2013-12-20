@@ -19,6 +19,7 @@
 #import "DCCommand.h"
 
 extern NSString * const DSKDOSBoxConfigFilename;
+extern NSString * const DSKBundleCDriveFolder;
 
 @interface DDCommand : DCCommand
 

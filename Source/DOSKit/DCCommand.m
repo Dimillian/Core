@@ -19,9 +19,9 @@
 #import "DCCommand.h"
 #import "DCKey.h"
 
-NSString * const IDBMountCommand = @"mount";
-NSString * const IDBClearScreenCommand = @"cls";
-NSString * const IDBChangeDirectoryCommand = @"cd";
+NSString * const DCMountCommand = @"mount";
+NSString * const DCClearScreenCommand = @"cls";
+NSString * const DCChangeDirectoryCommand = @"cd";
 
 /**
  * @brief Path of the DOSBox configuration file to load
@@ -128,12 +128,12 @@ static inline void drive_error_check(char letter) {
 
 - (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter {
     drive_error_check(driveLetter);
-    [self enqueueCommand:[NSString stringWithFormat:@"%@ %c \"%@\"", IDBMountCommand, driveLetter, mountPath]];
+    [self enqueueCommand:[NSString stringWithFormat:@"%@ %c \"%@\"", DCMountCommand, driveLetter, mountPath]];
     return;
 }
 
 - (void)changeDirectory:(NSString *)newDirectory {
-    [self enqueueCommand:[NSString stringWithFormat:@"%@ \"%@\"", IDBChangeDirectoryCommand, newDirectory]];
+    [self enqueueCommand:[NSString stringWithFormat:@"%@ \"%@\"", DCChangeDirectoryCommand, newDirectory]];
     return;
 }
 

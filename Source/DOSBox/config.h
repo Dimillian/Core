@@ -93,7 +93,13 @@
 #if !defined(TARGET_IPHONE_SIMULATOR)
 #define C_TARGETCPU ARMV4LE
 #else
+
+#if __LP64__
+#define C_TARGETCPU X86_64
+#else
 #define C_TARGETCPU X86
+#endif
+
 #endif
 
 /* Define to 1 to use a unaligned memory access */
@@ -190,7 +196,11 @@
 #define PACKAGE_VERSION "0.74"
 
 /* The size of `int *', as computed by sizeof. */
+#if __LP64__
+#define SIZEOF_INT_P 8
+#else
 #define SIZEOF_INT_P 4
+#endif
 
 /* The size of `unsigned char', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_CHAR 1
@@ -199,7 +209,11 @@
 #define SIZEOF_UNSIGNED_INT 4
 
 /* The size of `unsigned long', as computed by sizeof. */
+#if __LP64__
+#define SIZEOF_UNSIGNED_LONG 8
+#else
 #define SIZEOF_UNSIGNED_LONG 4
+#endif
 
 /* The size of `unsigned long long', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_LONG_LONG 8

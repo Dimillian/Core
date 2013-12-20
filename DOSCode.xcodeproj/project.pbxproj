@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1A88231864F3FD0050C076 /* cdrom_aspi_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */; };
+		CE1A88241864F3FD0050C076 /* cdrom_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */; };
+		CE1A88251864F3FD0050C076 /* cdrom_ioctl_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */; };
+		CE1A88261864F3FD0050C076 /* cdrom_ioctl_os2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */; };
+		CE1A88271864F3FD0050C076 /* cdrom_ioctl_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */; };
+		CE1A88281864F3FD0050C076 /* cdrom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88211864F3FD0050C076 /* cdrom.cpp */; };
+		CE1A882A1864FE640050C076 /* dos_mscdex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88291864FE640050C076 /* dos_mscdex.cpp */; };
 		CE53A79E184A8A65009FA4A0 /* SDL_systimer.c in Sources */ = {isa = PBXBuildFile; fileRef = CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */; };
 		CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DCKey.m */; };
 		CEA448EE181B9A4C00022715 /* DCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DCView.m */; };
@@ -294,6 +301,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_aspi_win32.cpp; sourceTree = "<group>"; };
+		CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_image.cpp; sourceTree = "<group>"; };
+		CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_linux.cpp; sourceTree = "<group>"; };
+		CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_os2.cpp; sourceTree = "<group>"; };
+		CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_win32.cpp; sourceTree = "<group>"; };
+		CE1A88211864F3FD0050C076 /* cdrom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
+		CE1A88221864F3FD0050C076 /* cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdrom.h; sourceTree = "<group>"; };
+		CE1A88291864FE640050C076 /* dos_mscdex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_mscdex.cpp; sourceTree = "<group>"; };
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systimer.c; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1100,6 +1115,14 @@
 		CEE2FAEE18490D7100BD8127 /* dos */ = {
 			isa = PBXGroup;
 			children = (
+				CE1A88291864FE640050C076 /* dos_mscdex.cpp */,
+				CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */,
+				CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */,
+				CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */,
+				CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */,
+				CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */,
+				CE1A88211864F3FD0050C076 /* cdrom.cpp */,
+				CE1A88221864F3FD0050C076 /* cdrom.h */,
 				CEE2FAF618490D7100BD8127 /* dev_con.h */,
 				CEE2FAF718490D7100BD8127 /* dos.cpp */,
 				CEE2FAF818490D7100BD8127 /* dos_classes.cpp */,
@@ -2097,9 +2120,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1A88281864F3FD0050C076 /* cdrom.cpp in Sources */,
+				CE1A88241864F3FD0050C076 /* cdrom_image.cpp in Sources */,
+				CE1A882A1864FE640050C076 /* dos_mscdex.cpp in Sources */,
+				CE1A88261864F3FD0050C076 /* cdrom_ioctl_os2.cpp in Sources */,
+				CE1A88231864F3FD0050C076 /* cdrom_aspi_win32.cpp in Sources */,
+				CE1A88251864F3FD0050C076 /* cdrom_ioctl_linux.cpp in Sources */,
 				CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */,
 				CEA448EE181B9A4C00022715 /* DCView.m in Sources */,
 				CEE3CD0B17D3D7BD00EF75F1 /* DCCommand.m in Sources */,
+				CE1A88271864F3FD0050C076 /* cdrom_ioctl_win32.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2254,6 +2284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2283,6 +2314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2370,6 +2402,7 @@
 		CEDB8267179674BF00972087 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
@@ -2386,6 +2419,7 @@
 		CEDB8268179674BF00972087 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Vilim (F47PNPUBN4)";
 				DSTROOT = /tmp/iDOSBox.dst;
