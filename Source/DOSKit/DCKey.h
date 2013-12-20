@@ -16,14 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
-#import "DDJoystickView.h"
+#import "SDL_scancode.h"
 
-@interface DDJoystickKeysView : DDJoystickView
+@interface DCKey : NSObject
 
-@property (readwrite, nonatomic) DCKey *upKey;
-@property (readwrite, nonatomic) DCKey *downKey;
-@property (readwrite, nonatomic) DCKey *rightKey;
-@property (readwrite, nonatomic) DCKey *leftKey;
+@property (readwrite, nonatomic) BOOL isPressed;
+@property (readwrite, nonatomic) SDL_Scancode scancode;
+
+- (NSString *)name;
++ (id)keyWithScancode:(SDL_Scancode)scancode;
 
 @end

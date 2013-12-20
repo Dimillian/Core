@@ -16,14 +16,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
-#import "DDJoystickView.h"
+#import "SDL_scancode.h"
 
-@interface DDJoystickKeysView : DDJoystickView
+extern NSString * const IDBMountCommand;
+extern NSString * const DCClearScreenCommand;
 
-@property (readwrite, nonatomic) DCKey *upKey;
-@property (readwrite, nonatomic) DCKey *downKey;
-@property (readwrite, nonatomic) DCKey *rightKey;
-@property (readwrite, nonatomic) DCKey *leftKey;
+@interface DCCommand : NSObject
+
+@property (readwrite, nonatomic) BOOL paused;
+
++ (id)sharedModel;
+- (NSString *)dosboxConfigPath;
+- (NSString *)dosboxConfigFilename;
+- (NSArray *)startupCommands;
+- (NSMutableArray *)commandQueue;
+- (void)enqueueCommand:(NSString *)command;
+- (void)enqueueCommands:(NSArray *)commands;
+- (NSString *)dequeueCommand;
+- (void)changeDirectory:(NSString *)newDirectory;
+- (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter;
+- (void)clearScreen;
+- (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter;
 
 @end

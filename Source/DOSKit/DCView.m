@@ -1,5 +1,5 @@
 /*
- * iDOSBox
+ * DOSCode
  * Copyright (C) 2013  Matthew Vilim
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,26 +16,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "SDL_scancode.h"
+#import "DCView.h"
 
-extern NSString * const IDBMountCommand;
-extern NSString * const IDBClearScreenCommand;
+const CGSize IDBWindowSize = { 640.0f, 400.0f };
 
-@interface DCCommand : NSObject
+@implementation DCView
 
-@property (readwrite, nonatomic) BOOL paused;
+- (id)initWithFrame:(CGRect)frame {
+    DK_LOG_INIT(self);
+    return self = [super initWithFrame:frame scale:1.0f retainBacking:NO rBits:8 gBits:8 bBits:8 aBits:8 depthBits:0 stencilBits:0 majorVersion:0 shareGroup:nil];
+}
 
-+ (id)sharedModel;
-- (NSString *)dosboxConfigPath;
-- (NSString *)dosboxConfigFilename;
-- (NSArray *)startupCommands;
-- (NSMutableArray *)commandQueue;
-- (void)enqueueCommand:(NSString *)command;
-- (void)enqueueCommands:(NSArray *)commands;
-- (NSString *)dequeueCommand;
-- (void)changeDirectory:(NSString *)newDirectory;
-- (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter;
-- (void)clearScreen;
-- (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter;
+- (void)layoutSubviews {
+    if (self.bounds.size.width > IDBWindowSize.width && self.bounds.size.height > IDBWindowSize.height) {
+        self.layer.magnificationFilter = kCAFilterNearest;
+    } else {
+        self.layer.magnificationFilter = kCAFilterLinear;
+    }
+}
+
+- (void)dealloc {
+    DK_LOG_DEALLOC(self);
+}
 
 @end

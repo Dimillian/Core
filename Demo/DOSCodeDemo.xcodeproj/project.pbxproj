@@ -37,6 +37,30 @@
 		CEF6D57F1791E9D7006134CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF6D57E1791E9D7006134CF /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CEBA2369185CBFA2008016A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEDB825D179674BF00972087;
+			remoteInfo = DOSCode;
+		};
+		CEBA236B185CBFA2008016A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE2CA1CE1787A14D001F6D5F;
+			remoteInfo = DOSBox;
+		};
+		CEBA236D185CBFA2008016A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEE95BF7178A1E0F001BD8FD;
+			remoteInfo = SDL;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CE006A6617D426E500C589FC /* dosbox-ios.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dosbox-ios.conf"; sourceTree = "<group>"; };
 		CE006A6F17D42A4E00C589FC /* CDrive */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CDrive; sourceTree = "<group>"; };
@@ -107,6 +131,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEBA2364185CBFA2008016A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA236A185CBFA2008016A5 /* libDOSCode.a */,
+				CEBA236C185CBFA2008016A5 /* libDOSBox.a */,
+				CEBA236E185CBFA2008016A5 /* libSDL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CEF6D5401791E823006134CF = {
 			isa = PBXGroup;
 			children = (
@@ -235,12 +269,42 @@
 			mainGroup = CEF6D5401791E823006134CF;
 			productRefGroup = CEF6D54A1791E823006134CF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CEBA2364185CBFA2008016A5 /* Products */;
+					ProjectRef = CEF6D56C1791E98E006134CF /* DOSCode.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CEF6D5481791E823006134CF /* DOSCodeDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CEBA236A185CBFA2008016A5 /* libDOSCode.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDOSCode.a;
+			remoteRef = CEBA2369185CBFA2008016A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEBA236C185CBFA2008016A5 /* libDOSBox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDOSBox.a;
+			remoteRef = CEBA236B185CBFA2008016A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEBA236E185CBFA2008016A5 /* libSDL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL.a;
+			remoteRef = CEBA236D185CBFA2008016A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CEF6D5471791E823006134CF /* Resources */ = {

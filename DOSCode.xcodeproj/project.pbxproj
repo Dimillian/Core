@@ -911,24 +911,16 @@
 		CEDB825F179674BF00972087 /* DOSKit */ = {
 			isa = PBXGroup;
 			children = (
-				CEE3CD8017D41D5C00EF75F1 /* DOSCode-Prefix.pch */,
-				CEDB828A17967D7D00972087 /* Common */,
-				CEDB827F17967ABD00972087 /* UIKit */,
-			);
-			path = DOSKit;
-			sourceTree = "<group>";
-		};
-		CEDB827F17967ABD00972087 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
 				CEE3CD0917D3D7BD00EF75F1 /* DCCommand.h */,
 				CEE3CD0A17D3D7BD00EF75F1 /* DCCommand.m */,
 				CEA448EC181B9A4C00022715 /* DCView.h */,
 				CEA448ED181B9A4C00022715 /* DCView.m */,
 				CEA1CC3A182558AE00E0957A /* DCKey.h */,
 				CEA1CC3B182558AE00E0957A /* DCKey.m */,
+				CEE3CD8017D41D5C00EF75F1 /* DOSCode-Prefix.pch */,
+				CEDB828A17967D7D00972087 /* Common */,
 			);
-			path = UIKit;
+			path = DOSKit;
 			sourceTree = "<group>";
 		};
 		CEDB828A17967D7D00972087 /* Common */ = {

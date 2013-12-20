@@ -1,5 +1,5 @@
 /*
- * iDOSBox
+ * DOSCode
  * Copyright (C) 2013  Matthew Vilim
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,15 +23,30 @@ NSString * const IDBMountCommand = @"mount";
 NSString * const IDBClearScreenCommand = @"cls";
 NSString * const IDBChangeDirectoryCommand = @"cd";
 
-const char * dosbox_config_path() {
+/**
+ * @brief Path of the DOSBox configuration file to load
+ *
+ * @return Returns a char buffer containing the path
+ */
+const char * dc_config_path() {
     return [[[DCCommand sharedModel] dosboxConfigPath] UTF8String];
 }
 
-const char * dosbox_config_filename() {
+/**
+ * @brief Filename of the DOSBox configuration file to load
+ *
+ * @return Returns a char buffer containing the filename
+ */
+const char * dc_config_filename() {
     return [[[DCCommand sharedModel] dosboxConfigFilename] UTF8String];
 }
 
-const char * dosbox_command_dequeue() {
+/**
+ * @brief Dequeues a command from the command queue for DOSBox to execute
+ *
+ * @return Returns char buffer if command exists, otherwise returns NULL
+ */
+const char * dc_command_dequeue() {
     NSString *command = [[DCCommand sharedModel] dequeueCommand];
     if (command) {
         return [command UTF8String];
@@ -40,7 +55,10 @@ const char * dosbox_command_dequeue() {
     }
 }
 
-static inline void DriveLetterErrorCheck(char letter) {
+/**
+ * @brief Checks for error in DOSBox drive letter
+ */
+static inline void drive_error_check(char letter) {
     NSCAssert((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'), DCInvalidArgumentError);
 }
 
@@ -109,7 +127,7 @@ static inline void DriveLetterErrorCheck(char letter) {
 }
 
 - (void)mountPath:(NSString *)mountPath toDrive:(char)driveLetter {
-    DriveLetterErrorCheck(driveLetter);
+    drive_error_check(driveLetter);
     [self enqueueCommand:[NSString stringWithFormat:@"%@ %c \"%@\"", IDBMountCommand, driveLetter, mountPath]];
     return;
 }
@@ -120,12 +138,13 @@ static inline void DriveLetterErrorCheck(char letter) {
 }
 
 - (void)clearScreen {
-    [self enqueueCommand:IDBClearScreenCommand];
+    [self enqueueCommand:DCClearScreenCommand];
+    return;
 }
 
 - (NSString *)dosPathFromPath:(NSString *)path inDrive:(char)driveLetter {
     NSAssert(path, DCArgumentNilError);
-    DriveLetterErrorCheck(driveLetter);
+    drive_error_check(driveLetter);
     return [NSString stringWithFormat:@"%c:\\%@", driveLetter, path];
 }
 

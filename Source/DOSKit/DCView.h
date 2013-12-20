@@ -16,14 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <UIKit/UIKit.h>
-#import "DDJoystickView.h"
+#import "SDL_uikitopenglview.h"
 
-@interface DDJoystickKeysView : DDJoystickView
+extern const CGSize IDBWindowSize;
 
-@property (readwrite, nonatomic) DCKey *upKey;
-@property (readwrite, nonatomic) DCKey *downKey;
-@property (readwrite, nonatomic) DCKey *rightKey;
-@property (readwrite, nonatomic) DCKey *leftKey;
+@interface DCView : SDL_uikitopenglview
 
 @end
