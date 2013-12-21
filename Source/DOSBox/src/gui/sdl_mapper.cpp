@@ -2540,7 +2540,7 @@ void MAPPER_RunInternal() {
 	mapper.window_surface = SDL_GetWindowSurface(mapper.window);
 	if (mapper.window_surface == NULL) E_Exit("Could not retrieve window surface for mapper: %s",SDL_GetError());
 	//mapper.window_renderer = SDL_GetRenderer(mapper.window); // YES IT GETS CREATED!
-	/* We now create a 8-bit surface, just like the case with SDL 1.2.
+	/* We now create a 8-bit surface, just like the case with SDL 1.2. */
 
 	/* SIDE EFFECT: The red and blue channels get swapped... */
 	mapper.surface=SDL_CreateRGBSurface(0,640,480,8,0,0,0,0);

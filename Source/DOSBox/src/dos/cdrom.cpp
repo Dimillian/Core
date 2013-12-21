@@ -219,4 +219,4 @@ bool CDROM_Interface_Fake :: GetMediaTrayStatus(bool& mediaPresent, bool& mediaC
 	return true;
 }
 
-#endif	// SDL_VERSION_ATLEAST(2,0,0)
+#endif

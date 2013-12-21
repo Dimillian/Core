@@ -41,6 +41,7 @@ static char **forward_argv;
 static int exit_status;
 static UIWindow *launch_window;
 
+#if !DOSCODE
 int main(int argc, char **argv)
 {
     int i;
@@ -57,7 +58,7 @@ int main(int argc, char **argv)
 
     /* Give over control to run loop, SDLUIKitDelegate will handle most things from here */
     UIApplicationMain(argc, argv, NULL, [SDLUIKitDelegate getAppDelegateClassName]);
-
+    
     /* free the memory we used to hold copies of argc and argv */
     for (i = 0; i < forward_argc; i++) {
         free(forward_argv[i]);
@@ -67,6 +68,7 @@ int main(int argc, char **argv)
     [pool release];
     return exit_status;
 }
+#endif
 
 static void
 SDL_IdleTimerDisabledChanged(void *userdata, const char *name, const char *oldValue, const char *hint)

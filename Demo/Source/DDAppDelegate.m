@@ -35,16 +35,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [super application:application didFinishLaunchingWithOptions:launchOptions];
-    /*
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.dosView = [[DDView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)];
+    //self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    //self.dosView = [[DDView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IDBWindowSize.width, IDBWindowSize.height)];
     self.dosModel = [DDCommand sharedModel];
-    self.dosViewController = [[DDViewController alloc] initWithIDBModel:self.dosModel andDOSView:self.dosView];
-    self.dosNavigationController = [[DDNavigationController alloc] initWithRootViewController:self.dosViewController];
+    //self.dosViewController = [[DDViewController alloc] initWithIDBModel:self.dosModel andDOSView:self.dosView];
+    //self.dosNavigationController = [[DDNavigationController alloc] initWithRootViewController:self.dosViewController];
     
-    [self.window setRootViewController:self.dosNavigationController];
-    */
+    //[self.window setRootViewController:self.dosNavigationController];
+    
     return YES;
 }
 

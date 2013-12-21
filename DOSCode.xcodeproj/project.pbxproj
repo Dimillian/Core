@@ -219,11 +219,6 @@
 		CEE2FDB518490FA800BD8127 /* SDL_test_md5.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCEF18490FA700BD8127 /* SDL_test_md5.c */; };
 		CEE2FDB618490FA800BD8127 /* SDL_test_random.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCF018490FA700BD8127 /* SDL_test_random.c */; };
 		CEE2FDB718490FA800BD8127 /* SDL_thread.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCF318490FA700BD8127 /* SDL_thread.c */; };
-		CEE2FDB818490FA800BD8127 /* SDL_syscond.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCF618490FA700BD8127 /* SDL_syscond.c */; };
-		CEE2FDB918490FA800BD8127 /* SDL_sysmutex.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCF718490FA700BD8127 /* SDL_sysmutex.c */; };
-		CEE2FDBA18490FA800BD8127 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCF918490FA700BD8127 /* SDL_syssem.c */; };
-		CEE2FDBB18490FA800BD8127 /* SDL_systhread.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCFA18490FA700BD8127 /* SDL_systhread.c */; };
-		CEE2FDBC18490FA800BD8127 /* SDL_systls.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCFC18490FA700BD8127 /* SDL_systls.c */; };
 		CEE2FDBD18490FA800BD8127 /* SDL_syscond.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCFE18490FA700BD8127 /* SDL_syscond.c */; };
 		CEE2FDBE18490FA800BD8127 /* SDL_sysmutex.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FCFF18490FA700BD8127 /* SDL_sysmutex.c */; };
 		CEE2FDBF18490FA800BD8127 /* SDL_syssem.c in Sources */ = {isa = PBXBuildFile; fileRef = CEE2FD0118490FA700BD8127 /* SDL_syssem.c */; };
@@ -309,6 +304,13 @@
 		CE1A88211864F3FD0050C076 /* cdrom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
 		CE1A88221864F3FD0050C076 /* cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdrom.h; sourceTree = "<group>"; };
 		CE1A88291864FE640050C076 /* dos_mscdex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_mscdex.cpp; sourceTree = "<group>"; };
+		CE1A882C186511740050C076 /* SDL_syscond.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_syscond.c; sourceTree = "<group>"; };
+		CE1A882D186511740050C076 /* SDL_sysmutex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_sysmutex.c; sourceTree = "<group>"; };
+		CE1A882E186511740050C076 /* SDL_sysmutex_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_sysmutex_c.h; sourceTree = "<group>"; };
+		CE1A882F186511740050C076 /* SDL_syssem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_syssem.c; sourceTree = "<group>"; };
+		CE1A8830186511740050C076 /* SDL_systhread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_systhread.c; sourceTree = "<group>"; };
+		CE1A8831186511740050C076 /* SDL_systhread_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_systhread_c.h; sourceTree = "<group>"; };
+		CE1A8832186511740050C076 /* SDL_systls.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_systls.c; sourceTree = "<group>"; };
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systimer.c; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -753,13 +755,6 @@
 		CEE2FCF218490FA700BD8127 /* SDL_systhread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_systhread.h; sourceTree = "<group>"; };
 		CEE2FCF318490FA700BD8127 /* SDL_thread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_thread.c; sourceTree = "<group>"; };
 		CEE2FCF418490FA700BD8127 /* SDL_thread_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_thread_c.h; sourceTree = "<group>"; };
-		CEE2FCF618490FA700BD8127 /* SDL_syscond.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_syscond.c; sourceTree = "<group>"; };
-		CEE2FCF718490FA700BD8127 /* SDL_sysmutex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_sysmutex.c; sourceTree = "<group>"; };
-		CEE2FCF818490FA700BD8127 /* SDL_sysmutex_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysmutex_c.h; sourceTree = "<group>"; };
-		CEE2FCF918490FA700BD8127 /* SDL_syssem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_syssem.c; sourceTree = "<group>"; };
-		CEE2FCFA18490FA700BD8127 /* SDL_systhread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systhread.c; sourceTree = "<group>"; };
-		CEE2FCFB18490FA700BD8127 /* SDL_systhread_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_systhread_c.h; sourceTree = "<group>"; };
-		CEE2FCFC18490FA700BD8127 /* SDL_systls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systls.c; sourceTree = "<group>"; };
 		CEE2FCFE18490FA700BD8127 /* SDL_syscond.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_syscond.c; sourceTree = "<group>"; };
 		CEE2FCFF18490FA700BD8127 /* SDL_sysmutex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_sysmutex.c; sourceTree = "<group>"; };
 		CEE2FD0018490FA700BD8127 /* SDL_sysmutex_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_sysmutex_c.h; sourceTree = "<group>"; };
@@ -881,6 +876,20 @@
 				CEE2FC4518490FA700BD8127 /* src */,
 			);
 			path = SDL;
+			sourceTree = "<group>";
+		};
+		CE1A882B186511740050C076 /* generic */ = {
+			isa = PBXGroup;
+			children = (
+				CE1A882C186511740050C076 /* SDL_syscond.c */,
+				CE1A882D186511740050C076 /* SDL_sysmutex.c */,
+				CE1A882E186511740050C076 /* SDL_sysmutex_c.h */,
+				CE1A882F186511740050C076 /* SDL_syssem.c */,
+				CE1A8830186511740050C076 /* SDL_systhread.c */,
+				CE1A8831186511740050C076 /* SDL_systhread_c.h */,
+				CE1A8832186511740050C076 /* SDL_systls.c */,
+			);
+			path = generic;
 			sourceTree = "<group>";
 		};
 		CE2CA1C51787A14D001F6D5F = {
@@ -1115,14 +1124,14 @@
 		CEE2FAEE18490D7100BD8127 /* dos */ = {
 			isa = PBXGroup;
 			children = (
-				CE1A88291864FE640050C076 /* dos_mscdex.cpp */,
+				CE1A88221864F3FD0050C076 /* cdrom.h */,
+				CE1A88211864F3FD0050C076 /* cdrom.cpp */,
 				CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */,
 				CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */,
 				CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */,
 				CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */,
 				CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */,
-				CE1A88211864F3FD0050C076 /* cdrom.cpp */,
-				CE1A88221864F3FD0050C076 /* cdrom.h */,
+				CE1A88291864FE640050C076 /* dos_mscdex.cpp */,
 				CEE2FAF618490D7100BD8127 /* dev_con.h */,
 				CEE2FAF718490D7100BD8127 /* dos.cpp */,
 				CEE2FAF818490D7100BD8127 /* dos_classes.cpp */,
@@ -1772,27 +1781,13 @@
 		CEE2FCF118490FA700BD8127 /* thread */ = {
 			isa = PBXGroup;
 			children = (
+				CE1A882B186511740050C076 /* generic */,
+				CEE2FCFD18490FA700BD8127 /* pthread */,
 				CEE2FCF218490FA700BD8127 /* SDL_systhread.h */,
 				CEE2FCF318490FA700BD8127 /* SDL_thread.c */,
 				CEE2FCF418490FA700BD8127 /* SDL_thread_c.h */,
-				CEE2FCF518490FA700BD8127 /* generic */,
-				CEE2FCFD18490FA700BD8127 /* pthread */,
 			);
 			path = thread;
-			sourceTree = "<group>";
-		};
-		CEE2FCF518490FA700BD8127 /* generic */ = {
-			isa = PBXGroup;
-			children = (
-				CEE2FCF618490FA700BD8127 /* SDL_syscond.c */,
-				CEE2FCF718490FA700BD8127 /* SDL_sysmutex.c */,
-				CEE2FCF818490FA700BD8127 /* SDL_sysmutex_c.h */,
-				CEE2FCF918490FA700BD8127 /* SDL_syssem.c */,
-				CEE2FCFA18490FA700BD8127 /* SDL_systhread.c */,
-				CEE2FCFB18490FA700BD8127 /* SDL_systhread_c.h */,
-				CEE2FCFC18490FA700BD8127 /* SDL_systls.c */,
-			);
-			path = generic;
 			sourceTree = "<group>";
 		};
 		CEE2FCFD18490FA700BD8127 /* pthread */ = {
@@ -2157,7 +2152,6 @@
 				CEE2FD7B18490FA800BD8127 /* SDL_gamecontroller.c in Sources */,
 				CEE2FD8018490FA800BD8127 /* e_atan2.c in Sources */,
 				CEE2FDB618490FA800BD8127 /* SDL_test_random.c in Sources */,
-				CEE2FDB818490FA800BD8127 /* SDL_syscond.c in Sources */,
 				CEE2FD7418490FA800BD8127 /* SDL_windowevents.c in Sources */,
 				CEE2FDAB18490FA800BD8127 /* SDL_test_crc32.c in Sources */,
 				CEE2FDEE18490FA800BD8127 /* SDL_uikitwindow.m in Sources */,
@@ -2168,7 +2162,6 @@
 				CEE2FD9E18490FA800BD8127 /* SDL_drawline.c in Sources */,
 				CEE2FDED18490FA800BD8127 /* SDL_uikitviewcontroller.m in Sources */,
 				CEE2FD9418490FA800BD8127 /* SDL_yuv_mmx.c in Sources */,
-				CEE2FDBB18490FA800BD8127 /* SDL_systhread.c in Sources */,
 				CEE2FDCC18490FA800BD8127 /* SDL_blit_slow.c in Sources */,
 				CEE2FD8F18490FA800BD8127 /* SDL_sysloadso.c in Sources */,
 				CEE2FDE918490FA800BD8127 /* SDL_uikitopengles.m in Sources */,
@@ -2196,7 +2189,6 @@
 				CEE2FD6918490FA800BD8127 /* SDL_coreaudio.c in Sources */,
 				CEE2FD8E18490FA800BD8127 /* s_sin.c in Sources */,
 				CEE2FDD118490FA800BD8127 /* SDL_pixels.c in Sources */,
-				CEE2FDBA18490FA800BD8127 /* SDL_syssem.c in Sources */,
 				CEE2FD7C18490FA800BD8127 /* SDL_joystick.c in Sources */,
 				CEE2FDC718490FA800BD8127 /* SDL_blit_1.c in Sources */,
 				CEE2FD7818490FA800BD8127 /* SDL_sysfilesystem.c in Sources */,
@@ -2247,9 +2239,7 @@
 				CEE2FDC218490FA800BD8127 /* SDL_timer.c in Sources */,
 				CEE2FDBF18490FA800BD8127 /* SDL_syssem.c in Sources */,
 				CEE2FD6718490FA800BD8127 /* SDL_mixer.c in Sources */,
-				CEE2FDB918490FA800BD8127 /* SDL_sysmutex.c in Sources */,
 				CEE2FDAA18490FA800BD8127 /* SDL_test_compare.c in Sources */,
-				CEE2FDBC18490FA800BD8127 /* SDL_systls.c in Sources */,
 				CEE2FDD018490FA800BD8127 /* SDL_fillrect.c in Sources */,
 				CEE2FD6A18490FA800BD8127 /* SDL_dummyaudio.c in Sources */,
 				CEE2FDBD18490FA800BD8127 /* SDL_syscond.c in Sources */,
@@ -2301,6 +2291,7 @@
 					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2328,6 +2319,7 @@
 					DOSCODE,
 					"=1",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2351,6 +2343,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				GCC_WARN_MISSING_PARENTHESES = NO;
@@ -2382,6 +2375,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				GCC_WARN_MISSING_PARENTHESES = NO;
@@ -2441,6 +2435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
@@ -2463,6 +2458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;

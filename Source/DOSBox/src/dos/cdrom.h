@@ -41,11 +41,7 @@
 #define RAW_SECTOR_SIZE		2352
 #define COOKED_SECTOR_SIZE	2048
 
-#if SDL_VERSION_ATLEAST(2,0,0)
-enum { CDROM_USE_SDL }; // Kind of a workaround for MSCDEX_SetCDInterface
-#else
 enum { CDROM_USE_SDL, CDROM_USE_ASPI, CDROM_USE_IOCTL_DIO, CDROM_USE_IOCTL_DX, CDROM_USE_IOCTL_MCI };
-#endif
 
 typedef struct SMSF {
 	unsigned char min;
@@ -135,7 +131,7 @@ public:
 	bool	ReadSectors			(PhysPt /*buffer*/, bool /*raw*/, unsigned long /*sector*/, unsigned long /*num*/) { return true; };
 	bool	LoadUnloadMedia		(bool /*unload*/) { return true; };
 };	
-#endif	// !SDL_VERSION_ATLEAST(2,0,0)
+#endif
 
 class CDROM_Interface_Image : public CDROM_Interface
 {
