@@ -23,7 +23,7 @@
 #include <string>
 #include <stdlib.h>
 
-#if DOSCODE
+#if CORE_IOS
 extern "C" {
     const char * dc_config_path();
     const char * dc_config_filename();
@@ -84,7 +84,7 @@ void Cross::GetPlatformConfigName(std::string& in) {
 #define DEFAULT_CONFIG_FILE "dosbox-" VERSION ".conf"
 #endif
 
-#if DOSCODE
+#if CORE_IOS
     in = dc_config_filename();
 #else
 	in = DEFAULT_CONFIG_FILE;

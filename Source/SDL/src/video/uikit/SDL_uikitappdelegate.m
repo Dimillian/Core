@@ -41,7 +41,7 @@ static char **forward_argv;
 static int exit_status;
 static UIWindow *launch_window;
 
-#if !DOSCODE
+#if !CORE_IOS
 int main(int argc, char **argv)
 {
     int i;

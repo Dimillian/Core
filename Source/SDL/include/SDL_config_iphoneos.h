@@ -108,7 +108,7 @@
 /* Enable the dummy audio driver (src/audio/dummy/\*.c) */
 #define SDL_AUDIO_DRIVER_DUMMY  1
 
-#if DOSCODE
+#if CORE_IOS
 /* Enable dummy cdrom so DOSBox builds */
 #define SDL_CDROM_DUMMY 1
 #endif

@@ -22,7 +22,7 @@
 #include "inout.h"
 #include "setup.h"
 #include "cpu.h"
-#if DOSCODE
+#if CORE_IOS
 #include "../cpu/lazyflags.h"
 #else
 #include "../src/cpu/lazyflags.h"

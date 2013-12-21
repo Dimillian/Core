@@ -30,7 +30,7 @@
 #include "dosbox.h"
 #include "opl.h"
 
-#if DOSCODE
+#if CORE_IOS
 #include <string.h>
 #endif
 

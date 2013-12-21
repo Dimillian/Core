@@ -92,7 +92,7 @@
 #include "SDL_version.h"
 #include "SDL_video.h"
 
-#if DOSCODE
+#if CORE_IOS
 #include "SDL_cdrom.h"
 #endif
 

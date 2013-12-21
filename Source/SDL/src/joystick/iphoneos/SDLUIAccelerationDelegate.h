@@ -20,7 +20,7 @@
 */
 
 #import <UIKit/UIKit.h>
-#if DOSCODE
+#if CORE_IOS
 #import "SDL_types.h"
 #else
 #import <SDL_types.h>
