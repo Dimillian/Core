@@ -362,7 +362,7 @@ typedef char assert_right_size [MAX_SCANCODES == (sizeof(sdlkey_map)/sizeof(sdlk
 #else // !MACOSX
 
 #define MAX_SCANCODES 212
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 static SDL_Keycode sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
 #else
 static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
@@ -380,7 +380,7 @@ static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
 	SDLK_LALT,SDLK_SPACE,SDLK_CAPSLOCK,
 	SDLK_F1,SDLK_F2,SDLK_F3,SDLK_F4,SDLK_F5,SDLK_F6,SDLK_F7,SDLK_F8,SDLK_F9,SDLK_F10,
 	/* 0x45: */
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
     SDLK_NUMLOCKCLEAR,SDLK_SCROLLLOCK,
 	SDLK_KP_7,SDLK_KP_8,SDLK_KP_9,SDLK_KP_MINUS,SDLK_KP_4,SDLK_KP_5,SDLK_KP_6,SDLK_KP_PLUS,
 	SDLK_KP_1,SDLK_KP_2,SDLK_KP_3,SDLK_KP_0,SDLK_KP_PERIOD,
@@ -402,7 +402,7 @@ static SDLKey sdlkey_map[MAX_SCANCODES]={SDLK_UNKNOWN,SDLK_ESCAPE,
 
 #undef Z
 
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 SDL_Keycode MapSDLCode(Bitu skey) {
 #else
 SDLKey MapSDLCode(Bitu skey) {
@@ -410,14 +410,14 @@ SDLKey MapSDLCode(Bitu skey) {
 	if (usescancodes) {
 		if (skey<MAX_SCANCODES) return sdlkey_map[skey];
 		else return SDLK_UNKNOWN;
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
     } else return (SDL_Keycode)skey;
 #else
 	} else return (SDLKey)skey;
 #endif
 }
 
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 Bitu GetKeyCode(SDL_Keysym keysym) {
 #else
 Bitu GetKeyCode(SDL_keysym keysym) {
@@ -477,7 +477,7 @@ class CKeyBindGroup;
 
 class CKeyBind : public CBind {
 public:
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
     CKeyBind(CBindList * _list,SDL_Keycode _key) : CBind(_list) {
 #else
 	CKeyBind(CBindList * _list,SDLKey _key) : CBind(_list) {
@@ -491,7 +491,7 @@ public:
 		sprintf(buf,"key %d",MapSDLCode((Bitu)key));
 	}
 public:
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
     SDL_Keycode key;
 #else
 	SDLKey key;
@@ -515,7 +515,7 @@ public:
 			if (code<MAX_SDLKEYS) code=scancode_map[code];
 			else code=0;
 		}
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
         CBind * bind=CreateKeyBind((SDL_Keycode)code);
 #else
 		CBind * bind=CreateKeyBind((SDLKey)code);
@@ -524,7 +524,7 @@ public:
 	}
 	CBind * CreateEventBind(SDL_Event * event) {
 		if (event->type!=SDL_KEYDOWN) return 0;
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
         return CreateKeyBind((SDL_Keycode)GetKeyCode(event->key.keysym));
 #else
 		return CreateKeyBind((SDLKey)GetKeyCode(event->key.keysym));
@@ -535,7 +535,7 @@ public:
 		Bitu key=GetKeyCode(event->key.keysym);
 //		LOG_MSG("key type %i is %x [%x %x]",event->type,key,event->key.keysym.sym,event->key.keysym.scancode);
 		assert(Bitu(event->key.keysym.sym)<keys);
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 		if (event->type==SDL_KEYDOWN) ActivateBindList(&lists[key],0x7fff,true);
 		else DeactivateBindList(&lists[key],true);
 #else
@@ -544,7 +544,7 @@ public:
 #endif
 		return 0;
 	}
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
     CBind * CreateKeyBind(SDL_Keycode _key) {
 #else
 	CBind * CreateKeyBind(SDLKey _key) {
@@ -2594,7 +2594,7 @@ void MAPPER_StartUp(Section * sec) {
 		Bitu i;
 		for (i=0; i<MAX_SDLKEYS; i++) scancode_map[i]=0;
 		for (i=0; i<MAX_SCANCODES; i++) {
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
             SDL_Keycode key=sdlkey_map[i];
 #else
 			SDLKey key=sdlkey_map[i];

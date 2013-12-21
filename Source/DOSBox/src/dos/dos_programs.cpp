@@ -32,9 +32,7 @@
 #include "cross.h"
 #include "regs.h"
 #include "callback.h"
-#if !SDL_VERSION_ATLEAST(2, 0, 0)
 #include "cdrom.h"
-#endif
 #include "dos_system.h"
 #include "dos_inc.h"
 #include "bios.h"
@@ -177,7 +175,6 @@ public:
 			return;
 		}
 		/* Show list of cdroms */
-#if !SDL_VERSION_ATLEAST(2, 0, 0)
 		if (cmd->FindExist("-cd",false)) {
 			int num = SDL_CDNumDrives();
    			WriteOut(MSG_Get("PROGRAM_MOUNT_CDROMS_FOUND"),num);
@@ -186,8 +183,7 @@ public:
 			};
 			return;
 		}
-#endif
-
+        
 		std::string type="dir";
 		cmd->FindString("-t",type,true);
 		bool iscdrom = (type =="cdrom"); //Used for mscdex bug cdrom label name emulation
@@ -315,7 +311,6 @@ public:
 			if (temp_line[temp_line.size()-1]!=CROSS_FILESPLIT) temp_line+=CROSS_FILESPLIT;
 			Bit8u bit8size=(Bit8u) sizes[1];
 			if (type=="cdrom") {
-#if !SDL_VERSION_ATLEAST(2, 0, 0)
 				int num = -1;
 				cmd->FindInt("-usecd",num,true);
 				int error = 0;
@@ -345,7 +340,6 @@ public:
 					}
 #else
 					MSCDEX_SetCDInterface(CDROM_USE_IOCTL_DIO, num);
-#endif
 				}
 				newdrive  = new cdromDrive(drive,temp_line.c_str(),sizes[0],bit8size,sizes[2],0,mediaid,error);
 				// Check Mscdex, if it worked out...
@@ -1326,9 +1320,7 @@ public:
 					WriteOut(MSG_Get("PROGRAM_IMGMOUNT_ALREADY_MOUNTED"));
 					return;
 				}
-#if !SDL_VERSION_ATLEAST(2, 0, 0)
 				MSCDEX_SetCDInterface(CDROM_USE_SDL, -1);
-#endif
 				// create new drives for all images
 				std::vector<DOS_Drive*> isoDisks;
 				std::vector<std::string>::size_type i;
