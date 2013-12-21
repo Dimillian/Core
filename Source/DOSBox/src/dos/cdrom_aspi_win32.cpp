@@ -17,10 +17,6 @@
  */
 
 
-#include "SDL_version.h"
-// On all platforms, if SDL 2.0 is used then we don't support physical CD-ROMs.
-#if !SDL_VERSION_ATLEAST(2,0,0)
-
 #if defined (WIN32)
 
 #include <ctype.h>
@@ -766,4 +762,3 @@ bool CDROM_Interface_Aspi::ReadSectors(PhysPt buffer, bool raw, unsigned long se
 };
 
 #endif
-#endif	// SDL_VERSION_ATLEAST(2,0,0)

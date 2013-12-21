@@ -17,10 +17,6 @@
  */
  
 
-#include "SDL_version.h"
-// On all platforms, if SDL 2.0 is used then we don't support physical CD-ROMs.
-#if !SDL_VERSION_ATLEAST(2,0,0)
-
 #include <string.h>
 #include "cdrom.h"
 #include "support.h"
@@ -99,4 +95,3 @@ bool CDROM_Interface_Ioctl::SetDevice(char* path, int forceCD)
 }
 
 #endif
-#endif	// SDL_VERSION_ATLEAST(2,0,0)

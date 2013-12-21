@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE1A88231864F3FD0050C076 /* cdrom_aspi_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */; };
-		CE1A88241864F3FD0050C076 /* cdrom_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */; };
-		CE1A88251864F3FD0050C076 /* cdrom_ioctl_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */; };
-		CE1A88261864F3FD0050C076 /* cdrom_ioctl_os2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */; };
-		CE1A88271864F3FD0050C076 /* cdrom_ioctl_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */; };
-		CE1A88281864F3FD0050C076 /* cdrom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88211864F3FD0050C076 /* cdrom.cpp */; };
-		CE1A882A1864FE640050C076 /* dos_mscdex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88291864FE640050C076 /* dos_mscdex.cpp */; };
+		CE1A883A1865160B0050C076 /* cdrom_aspi_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88331865160B0050C076 /* cdrom_aspi_win32.cpp */; };
+		CE1A883B1865160B0050C076 /* cdrom_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88341865160B0050C076 /* cdrom_image.cpp */; };
+		CE1A883C1865160B0050C076 /* cdrom_ioctl_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88351865160B0050C076 /* cdrom_ioctl_linux.cpp */; };
+		CE1A883D1865160B0050C076 /* cdrom_ioctl_os2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88361865160B0050C076 /* cdrom_ioctl_os2.cpp */; };
+		CE1A883E1865160B0050C076 /* cdrom_ioctl_win32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88371865160B0050C076 /* cdrom_ioctl_win32.cpp */; };
+		CE1A883F1865160B0050C076 /* cdrom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88381865160B0050C076 /* cdrom.cpp */; };
+		CE1A88411865182B0050C076 /* dos_mscdex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE1A88401865182B0050C076 /* dos_mscdex.cpp */; };
+		CE1A884518651B3A0050C076 /* SDL_cdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE1A884318651B3A0050C076 /* SDL_cdrom.c */; };
+		CE1A884918651B920050C076 /* SDL_syscdrom.c in Sources */ = {isa = PBXBuildFile; fileRef = CE1A884818651B920050C076 /* SDL_syscdrom.c */; };
 		CE53A79E184A8A65009FA4A0 /* SDL_systimer.c in Sources */ = {isa = PBXBuildFile; fileRef = CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */; };
 		CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CC3B182558AE00E0957A /* DCKey.m */; };
 		CEA448EE181B9A4C00022715 /* DCView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA448ED181B9A4C00022715 /* DCView.m */; };
@@ -296,14 +298,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_aspi_win32.cpp; sourceTree = "<group>"; };
-		CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_image.cpp; sourceTree = "<group>"; };
-		CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_linux.cpp; sourceTree = "<group>"; };
-		CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_os2.cpp; sourceTree = "<group>"; };
-		CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_win32.cpp; sourceTree = "<group>"; };
-		CE1A88211864F3FD0050C076 /* cdrom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
-		CE1A88221864F3FD0050C076 /* cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdrom.h; sourceTree = "<group>"; };
-		CE1A88291864FE640050C076 /* dos_mscdex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_mscdex.cpp; sourceTree = "<group>"; };
 		CE1A882C186511740050C076 /* SDL_syscond.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_syscond.c; sourceTree = "<group>"; };
 		CE1A882D186511740050C076 /* SDL_sysmutex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_sysmutex.c; sourceTree = "<group>"; };
 		CE1A882E186511740050C076 /* SDL_sysmutex_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_sysmutex_c.h; sourceTree = "<group>"; };
@@ -311,6 +305,18 @@
 		CE1A8830186511740050C076 /* SDL_systhread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_systhread.c; sourceTree = "<group>"; };
 		CE1A8831186511740050C076 /* SDL_systhread_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_systhread_c.h; sourceTree = "<group>"; };
 		CE1A8832186511740050C076 /* SDL_systls.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SDL_systls.c; sourceTree = "<group>"; };
+		CE1A88331865160B0050C076 /* cdrom_aspi_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_aspi_win32.cpp; sourceTree = "<group>"; };
+		CE1A88341865160B0050C076 /* cdrom_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_image.cpp; sourceTree = "<group>"; };
+		CE1A88351865160B0050C076 /* cdrom_ioctl_linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_linux.cpp; sourceTree = "<group>"; };
+		CE1A88361865160B0050C076 /* cdrom_ioctl_os2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_os2.cpp; sourceTree = "<group>"; };
+		CE1A88371865160B0050C076 /* cdrom_ioctl_win32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom_ioctl_win32.cpp; sourceTree = "<group>"; };
+		CE1A88381865160B0050C076 /* cdrom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdrom.cpp; sourceTree = "<group>"; };
+		CE1A88391865160B0050C076 /* cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdrom.h; sourceTree = "<group>"; };
+		CE1A88401865182B0050C076 /* dos_mscdex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dos_mscdex.cpp; sourceTree = "<group>"; };
+		CE1A884318651B3A0050C076 /* SDL_cdrom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_cdrom.c; sourceTree = "<group>"; };
+		CE1A884418651B3A0050C076 /* SDL_syscdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_syscdrom.h; sourceTree = "<group>"; };
+		CE1A884618651B550050C076 /* SDL_cdrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_cdrom.h; sourceTree = "<group>"; };
+		CE1A884818651B920050C076 /* SDL_syscdrom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_syscdrom.c; sourceTree = "<group>"; };
 		CE2CA1CE1787A14D001F6D5F /* libDOSBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDOSBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE53A79D184A8A65009FA4A0 /* SDL_systimer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_systimer.c; sourceTree = "<group>"; };
 		CE7627431790F28400C36A62 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -892,6 +898,24 @@
 			path = generic;
 			sourceTree = "<group>";
 		};
+		CE1A884218651B180050C076 /* cdrom */ = {
+			isa = PBXGroup;
+			children = (
+				CE1A884318651B3A0050C076 /* SDL_cdrom.c */,
+				CE1A884418651B3A0050C076 /* SDL_syscdrom.h */,
+				CE1A884718651B8B0050C076 /* dummy */,
+			);
+			path = cdrom;
+			sourceTree = "<group>";
+		};
+		CE1A884718651B8B0050C076 /* dummy */ = {
+			isa = PBXGroup;
+			children = (
+				CE1A884818651B920050C076 /* SDL_syscdrom.c */,
+			);
+			path = dummy;
+			sourceTree = "<group>";
+		};
 		CE2CA1C51787A14D001F6D5F = {
 			isa = PBXGroup;
 			children = (
@@ -1124,14 +1148,13 @@
 		CEE2FAEE18490D7100BD8127 /* dos */ = {
 			isa = PBXGroup;
 			children = (
-				CE1A88221864F3FD0050C076 /* cdrom.h */,
-				CE1A88211864F3FD0050C076 /* cdrom.cpp */,
-				CE1A881C1864F3FD0050C076 /* cdrom_aspi_win32.cpp */,
-				CE1A881D1864F3FD0050C076 /* cdrom_image.cpp */,
-				CE1A881E1864F3FD0050C076 /* cdrom_ioctl_linux.cpp */,
-				CE1A881F1864F3FD0050C076 /* cdrom_ioctl_os2.cpp */,
-				CE1A88201864F3FD0050C076 /* cdrom_ioctl_win32.cpp */,
-				CE1A88291864FE640050C076 /* dos_mscdex.cpp */,
+				CE1A88331865160B0050C076 /* cdrom_aspi_win32.cpp */,
+				CE1A88341865160B0050C076 /* cdrom_image.cpp */,
+				CE1A88351865160B0050C076 /* cdrom_ioctl_linux.cpp */,
+				CE1A88361865160B0050C076 /* cdrom_ioctl_os2.cpp */,
+				CE1A88371865160B0050C076 /* cdrom_ioctl_win32.cpp */,
+				CE1A88381865160B0050C076 /* cdrom.cpp */,
+				CE1A88391865160B0050C076 /* cdrom.h */,
 				CEE2FAF618490D7100BD8127 /* dev_con.h */,
 				CEE2FAF718490D7100BD8127 /* dos.cpp */,
 				CEE2FAF818490D7100BD8127 /* dos_classes.cpp */,
@@ -1144,6 +1167,7 @@
 				CEE2FAFF18490D7100BD8127 /* dos_keyboard_layout_data.h */,
 				CEE2FB0018490D7100BD8127 /* dos_memory.cpp */,
 				CEE2FB0118490D7100BD8127 /* dos_misc.cpp */,
+				CE1A88401865182B0050C076 /* dos_mscdex.cpp */,
 				CEE2FB0318490D7100BD8127 /* dos_programs.cpp */,
 				CEE2FB0418490D7100BD8127 /* dos_tables.cpp */,
 				CEE2FB0518490D7100BD8127 /* drive_cache.cpp */,
@@ -1325,6 +1349,7 @@
 				CEE2FC0818490FA700BD8127 /* SDL_blendmode.h */,
 				CEE2FC0918490FA700BD8127 /* SDL_clipboard.h */,
 				CEE2FC0A18490FA700BD8127 /* SDL_config.h */,
+				CE1A884618651B550050C076 /* SDL_cdrom.h */,
 				CEE2FC0B18490FA700BD8127 /* SDL_config_iphoneos.h */,
 				CEE2FC0C18490FA700BD8127 /* SDL_copying.h */,
 				CEE2FC0D18490FA700BD8127 /* SDL_cpuinfo.h */,
@@ -1397,6 +1422,7 @@
 				CEE2FC4A18490FA700BD8127 /* SDL_error_c.h */,
 				CEE2FC4B18490FA700BD8127 /* SDL_hints.c */,
 				CEE2FC4C18490FA700BD8127 /* SDL_log.c */,
+				CE1A884218651B180050C076 /* cdrom */,
 				CEE2FC4D18490FA700BD8127 /* atomic */,
 				CEE2FC5018490FA700BD8127 /* audio */,
 				CEE2FC6218490FA700BD8127 /* cpuinfo */,
@@ -2002,12 +2028,15 @@
 				CEE2FBB618490D7200BD8127 /* sdl_gui.cpp in Sources */,
 				CEE2FBA318490D7200BD8127 /* dos_files.cpp in Sources */,
 				CEE2FB9118490D7200BD8127 /* cpu.cpp in Sources */,
+				CE1A883B1865160B0050C076 /* cdrom_image.cpp in Sources */,
 				CEE2FBD118490D7200BD8127 /* nullmodem.cpp in Sources */,
 				CEE2FBF918490D7200BD8127 /* cross.cpp in Sources */,
 				CEE2FBC918490D7200BD8127 /* opl.cpp in Sources */,
 				CEE2FB9718490D7200BD8127 /* debug_gui.cpp in Sources */,
 				CEE2FBD918490D7200BD8127 /* vga_crtc.cpp in Sources */,
 				CEE2FBED18490D7200BD8127 /* int10_modes.cpp in Sources */,
+				CE1A883F1865160B0050C076 /* cdrom.cpp in Sources */,
+				CE1A883D1865160B0050C076 /* cdrom_ioctl_os2.cpp in Sources */,
 				CEE2FBD218490D7200BD8127 /* serialdummy.cpp in Sources */,
 				CEE2FBBE18490D7200BD8127 /* gameblaster.cpp in Sources */,
 				CEE2FBFF18490D7200BD8127 /* shell_batch.cpp in Sources */,
@@ -2050,6 +2079,7 @@
 				CEE2FBBB18490D7200BD8127 /* dbopl.cpp in Sources */,
 				CEE2FBEF18490D7200BD8127 /* int10_put_pixel.cpp in Sources */,
 				CEE2FBBA18490D7200BD8127 /* cmos.cpp in Sources */,
+				CE1A883C1865160B0050C076 /* cdrom_ioctl_linux.cpp in Sources */,
 				CEE2FBC418490D7200BD8127 /* joystick.cpp in Sources */,
 				CEE2FB9818490D7200BD8127 /* debug_win32.cpp in Sources */,
 				CEE2FB9618490D7200BD8127 /* debug_disasm.cpp in Sources */,
@@ -2073,6 +2103,7 @@
 				CEE2FBC218490D7200BD8127 /* ipx.cpp in Sources */,
 				CEE2FBC318490D7200BD8127 /* ipxserver.cpp in Sources */,
 				CEE2FB8D18490D7200BD8127 /* core_full.cpp in Sources */,
+				CE1A883A1865160B0050C076 /* cdrom_aspi_win32.cpp in Sources */,
 				CEE2FBDC18490D7200BD8127 /* vga_gfx.cpp in Sources */,
 				CEE2FBF218490D7200BD8127 /* int10_vptable.cpp in Sources */,
 				CEE2FBDE18490D7200BD8127 /* vga_misc.cpp in Sources */,
@@ -2082,6 +2113,7 @@
 				CEE2FBF318490D7200BD8127 /* mouse.cpp in Sources */,
 				CEE2FBA618490D7200BD8127 /* dos_memory.cpp in Sources */,
 				CEE2FBC018490D7200BD8127 /* hardware.cpp in Sources */,
+				CE1A883E1865160B0050C076 /* cdrom_ioctl_win32.cpp in Sources */,
 				CEE2FBD318490D7200BD8127 /* serialport.cpp in Sources */,
 				CEE2FBB818490D7200BD8127 /* sdlmain.cpp in Sources */,
 				CEE2FBFC18490D7200BD8127 /* setup.cpp in Sources */,
@@ -2089,6 +2121,7 @@
 				CEE2FBD618490D7200BD8127 /* timer.cpp in Sources */,
 				CEE2FBF418490D7200BD8127 /* xms.cpp in Sources */,
 				CEE2FB8B18490D7200BD8127 /* core_dyn_x86.cpp in Sources */,
+				CE1A88411865182B0050C076 /* dos_mscdex.cpp in Sources */,
 				CEE2FBA218490D7200BD8127 /* dos_execute.cpp in Sources */,
 				CEE2FB8F18490D7200BD8127 /* core_prefetch.cpp in Sources */,
 				CEE2FBEE18490D7200BD8127 /* int10_pal.cpp in Sources */,
@@ -2115,16 +2148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1A88281864F3FD0050C076 /* cdrom.cpp in Sources */,
-				CE1A88241864F3FD0050C076 /* cdrom_image.cpp in Sources */,
-				CE1A882A1864FE640050C076 /* dos_mscdex.cpp in Sources */,
-				CE1A88261864F3FD0050C076 /* cdrom_ioctl_os2.cpp in Sources */,
-				CE1A88231864F3FD0050C076 /* cdrom_aspi_win32.cpp in Sources */,
-				CE1A88251864F3FD0050C076 /* cdrom_ioctl_linux.cpp in Sources */,
 				CEA1CC3C182558AE00E0957A /* DCKey.m in Sources */,
 				CEA448EE181B9A4C00022715 /* DCView.m in Sources */,
 				CEE3CD0B17D3D7BD00EF75F1 /* DCCommand.m in Sources */,
-				CE1A88271864F3FD0050C076 /* cdrom_ioctl_win32.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2139,6 +2165,7 @@
 				CEE2FD7D18490FA800BD8127 /* SDL_sysjoystick.c in Sources */,
 				CEE2FD7618490FA800BD8127 /* SDL_rwopsbundlesupport.m in Sources */,
 				CEE2FD8518490FA800BD8127 /* k_cos.c in Sources */,
+				CE1A884918651B920050C076 /* SDL_syscdrom.c in Sources */,
 				CEE2FD7E18490FA800BD8127 /* SDLUIAccelerationDelegate.m in Sources */,
 				CEE2FDB418490FA800BD8127 /* SDL_test_log.c in Sources */,
 				CEE2FDC318490FA800BD8127 /* SDL_systimer.c in Sources */,
@@ -2233,6 +2260,7 @@
 				CEE2FD8218490FA800BD8127 /* e_pow.c in Sources */,
 				CEE2FD7218490FA800BD8127 /* SDL_quit.c in Sources */,
 				CEE2FDE618490FA800BD8127 /* SDL_uikitevents.m in Sources */,
+				CE1A884518651B3A0050C076 /* SDL_cdrom.c in Sources */,
 				CEE2FDC118490FA800BD8127 /* SDL_systls.c in Sources */,
 				CEE2FDE518490FA800BD8127 /* SDL_uikitappdelegate.m in Sources */,
 				CEE2FDA618490FA800BD8127 /* SDL_stdlib.c in Sources */,

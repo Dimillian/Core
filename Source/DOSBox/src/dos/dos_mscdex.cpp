@@ -47,14 +47,6 @@
 #define	REQUEST_STATUS_DONE		0x0100
 #define	REQUEST_STATUS_ERROR	0x8000
 
-// With no CD-ROM support on SDL 2.0, we need this. ***Taken off SDL_cdrom.h***
-#ifndef CD_FPS
-#define CD_FPS	75
-#endif
-#ifndef MSF_TO_FRAMES
-#define MSF_TO_FRAMES(M, S, F)	((M)*60*CD_FPS+(S)*CD_FPS+(F))
-#endif
-
 // Use cdrom Interface
 int useCdromInterface	= CDROM_USE_SDL;
 int forceCD				= -1;
@@ -262,8 +254,6 @@ int CMscdex::AddDrive(Bit16u _drive, char* physicalPath, Bit8u& subUnit)
 	// Set return type to ok
 	int result = 0;
 	// Get Mounttype and init needed cdrom interface
-	// (always an image with SDL 2.0, possibly some other form otherwise)
-#if !SDL_VERSION_ATLEAST(2,0,0)
 	switch (CDROM_GetMountType(physicalPath,forceCD)) {
 	case 0x00: {	
 		LOG(LOG_MISC,LOG_NORMAL)("MSCDEX: Mounting physical cdrom: %s"	,physicalPath);
@@ -308,10 +298,8 @@ int CMscdex::AddDrive(Bit16u _drive, char* physicalPath, Bit8u& subUnit)
 #endif
 		} break;
 	case 0x01:	// iso cdrom interface	
-#endif	// !SDL_VERSION_ATLEAST(2,0,0)
 		LOG(LOG_MISC,LOG_NORMAL)("MSCDEX: Mounting iso file as cdrom: %s", physicalPath);
 		cdrom[numDrives] = new CDROM_Interface_Image((Bit8u)numDrives);
-#if !SDL_VERSION_ATLEAST(2,0,0)
 		break;
 	case 0x02:	// fake cdrom interface (directories)
 		cdrom[numDrives] = new CDROM_Interface_Fake;
@@ -322,7 +310,6 @@ int CMscdex::AddDrive(Bit16u _drive, char* physicalPath, Bit8u& subUnit)
 	default	:	// weird result
 		return 6;
 	};
-#endif	// !SDL_VERSION_ATLEAST(2,0,0)
 
 	if (!cdrom[numDrives]->SetDevice(physicalPath,forceCD)) {
 //		delete cdrom[numDrives] ; mount seems to delete it
@@ -519,16 +506,21 @@ bool CMscdex::GetAudioStatus(Bit8u subUnit, bool& playing, bool& pause, TMSF& st
 	if (subUnit>=numDrives) return false;
 	dinfo[subUnit].lastResult = cdrom[subUnit]->GetAudioStatus(playing,pause);
 	if (dinfo[subUnit].lastResult) {
-		// Start
-		Bit32u addr	= dinfo[subUnit].audioStart + 150;
-		start.fr	= (Bit8u)(addr%75);	addr/=75;
-		start.sec	= (Bit8u)(addr%60); 
-		start.min	= (Bit8u)(addr/60);
-		// End
-		addr		= dinfo[subUnit].audioEnd + 150;
-		end.fr		= (Bit8u)(addr%75);	addr/=75;
-		end.sec		= (Bit8u)(addr%60); 
-		end.min		= (Bit8u)(addr/60);
+		if (playing) {
+			// Start
+			Bit32u addr	= dinfo[subUnit].audioStart + 150;
+			start.fr	= (Bit8u)(addr%75);	addr/=75;
+			start.sec	= (Bit8u)(addr%60); 
+			start.min	= (Bit8u)(addr/60);
+			// End
+			addr		= dinfo[subUnit].audioEnd + 150;
+			end.fr		= (Bit8u)(addr%75);	addr/=75;
+			end.sec		= (Bit8u)(addr%60); 
+			end.min		= (Bit8u)(addr/60);
+		} else {
+			memset(&start,0,sizeof(start));
+			memset(&end,0,sizeof(end));
+		}
 	} else {
 		playing		= false;
 		pause		= false;

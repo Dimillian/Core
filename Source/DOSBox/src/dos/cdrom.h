@@ -84,7 +84,6 @@ public:
 	virtual void	InitNewMedia		(void) {};
 };	
 
-#if !SDL_VERSION_ATLEAST(2,0,0)
 class CDROM_Interface_SDL : public CDROM_Interface
 {
 public:
@@ -131,7 +130,6 @@ public:
 	bool	ReadSectors			(PhysPt /*buffer*/, bool /*raw*/, unsigned long /*sector*/, unsigned long /*num*/) { return true; };
 	bool	LoadUnloadMedia		(bool /*unload*/) { return true; };
 };	
-#endif
 
 class CDROM_Interface_Image : public CDROM_Interface
 {
@@ -238,8 +236,6 @@ typedef	std::vector<Track>::iterator	track_it;
 	std::string	mcn;
 	Bit8u	subUnit;
 };
-
-#if !SDL_VERSION_ATLEAST(2,0,0)
 
 #if defined (WIN32)	/* Win 32 */
 
@@ -397,7 +393,5 @@ private:
 };
 
 #endif /* LINUX */
-
-#endif /* !SDL_VERSION_ATLEAST(2,0,0) */
 
 #endif /* __CDROM_INTERFACE__ */

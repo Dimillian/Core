@@ -43,24 +43,6 @@ using namespace std;
 #define MAX_LINE_LENGTH 512
 #define MAX_FILENAME_LENGTH 256
 
-// With no CD-ROM support on SDL 2.0, we need this. ***Taken off SDL_cdrom.h***
-#ifndef CD_FPS
-#define CD_FPS	75
-#endif
-#ifndef MSF_TO_FRAMES
-#define MSF_TO_FRAMES(M, S, F)	((M)*60*CD_FPS+(S)*CD_FPS+(F))
-#endif
-#ifndef FRAMES_TO_MSF
-#define FRAMES_TO_MSF(f, M,S,F)	{					\
-	int value = f;							\
-	*(F) = value%CD_FPS;						\
-	value /= CD_FPS;						\
-	*(S) = value%60;						\
-	value /= 60;							\
-	*(M) = value;							\
-}
-#endif
-
 CDROM_Interface_Image::BinaryFile::BinaryFile(const char *filename, bool &error)
 {
 	file = new ifstream(filename, ios::in | ios::binary);

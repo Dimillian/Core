@@ -108,6 +108,11 @@
 /* Enable the dummy audio driver (src/audio/dummy/\*.c) */
 #define SDL_AUDIO_DRIVER_DUMMY  1
 
+#if DOSCODE
+/* Enable dummy cdrom so DOSBox builds */
+#define SDL_CDROM_DUMMY 1
+#endif
+
 /* Enable the stub haptic driver (src/haptic/dummy/\*.c) */
 #define SDL_HAPTIC_DISABLED 1
 

@@ -21,10 +21,6 @@
 // SDL CDROM 
 // ******************************************************
 
-#include "SDL_version.h"
-// On all platforms, if SDL 2.0 is used then we don't support physical CD-ROMs.
-#if !SDL_VERSION_ATLEAST(2,0,0)
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -219,4 +215,4 @@ bool CDROM_Interface_Fake :: GetMediaTrayStatus(bool& mediaPresent, bool& mediaC
 	return true;
 }
 
-#endif
+
